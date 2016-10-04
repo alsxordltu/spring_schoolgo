@@ -25,4 +25,9 @@ public class BasicController {
 		return "login";
 	}
 
+	@RequestMapping(value="/gotoindex", method=RequestMethod.GET)
+	public String gotoindex(){
+		return "index";
+	}
+
 }
