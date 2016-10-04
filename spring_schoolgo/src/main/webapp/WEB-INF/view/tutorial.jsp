@@ -4,8 +4,7 @@
 <head>
 <title>Simplex</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="tutorials/css/style.css">
-<link rel="stylesheet" href="tutorials/css/camera.css">
+
 <script src="tutorials/js/jquery.js"></script>
 <script src="tutorials/js/jquery-migrate-1.1.1.js"></script>
 <script src="tutorials/js/tms-0.4.1.js"></script>
@@ -30,6 +29,12 @@
 	});
 </script>
 <style>
+
+
+html {
+	width: 100%;
+}
+
 /* 기본버튼핫핑 */
 .signUpButton {
 	display: inline-block;
@@ -60,14 +65,156 @@
 
 #page1 {
 	font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	color: #333333;
-	background: #FFCCFF; /* 연핑 */
+	
 	padding-bottom: 191px;
 }
 
+.content {
+	padding-top: 125px;
+	text-align: center;
+	position: relative;				/* 상단 패딩 */
+}
+
+.container_12 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	height: 700px;				/* 콘테이너 */
+}
+
+.grid_12 {
+	display: block;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	}
+
+
+.container_12 .grid_12 {
+	width: 940px;
+}
+
+.slider_wrapper {
+	overflow: hidden;
+	position: relative;
+	z-index: 0;
+	width: 940px;
+	height: 700px;				/* 실제 출력물 크기 */
+
+}
+
+.clearfix:before, .clearfix:after, .container_12:before, .container_12:after
+	{
+	content: '.';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+	clear: both;
+	zoom: 1;
+}
+
+body {
+	font: 13px/19px  Arial, Helvetica, sans-serif;
+	color:#ecedef;
+	position:relative;
+	min-width:960px;
+	background: #334960;
+	height: 100%;
+		background-color: #ffffff;
+		background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("img2/bg.jpg");
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("img2/bg.jpg");
+		background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("img2/bg.jpg");
+		background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("img2/bg.jpg");
+		background-repeat: repeat,			no-repeat,			no-repeat;
+		background-size: 100px 100px, cover,				cover;
+		background-position: top left,		center center,		bottom center;
+		background-attachment: fixed,			fixed,				fixed;
+	
+}
+h3 {
+	font-size: 48px;
+	line-height: 54px;
+		font-weight: normal;
+	font-family: 'Signika', sans-serif;
+	color: #ecedef;
+}
 .rightsort {
 	text-align: right;
 }
+
+img {
+	vertical-align: top;
+}
+ u, ul {
+	background: transparent;
+	border: 0 none;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: top;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.caption {
+	left: 0px;
+	right: 0px;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	z-index: 1 !important;
+
+}
+.pagination  {
+	display: block;
+	position: absolute;
+	left: 50%;
+	bottom: 73px;
+	width: 178px;
+	height: 32px;
+	margin-left: -89px;
+	overflow: hidden;
+	right: 0;
+	z-index: 999;
+	text-align: left;
+
+}
+.pagination li {
+	float: left;
+}
+.pagination li+li {
+	margin-left: 16px;
+}
+.pagination li a {
+	display: block;
+	width: 32px;
+	cursor: pointer;
+	height: 32px;
+	background: url(tutorials/images/pagination.png) right 0 no-repeat;
+	overflow: hidden;
+	color: transparent;
+	text-indent: -100px;
+	transition: 0s ease;
+	-o-transition: 0s ease;
+	-webkit-transition: 0s ease;
+}
+.pagination li a:hover, .pagination li.current a {
+	background-position: 0 0;
+	cursor: pointer;
+}
+
+
+
+
+
 </style>
 </head>
 
