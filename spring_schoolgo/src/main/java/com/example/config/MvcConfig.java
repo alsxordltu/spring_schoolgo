@@ -27,6 +27,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/images/").setCachePeriod(60 * 60 * 24 * 365);
 		registry.addResourceHandler("/csds/**").addResourceLocations("/WEB-INF/assets/css/");
+		registry.addResourceHandler("/fonts/**").addResourceLocations("/WEB-INF/assets/fonts/");
 		
 	}
     /*<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
