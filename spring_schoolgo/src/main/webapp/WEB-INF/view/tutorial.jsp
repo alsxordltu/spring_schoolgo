@@ -4,11 +4,11 @@
 <head>
 <title>Simplex</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="tutorial/css/style.css">
-<link rel="stylesheet" href="tutorial/css/camera.css">
-<script src="tutorial/js/jquery.js"></script>
-<script src="tutorial/js/jquery-migrate-1.1.1.js"></script>
-<script src="tutorial/js/tms-0.4.1.js"></script>
+<link rel="stylesheet" href="tutorials/css/style.css">
+<link rel="stylesheet" href="tutorials/css/camera.css">
+<script src="tutorials/js/jquery.js"></script>
+<script src="tutorials/js/jquery-migrate-1.1.1.js"></script>
+<script src="tutorials/js/tms-0.4.1.js"></script>
 <script>
 	$(document).ready(function() {
 		$('.slider_wrapper')._TMS({
@@ -80,21 +80,21 @@
 			<div class="grid_12">
 				<div class="slider_wrapper">
 					<ul class="items">
-						<li><img src="tutorial/images/spacer.gif" alt="">
+						<li><img src="tutorials/images/spacer.gif" alt="">
 							<div class="caption banner">
-								<img src="tutorial/images/schoolgo.png"
+								<img src="tutorials/images/schoolgo.png"
 		style="margin-left: auto; margin-right: auto; display: block; width: 800px; height:440px; padding: 50px;">
 						</div></li>
-						<li><img src="tutorial/images/spacer.gif" alt="">
+						<li><img src="tutorials/images/spacer.gif" alt="">
 							<div class="caption banner">
 								<h3>루트명과 교통수단, 전철역을 입력하고 등록하세요!</h3>
 							</div></li>
-						<li><img src="tutorial/images/spacer.gif" alt="">
+						<li><img src="tutorials/images/spacer.gif" alt="">
 							<div class="caption banner">
 								<h3>등교시간을 등록해서 편하게 가야할 시간을 받아오세요!</h3>
 								<h3>등록하지 않아도, 시간을 입력하면 됩니다!</h3>
 							</div></li>
-						<li><img src="tutorial/images/spacer.gif" alt="">
+						<li><img src="tutorials/images/spacer.gif" alt="">
 							<div class="caption banner">
 								<h3>게시판을 이용해 나만의 루트를 공유하세요!</h3>
 							</div></li>
