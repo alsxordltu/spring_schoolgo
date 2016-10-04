@@ -31,6 +31,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/fonts/**").addResourceLocations("/WEB-INF/assets/fonts/");
 		
 		
+		
 	}
     /*<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
