@@ -26,8 +26,8 @@
 						</header>
 						<footer>
 							<ul class="icons"><!--  메인화면의 아이콘 설정 -->
-								<li><a href="login.html" class="fa-sign-in">로그인</a></li>
-								<li><a href="join.html" class="fa-user-plus">회원가입</a></li>
+								<li><a href="gotologin" class="fa-sign-in">로그인</a></li>
+								<li><a href="gotojoin" class="fa-user-plus">회원가입</a></li>
 								
 							</ul>
 						</footer>

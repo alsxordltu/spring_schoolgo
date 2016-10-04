@@ -14,5 +14,15 @@ public class BasicController {
 		model.addAttribute("message2", "Hello");
 		return "showMessage"; // 사용할 뷰의 이름 리턴 
 	}
+	
+	@RequestMapping(value="/gotojoin", method=RequestMethod.GET)
+	public String gotojoinForm(){
+		return "join";
+	}
+	
+	@RequestMapping(value="/gotologin", method=RequestMethod.GET)
+	public String gotologinForm(){
+		return "login";
+	}
 
 }
