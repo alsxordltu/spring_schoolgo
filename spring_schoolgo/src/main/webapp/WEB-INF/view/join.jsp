@@ -60,7 +60,7 @@
 								<input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
 							</div>
 							<ul class="actions">
-								<li><a href="gotoindex" class="button">Get Started</a></li>
+								<li><a href="gototutorial" class="button">Get Started</a></li>
 							</ul>
 						</form>
 						
