@@ -4,11 +4,15 @@
 <head>
 <title>Simplex</title>
 <meta charset="utf-8">
+
+
 <link rel="stylesheet" href="tutorial/css/style.css">
 <link rel="stylesheet" href="tutorial/css/camera.css">
 <script src="tutorial/js/jquery.js"></script>
 <script src="tutorial/js/jquery-migrate-1.1.1.js"></script>
 <script src="tutorial/js/tms-0.4.1.js"></script>
+
+
 <script>
 	$(document).ready(function() {
 		$('.slider_wrapper')._TMS({
