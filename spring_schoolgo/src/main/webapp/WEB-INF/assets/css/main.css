@@ -796,7 +796,7 @@ h5{
 /* Basic */
 
 	body {
-		background-image: url("images/overlay.png"), url("img2/bg.jpg");
+		background-image: url("images/overlay.png"), url("images/bg.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		font-family: 'Source Sans Pro', sans-serif;
@@ -1110,8 +1110,8 @@ h5{
 		display: inline-block;
 		color: #ffffff;
 		width: 1em;
-		height: 1em;				/* 아이콘들 위치 */
-		line-height: 0.9em;			/* 아이콘들 위치(상하) */
+		height: 1em;				/* �븘�씠肄섎뱾 �쐞移� */
+		line-height: 0.9em;			/* �븘�씠肄섎뱾 �쐞移�(�긽�븯) */
 	}
 
 		#nav a.icon:before {
@@ -1278,7 +1278,7 @@ h5{
 			}
 
 				#wrapper.tall {
-					padding-bottom: 1em;	/* 푸터 아래 간격 */
+					padding-bottom: 1em;	/* �뫖�꽣 �븘�옒 媛꾧꺽 */
 				}
 
 		/* Nav */
@@ -1291,7 +1291,7 @@ h5{
 
 				#nav a {
 					font-size: 2.5em;
-					margin: 0 0.25em 0 0.25em;		/* 아이콘 좌우 간격 */
+					margin: 0 0.25em 0 0.25em;		/* �븘�씠肄� 醫뚯슦 媛꾧꺽 */
 					opacity: 0.35;
 					outline: 0;
 					-moz-transition: opacity .25s ease-in-out;
@@ -1308,12 +1308,12 @@ h5{
 						content: '';
 						display: block;
 						position: absolute;
-						left: 50%;						/* 건들지 말기 그냥 */
-						bottom: -1em;				/* 세모 절대위치(상하) */
-						margin-left: -0.5em; 			/* 세모 절대위치(좌우) */
-						border-bottom: solid 0em #ffffff;	/* 비 선택시 세모(안건드려도디) */
+						left: 50%;						/* 嫄대뱾吏� 留먭린 洹몃깷 */
+						bottom: -1em;				/* �꽭紐� �젅���쐞移�(�긽�븯) */
+						margin-left: -0.5em; 			/* �꽭紐� �젅���쐞移�(醫뚯슦) */
+						border-bottom: solid 0em #ffffff;	/* 鍮� �꽑�깮�떆 �꽭紐�(�븞嫄대뱶�젮�룄�뵒) */
 						border-left: solid 0.5em transparent;
-						border-right: solid 0.5em transparent;		/* 실제 페이지와 아이콘 이어주는 세모 좌우크기 */
+						border-right: solid 0.5em transparent;		/* �떎�젣 �럹�씠吏��� �븘�씠肄� �씠�뼱二쇰뒗 �꽭紐� 醫뚯슦�겕湲� */
 						-moz-transition: border-bottom-width .25s ease-in-out;
 						-webkit-transition: border-bottom-width .25s ease-in-out;
 						-ms-transition: border-bottom-width .25s ease-in-out;
@@ -1325,17 +1325,17 @@ h5{
 						position: absolute;
 						background: #222222;
 						color: #ffffff;
-						top: -2.75em;			/* 아이콘위에마우스올리면나타나는 것과 아이콘과의 간격 */
-						font-size: 0.3em;	    /* 아이콘위에마우스올리면나타나는 글씨크기 */
-						height: 2em;		    /* 아이콘위에마우스올리면나타나는 글씨칸크기 (상하)*/
-						line-height: 2.25em;    /* 아이콘위에마우스올리면나타나는 글씨의상하위치 */
+						top: -2.75em;			/* �븘�씠肄섏쐞�뿉留덉슦�뒪�삱由щ㈃�굹���굹�뒗 寃껉낵 �븘�씠肄섍낵�쓽 媛꾧꺽 */
+						font-size: 0.3em;	    /* �븘�씠肄섏쐞�뿉留덉슦�뒪�삱由щ㈃�굹���굹�뒗 湲��뵪�겕湲� */
+						height: 2em;		    /* �븘�씠肄섏쐞�뿉留덉슦�뒪�삱由щ㈃�굹���굹�뒗 湲��뵪移명겕湲� (�긽�븯)*/
+						line-height: 2.25em;    /* �븘�씠肄섏쐞�뿉留덉슦�뒪�삱由щ㈃�굹���굹�뒗 湲��뵪�쓽�긽�븯�쐞移� */
 						left: 50%;
 						opacity: 0;
 						-moz-transition: opacity .25s ease-in-out;
 						-webkit-transition: opacity .25s ease-in-out;
 						-ms-transition: opacity .25s ease-in-out;
 						transition: opacity .25s ease-in-out;
-						width: 5.5em;			/* 아이콘위에마우스올리면나타나는 글씨칸크기(좌우) */
+						width: 5.5em;			/* �븘�씠肄섏쐞�뿉留덉슦�뒪�삱由щ㈃�굹���굹�뒗 湲��뵪移명겕湲�(醫뚯슦) */
 						margin-left: -2.75em;
 					}
 
@@ -1343,7 +1343,7 @@ h5{
 							content: '';
 							display: block;
 							position: absolute;
-							bottom: -0.4em;  /* 아이콘위에마우스올리면나타나는 글씨칸세모 상하위치*/
+							bottom: -0.4em;  /* �븘�씠肄섏쐞�뿉留덉슦�뒪�삱由щ㈃�굹���굹�뒗 湲��뵪移몄꽭紐� �긽�븯�쐞移�*/
 							left: 50%;
 							margin-left: -0.6em;
 							border-top: solid 0.6em #222222;
@@ -1364,15 +1364,15 @@ h5{
 					}
 
 						#nav a.active:after {
-							border-bottom-width: 1em; /* 세모 상하크기 */
+							border-bottom-width: 1em; /* �꽭紐� �긽�븯�겕湲� */
 						}
 
 		/* Panels */
 
 			#main {
-				width: 45em;									/* 패널 좌우크기 */
+				width: 45em;									/* �뙣�꼸 醫뚯슦�겕湲� */
 				background: #ffffff;
-				box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);  /* 패널 그림자 */
+				box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);  /* �뙣�꼸 洹몃┝�옄 */
 			}
 
 			.panel {
@@ -1387,7 +1387,7 @@ h5{
 
 			#me {
 				padding: 0;
-				height: 20em;		/* me상하 크기 */
+				height: 20em;		/* me�긽�븯 �겕湲� */
 			}
 
 				#me .pic {
@@ -1395,14 +1395,14 @@ h5{
 					position: absolute;
 					right: -1px;
 					top: 0;
-					height: 100%;			/* me 좌측 높이 */
+					height: 100%;			/* me 醫뚯륫 �넂�씠 */
 					text-decoration: none;
 				}
 
 					#me .pic img {
 						position: relative;
 						display: block;
-						height: 100%;/* me 좌측 그림 높이 */
+						height: 100%;/* me 醫뚯륫 洹몃┝ �넂�씠 */
 					}							
 
 					#me .pic .arrow {
@@ -1463,7 +1463,7 @@ h5{
 						left: 0;
 						top: 52.5%;
 						font-size: 1.5em;		  
-						letter-spacing: -0.015em;  /* 자간 */
+						letter-spacing: -0.015em;  /* �옄媛� */
 						margin-top: 0;
 					}
 
