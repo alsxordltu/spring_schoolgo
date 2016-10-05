@@ -1,4 +1,3 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> 
 <!DOCTYPE HTML>
 <!--
 	Identity by HTML5 UP
@@ -7,12 +6,14 @@
 -->
 <html>
 	<head>
-		<title>Identity by HTML5 UP</title>
+		<title>LOGIN</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- <link rel="stylesheet" href="csds/login.css" /> -->
-		<link rel="stylesheet" href="index_css/login.css" />
-      
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="login_css/login.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!-- <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
 	</head>
 	<body class="is-loading">
 
@@ -21,18 +22,25 @@
 
 				<!-- Main -->
 					<section id="main">
-						<header>
-							<span class="avatar"><img src="index_img/00.jpg" alt="그림없음" width="150"/></span>
-							<h1>학교가자!</h1>
-							<!-- <p>Senior Psychonautics Engineer</p> -->
-						</header>
-						<footer>
-							<ul class="icons"><!--  메인화면의 아이콘 설정 -->
-								<li><a href="gotologin" class="fa-sign-in">로그인</a></li>
-								<li><a href="gotojoin" class="fa-user-plus">회원가입</a></li>
-								
+						
+					
+						<h2>LOGIN ^_^</h2>
+						<form method="post" action="#">
+							<div class="field">
+								<input type="text" name="id" id="id" placeholder="Id" />
+							</div>
+							<div class="field">
+								<input type="text" name="pass" id="pass" placeholder="Pass" />
+							</div>													
+
+
+							<ul class="actions">
+								<li><a href="gotomain" class="button">Get Started</a></li>
 							</ul>
-						</footer>
+						</form>
+						
+						
+						
 					</section>
 
 				<!-- Footer -->

@@ -15,6 +15,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc //<mvc:annotation-driven />
 public class MvcConfig extends WebMvcConfigurerAdapter {
 	
+	private final String PATH = "/WEB-INF/view/";
+	
     @Bean
     public ViewResolver internalResourceViewResolver(){
     	InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -25,13 +27,42 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     
     @Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/images/").setCachePeriod(60 * 60 * 24 * 365);
+/*		registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/images/");
 		registry.addResourceHandler("/img2/**").addResourceLocations("/WEB-INF/assets/css/images/");
 		registry.addResourceHandler("/csds/**").addResourceLocations("/WEB-INF/assets/css/");
 		registry.addResourceHandler("/fonts/**").addResourceLocations("/WEB-INF/assets/fonts/");
 		registry.addResourceHandler("/tutorials/**").addResourceLocations("/WEB-INF/tutorial/");
 		registry.addResourceHandler("/views/**").addResourceLocations("/WEB-INF/view/");
-		registry.addResourceHandler("/jss/**").addResourceLocations("/WEB-INF/assets/js/");
+		registry.addResourceHandler("/jss/**").addResourceLocations("/WEB-INF/assets/js/");*/
+    	
+    	//인텍스 페이지 관련 리소스 경로
+    	registry.addResourceHandler("/index_css/**").addResourceLocations(PATH + "index/css/");
+    	registry.addResourceHandler("/index_img/**").addResourceLocations(PATH + "index/images/");
+    	registry.addResourceHandler("/index_font/**").addResourceLocations(PATH + "index/fonts/");
+    	
+    	//로그인 페이지 관련 리소스 경로
+    	registry.addResourceHandler("/login_css/**").addResourceLocations(PATH + "login/css/");
+    	registry.addResourceHandler("/login_img/**").addResourceLocations(PATH + "login/images/");
+    	registry.addResourceHandler("/login_font/**").addResourceLocations(PATH + "login/fonts/");
+    	
+    	//회원가입 페이지 관련 리소스 경로
+    	registry.addResourceHandler("/join_css/**").addResourceLocations(PATH + "join/css/");
+    	registry.addResourceHandler("/join_img/**").addResourceLocations(PATH + "join/images/");
+    	registry.addResourceHandler("/join_font/**").addResourceLocations(PATH + "join/fonts/");
+    	registry.addResourceHandler("/join_js/**").addResourceLocations(PATH + "join/js/");
+    	
+    	//튜토리얼 페이지 관련 리소스 경로
+    	registry.addResourceHandler("/tutorial_css/**").addResourceLocations(PATH + "tutorial/css/");
+    	registry.addResourceHandler("/tutorial_img/**").addResourceLocations(PATH + "tutorial/images/");
+    	registry.addResourceHandler("/tutorial_font/**").addResourceLocations(PATH + "tutorial/fonts/");
+    	registry.addResourceHandler("/tutorial_js/**").addResourceLocations(PATH + "tutorial/js/");
+		
+		
+    	//메인 페이지 관련 리소스 경로
+    	registry.addResourceHandler("/main_css/**").addResourceLocations(PATH + "main/css/");
+    	registry.addResourceHandler("/main_img/**").addResourceLocations(PATH + "main/images/");
+    	registry.addResourceHandler("/main_font/**").addResourceLocations(PATH + "main/fonts/");
+    	registry.addResourceHandler("/main_js/**").addResourceLocations(PATH + "main/js/");
 		
 		
 		
