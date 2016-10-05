@@ -36,22 +36,27 @@
 				 -->			</div>
 							<div class="field">
 							<sform:input type="password" path="pass" placeholder="Pass"/>
+							<sform:errors element="span" path="pass"></sform:errors>
 							<!-- 	<input type="text" name="pass" id="pass" placeholder="Pass" />
 							 --></div>													
 							<div class="field">
 								<sform:input path="userName" placeholder="Name"/>
+								<sform:errors element="span" path="userName"></sform:errors>
 <!-- 								<input type="text" name="userName" id="userNane" placeholder="Name" />
  -->							</div>
 							<div class="field">
 								<sform:input path="nickName"  placeholder="Nickname"/>
+								<sform:errors element="span" path="nickName"></sform:errors>
 <!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
  -->							</div>
 							<div class="field">
 								<sform:input type="email" path="email"  placeholder="Email"/>
+								<sform:errors element="span" path="email"></sform:errors>
 <!-- 								<input type="email" name="email" id="email" placeholder="Email" />
  -->							</div>
 							<div class="field">
 								<sform:input type="text" path="phoneNum"  placeholder="Phone"/>
+								<sform:errors element="span" path="phoneNum"></sform:errors>
 								
 					<!-- 			<input type="text" name="phoneNum" id="phoneNum" placeholder="Phone" />
 					 -->		</div>
