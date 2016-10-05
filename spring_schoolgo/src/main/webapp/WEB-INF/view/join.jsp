@@ -59,6 +59,9 @@
 								<input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label>
 								<input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
 							</div> -->
+							<div class="field">
+								<input type="checkbox" name="agree" id="agree" required/><label for="agree">개인정보활용에 동의합니다</label>
+							</div>
 							<div>
 								<input type="submit" value="회원가입">
 							</div>
