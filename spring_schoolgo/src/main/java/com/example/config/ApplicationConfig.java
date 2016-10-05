@@ -6,12 +6,13 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.validation.annotation.Validated;
 
 
 
@@ -48,4 +49,12 @@ public class ApplicationConfig {
 	      SqlSessionTemplate template = new SqlSessionTemplate(sfb.getObject());
 	      return template;
 	   }
+	   
+	   @Bean
+	   public MessageSource messageSource(){
+	      ReloadableResourceBundleMessageSource ms = new ReloadableResourceBundleMessageSource();
+	      ms.setBasenames("classpath:/message/error/binding");
+	      return ms;
+	   }
+	   
 }

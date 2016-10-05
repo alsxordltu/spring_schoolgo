@@ -30,27 +30,35 @@
 						<h2>JOIN</h2>
 						<sform:form method="post" action="join" modelAttribute="user">
 							<div class="field">
-								<input type="text" name="userId" id="userId" placeholder="Id" />
-							</div>
+								<sform:input path="userId"  placeholder="Id"/>
+								<sform:errors element="span" path="userId"></sform:errors>
+				<!-- 				<input type="text" name="userId" id="userId" placeholder="Id" />
+				 -->			</div>
 							<div class="field">
-								<input type="text" name="pass" id="pass" placeholder="Pass" />
-							</div>													
+							<sform:input type="password" path="pass" placeholder="Pass"/>
+							<!-- 	<input type="text" name="pass" id="pass" placeholder="Pass" />
+							 --></div>													
 							<div class="field">
-								<input type="text" name="userName" id="userNane" placeholder="Name" />
-							</div>
+								<sform:input path="userName" placeholder="Name"/>
+<!-- 								<input type="text" name="userName" id="userNane" placeholder="Name" />
+ -->							</div>
 							<div class="field">
-								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
-							</div>
+								<sform:input path="nickName"  placeholder="Nickname"/>
+<!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
+ -->							</div>
 							<div class="field">
-								<input type="email" name="email" id="email" placeholder="Email" />
-							</div>
+								<sform:input type="email" path="email"  placeholder="Email"/>
+<!-- 								<input type="email" name="email" id="email" placeholder="Email" />
+ -->							</div>
 							<div class="field">
-								<input type="text" name="phoneNum" id="phoneNum" placeholder="Phone" />
-							</div>
-							<div class="field">
+								<sform:input type="text" path="phoneNum"  placeholder="Phone"/>
+								
+					<!-- 			<input type="text" name="phoneNum" id="phoneNum" placeholder="Phone" />
+					 -->		</div>
+<!-- 							<div class="field">	
 								<input type="checkbox" id="agree" name="agree" placeholder="Agree" required /><label for="agree">개인정보 활용에 동의합니다</label>
 							</div>
-					
+ -->					
 <!-- 							<div class="field">
 								<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
 							</div> -->
