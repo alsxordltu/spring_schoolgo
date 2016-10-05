@@ -20,7 +20,7 @@
 			preset : 'fade',
 			pagination : true, //'.pagination',true,'<ul></ul>'
 			pagNums : false,
-			slideshow : 8000,
+			slideshow : 16000,		//페이지 넘어가는 속도
 			numStatus : false,
 			banners : 'fade',
 			waitBannerAnimation : false,
@@ -211,7 +211,20 @@ ol, ul {
 	cursor: pointer;
 }
 
+#logo{
+	padding : 12px 20px 20px 12px;
+	
+	width:435px;
+	height:50px;
+	float:left;
+} 
 
+#hello{
+	padding : 40px 20px 20px 12px;
+	width:450px;
+	height:50px;
+	float:left;
+} 
 
 
 
@@ -222,25 +235,52 @@ ol, ul {
 
 
 <body>
+
+<div id="head">
+
+<div id="logo">
+<img src="main_img/gogo.png" alt="" width="300">
+</div>
+
+<div id="hello">
+<h1>000님 가입을 환영합니다!</h1>
+</div>
+
+
+</div>
+
+
+
+
 	<div id="page1" class="content">
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="slider_wrapper">
 					<ul class="items">
+						
+						
 						<li><img src="tutorial_img/spacer.gif" alt="">
 							<div class="caption banner">
-								<img src="tutorial_img/schoolgo.png"
-		style="margin-left: auto; margin-right: auto; display: block; width: 800px; height:440px; padding: 50px;">
+							
+<img src="tutorial_img/tutoimg.png" style="margin:0 50px 0 50px; display: block; 
+		width: 800px; height:500px; padding: 50px;">
 						</div></li>
+						
+						
+						
 						<li><img src="tutorial_img/spacer.gif" alt="">
 							<div class="caption banner">
 								<h3>루트명과 교통수단, 전철역을 입력하고 등록하세요!</h3>
 							</div></li>
+						
+						
 						<li><img src="tutorial_img/spacer.gif" alt="">
 							<div class="caption banner">
 								<h3>등교시간을 등록해서 편하게 가야할 시간을 받아오세요!</h3>
 								<h3>등록하지 않아도, 시간을 입력하면 됩니다!</h3>
 							</div></li>
+						
+						
 						<li><img src="tutorial_img/spacer.gif" alt="">
 							<div class="caption banner">
 								<h3>게시판을 이용해 나만의 루트를 공유하세요!</h3>
