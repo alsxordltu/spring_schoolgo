@@ -37,14 +37,41 @@
 
 		<nav id="nav">
 			<a href="#me" class="active"><i class="icon fa-home fa-lg"></i><span>학교가기</span></a>
-			<a href="#addroute"><i class="icon fa-plus-circle fa-lg"></i><span>루트
-					등록</span></a> <a href="#shareroute"><i class="icon fa-comments fa-lg"></i><span>루트
-					공유</span></a> <a href="#mypage"><i class="icon fa-user fa-lg"></i><span>마이페이지</span></a>
+			<a href="#addroute"><i class="icon fa-plus-circle fa-lg"></i>
+			<span>루트등록</span></a> 
+			<a href="#shareroute"><i class="icon fa-comments fa-lg"></i>
+			<span>루트공유</span></a>
+			<a href="#mypage"><i class="icon fa-user fa-lg"></i><span>마이페이지</span></a>
 			<a href="#contactus"><i class="icon fa-question-circle fa-lg"></i><span>Contact
 					Us</span></a>
+							
+					
+		</nav>
+		
+		<!-- <nav id="nav" class="navtable"style="display:none">
+			<div style="float:left; width:258px; height:100px"></div>
+			<a id="animateT" ><i class="icon fa-user fa-lg">Timetable</i></a>
+		</nav>
+		
+		<nav id="nav" class="navupdate"style="display:none">	
+			<div style="float:left; width:258px; height:100px"></div>
+			<a id="animateU" ><i class="icon fa-user fa-lg">Profile</i></a>
 		</nav>
 
+		<nav id="nav" class="navmanage"style="display:none">	
+			<div style="float:left; width:258px; height:100px"></div>
+			<a id="animateM" ><i class="icon fa-user fa-lg">Manager</i></a>
+		</nav>
+		
+		<nav id="nav" class="navcost"style="display:none">	
+			<div style="float:left; width:258px; height:100px"></div>
+			<a id="animateC" ><i class="icon fa-user fa-lg">Cost</i></a>
+		</nav>
 
+		<nav id="nav" class="navactive"style="display:none">	
+			<div style="float:left; width:258px; height:100px"></div>
+			<a id="animateA" ><i class="icon fa-user fa-lg">MyActivity</i></a>
+		</nav> -->
 
 
 
@@ -82,7 +109,7 @@
 					</select> -->
 					</div>
 <div style="margin: 50px auto auto 300px">
-				<a class="button">등록하러 가기</a>
+				<a class="button" onclick="location.href='gotoinsertroute'">등록하러 가기</a>
 					</div>
 					
 					
@@ -110,20 +137,38 @@
 				</header>
 				
 			<div style="margin: 80px auto auto 200px">
-				<input type="button"value="등교시간 등록하기">&nbsp&nbsp&nbsp
-				<input type="button"value="개인정보 수정">
-					</div>
-					
-			<div style="margin: 50px auto auto 140px">
-				<input type="button"value="루트 관리">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				<input type="button"value="교통비 가계부">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				<input type="button"value="나의 활동내역">
+	<input type="button" value="등교시간 등록하기" id="timetable" onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp
+			
+	<input type="button" value="개인정보 수정"  id="updateprofile" onclick="location.href='gotoupdateprofile'">
 			</div>
 					
 					
+					<!-- onclick="location.href='gotoroutemanager'" -->
 					
 					
+			<div style="margin: 50px auto auto 140px">
+				<input type="button" value="루트 관리"  id="routemanager" onclick="location.href='gotoroutemanager'">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="button" value="교통비 가계부"  id="costcal" onclick="location.href='gotocostcal'">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="button" value="나의 활동내역"  id="myactivity" onclick="location.href='gotomyactivity'">
+			</div>	
 			</article>
+			
+			<!-- mypage - 등교시간 등록하기 -->
+			<article id="mytimetable" class="panel">
+			
+			<div style="margin: 50px auto auto 140px">
+				<h6>12313123213</h6>
+			</div>	
+			</article>
+
+
+
+
+
+
+
+
+
 
 
 			<!-- contactus -->
@@ -157,6 +202,54 @@
 	<script src="main_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
+<script>
+/* $("#timetable").on("click",function(){
+	$("#nav").css("display", "none");
+	$(".navtable").css("display", "block");
+	 $("#animateT").animate({
+			left:180,
+			top:-140
+		});
+});
 
+
+$("#costcal").on("click",function(){
+	$("#nav").css("display", "none");
+	$(".navcost").css("display", "block");
+	$("#animateC").animate({
+		left:180,
+		top:-140
+	});
+});
+
+$("#myactivity").on("click",function(){
+	$("#nav").css("display", "none");
+	$(".navactive").css("display", "block");
+	$("#animateA").animate({
+		left:180,
+		top:-140
+	});
+});
+
+$("#routemanager").on("click",function(){
+	$("#nav").css("display", "none");
+	$(".navmanage").css("display", "block");
+	$("#animateM").animate({
+		left:180,
+		top:-140
+	});
+	
+});
+
+$("#updateprofile").on("click",function(){
+	$("#nav").css("display", "none");
+	$(".navupdate").css("display", "block");
+	$("#animateU").animate({
+		left:180,
+		top:-140
+	});
+	
+}); */
+</script>
 </body>
 </html>

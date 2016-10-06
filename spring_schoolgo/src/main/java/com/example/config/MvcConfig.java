@@ -64,6 +64,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     	registry.addResourceHandler("/main_font/**").addResourceLocations(PATH + "main/fonts/");
     	registry.addResourceHandler("/main_js/**").addResourceLocations(PATH + "main/js/");
 		
+    	//마이페이지 관련 리소스 경로
+    	registry.addResourceHandler("/my_css/**").addResourceLocations(PATH + "mypage/css/");
+    	registry.addResourceHandler("/my_img/**").addResourceLocations(PATH + "mypage/images/");
+    	registry.addResourceHandler("/my_font/**").addResourceLocations(PATH + "mypage/fonts/");
+    	registry.addResourceHandler("/my_js/**").addResourceLocations(PATH + "mypage/js/");
+		
 		
 		
 		
