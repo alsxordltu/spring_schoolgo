@@ -39,10 +39,10 @@ public class LoginController {
 	public String login(Login login){
 		int result = service.login(login.getId(), login.getPass());
 		if(result == 1){
-			logger.trace("로그인 성공!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			logger.trace("컨트롤러, 로그인 성공");
 			return "main/main";
 		}
-		logger.trace("로그인 시일패애");
+		logger.trace("컨트롤러, 로그인 실패");
 		return "login/login";
 	}
 
