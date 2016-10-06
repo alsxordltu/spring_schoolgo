@@ -1,5 +1,9 @@
 package com.example.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +41,13 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(Login login){
+	public String login(Login login, HttpServletRequest request){
 		int result = service.login(login.getId(), login.getPass());
 		if(result == 1){
 			logger.trace("컨트롤러, 로그인 성공");
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", login.getId());
+			logger.trace("컨트롤러, 세션 로그인 아이디 : {}", session.getAttribute("userId"));
 			return "main/main";
 		}
 		logger.trace("컨트롤러, 로그인 실패");
