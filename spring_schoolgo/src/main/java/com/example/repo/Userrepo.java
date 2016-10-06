@@ -6,5 +6,5 @@ import com.example.dto.User;
 
 public interface Userrepo {
 	public int insert(User user);
-	public List<String> getAllUserId();
+	public List<String> getUser();
 }

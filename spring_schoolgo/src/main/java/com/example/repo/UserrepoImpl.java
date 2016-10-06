@@ -26,11 +26,13 @@ public class UserrepoImpl implements Userrepo {
 		return template.update(stmt, user);
 	}
 	
+
 	@Override
-	public List<String> getAllUserId(){
-		String sql = NAME_SPACE + "selectid";
-		return jtemplate.queryForList(sql, String.class);
+	public List<String> getUser() {
+		String stmt = NAME_SPACE + "getAllUserId";
+		return template.selectList(stmt);
 	}
+
 
 
 }

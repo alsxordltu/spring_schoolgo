@@ -1,4 +1,4 @@
-package com.example.login;
+package spring_schoolgo;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -16,19 +16,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.config.ApplicationConfig;
 import com.example.repo.Userrepo;
+
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=ApplicationConfig.class)
 public class GetUserTest {
+	
 	private static Logger logger = LoggerFactory.getLogger(GetUserTest.class);
 	
 	@Autowired
 	Userrepo repo;
 	
-	
 	@Test
 	public void test() {
 		List<String> userId = repo.getUser();
-		logger.trace("유저 아이디 리스트 : {}",userId );
+		logger.trace("유저 아이디 리스트 : {}", userId);
 		assertThat(userId, is(notNullValue()));
 	}
 

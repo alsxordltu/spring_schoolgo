@@ -8,13 +8,13 @@
 		values(#{userId}, #{pass}, #{userName}, #{nickName}, #{email},
 		#{phoneNum})
 	</insert>
-	
-	<select id="selectid" parameterType="string" resultMap="userBase">
-		select user_id
-		from tuser
+	<select id="getAllUserId" resultMap="userId">
+		select user_id from tuser
 	</select>
-
-	<resultMap type="user" id="userBase">
-		<id column="user_id" property="userId" />
+	
+	
+	
+	<resultMap type="String" id="userId">
+		<id column="user_id" property="userId"/> 
 	</resultMap>
 </mapper>
