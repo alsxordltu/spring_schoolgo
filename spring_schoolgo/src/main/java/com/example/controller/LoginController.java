@@ -3,6 +3,7 @@ package com.example.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,8 +13,8 @@ import com.example.service.Userservice;
 @Controller // 컨트롤러 선언
 public class LoginController {
 	
-	/*@Autowired
-	Userservice service;*/
+	@Autowired
+	Userservice service;
 	
 	/*@RequestMapping(value="/hello", method=RequestMethod.GET) // request 사용 ( 조건 : /hello 경로 , get방식 ) 
 	public String sayHello(Model model){
@@ -29,6 +30,16 @@ public class LoginController {
 	
 	@RequestMapping(value="/gotomain", method=RequestMethod.GET)
 	public String gotomain(){
+		return "main/main";
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String join(User user,BindingResult result){
+		
+/*		if(result.hasErrors()){
+			return "join/join";
+		}
+		service.join(user);*/
 		return "main/main";
 	}
 

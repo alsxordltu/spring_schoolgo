@@ -1,7 +1,10 @@
 package com.example.repo;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.dto.User;
@@ -11,6 +14,9 @@ public class UserrepoImpl implements Userrepo {
 
 	@Autowired
 	SqlSessionTemplate template;
+	
+	@Autowired
+	JdbcTemplate jtemplate;
 
 	private final String NAME_SPACE = "com.example.UserMapper.";
 
@@ -19,28 +25,12 @@ public class UserrepoImpl implements Userrepo {
 		String stmt = NAME_SPACE + "insert";
 		return template.update(stmt, user);
 	}
-/*	
-	public User getUserIdpass(String userId){
-		String stmt = NAME_SPACE + "selectidpass";
-		return template.select(stmt, userId);
-	}
 	
+	@Override
 	public List<String> getAllUserId(){
-		String sql = "select user_id from tuser";
-		return template.queryForList(sql, String.class);
+		String sql = NAME_SPACE + "selectid";
+		return jtemplate.queryForList(sql, String.class);
 	}
-	
-	class UserMapper implements RowMapper<User>{
 
-		@Override
-		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-			User user = new User();
-			user.setUserId(rs.getString("user_id"));
-			user.setPass(rs.getString("pass"));
-			return user;
-		}
-		
-	}*/
-	
 
 }

@@ -9,14 +9,12 @@
 		#{phoneNum})
 	</insert>
 	
-<!-- 	<select id="selectidpass" parameterType="string" resultMap="userBase">
-		select user_id, pass,
+	<select id="selectid" parameterType="string" resultMap="userBase">
+		select user_id
 		from tuser
-		where user_id = #{userId}
 	</select>
 
 	<resultMap type="user" id="userBase">
 		<id column="user_id" property="userId" />
-		<result column="pass" property="pass" />
-	</resultMap> -->
+	</resultMap>
 </mapper>
