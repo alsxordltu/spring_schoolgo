@@ -80,11 +80,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	}
     //주석
     @Override
-<<<<<<< Upstream, based on branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
     public void addInterceptors(InterceptorRegistry registry) {
-=======
-    public void addInterceptors(InterceptorRegistry registry) {
->>>>>>> 48fbe6c 옹예
     	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join");
     }
 
