@@ -18,7 +18,7 @@
 
 	<!-- Wrapper-->
 	<div id="logo">
-		<img src="main_img/gogo.png" alt="" width="300">
+		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>
 
 	</div>
 	<div id="wrapper">
@@ -58,6 +58,7 @@
 			<article id="me" class="panel">
 				<header>
 					<h1>여기에다가 학교가기 페이지</h1>
+					<a class="button">섭이의 루트1</a>
 				</header>
 			</article>
 
@@ -71,10 +72,22 @@
 				<section>
 
 
-
-					<h5>어디로 가세요?</h5>
-					<input type="text">
-
+<div style="margin-left:200px; margin-right:auto;">
+				<h5 style="float:left">루트 이름을 입력하세요! &nbsp&nbsp&nbsp</h5>
+				<input type="text">
+					<!-- <h5 style="float:left">어디로 가세요? &nbsp&nbsp&nbsp</h5>
+					<select>
+					<option>학교</option>
+					<option>학교</option>
+					</select> -->
+					</div>
+<div style="margin: 50px auto auto 300px">
+				<a class="button">등록하러 가기</a>
+					</div>
+					
+					
+					
+					
 				</section>
 			</article>
 
@@ -93,9 +106,23 @@
 			<!-- mypage -->
 			<article id="mypage" class="panel">
 				<header>
-					<h2>여기에 마이페이지</h2>
+					<h6 text-align=center>마이페이지</h6>				<!-- h6=헤더 -->
 				</header>
-
+				
+			<div style="margin: 80px auto auto 200px">
+				<input type="button"value="등교시간 등록하기">&nbsp&nbsp&nbsp
+				<input type="button"value="개인정보 수정">
+					</div>
+					
+			<div style="margin: 50px auto auto 140px">
+				<input type="button"value="루트 관리">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="button"value="교통비 가계부">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="button"value="나의 활동내역">
+			</div>
+					
+					
+					
+					
 			</article>
 
 
