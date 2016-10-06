@@ -60,10 +60,10 @@
 								
 					<!-- 			<input type="text" name="phoneNum" id="phoneNum" placeholder="Phone" />
 					 -->		</div>
-<!-- 							<div class="field">	
+							<div class="field">	
 								<input type="checkbox" id="agree" name="agree" placeholder="Agree" required /><label for="agree">개인정보 활용에 동의합니다</label>
 							</div>
- -->					
+					
 <!-- 							<div class="field">
 								<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
 							</div> -->

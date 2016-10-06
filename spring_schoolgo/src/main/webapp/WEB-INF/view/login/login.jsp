@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE HTML>
 <!--
 	Identity by HTML5 UP
@@ -25,7 +27,8 @@
 						
 					
 						<h2>LOGIN ^_^</h2>
-						<form method="post" action="#">
+						
+						<sform:form method="post" action="login" modelAttribute="user">
 							<div class="field">
 								<input type="text" name="id" id="id" placeholder="Id" />
 							</div>
@@ -34,11 +37,12 @@
 							</div>													
 
 
-							<ul class="actions">
-								<li><a href="gotomain" class="button">Get Started</a></li>
-							</ul>
-						</form>
-						
+							<div>
+								<input type="submit" value="로그인">
+								<!-- <input type="button"   onclick="location.href='gototutorial'"         value="회원가입"> -->
+								<input type="button"     onclick="location.href='index.jsp'"         value="돌아가기">
+							</div>
+							</sform:form>						
 						
 						
 					</section>

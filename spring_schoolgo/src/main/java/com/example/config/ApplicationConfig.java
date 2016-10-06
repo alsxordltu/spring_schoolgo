@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 
 
@@ -49,6 +50,11 @@ public class ApplicationConfig {
 	      SqlSessionTemplate template = new SqlSessionTemplate(sfb.getObject());
 	      return template;
 	   }
+	   
+		@Bean
+		public JdbcTemplate jdbcTemplate(DataSource ds){
+			return new JdbcTemplate(ds);
+		}
 	   
 	   @Bean
 	   public MessageSource messageSource(){
