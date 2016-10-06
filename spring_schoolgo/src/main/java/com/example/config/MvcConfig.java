@@ -81,7 +81,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     //주석
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-    	registry.addInterceptor(new SessionCheckInterceptor()).addPathPatterns("/session", "/session/**");
+    	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin");
     }
 
     /*<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

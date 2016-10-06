@@ -34,6 +34,8 @@ public class IndexController {
 	public String gotojoinForm(User user){
 		return "join/join";
 	}
+	
+
 
 
 	/*@RequestMapping(value="/gototutorial", method=RequestMethod.GET)

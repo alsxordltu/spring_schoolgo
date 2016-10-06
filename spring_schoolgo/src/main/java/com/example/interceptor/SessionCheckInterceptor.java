@@ -17,11 +17,13 @@ public class SessionCheckInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		HttpSession session = request.getSession();
 		logger.trace("session 체크");
-		if(session.getAttribute("userId")== null){
-			response.sendRedirect(request.getContextPath()+"/gotologin");
+		if(session.getAttribute("userId")!= null){
+			return true;
+			
 		}
+		response.sendRedirect(request.getContextPath()+"/index.jsp");
 		
 		
-		return true;
+		return false;
 	}
 }
