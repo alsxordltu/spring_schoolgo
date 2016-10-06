@@ -34,5 +34,12 @@ public class UserrepoImpl implements Userrepo {
 	}
 
 
+	@Override
+	public String getPassbyId(String userId) {
+		String stmt = NAME_SPACE + "getPassbyId";
+		return template.selectOne(stmt, userId);
+	}
+
+
 
 }

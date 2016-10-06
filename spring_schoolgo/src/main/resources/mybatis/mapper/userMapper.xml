@@ -12,9 +12,16 @@
 		select user_id from tuser
 	</select>
 	
-	
+	<select id="getPassbyId" resultMap="getPass" parameterType="String">
+		select pass from tuser where user_id = #{userId}
+	</select>
 	
 	<resultMap type="String" id="userId">
 		<id column="user_id" property="userId"/> 
 	</resultMap>
+	
+	<resultMap type="String" id="getPass">
+		<result column="pass" property="pass"/> 
+	</resultMap>
+	
 </mapper>

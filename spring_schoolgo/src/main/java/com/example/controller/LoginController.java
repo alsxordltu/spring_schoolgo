@@ -1,17 +1,19 @@
 package com.example.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.dto.User;
+import com.example.dto.Login;
 import com.example.service.Userservice;
 
 @Controller // 컨트롤러 선언
 public class LoginController {
+	
+	private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired
 	Userservice service;
@@ -34,13 +36,14 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String join(User user,BindingResult result){
-		
-/*		if(result.hasErrors()){
-			return "join/join";
+	public String login(Login login){
+		int result = service.login(login.getId(), login.getPass());
+		if(result == 1){
+			logger.trace("로그인 성공!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			return "main/main";
 		}
-		service.join(user);*/
-		return "main/main";
+		logger.trace("로그인 시일패애");
+		return "login/login";
 	}
 
 	/*@RequestMapping(value="/gototutorial", method=RequestMethod.GET)
