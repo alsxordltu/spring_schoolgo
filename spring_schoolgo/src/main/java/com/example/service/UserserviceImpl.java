@@ -20,6 +20,9 @@ public class UserserviceImpl implements Userservice {
 		return result;
 	}
 
+	
+	
+	/*id값으로 id와 pass가 일치하는지*/
 	@Override
 	public int login(String id, String pass) {
 		String passwd = repo.getPassbyId(id);
