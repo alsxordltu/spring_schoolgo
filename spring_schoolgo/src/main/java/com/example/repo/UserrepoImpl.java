@@ -19,5 +19,28 @@ public class UserrepoImpl implements Userrepo {
 		String stmt = NAME_SPACE + "insert";
 		return template.update(stmt, user);
 	}
+/*	
+	public User getUserIdpass(String userId){
+		String stmt = NAME_SPACE + "selectidpass";
+		return template.select(stmt, userId);
+	}
+	
+	public List<String> getAllUserId(){
+		String sql = "select user_id from tuser";
+		return template.queryForList(sql, String.class);
+	}
+	
+	class UserMapper implements RowMapper<User>{
+
+		@Override
+		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+			User user = new User();
+			user.setUserId(rs.getString("user_id"));
+			user.setPass(rs.getString("pass"));
+			return user;
+		}
+		
+	}*/
+	
 
 }

@@ -5,6 +5,18 @@
 <mapper namespace="com.example.UserMapper">
 	<insert id="insert" parameterType="user">
 		insert into tuser
-		values(#{userId}, #{pass}, #{userName}, #{nickName}, #{email}, #{phoneNum})
+		values(#{userId}, #{pass}, #{userName}, #{nickName}, #{email},
+		#{phoneNum})
 	</insert>
+	
+<!-- 	<select id="selectidpass" parameterType="string" resultMap="userBase">
+		select user_id, pass,
+		from tuser
+		where user_id = #{userId}
+	</select>
+
+	<resultMap type="user" id="userBase">
+		<id column="user_id" property="userId" />
+		<result column="pass" property="pass" />
+	</resultMap> -->
 </mapper>
