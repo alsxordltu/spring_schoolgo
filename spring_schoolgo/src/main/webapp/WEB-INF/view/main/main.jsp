@@ -21,8 +21,8 @@
 		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>
 
 	</div>
-	<div id="wrapper">
-
+	<div id="wrapper" >
+<!-- style=" padding-top:68px; opacity:1; " -->
 
 		<!-- Nav -->
 		<!--  <nav id="nav">

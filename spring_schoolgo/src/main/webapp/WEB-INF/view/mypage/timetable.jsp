@@ -12,7 +12,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="main_css/main.css" />
+<link rel="stylesheet" href="my_css/main.css" />
 </head>
 <body>
 
@@ -24,8 +24,8 @@
 	<div id="wrapper">
 
 		<nav id="nav">	
-		<nav id="nav" class="navtable"style="display:block">
-			<div style="float:left; width:258px; height:100px"></div>
+		<nav id="nav" class="navtable" style="display:block">
+			
 			<a id="animate" ><i class="icon fa-user fa-lg">Timetable</i></a>
 		</nav>	
 		</nav>
@@ -36,7 +36,8 @@
 			<!-- Me -->
 			<article id="me" class="panel">
 				<header>
-					<h6 text-align=center>등교시간 등록하기</h6>
+				
+					<h6 text-align=center style="margin-top:10px;">등교시간 등록하기</h6>
 					
 				</header>
 			</article>
@@ -59,11 +60,12 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
 	<script>
-	$("document").ready(function(){
+	 $("document").ready(function(){
 		 $("#animate").animate({
-				left:180,
-				top:-140
+				left:-100,
+				
 			});
-	});</script>
+	}); 
+	</script>
 </body>
 </html>
