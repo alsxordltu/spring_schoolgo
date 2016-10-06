@@ -28,7 +28,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/gotojoin", method=RequestMethod.GET)
 	public String gotojoinForm(){
-		return "join/join";
+		return "join/join"; 
 	}*/
 	
 	@RequestMapping(value="/gotomain", method=RequestMethod.GET)
