@@ -33,7 +33,7 @@
 								<input type="text" name="id" id="id" placeholder="Id" />
 							</div>
 							<div class="field">
-								<input type="text" name="pass" id="pass" placeholder="Pass" />
+								<input type="password" name="pass" id="pass" placeholder="Pass" />
 							</div>													
 
 
