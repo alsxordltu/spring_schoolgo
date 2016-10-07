@@ -36,8 +36,12 @@
 			<article id="me" class="panel">
 				<header>
 					<h6 text-align=center>루트 관리하기</h6>
-					
+				<a href='gotomain#mypage'><input type="button" value="마이페이지로"></a>	
 				</header>
+				
+				
+				
+				
 			</article>
 
 		<!-- Footer -->

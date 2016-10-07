@@ -37,8 +37,12 @@
 			<article id="me" class="panel">
 				<header>
 					<h6 text-align=center>나의 활동내역</h6>
-					
+						
+				<a href='gotomain#mypage'><input type="button" value="마이페이지로"></a>
 				</header>
+			
+				
+				
 			</article>
 
 		<!-- Footer -->

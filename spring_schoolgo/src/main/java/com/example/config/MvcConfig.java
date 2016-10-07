@@ -84,10 +84,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		
 	}
     //주석
-    @Override
+  /*  @Override
     public void addInterceptors(InterceptorRegistry registry) {
     	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join");
-    }
+    }*/
 
     /*<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->

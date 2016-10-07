@@ -37,8 +37,12 @@
 			<article id="me" class="panel">
 				<header>
 					<h6 text-align=center>개인정보 수정</h6>
-					
+					<a href='gotomain#mypage'><input type="button" value="마이페이지로"></a>
 				</header>
+				
+				
+				
+				
 			</article>
 
 		<!-- Footer -->
