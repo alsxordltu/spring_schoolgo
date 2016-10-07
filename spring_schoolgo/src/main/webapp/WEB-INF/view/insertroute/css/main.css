@@ -65,16 +65,17 @@ h5{
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: 100%;
+		
 		font: inherit;
-		vertical-align: baseline;
-		font-weight: 400;
-		color: #363636;
-		font-size: 1em;
 		letter-spacing: -0.015em;
 		letter-spacing: -0.025em;
 		
-		text-align : center;	
+		text-align : center;
+		color: #363636;
+		font-size: 1em;
+		
+		
+	
 }
 
 
@@ -1408,6 +1409,7 @@ h5{
 			#me {
 				padding: 0;
 				height: 20em;		/* me占쎄맒占쎈릭 占쎄쾿疫뀐옙 */
+				
 			}
 
 				#me .pic {

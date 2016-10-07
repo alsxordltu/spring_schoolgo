@@ -36,9 +36,114 @@
 		<div id="main">
 			<!-- Me -->
 			<article id="me" class="panel">
-				<header>
-					<h6 text-align=center>루트 등록</h6>
-				</header>
+			
+			<div style="padding-top:15px; padding-bottom:15px;">
+			<h6 text-align=center>섭이의 루트 2</h6>
+			</div>
+				
+				
+			<div id="home" style="float:left; width:100px; height:120px; ">
+			<img src="insert_img/home.png" width="100px" >
+			</div>
+			<div id="home" style="float:left; width:100px; height:120px;">
+			<img src="insert_img/arrow.png" width="80px" style="margin: 20px 0 0 10px" >
+			</div>
+			
+			
+			
+			<div id="home" style="float:left; width:150px; height:120px;">
+			<input type=text value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
+			<button style="width:150px; height:50px;">역 명 검색</button>
+			</div>
+			
+			<div id="home" style="float:left; width:200px; height:120px;">
+			<img src="insert_img/metro.png" width="100px" style="margin:5px 50px 5px 50px;">
+			</div>
+			
+			<div id="school" style="float:left; width:150px; height:120px;">
+			<input type=text value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
+			<button style="width:150px; height:50px;">역 명 검색</button>
+			</div>
+			
+			<div id="school" style="float:left; width:100px; height:120px;">
+			<img src="insert_img/arrow.png" width="80px" style="margin: 20px 0 0 10px" >
+			</div>
+			
+			<div id="school" style="float:left; width:100px; height:120px;">
+			<img src="insert_img/school.png" width="100px">
+			</div>
+			
+			
+			
+			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<h5>집에서 역까지 어떻게 가세요?</h5>
+			</div>
+			
+			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<h5>역에서 학교까지 어떻게 가세요?</h5>
+			</div>
+			
+			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			</div>
+			
+			
+			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			</div>
+			
+				
+			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<h5>소요시간</h5>
+			</div>
+			
+			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<h5>소요시간</h5>
+			</div>
+			
+			
+			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			시간
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			분
+			</div>
+			
+			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			시간
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			분
+			</div>
+			
+			<div style="float:left; width:900px; height:55px;">
+			<button style="width:150px; height:50px; margin:3px 375px 3px 375px" >저장하기</button>
+			</div>
+			
 				
 
 			</article>
@@ -66,10 +171,10 @@
 	
 	$("document").ready(function(){
 		$("#animate").animate({
-			left:218,
-			top:-140
+			left:160
+			/* top:-140 */
 		});
-		$("#wrapper").css('padding-top','100px');
+	
 
 	});
 	</script>

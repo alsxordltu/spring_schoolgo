@@ -37,9 +37,10 @@
 			<article id="me" class="panel">
 				<header>
 					<h6 text-align=center>교통비 가계부</h6>
+					<a href='gotomain#mypage'><input type="button" value="마이페이지로"></a>
 				</header>
 				
-				
+							
 				
 				
 				

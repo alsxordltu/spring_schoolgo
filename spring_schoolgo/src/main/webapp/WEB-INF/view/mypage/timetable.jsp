@@ -39,6 +39,8 @@
 				
 					<h6 text-align=center style="margin-top:10px;">등교시간 등록하기</h6>
 					
+					<a href='gotomain#mypage'><input type="button" value="마이페이지로"></a>
+					
 				</header>
 			</article>
 

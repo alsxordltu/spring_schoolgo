@@ -85,9 +85,10 @@
 			<!-- Me -->
 			<article id="me" class="panel">
 				<header>
-					<h1>여기에다가 학교가기 페이지</h1>
-					<a class="button">섭이의 루트1</a>
 				</header>
+				<div id=route>
+				<button>섭이의 루트1</button>
+				</div>			
 			</article>
 
 
