@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.example.interceptor.SessionCheckInterceptor;
 
+
 // Spring MVC에 대한 Bean 설정
 @Configuration
 @ComponentScan(basePackages={"com.example.controller"}) //<context:component-scan base-package="com.example.controller"/>
@@ -86,7 +87,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     //주석
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-    	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join");
+    	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join","/gototutorial");
+    	
     }
 
     /*<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
