@@ -1408,7 +1408,7 @@ h5{
 
 			#me {
 				padding: 0;
-				height: 20em;		/* me상하 크기 */
+				height: auto;		/* me상하 크기 */
 			}
 
 				#me .pic {

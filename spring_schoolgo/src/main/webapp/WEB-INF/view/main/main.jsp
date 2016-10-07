@@ -83,12 +83,35 @@
 
 
 			<!-- Me -->
-			<article id="me" class="panel">
-				<header>
-				</header>
-				<div id=route>
-				<button>섭이의 루트1</button>
-				</div>			
+			<article id="me" class="panel" style="padding:50px 100px 50px 100px;">
+			
+			<div id="route1" class="routeclass" style="width:700px; height:80px;">
+			<button id="btn1" style="width:600px; height:50px; margin:15px 50px 15px 50px;">섭이의 루트1</button>
+			</div>
+			
+			<div id="route11" class="routeclass" style="width:700px; height:80px; margin:10px 0 10px 0 ">
+			<button id="btn11" style="width:600px; height:40px; margin:15px 50px 15px 50px;">섭이의 루트1</button>
+			
+			<button id="btn12" style="width:150px; height:40px; margin:15px 35px 15px 50px; float:left;">섭이의 루트test</button>
+			<button id="btn13" style="width:150px; height:40px; margin:15px 35px 15px 35px; float:left;">섭이의 루트test</button>
+			<button id="btn13" style="width:150px; height:40px; margin:15px 50px 15px 35px; float:left;">섭이의 루트test</button>
+			</div>
+			
+			
+			
+			
+			<div id="route2" style="width:900px; height:80px; margin:10px 0 10px 0 ">
+			<button style="width:600px; height:50px; margin:15px 150px 15px 150px;">섭이의 루트2</button>
+			</div>
+			
+			<div id="route3" style="width:900px; height:80px; margin:10px 0 10px 0 ">
+			<button style="width:600px; height:50px; margin:15px 150px 15px 150px;">섭이의 루트3</button>
+			</div>
+			
+			<div id="route4" style="width:900px; height:80px; margin:10px 0 10px 0 ">
+			<button style="width:600px; height:50px; margin:15px 150px 15px 150px;">섭이의 루트4</button>
+			</div>
+					
 			</article>
 
 
@@ -205,53 +228,11 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
 <script>
-/* $("#timetable").on("click",function(){
-	$("#nav").css("display", "none");
-	$(".navtable").css("display", "block");
-	 $("#animateT").animate({
-			left:180,
-			top:-140
-		});
+ $("#btn1").on("click",function(){
+	$("#route1").animate({
+			left:""-500px"	
+		},1000);
 });
-
-
-$("#costcal").on("click",function(){
-	$("#nav").css("display", "none");
-	$(".navcost").css("display", "block");
-	$("#animateC").animate({
-		left:180,
-		top:-140
-	});
-});
-
-$("#myactivity").on("click",function(){
-	$("#nav").css("display", "none");
-	$(".navactive").css("display", "block");
-	$("#animateA").animate({
-		left:180,
-		top:-140
-	});
-});
-
-$("#routemanager").on("click",function(){
-	$("#nav").css("display", "none");
-	$(".navmanage").css("display", "block");
-	$("#animateM").animate({
-		left:180,
-		top:-140
-	});
-	
-});
-
-$("#updateprofile").on("click",function(){
-	$("#nav").css("display", "none");
-	$(".navupdate").css("display", "block");
-	$("#animateU").animate({
-		left:180,
-		top:-140
-	});
-	
-}); */
 </script>
 </body>
 </html>
