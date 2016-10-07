@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.example.interceptor.SessionCheckInterceptor;
 
+
 // Spring MVC에 대한 Bean 설정
 @Configuration
 @ComponentScan(basePackages={"com.example.controller"}) //<context:component-scan base-package="com.example.controller"/>
@@ -73,6 +74,11 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     	registry.addResourceHandler("/my_font/**").addResourceLocations(PATH + "mypage/fonts/");
     	registry.addResourceHandler("/my_js/**").addResourceLocations(PATH + "mypage/js/");
 		
+    	//루트 등록 관련 리소스 경로
+    	registry.addResourceHandler("/insert_css/**").addResourceLocations(PATH + "insertroute/css/");
+    	registry.addResourceHandler("/insert_img/**").addResourceLocations(PATH + "insertroute/images/");
+    	registry.addResourceHandler("/insert_font/**").addResourceLocations(PATH + "insertroute/fonts/");
+    	registry.addResourceHandler("/insert_js/**").addResourceLocations(PATH + "insertroute/js/");
 		
 		
 		
@@ -81,7 +87,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     //주석
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-    	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join");
+    	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join","/gototutorial");
+    	
     }
 
     /*<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
