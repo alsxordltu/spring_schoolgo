@@ -68,7 +68,9 @@
 			
 			<div id="route11" class="routeclass" style="width:700px; height:80px; margin:10px 0 10px 0 ">
 			<button id="btn11" style="width:600px; height:40px; margin:15px 50px 15px 50px;">섭이의 루트1</button>
+			</div>
 			
+			<div id="route11" class="routeclass" style="width:700px; height:80px; margin:0 0 10px 0 ">
 			<button id="btn12" style="width:150px; height:40px; margin:15px 35px 15px 50px; float:left;">섭이의 루트test</button>
 			<button id="btn13" style="width:150px; height:40px; margin:15px 35px 15px 35px; float:left;">섭이의 루트test</button>
 			<button id="btn13" style="width:150px; height:40px; margin:15px 50px 15px 35px; float:left;">섭이의 루트test</button>
