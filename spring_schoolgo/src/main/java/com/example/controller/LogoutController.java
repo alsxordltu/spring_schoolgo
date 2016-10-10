@@ -25,7 +25,9 @@ public class LogoutController {
 		/*logger.trace("session확인 : {}", session.getAttribute("userId"));
 		*/
 		logger.trace("컨트롤러, 로그아웃 성공");
-		return "gotomain";
+		
+		return "main/main";
+		
 	}
 
 }

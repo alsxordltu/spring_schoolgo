@@ -21,6 +21,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	
 	private final String PATH = "/WEB-INF/view/";
 	
+	
     @Bean
     public ViewResolver internalResourceViewResolver(){
     	InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -38,6 +39,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/tutorials/**").addResourceLocations("/WEB-INF/tutorial/");
 		registry.addResourceHandler("/views/**").addResourceLocations("/WEB-INF/view/");
 		registry.addResourceHandler("/jss/**").addResourceLocations("/WEB-INF/assets/js/");*/
+    	
     	
     	//인텍스 페이지 관련 리소스 경로
     	registry.addResourceHandler("/index_css/**").addResourceLocations(PATH + "index/css/");
