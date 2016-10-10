@@ -21,11 +21,13 @@ public class LogoutController {
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session){
-		session.invalidate();
+		if(session != null){
+			session.invalidate();
+		}
 		/*logger.trace("session확인 : {}", session.getAttribute("userId"));
 		*/
 		logger.trace("컨트롤러, 로그아웃 성공");
-		return "gotomain";
+		return "redirect:/gotomain";
 	}
 
 }
