@@ -16,6 +16,11 @@
 		select pass from tuser where user_id = #{userId}
 	</select>
 	
+	<select id="getUserInfobyId" resultMap="getUserInfo" parameterType="String">
+		select userId, pass, userName, nickName, email, phoneNum from tuser where user_id = #{userId}
+	</select>
+	
+	
 	<resultMap type="String" id="userId">
 		<id column="user_id" property="userId"/> 
 	</resultMap>

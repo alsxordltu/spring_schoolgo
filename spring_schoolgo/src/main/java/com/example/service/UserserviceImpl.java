@@ -45,4 +45,21 @@ public class UserserviceImpl implements Userservice {
 		return 1;
 	}
 
+
+
+	@Override
+	public int userInfo(String userId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+/*	@Override
+	public int userInfo(String userId) {
+		String userId = repo.get
+	}*/
+	
+	
+
 }
