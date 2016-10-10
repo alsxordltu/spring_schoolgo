@@ -18,9 +18,14 @@
 <body>
 
 	<!-- Wrapper-->
-	<div id="logo">
+	<div id="logo" style="float:left">
 		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>	
-		<h3>${nickName} 님☆ 환영(id:${nickName} pass:${pass} name:${userName} email:${email} phonenum:${phoneNum}) </h3>
+	</div>
+	<div id="welcome" style="float:right; margin:15px 10px 0 0;">
+		<h3>${nickName}님☆  환영합니다^-^ </h3>
+		<form name="logout" name="logout" action="logout">
+		<input type="submit" value="로그아웃">
+		</form>
 	</div>
 	<div id="wrapper">
 		<!-- style=" padding-top:68px; opacity:1; " -->
