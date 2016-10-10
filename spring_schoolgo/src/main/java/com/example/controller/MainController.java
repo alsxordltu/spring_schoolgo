@@ -48,23 +48,29 @@ public class MainController {
 	 */
 
 	@RequestMapping(value="/gotoinsertroute", method=RequestMethod.GET) public
-	String gotoinsertroute(){ return "insertroute/insertroute1"; }				
-					
+	String gotoinsertroute(){ return "insertroute/insertroute"; }			
+	
 	@RequestMapping(value="/gototimetable", method=RequestMethod.GET) public
-	String gototimetable(){ return "mypage/timetable"; }	
-	
-	@RequestMapping(value="/gotocostcal", method=RequestMethod.GET) public
-	String gotocostcal(){ return "mypage/costcal"; }	
-	
-	@RequestMapping(value="/gotomyactivity", method=RequestMethod.GET) public
-	String gotomyactivity(){ return "mypage/myactivity"; }	
-	
-	@RequestMapping(value="/gotoroutemanager", method=RequestMethod.GET) public
-	String gotoroutemanager(){ return "mypage/routemanager"; }	
+	String gototimetable(){ return "mypage/1timetable"; }	
 	
 	@RequestMapping(value="/gotoupdateprofile", method=RequestMethod.GET) public
-	String gotoupdateprofile(){ return "mypage/updateprofile"; }	
+	String gotoupdateprofile(){ return "mypage/2updateprofile"; }	
 	
+	@RequestMapping(value="/gotoroutemanager", method=RequestMethod.GET) public
+	String gotoroutemanager(){ return "mypage/3routemanager"; }	
+	
+	@RequestMapping(value="/gotocostcal", method=RequestMethod.GET) public
+	String gotocostcal(){ return "mypage/4costcal"; }	
+	
+	@RequestMapping(value="/gotomyactivity", method=RequestMethod.GET) public
+	String gotomyactivity(){ return "mypage/5myactivity"; }	
+	
+
+		
+					
+	
+	
+
 					
 	
 	
