@@ -19,9 +19,8 @@
 
 	<!-- Wrapper-->
 	<div id="logo">
-		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>
-
-
+		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>	
+		<h3>${nickName} 님☆ 환영(id:${nickName} pass:${pass} name:${userName} email:${email} phonenum:${phoneNum}) </h3>
 	</div>
 	<div id="wrapper">
 		<!-- style=" padding-top:68px; opacity:1; " -->

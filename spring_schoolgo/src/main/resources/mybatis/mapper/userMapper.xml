@@ -16,17 +16,26 @@
 		select pass from tuser where user_id = #{userId}
 	</select>
 	
-	<select id="getUserInfobyId" resultMap="getUserInfo" parameterType="String">
-		select userId, pass, userName, nickName, email, phoneNum from tuser where user_id = #{userId}
+	<select id="getUserInfobyId" resultMap="getUserInfo" parameterType="user">
+		select user_id, pass, user_name, nickname, email, phone_num from tuser where user_id = #{userId}
 	</select>
-	
-	
+		
 	<resultMap type="String" id="userId">
 		<id column="user_id" property="userId"/> 
 	</resultMap>
 	
 	<resultMap type="String" id="getPass">
 		<result column="pass" property="pass"/> 
+	</resultMap>
+	
+		<resultMap type="User" id="getUserInfo">
+		<id column="user_id" property="userId"/> 
+		<result column="pass" property="pass"/>
+		<result column="user_name" property="userName"/>
+		<result column="nickname" property="nickName"/>
+		<result column="email" property="email"/>
+		<result column="phone_num" property="phoneNum"/>						
+			
 	</resultMap>
 	
 </mapper>

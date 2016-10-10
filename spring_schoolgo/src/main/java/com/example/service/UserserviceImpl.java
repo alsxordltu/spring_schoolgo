@@ -48,10 +48,20 @@ public class UserserviceImpl implements Userservice {
 
 
 	@Override
-	public int userInfo(String userId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public User getUserInfo(String id) {
+		User user = new User();
+		user = repo.getUserInfo(id);
+		return user;
 	}
+	
+
+
+
+
+
+
+
+
 
 
 

@@ -39,11 +39,12 @@ public class UserrepoImpl implements Userrepo {
 		String stmt = NAME_SPACE + "getPassbyId";
 		return template.selectOne(stmt, userId);
 	}
+
+
+	@Override
+	public User getUserInfo(String userId) {
+		String stmt = NAME_SPACE + "getUserInfobyId";
+		return template.selectOne(stmt,userId);
+	}
 	
-/*	public String getUserInfo(String userId){
-		
-	}*/
-
-
-
 }

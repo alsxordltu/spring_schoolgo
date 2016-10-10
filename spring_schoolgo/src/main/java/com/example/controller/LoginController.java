@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,15 +41,31 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(Login login, HttpServletRequest request){
+	public String login(Login login, HttpServletRequest request, Model model){
 		int result = service.login(login.getId(), login.getPass());
 		if(result == 1){
 			logger.trace("컨트롤러, 로그인 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", login.getId());
-/*			session.setAttribute("nickName", login.get);*/
 			logger.trace("컨트롤러, 세션 로그인 아이디 : {}", session.getAttribute("userId"));
 			
+			User user = new User();
+			user = service.getUserInfo(login.getId());
+			
+			session.setAttribute("pass", user.getPass());
+			session.setAttribute("userName", user.getUserName());
+			session.setAttribute("nickName", user.getNickName());
+			session.setAttribute("email", user.getEmail());
+			session.setAttribute("phoneNum", user.getPhoneNum());
+			logger.trace("유저 정보 : {}, {}, {}, {}, {}, {}",session.getAttribute("userId"),session.getAttribute("pass"),session.getAttribute("userName"),session.getAttribute("nickName"),session.getAttribute("email"),session.getAttribute("phoneNum"));
+			
+			model.addAttribute("userId",session.getAttribute("userId"));
+			model.addAttribute("pass",session.getAttribute("pass"));
+			model.addAttribute("userName",session.getAttribute("userName"));
+			model.addAttribute("nickName",session.getAttribute("nickName"));
+			model.addAttribute("email",session.getAttribute("email"));
+			model.addAttribute("phoneNum",session.getAttribute("phoneNum"));
+								
 			return "main/main";
 		}
 		logger.trace("컨트롤러, 로그인 실패");
