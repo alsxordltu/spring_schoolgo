@@ -40,12 +40,14 @@
 
 			<!-- Me -->
 
-			<article id="me" class="panel" style="padding:50px 100px 50px 100px;">
+			<article id="me" class="panel" style="padding:50px 0 50px 0;">
+			
+			<div style="height:400px;">
 			
 			<div style="padding-top:15px; padding-bottom:15px;">
 			<h6 text-align=center>섭이의 루트 2</h6>
 			</div>
-				
+			
 				
 			<div id="home" style="float:left; width:100px; height:120px; ">
 			<img src="insert_img/home.png" width="100px" >
@@ -145,10 +147,21 @@
 			분
 			</div>
 			
-			<div style="float:left; width:900px; height:55px;">
-			<button style="width:150px; height:50px; margin:3px 375px 3px 375px" >저장하기</button>
+			<div id=btndiv style="float:left; width:900px; height:55px;">
+
+				<div style="margin:0 0 0 250px; float:left; ">
+					<a href='gotomain#mypage'><input type="button" value="저장하기"></a>
+				</div>
+				
+				<div style="margin:0 0 0 20px; float:left; ">
+					<a href='gotomain#mypage'><input type="button" value="돌아가기"></a>
+				</div>
+				
+				</div>
+				
 			</div>
 			</article>
+
 
 		</div>
 
