@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -11,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 import com.example.dto.Login;
+import com.example.dto.User;
 import com.example.service.Userservice;
 
 @Controller // 컨트롤러 선언
@@ -47,12 +46,21 @@ public class LoginController {
 			logger.trace("컨트롤러, 로그인 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", login.getId());
+/*			session.setAttribute("nickName", login.get);*/
 			logger.trace("컨트롤러, 세션 로그인 아이디 : {}", session.getAttribute("userId"));
+			
 			return "main/main";
 		}
 		logger.trace("컨트롤러, 로그인 실패");
 		return "login/login";
 	}
+	
+	
+/*	@RequestMapping(value="/userInfo", method=RequestMethod.POST)
+	public String userInfo(User user, HttpServletRequest request){
+		int result = service.
+	}*/
+	
 
 	/*@RequestMapping(value="/gototutorial", method=RequestMethod.GET)
 	public String gototutorial(){
