@@ -48,33 +48,6 @@
 
 		</nav>
 
-		<!-- <nav id="nav" class="navtable"style="display:none">
-			<div style="float:left; width:258px; height:100px"></div>
-			<a id="animateT" ><i class="icon fa-user fa-lg">Timetable</i></a>
-		</nav>
-		
-		<nav id="nav" class="navupdate"style="display:none">	
-			<div style="float:left; width:258px; height:100px"></div>
-			<a id="animateU" ><i class="icon fa-user fa-lg">Profile</i></a>
-		</nav>
-
-		<nav id="nav" class="navmanage"style="display:none">	
-			<div style="float:left; width:258px; height:100px"></div>
-			<a id="animateM" ><i class="icon fa-user fa-lg">Manager</i></a>
-		</nav>
-		
-		<nav id="nav" class="navcost"style="display:none">	
-			<div style="float:left; width:258px; height:100px"></div>
-			<a id="animateC" ><i class="icon fa-user fa-lg">Cost</i></a>
-		</nav>
-
-		<nav id="nav" class="navactive"style="display:none">	
-			<div style="float:left; width:258px; height:100px"></div>
-			<a id="animateA" ><i class="icon fa-user fa-lg">MyActivity</i></a>
-		</nav> -->
-
-
-
 
 		<!-- Main -->
 		<div id="main">
@@ -113,6 +86,7 @@
 			</div>
 					
 
+</article>
 
 
 			<!-- addroute -->
@@ -288,46 +262,7 @@
 		<script src="main_js/util.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="main_js/main.js"></script>
-		<script>
-			/* $("#timetable").on("click",function(){
-			 $("#nav").css("display", "none");
-			 $(".navtable").css("display", "block");
-			 $("#animateT").animate({
-			 left:180,
-			 top:-140
-			 });
-			 });
-
-
-			 $("#costcal").on("click",function(){
-			 $("#nav").css("display", "none");
-			 $(".navcost").css("display", "block");
-			 $("#animateC").animate({
-			 left:180,
-			 top:-140
-			 });
-			 });
-
-			 $("#myactivity").on("click",function(){
-			 $("#nav").css("display", "none");
-			 $(".navactive").css("display", "block");
-			 $("#animateA").animate({
-			 left:180,
-			 top:-140
-			 });
-			 });
-
-			 $("#routemanager").on("click",function(){
-			 $("#nav").css("display", "none");
-			 $(".navmanage").css("display", "block");
-			 $("#animateM").animate({
-			 left:180,
-			 top:-140
-			 });
-			
-			 });
-
-<<<<<<< HEAD
+	
 		<!-- Footer -->
 		<div id="footer">
 			<ul class="copyright">
@@ -345,24 +280,12 @@
 	<script src="main_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
-<script>
- $("#btn1").on("click",function(){
+<!-- <script>
+/*  $("#btn1").on("click",function(){
 	$("#route1").animate({
-			left:""-500px"	
+			left:-500px
 		},1000);
-});
-</script>
-=======
-			 $("#updateprofile").on("click",function(){
-			 $("#nav").css("display", "none");
-			 $(".navupdate").css("display", "block");
-			 $("#animateU").animate({
-			 left:180,
-			 top:-140
-			 });
-			
-			 }); */
-		</script>
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
+}); */
+</script> -->
 </body>
 </html>

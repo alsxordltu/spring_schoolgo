@@ -53,7 +53,7 @@
 			
 			<div id="home" style="float:left; width:150px; height:120px;">
 			<input type=text value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
-			<button style="width:150px; height:50px;">역 명 검색</button>
+			<button id="stationName"     style="width:150px; height:50px;">역 명 검색</button>
 			</div>
 			
 			<div id="home" style="float:left; width:200px; height:120px;">
@@ -176,6 +176,9 @@
 		});
 	
 
+	});
+	$("#stationName").on("click", function(){
+		window.open("gotofindStation");
 	});
 	</script>
 

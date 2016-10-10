@@ -18,7 +18,7 @@
 
 	<!-- Wrapper-->
 	<div id="logo">
-		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>
+		<a href='gotomain'><img src="my_img/gogo.png" alt="" width="300"></a>
 
 	</div>
 	<div id="wrapper">
@@ -27,6 +27,7 @@
 		<nav id="nav" class="navtable" style="display:block">
 			
 			<a id="animate" ><i class="icon fa-user fa-lg">Timetable</i></a>
+			
 		</nav>	
 		</nav>
 		
@@ -35,13 +36,23 @@
 		<div id="main">
 			<!-- Me -->
 			<article id="me" class="panel">
-				<header>
+		
 				
-					<h6 text-align=center style="margin-top:10px;">등교시간 등록하기</h6>
+					<div style="padding-top:15px; padding-bottom:15px;">
+			<h6 text-align=center>섭이의 루트 2</h6>
+			</div>
+					
+					<div id="table" style="width:800px; height:1000; background:red;">
+					</div>
+					
+					
+					
+					
+					
 					
 					<a href='gotomain#mypage'><input type="button" value="마이페이지로"></a>
 					
-				</header>
+			
 			</article>
 
 		<!-- Footer -->
@@ -64,7 +75,8 @@
 	<script>
 	 $("document").ready(function(){
 		 $("#animate").animate({
-				left:-100,
+				top:60,
+			 left:130
 				
 			});
 	}); 
