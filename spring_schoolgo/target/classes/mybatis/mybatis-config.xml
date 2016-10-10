@@ -9,9 +9,11 @@
 	<!-- DTO에 대한 축약형 등록 -->
 	<typeAliases>
 		<typeAlias type="com.example.dto.User" alias="user"/>
+		<typeAlias type="com.example.dto.Station" alias="station"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mybatis/mapper/userMapper.xml"/>
+		<mapper resource="mybatis/mapper/stationMapper.xml"/>
 	</mappers>
 </configuration>
