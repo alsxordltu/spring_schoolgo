@@ -1353,7 +1353,8 @@ h5{
 
 			#nav {
 				text-align: center;
-				 height:10em;
+				 height:7em;
+				 padding-top:1em;
 				cursor: default;
 			}
 

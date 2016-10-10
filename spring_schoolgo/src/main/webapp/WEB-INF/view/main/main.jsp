@@ -75,19 +75,6 @@
 			</div>
 			
 			
-			
-			
-			<div id="route2" style="width:900px; height:80px; margin:10px 0 10px 0 ">
-			<button style="width:600px; height:50px; margin:15px 150px 15px 150px;">섭이의 루트2</button>
-			</div>
-			
-			<div id="route3" style="width:900px; height:80px; margin:10px 0 10px 0 ">
-			<button style="width:600px; height:50px; margin:15px 150px 15px 150px;">섭이의 루트3</button>
-			</div>
-			
-			<div id="route4" style="width:900px; height:80px; margin:10px 0 10px 0 ">
-			<button style="width:600px; height:50px; margin:15px 150px 15px 150px;">섭이의 루트4</button>
-			</div>
 					
 
 </article>
