@@ -13,29 +13,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="insert_css/main.css" />
+<link rel="stylesheet" href="insert_css/form.css" />
 </head>
 <body>
 
 	<!-- Wrapper-->
 	<div id="logo">
-		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>
+		<a href='gotomain'><img src="insert_img/gogo.png" alt="" width="300"></a>
+
 
 	</div>
-	
 	<div id="wrapper">
-		
-		<nav id="nav" class="navtable"style="display:block;">
+
+
+
+
+		<nav id="nav" class="navtable" style="display:block;">
 			<div style="float:left; width:220px; height:100px"></div>
 			<a id="animate" ><i class="icon fa-plus-circle fa-lg">Insert</i></a>
 		</nav>	
-		
-	
-		
-		
+
 		<!-- Main -->
 		<div id="main">
+
+
+
 			<!-- Me -->
-			<article id="me" class="panel">
+
+			<article id="me" class="panel" style="padding:50px 100px 50px 100px;">
 			
 			<div style="padding-top:15px; padding-bottom:15px;">
 			<h6 text-align=center>섭이의 루트 2</h6>
@@ -53,7 +58,7 @@
 			
 			<div id="home" style="float:left; width:150px; height:120px;">
 			<input type=text value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
-			<button style="width:150px; height:50px;">역 명 검색</button>
+			<button id="stationName"     style="width:150px; height:50px;">역 명 검색</button>
 			</div>
 			
 			<div id="home" style="float:left; width:200px; height:120px;">
@@ -143,21 +148,17 @@
 			<div style="float:left; width:900px; height:55px;">
 			<button style="width:150px; height:50px; margin:3px 375px 3px 375px" >저장하기</button>
 			</div>
-			
-				
-
 			</article>
-		</div>
-		
-		
-		<!-- Footer -->
-		<div id="footer">
-			<ul class="copyright">
-				<li>&copy; Untitled.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
+
 		</div>
 
+	<!-- Footer -->
+			<div id="footer">
+				<ul class="copyright">
+					<li>&copy; Untitled.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
 	</div>
 
 	<!-- Scripts -->
@@ -167,7 +168,7 @@
 	<script src="insert_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="insert_js/main.js"></script>
-	<script>
+<script>
 	
 	$("document").ready(function(){
 		$("#animate").animate({
@@ -177,7 +178,9 @@
 	
 
 	});
+	$("#stationName").on("click", function(){
+		window.open("gotofindStation");
+	});
 	</script>
-
 </body>
 </html>

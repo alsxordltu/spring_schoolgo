@@ -1,13 +1,11 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/alsxordltu/spring_schoolgo.git
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
-<<<<<<< HEAD
-encoding//src/main/webapp/WEB-INF/view/insertroute/css/main.css=UTF-8
-=======
 encoding//src/main/webapp/WEB-INF/view/login/login.jsp=UTF-8
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 encoding//src/main/webapp/WEB-INF/view/main/css/main.css=UTF-8
 encoding//src/main/webapp/WEB-INF/view/main/main.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/view/mypage/css/main.css=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

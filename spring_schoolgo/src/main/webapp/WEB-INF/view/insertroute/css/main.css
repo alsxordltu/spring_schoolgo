@@ -7,7 +7,55 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
+.grid_3{
+	float:left;
+}
+
 /* Reset */
+
+.map {
+	text-align: left;
+	overflow: hidden;
+	padding-top: 5px;
+}
+
+.map .text1 {
+	margin-bottom: 39px;
+}
+.map figure {
+	position: relative;
+	top: 7px;
+	border: 1px solid #3c7f9f;
+	width: 100%;
+		 -moz-box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ -o-box-sizing: border-box;
+ box-sizing: border-box;
+ display: block;
+
+}
+.map figure iframe {
+	width: 100%;
+	height: 218px;
+	max-width: 100%;
+}
+
+.map a {
+	color: #373b47;
+}
+
+.map a:hover {
+	color: #fff;
+}
+
+.map address {
+	overflow: hidden;
+	font-size: 14px;
+	line-height: 21px;
+
+}
+
 
 
 	.mybutton {
@@ -30,7 +78,7 @@
 
 
 element.style{
-	padding-top: 20px;
+	padding-top: 100px;
     opacity: 1;
     color: black;
 }
@@ -65,17 +113,16 @@ h5{
 		margin: 0;
 		padding: 0;
 		border: 0;
-		
+		font-size: 100%;
 		font: inherit;
+		vertical-align: baseline;
+		font-weight: 400;
+		color: #363636;
+		font-size: 1em;
 		letter-spacing: -0.015em;
 		letter-spacing: -0.025em;
 		
-		text-align : center;
-		color: #363636;
-		font-size: 1em;
-		
-		
-	
+		text-align : center;	
 }
 
 
@@ -817,7 +864,7 @@ h5{
 /* Basic */
 
 	body {
-		background-image: url("../my_img/overlay.png"), url("../my_img/bg.jpg");
+		background-image: url("../main_img/overlay.png"), url("../main_img/bg.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		font-family: 'Source Sans Pro', sans-serif;
@@ -1131,8 +1178,8 @@ h5{
 		display: inline-block;
 		color: #ffffff;
 		width: 1em;
-		height: 2em;				/* 占쎈툡占쎌뵠�굜�꼶諭� 占쎌맄燁삼옙 */
-		line-height: 3em;			/* 占쎈툡占쎌뵠�굜�꼶諭� 占쎌맄燁삼옙(占쎄맒占쎈릭) */   /* �룯�뜃由겼첎占� 0.9 */
+		height: 2em;				/* 아이콘들 위치 */
+		line-height: 3em;			/* 아이콘들 위치(상하) */   /* 초기값 0.9 */
 	}
 
 		#nav a.icon:before {
@@ -1162,7 +1209,7 @@ h5{
 			position: absolute;
 			top: 0;
 			left: 0;
-			background: url("my_img/overlay.png");
+			background: url("images/overlay.png");
 			width: 100%;
 			height: 100%;
 			z-index: 1;
@@ -1299,20 +1346,20 @@ h5{
 			}
 
 				#wrapper.tall {
-					padding-bottom: 1em;	/* 占쎈쳳占쎄숲 占쎈툡占쎌삋 揶쏄쑨爰� */
+					padding-bottom: 1em;	/* 푸터 아래 간격 */
 				}
 
 		/* Nav */
 
 			#nav {
 				text-align: center;
-				height:10em;
+				 height:10em;
 				cursor: default;
 			}
 
 				#nav a {
 					font-size: 2.5em;
-					margin: 0 0.75em 0 0.75em;		/* 占쎈툡占쎌뵠�굜占� �넫�슣�뒭 揶쏄쑨爰� */ /* �룯�뜃由겼첎占� 0.25 */
+					margin: 0 0.75em 0 0.75em;		/* 아이콘 좌우 간격 */ /* 초기값 0.25 */
 					opacity: 0.35;
 					outline: 0;
 					-moz-transition: opacity .25s ease-in-out;
@@ -1329,12 +1376,12 @@ h5{
 						content: '';
 						display: block;
 						position: absolute;
-						left: 50%;						/* 椰꾨�諭억쭪占� 筌띾Þ由� 域밸챶源� */
-						bottom: -1.2em;				/* 占쎄쉭筌륅옙 占쎌쟿占쏙옙占쎌맄燁삼옙(占쎄맒占쎈릭) */
-						margin-left: -0.43em; 			/* 占쎄쉭筌륅옙 占쎌쟿占쏙옙占쎌맄燁삼옙(�넫�슣�뒭) */
-						border-bottom: solid 0em #ffffff;	/* �뜮占� 占쎄퐨占쎄문占쎈뻻 占쎄쉭筌륅옙(占쎈툧椰꾨�諭띰옙�젻占쎈즲占쎈탵) */
+						left: 50%;						/* 건들지 말기 그냥 */
+						bottom: -1.2em;				/* 세모 절대위치(상하) */
+						margin-left: -0.43em; 			/* 세모 절대위치(좌우) */
+						border-bottom: solid 0em #ffffff;	/* 비 선택시 세모(안건드려도디) */
 						border-left: solid 0.5em transparent;
-						border-right: solid 0.5em transparent;		/* 占쎈뼄占쎌젫 占쎈읂占쎌뵠筌욑옙占쏙옙 占쎈툡占쎌뵠�굜占� 占쎌뵠占쎈선雅뚯눖�뮉 占쎄쉭筌륅옙 �넫�슣�뒭占쎄쾿疫뀐옙 */
+						border-right: solid 0.5em transparent;		/* 실제 페이지와 아이콘 이어주는 세모 좌우크기 */
 						-moz-transition: border-bottom-width .25s ease-in-out;
 						-webkit-transition: border-bottom-width .25s ease-in-out;
 						-ms-transition: border-bottom-width .25s ease-in-out;
@@ -1346,17 +1393,17 @@ h5{
 						position: absolute;
 						background: #222222;
 						color: #ffffff;
-						top: -0.5em;			/* 占쎈툡占쎌뵠�굜�꼷�맄占쎈퓠筌띾뜆�뒭占쎈뮞占쎌궞�뵳�됥늺占쎄돌占쏙옙占쎄돌占쎈뮉 野껉퍒�궢 占쎈툡占쎌뵠�굜�꼵�궢占쎌벥 揶쏄쑨爰� */
-						font-size: 0.4em;	    /* 占쎈툡占쎌뵠�굜�꼷�맄占쎈퓠筌띾뜆�뒭占쎈뮞占쎌궞�뵳�됥늺占쎄돌占쏙옙占쎄돌占쎈뮉 疫뀐옙占쎈뎁占쎄쾿疫뀐옙 */
-						height: 2em;		    /* 占쎈툡占쎌뵠�굜�꼷�맄占쎈퓠筌띾뜆�뒭占쎈뮞占쎌궞�뵳�됥늺占쎄돌占쏙옙占쎄돌占쎈뮉 疫뀐옙占쎈뎁燁삳챸寃뺞묾占� (占쎄맒占쎈릭)*/
-						line-height: 2.0em;    /* 占쎈툡占쎌뵠�굜�꼷�맄占쎈퓠筌띾뜆�뒭占쎈뮞占쎌궞�뵳�됥늺占쎄돌占쏙옙占쎄돌占쎈뮉 疫뀐옙占쎈뎁占쎌벥占쎄맒占쎈릭占쎌맄燁삼옙 */
+						top: -0.5em;			/* 아이콘위에마우스올리면나타나는 것과 아이콘과의 간격 */
+						font-size: 0.4em;	    /* 아이콘위에마우스올리면나타나는 글씨크기 */
+						height: 2em;		    /* 아이콘위에마우스올리면나타나는 글씨칸크기 (상하)*/
+						line-height: 2.0em;    /* 아이콘위에마우스올리면나타나는 글씨의상하위치 */
 						left: 60%;
 						opacity: 0;
 						-moz-transition: opacity .25s ease-in-out;
 						-webkit-transition: opacity .25s ease-in-out;
 						-ms-transition: opacity .25s ease-in-out;
 						transition: opacity .25s ease-in-out;
-						width: 5.5em;			/* 占쎈툡占쎌뵠�굜�꼷�맄占쎈퓠筌띾뜆�뒭占쎈뮞占쎌궞�뵳�됥늺占쎄돌占쏙옙占쎄돌占쎈뮉 疫뀐옙占쎈뎁燁삳챸寃뺞묾占�(�넫�슣�뒭) */
+						width: 5.5em;			/* 아이콘위에마우스올리면나타나는 글씨칸크기(좌우) */
 						margin-left: -2.75em;
 					}
 
@@ -1364,7 +1411,7 @@ h5{
 							content: '';
 							display: block;
 							position: absolute;
-							bottom: -0.4em;  /* 占쎈툡占쎌뵠�굜�꼷�맄占쎈퓠筌띾뜆�뒭占쎈뮞占쎌궞�뵳�됥늺占쎄돌占쏙옙占쎄돌占쎈뮉 疫뀐옙占쎈뎁燁삳챷苑�筌륅옙 占쎄맒占쎈릭占쎌맄燁삼옙*/
+							bottom: -0.4em;  /* 아이콘위에마우스올리면나타나는 글씨칸세모 상하위치*/
 							left: 50%;
 							margin-left: -0.6em;
 							border-top: solid 0.6em #222222;
@@ -1385,15 +1432,15 @@ h5{
 					}
 
 						#nav a.active:after {
-							border-bottom-width: 0.5em; /* 占쎄쉭筌륅옙 占쎄맒占쎈릭占쎄쾿疫뀐옙 */
+							border-bottom-width: 0.5em; /* 세모 상하크기 */
 						}
 
 		/* Panels */
 
 			#main {
-				width: 45em;									/* 占쎈솭占쎄섯 �넫�슣�뒭占쎄쾿疫뀐옙 */
+				width: 45em;									/* 패널 좌우크기 */
 				background: #ffffff;
-				box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);  /* 占쎈솭占쎄섯 域밸챶�뵝占쎌쁽 */
+				box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);  /* 패널 그림자 */
 			}
 
 			.panel {
@@ -1408,8 +1455,7 @@ h5{
 
 			#me {
 				padding: 0;
-				height: 20em;		/* me占쎄맒占쎈릭 占쎄쾿疫뀐옙 */
-				
+				height: auto;		/* me상하 크기 */
 			}
 
 				#me .pic {
@@ -1417,14 +1463,14 @@ h5{
 					position: absolute;
 					right: -1px;
 					top: 0;
-					height: 100%;			/* me �넫�슣瑜� 占쎈꼥占쎌뵠 */
+					height: 100%;			/* me 좌측 높이 */
 					text-decoration: none;
 				}
 
 					#me .pic img {
 						position: relative;
 						display: block;
-						height: 100%;  /* me �넫�슣瑜� 域밸챶�뵝 占쎈꼥占쎌뵠 */
+						height: 100%;  /* me 좌측 그림 높이 */
 					}							
 
 					#me .pic .arrow {
@@ -1485,7 +1531,7 @@ h5{
 						left: 0;
 						top: 52.5%;
 						font-size: 1.5em;		  
-						letter-spacing: -0.015em;  /* 占쎌쁽揶쏉옙 */
+						letter-spacing: -0.015em;  /* 자간 */
 						margin-top: 0;
 					}
 
