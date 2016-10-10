@@ -8,6 +8,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.dto.User;
@@ -34,6 +35,14 @@ public class JoinController {
 		}
 		service.join(user);
 		return "redirect:/gototutorial";
+	}
+	
+	@RequestMapping(value="/updateUser", method=RequestMethod.GET)
+	public String updateUser(Model model,  @RequestParam String id){
+		User userinfo = service.getUserInfo(id);
+		model.addAttribute("userInfo",userinfo);
+		return "2updateprofile";
+	
 	}
 
 	

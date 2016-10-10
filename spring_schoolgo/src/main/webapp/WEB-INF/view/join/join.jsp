@@ -33,7 +33,7 @@
 								<sform:input path="userId"  placeholder="Id"/>
 								<sform:errors element="span" path="userId"></sform:errors>
 				<!-- 				<input type="text" name="userId" id="userId" placeholder="Id" />
-				 -->			</div>
+				 -->		</div>
 							<div class="field">
 							<sform:input type="password" path="pass" placeholder="Pass"/>
 							<sform:errors element="span" path="pass"></sform:errors>

@@ -133,7 +133,8 @@
 					<input type="button" value="등교시간 등록하기" id="timetable"
 						onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp <input
 						type="button" value="개인정보 수정" id="updateprofile"
-						onclick="location.href='gotoupdateprofile'">
+						onclick="location.href='gotoupdateprofile?id=dd'" >
+						<%-- "${updateUser }?id=hong" --%>
 				</div>
 
 
