@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.config.ApplicationConfig;
 import com.example.dto.Station;
+import com.example.dto.User;
 import com.example.repo.StationRepo;
 import com.example.service.StationService;
  
@@ -35,12 +36,22 @@ public class FindStation {
 	@Autowired
 	StationRepo sRepo;
 
-	@Test
+/*	@Test
 	public void test() {
 		
 		List<Station> station = service.findStation("종로");
+	
+		logger.trace("검색결과 : {}", station.get(0));
 		logger.trace("검색결과 : {}", station);
 		assertThat(station, is(notNullValue()));
+		
+		
+	}*/
+	@Test
+	public void test2() {
+		List<Station> station = service.findStation("오산");
+		User user = new User();
+		logger.trace("{}",station);
 		
 		
 	}
