@@ -19,6 +19,14 @@
 	<select id="getUserInfobyId" resultMap="getUserInfo" parameterType="user">
 		select user_id, pass, user_name, nickname, email, phone_num from tuser where user_id = #{userId}
 	</select>
+	
+	<update id="update" parameterType="user">
+		update tuser set pass=#{pass},user_name=#{userName},nickname=#{nickName},email=#{email},phone_num=#{phoneNum} 
+		where user_id=#{userId}
+	</update>
+	<delete id="delete" parameterType="user">
+		delete from tuser where user_id=#{userId} 
+	</delete>
 		
 	<resultMap type="String" id="userId">
 		<id column="user_id" property="userId"/> 
@@ -28,7 +36,7 @@
 		<result column="pass" property="pass"/> 
 	</resultMap>
 	
-		<resultMap type="User" id="getUserInfo">
+	<resultMap type="User" id="getUserInfo">
 		<id column="user_id" property="userId"/> 
 		<result column="pass" property="pass"/>
 		<result column="user_name" property="userName"/>

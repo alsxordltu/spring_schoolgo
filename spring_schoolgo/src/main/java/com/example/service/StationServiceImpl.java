@@ -22,10 +22,10 @@ public class StationServiceImpl implements StationService {
 	StationRepo sRepo;
 
 	@Override
-	public List<String> findStation(String input) {
+	public List<Station> findStation(String input) {
 		String change = "%" + input + "%";
-		List<String> station = sRepo.findStation(change); 
-		logger.trace("검색 결과 : {}", station);
+		List<Station> station = sRepo.findStation(change);
+		logger.trace("서비스단, 검색 결과 : {}", station);
 		return station;
 	}
 }

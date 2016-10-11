@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,13 +21,38 @@
 </body>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
+<c:url value="/findstation" var="fstation" />
 	$("#getdata").on("click", function(){
+		
+		$.ajax({
+			url:"${fstation}",
+			type:"post",
+			data:{
+				"input" : $("#stationName").val()
+			},
+			success:function(res){
+				console.log(res)
+				var row = "";
+				row += 	"<tr><th>역명</th><th>호선</th><th>선택</th></tr>";
+				$(res).each(function(index, data){
+					var name = data.stationName;
+					var line = data.lineNum;
+					row += "<tr><td>"+name+"</td><td>"+line+"</td><td><input type='button' value='선택'></td></tr>";
+				});
+				$("#info").html($("#info").html()+row);
+			},
+			error : function(xhr, status, error){
+				alert(error);
+			}
+		});
+	});
+	/* $("#getdata").on("click", function(){
 		var key = "9nRC4NTh4waNv7iJtSs7W%2BddezbrVvRMb2uaeoM2XVenvorbVJARTyddCJPpzEurbhXBY8KbrZXBlMF4zmEkIg%3D%3D";
 		//var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=9nRC4NTh4waNv7iJtSs7W%2BddezbrVvRMb2uaeoM2XVenvorbVJARTyddCJPpzEurbhXBY8KbrZXBlMF4zmEkIg%3D%3D&contentTypeid=15&areaCode=4&sigunguCode=4&MobileOS=ETC&MobileApp=AppTesting&_type=json";
 		var url = "http://openapi.seoul.go.kr:8088/4e6974774f616c733130374851774c43/json/StationDstncReqreTimeHm/1/122";
 		/* var url = "http://openAPI.seoul.go.kr:8088/6479647361616c7332334e757a6d4e/json/SearchSTNBySubwayLineService/1/150/1/"; */
 		
-		$.ajax({
+/* 		$.ajax({
 			url:url,
 			type:"get",
 			success:function(responseTxt){
@@ -47,6 +74,6 @@
 				alert("fail: "+error);
 			}
 		});
-	});
+	}); */
 </script>
 </html>

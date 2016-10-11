@@ -127,10 +127,11 @@
 				</header>
 
 				<div style="margin: 80px auto auto 200px">
-					<input type="button" value="등교시간 등록하기" id="timetable"
-						onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp <input
-						type="button" value="개인정보 수정" id="updateprofile"
-						onclick="location.href='gotoupdateprofile'">
+					<input type="button" value="등교시간 등록하기" id="timetable" onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp 
+					<input type="button" value="개인정보 수정" id="updateprofile"
+
+						onclick="location.href='updateUser?id=${userId}'" >
+						<%-- "${updateUser }?id=hong" --%>
 				</div>
 
 
