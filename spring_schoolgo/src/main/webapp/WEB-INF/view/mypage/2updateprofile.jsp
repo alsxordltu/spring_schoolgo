@@ -33,17 +33,60 @@
 				style="padding: 50px 100px 50px 100px;">
 
 				<div style="height: 1000px;">
-					개인정보수정 <a href='gotomain#mypage'><input type="button"
-						value="마이페이지로"></a>
-				</div>
+					개인정보수정
+					<sform:form method="post" action="updateUser" modelAttribute="userInfo">
+						<div class="field">
+						userId(변경불가)
+							<sform:input path="userId" placeholder="Id" readonly="true" />
+							<sform:errors element="span" path="userId"></sform:errors>
+				
+						</div>
+						<div class="field">
+							pass
+							<sform:input type="password" path="pass" placeholder="Pass" />
+							<sform:errors element="span" path="pass"></sform:errors>
+							<!-- 	<input type="text" name="pass" id="pass" placeholder="Pass" />
+							 -->
+						</div>
+						<div class="field">
+							userName
+							<sform:input path="userName" placeholder="Name" />
+							<sform:errors element="span" path="userName"></sform:errors>
+							<!-- 								<input type="text" name="userName" id="userNane" placeholder="Name" />
+ -->
+						</div>
+						<div class="field">
+							nickName
+							<sform:input path="nickName" placeholder="Nickname" />
+							<sform:errors element="span" path="nickName"></sform:errors>
+							<!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
+ -->
+						</div>
+						<div class="field">
+							email
+							<sform:input type="email" path="email" placeholder="Email" />
+							<sform:errors element="span" path="email"></sform:errors>
+							<!-- 								<input type="email" name="email" id="email" placeholder="Email" />
+ -->
+						</div>
+						<div class="field">
+							phoneNum
+							<sform:input type="text" path="phoneNum" placeholder="Phone" />
+							<sform:errors element="span" path="phoneNum"></sform:errors>
 
+						</div>
+						<div>
+							<input type="submit" value="수정하기" >
+							<input type="button" onclick="location.href='gotomain#mypage'"
+								value="마이페이지로">
+							<input type="button" onclick="location.href='deleteUser?id=${userId}'"
+								value="회원탈퇴">
+						</div>
+					</sform:form>
+
+				</div>
 				<br>
-				<form method="post" action="updateUser" modelAttribute="userInfo">
-					<div class="field">
-						<sform:input path="userId"  placeholder="Id"/>
-					</div>
-					<sform:button>제출</sform:button>
-				</form>
+
 
 				<%-- 						<br>
 						<sform:label path="name" class="inputlabel">이름</sform:label>

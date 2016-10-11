@@ -10,6 +10,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 .grid_3 {
 	float: left;
 }
@@ -935,7 +936,7 @@ header>p {
 /* Button */
 input[type="button"], input[type="submit"], input[type="reset"], button,
 	.button {
-/* 	-webkit-appearance: none;
+	/* 	-webkit-appearance: none;
 	display: inline-block;
 	background-color: #222222;
 	color: #ffffff;
@@ -946,22 +947,22 @@ input[type="button"], input[type="submit"], input[type="reset"], button,
 	-webkit-transition: background-color .25s ease-in-out;
 	-ms-transition: background-color .25s ease-in-out;
 	transition: background-color .25s ease-in-out; */
-
-		-moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		display: inline-block;
-		height: 2.75em;
-		background-color: transparent;
-		border-radius: 4px;
-		border: solid 2px #eeb6a5;
-		color: #414f57 !important;
-		cursor: pointer;
-		text-decoration: none;
-	
-	
-	
+	-moz-transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, color 0.2s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, color 0.2s ease-in-out;
+	-ms-transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s
+		ease-in-out, color 0.2s ease-in-out;
+	display: inline-block;
+	height: 2.75em;
+	background-color: transparent;
+	border-radius: 4px;
+	border: solid 2px #eeb6a5;
+	color: #414f57 !important;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover,
@@ -1264,8 +1265,6 @@ ol.default li {
 		width: 45em; /* 패널 좌우크기 */
 		background: #ffffff;
 		box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25); /* 패널 그림자 */
-		
-		
 		position: relative;
 		max-width: 100%;
 		min-width: 27em;
@@ -1421,8 +1420,6 @@ ol.default li {
 		width: 100%;
 		padding: 0.75em 0 0.75em 0;
 		text-align: center;
-		
-		
 	}
 
 	/* Wrapper */

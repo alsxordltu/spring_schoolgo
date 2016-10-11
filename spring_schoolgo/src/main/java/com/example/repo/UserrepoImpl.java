@@ -26,6 +26,17 @@ public class UserrepoImpl implements Userrepo {
 		return template.update(stmt, user);
 	}
 	
+	@Override
+	public int update(User user) {
+		String stmt = NAME_SPACE + "update";
+		return template.update(stmt,user);
+	}	
+	
+	@Override
+	public int delete(User user) {
+		String stmt = NAME_SPACE + "delete";
+		return template.delete(stmt,user);
+	}	
 
 	@Override
 	public List<String> getUser() {
@@ -46,5 +57,9 @@ public class UserrepoImpl implements Userrepo {
 		String stmt = NAME_SPACE + "getUserInfobyId";
 		return template.selectOne(stmt,userId);
 	}
-	
+
+
+
+
+
 }

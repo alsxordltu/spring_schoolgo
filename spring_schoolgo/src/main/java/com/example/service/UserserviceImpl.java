@@ -27,6 +27,19 @@ public class UserserviceImpl implements Userservice {
 	}
 
 	
+	@Override
+	public int update(User user) {
+		int result = repo.update(user);
+		logger.trace("update service 호출");
+		return result;
+	}
+	
+	@Override
+	public int delete(User user) {
+		int result = repo.delete(user);
+		logger.trace("delete service 호출");
+		return result;
+	}	
 	
 	/*id값으로 id와 pass가 일치하는지*/
 	@Override
@@ -53,6 +66,13 @@ public class UserserviceImpl implements Userservice {
 		user = repo.getUserInfo(id);
 		return user;
 	}
+
+
+
+
+
+
+	
 	
 
 
