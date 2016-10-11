@@ -33,6 +33,7 @@
 				style="padding: 50px 100px 50px 100px;">
 
 				<div style="height: 1000px;">
+
 					개인정보수정
 					<sform:form method="post" action="updateUser" modelAttribute="userInfo">
 						<div class="field">
@@ -73,7 +74,6 @@
 							phoneNum
 							<sform:input type="text" path="phoneNum" placeholder="Phone" />
 							<sform:errors element="span" path="phoneNum"></sform:errors>
-
 						</div>
 						<div>
 							<input type="submit" value="수정하기" >
@@ -86,20 +86,6 @@
 
 				</div>
 				<br>
-
-
-				<%-- 						<br>
-						<sform:label path="name" class="inputlabel">이름</sform:label>
-						<sform:input path="name" />
-						<br>
-						<sform:label path="password" class="inputlabel">비밀번호</sform:label>
-						<sform:input path="password" />
-						<br>
-						<sform:label path="email" class="inputlabel">이메일</sform:label>
-						<sform:input path="email" type="email" />
-						<br> --%>
-
-
 
 			</article>
 

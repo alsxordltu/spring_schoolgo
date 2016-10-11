@@ -6,11 +6,14 @@
 <mapper namespace="com.example.StationMapper">
 
 	<select id="searchStation" resultMap="searchStationByName" parameterType="String">
-		select station_nm from subway where station_nm like #{input}
+		select STATION_CD, STATION_NM, LINE_NUM, FR_CODE from subway where station_nm like #{input}
 	</select>
 	
 	<resultMap type="String" id="searchStationByName">
 		<id column="STATION_NM" property="stationName"/> 
+		<result column="STATION_NM" property="pass"/>
+		<result column="LINE_NUM" property="userName"/>
+		<result column="FR_CODE" property="nickName"/>
 	</resultMap>
 	<!-- <insert id="insert" parameterType="user">
 		insert into tuser
