@@ -19,7 +19,13 @@
 </body>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
+
 	$("#getdata").on("click", function(){
+		
+		
+		
+	});
+	/* $("#getdata").on("click", function(){
 		var key = "9nRC4NTh4waNv7iJtSs7W%2BddezbrVvRMb2uaeoM2XVenvorbVJARTyddCJPpzEurbhXBY8KbrZXBlMF4zmEkIg%3D%3D";
 		//var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=9nRC4NTh4waNv7iJtSs7W%2BddezbrVvRMb2uaeoM2XVenvorbVJARTyddCJPpzEurbhXBY8KbrZXBlMF4zmEkIg%3D%3D&contentTypeid=15&areaCode=4&sigunguCode=4&MobileOS=ETC&MobileApp=AppTesting&_type=json";
 		var url = "http://openapi.seoul.go.kr:8088/4e6974774f616c733130374851774c43/json/StationDstncReqreTimeHm/1/122";
@@ -47,6 +53,6 @@
 				alert("fail: "+error);
 			}
 		});
-	});
+	}); */
 </script>
 </html>

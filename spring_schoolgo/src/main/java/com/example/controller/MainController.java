@@ -48,8 +48,10 @@ public class MainController {
 	@RequestMapping(value="/gototimetable", method=RequestMethod.GET) public
 	String gototimetable(){ return "mypage/1timetable"; }	
 	
-	@RequestMapping(value="/gotoupdateprofile", method=RequestMethod.GET) public
-	String gotoupdateprofile(){ return "mypage/2updateprofile"; }	
+	@RequestMapping(value="/gotoupdateprofile", method=RequestMethod.GET) 
+	public String gotoupdateprofile(){
+		return "mypage/2updateprofile"; 
+	}	
 	
 	@RequestMapping(value="/gotoroutemanager", method=RequestMethod.GET) public
 	String gotoroutemanager(){ return "mypage/3routemanager"; }	

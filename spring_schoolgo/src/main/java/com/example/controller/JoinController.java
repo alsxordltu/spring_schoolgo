@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,14 +38,18 @@ public class JoinController {
 		return "redirect:/gototutorial";
 	}
 	
+	
 	@RequestMapping(value="/updateUser", method=RequestMethod.GET)
 	public String updateUser(Model model,  @RequestParam String id){
-		User userinfo = service.getUserInfo(id);
-		model.addAttribute("userInfo",userinfo);
-		return "2updateprofile";
-	
+		User user;
+		user = service.getUserInfo(id);
+		model.addAttribute("userInfo", user);
+		
+		
+		return "mypage/2updateprofile"; 
 	}
 
+	
 	
 	@InitBinder
 	   public void setEssentialFields(WebDataBinder binder){

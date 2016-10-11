@@ -17,7 +17,7 @@ public class StationRepoImpl implements StationRepo {
 	private final String NAME_SPACE = "com.example.StationMapper.";
 
 	@Override
-	public List<String> findStation(String input) {
+	public List<Station> findStation(String input) {
 		String stmt = NAME_SPACE + "searchStation";
 		return template.selectList(stmt, input);
 	}	
