@@ -18,13 +18,13 @@
 <body>
 
 	<!-- Wrapper-->
-	<div id="logo" style="float:left">
-		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>	
+	<div id="logo" style="float: left">
+		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>
 	</div>
-	<div id="welcome" style="float:right; margin:15px 10px 0 0;">
-		<h3>${nickName}님☆  환영합니다^-^ </h3>
-		<form name="logout" name="logout" action="logout">
-		<input type="submit" value="로그아웃">
+	<div id="welcome" style="float: right; margin: 15px 10px 0 0;">
+		<h5>${nickName}님☆환영합니다^-^</h5>
+		<form name="logout" action="logout" style="margin-bottom: 0;">
+			<input type="submit" value="로그아웃">
 		</form>
 	</div>
 	<div id="wrapper">
@@ -60,23 +60,28 @@
 
 			<!-- Me -->
 
-			<article id="me" class="panel" style="padding:50px 100px 50px 100px; height:500px;">
-			
-			
-			<div id="route1" class="routeclass" style="width:700px; height:auto;">
-			<button id="btn1" style="width:600px; height:50px; margin:15px 50px 15px 50px;">btn1</button>
-			</div>
-			
-			<div id="route11" class="routeclass" style="width:700px; height:auto; display:none;">
-			<button id="btn11" style="width:150px; height:40px; margin:15px 35px 15px 50px; float:left;">btn11</button>
-			<button id="btn12" style="width:150px; height:40px; margin:15px 35px 15px 35px; float:left;">btn12</button>
-			<button id="btn13" style="width:150px; height:40px; margin:15px 50px 15px 35px; float:left;">btn13</button>
-			</div>
-		
-			
-					
+			<article id="me" class="panel"
+				style="padding: 50px 120px 65px 120px;">
 
-</article>
+
+				<div id="route1" class="routeclass"
+					style="width: 600px; height: auto; margin-bottom:15px;">
+					<button id="btn1" style="width: 600px; height: 50px;">섭이의
+						루트1</button>
+				</div>
+
+				<div id="route11" class="routeclass"
+					style="width: 600px; height: auto; display: none;">
+					<button id="btn11" style="width: 150px; height: 40px; float: left;">등교하기</button>
+					<button id="btn12"
+						style="width: 150px; height: 40px; margin: 0 70px 0 70px; float: left;">하교하기</button>
+					<button id="btn13" style="width: 150px; height: 40px; float: left;">루트정보</button>
+				</div>
+
+
+
+
+			</article>
 
 
 			<!-- addroute -->
@@ -127,11 +132,11 @@
 				</header>
 
 				<div style="margin: 80px auto auto 200px">
-					<input type="button" value="등교시간 등록하기" id="timetable" onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp 
-					<input type="button" value="개인정보 수정" id="updateprofile"
-
-						onclick="location.href='updateUser?id=${userId}'" >
-						<%-- "${updateUser }?id=hong" --%>
+					<input type="button" value="등교시간 등록하기" id="timetable"
+						onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp <input
+						type="button" value="개인정보 수정" id="updateprofile"
+						onclick="location.href='updateUser?id=${userId}'">
+					<%-- "${updateUser }?id=hong" --%>
 				</div>
 
 
@@ -168,66 +173,86 @@
 
 			<!-- contactus -->
 			<article id="contactus" class="panel">
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="slogan">
-        <h3>Get in Touch</h3>
-        <div class="text1"> Gyrto ivamus at magna non nunc tristique rhoncusu. Lliquam nibh ante, egestas id dictum a, commodo luctus mibero. Praesent faucibus malesuada faucibu. Monec laoreet metus id laoreet malesuadw. </div>
-      </div>
-    </div>
-    <div class="clear"></div>
-    <div class="map">
-      <div class="grid_3">
-        <div class="text1">Address</div>
-        <address>
-        <dl>
-          <dt>The Company Name Inc.<br>
-            8901 Marmora Road,<br>
-            Glasgow, D04 89GR. </dt>
-          <dd><span>Freephone:</span>+1 800 559 6580</dd>
-          <dd><span>Telephone:</span>+1 800 603 6035</dd>
-          <dd><span>FAX:</span>+1 800 889 9898</dd>
-          <dd>E-mail: <a href="#" class="link-1">mail@demolink.org</a></dd>
-          <dd>Skype: <a href="#" class="link-1">@skypename</a></dd>
-        </dl>
-        </address>
-      </div>
-      <div class="grid_3">
-        <div class="text1">&nbsp;</div>
-        <figure>
-          <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
-        </figure>
-      </div>
-      <div class="grid_5 prefix_1">
-        <div class="text1">Ask a Question</div>
-        <form id="form" action="#">
-          <div class="success_wrapper">
-            <div class="success">Contact form submitted!<br>
-              <strong>We will be in touch soon.</strong> </div>
-          </div>
-          <fieldset>
-            <label class="name">
-              <input type="text" value="Name:">
-              <br class="clear">
-              <span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
-            <label class="email">
-              <input type="text" value="E-mail:">
-              <br class="clear">
-              <span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
-            <label class="message">
-              <textarea>Message:</textarea>
-              <br class="clear">
-              <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span> </label>
-            <div class="clear"></div>
-            <div class="btns"><a data-type="submit" class="link1">Send</a>
-              <div class="clear"></div>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
+				<div class="container_12">
+					<div class="grid_12">
+						<div class="slogan">
+							<h3>Get in Touch</h3>
+							<div class="text1">Gyrto ivamus at magna non nunc tristique
+								rhoncusu. Lliquam nibh ante, egestas id dictum a, commodo luctus
+								mibero. Praesent faucibus malesuada faucibu. Monec laoreet metus
+								id laoreet malesuadw.</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="map">
+						<div class="grid_3">
+							<div class="text1">Address</div>
+							<address>
+								<dl>
+									<dt>
+										The Company Name Inc.<br> 8901 Marmora Road,<br>
+										Glasgow, D04 89GR.
+									</dt>
+									<dd>
+										<span>Freephone:</span>+1 800 559 6580
+									</dd>
+									<dd>
+										<span>Telephone:</span>+1 800 603 6035
+									</dd>
+									<dd>
+										<span>FAX:</span>+1 800 889 9898
+									</dd>
+									<dd>
+										E-mail: <a href="#" class="link-1">mail@demolink.org</a>
+									</dd>
+									<dd>
+										Skype: <a href="#" class="link-1">@skypename</a>
+									</dd>
+								</dl>
+							</address>
+						</div>
+						<div class="grid_3">
+							<div class="text1">&nbsp;</div>
+							<figure>
+								<iframe
+									src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+							</figure>
+						</div>
+						<div class="grid_5 prefix_1">
+							<div class="text1">Ask a Question</div>
+							<form id="form" action="#">
+								<div class="success_wrapper">
+									<div class="success">
+										Contact form submitted!<br> <strong>We will be
+											in touch soon.</strong>
+									</div>
+								</div>
+								<fieldset>
+									<label class="name"> <input type="text" value="Name:">
+										<br class="clear"> <span class="error error-empty">*This
+											is not a valid name.</span><span class="empty error-empty">*This
+											field is required.</span>
+									</label> <label class="email"> <input type="text"
+										value="E-mail:"> <br class="clear"> <span
+										class="error error-empty">*This is not a valid email
+											address.</span><span class="empty error-empty">*This field is
+											required.</span>
+									</label> <label class="message"> <textarea>Message:</textarea>
+										<br class="clear"> <span class="error">*The
+											message is too short.</span> <span class="empty">*This field
+											is required.</span>
+									</label>
+									<div class="clear"></div>
+									<div class="btns">
+										<a data-type="submit" class="link1">Send</a>
+										<div class="clear"></div>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
 			</article>
 
 
@@ -253,7 +278,7 @@
 		<script src="main_js/util.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="main_js/main.js"></script>
-	
+
 		<!-- Footer -->
 		<div id="footer">
 			<ul class="copyright">
@@ -271,10 +296,17 @@
 	<script src="main_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
-<script>
- $("#btn1").on("click",function(){
-	$("#route11").css("display","block");
-}); 
-</script> 
+	<script>
+		var index = 0;
+		$("#btn1").on("click", function() {
+			if (index == 0) {
+				$("#route11").fadeIn(350);
+				index++;
+			} else {
+				$("#route11").fadeOut(350);
+				index--;
+			}
+		});
+	</script>
 </body>
 </html>

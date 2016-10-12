@@ -1044,7 +1044,7 @@ ol.default li {
 	color: #ffffff;
 	width: 1em;
 	height: 2em; /* 아이콘들 위치 */
-	line-height: 3em; /* 아이콘들 위치(상하) */ /* 초기값 0.9 */
+	line-height: 7em; /* 아이콘들 위치(상하) */ /* 초기값 0.9 */ /* 커질수록 내려감 */
 }
 
 #nav a.icon:before {
@@ -1178,6 +1178,7 @@ ol.default li {
 		width: 45em;
 		margin: 0 auto;
 		opacity: 0.00001;
+		padding-top: 3em;
 	}
 	#wrapper.tall {
 		padding-bottom: 1em; /* 푸터 아래 간격 */
@@ -1186,8 +1187,8 @@ ol.default li {
 	/* Nav */
 	#nav {
 		text-align: center;
-		height: 10em;
-		padding-top: 5em;
+		height: 13em;
+		/* padding-top: 1em; */
 		cursor: default;
 	}
 	#nav a {
@@ -1208,7 +1209,7 @@ ol.default li {
 		display: block;
 		position: absolute;
 		left: 50%; /* 건들지 말기 그냥 */
-		bottom: -1.2em; /* 세모 절대위치(상하) */
+		bottom: -3.2em; /* 세모 절대위치(상하) */	/* 커질수록 내려감 */
 		margin-left: -0.43em; /* 세모 절대위치(좌우) */
 		border-bottom: solid 0em #ffffff; /* 비 선택시 세모(안건드려도디) */
 		border-left: solid 0.5em transparent;
@@ -1223,7 +1224,7 @@ ol.default li {
 		position: absolute;
 		background: #222222;
 		color: #ffffff;
-		top: -0.5em; /* 아이콘위에마우스올리면나타나는 것과 아이콘과의 간격 */
+		top: 5em; /* 아이콘위에마우스올리면나타나는 것과 아이콘과의 간격 */   /* 커질수록 내려감 */ 
 		font-size: 0.4em; /* 아이콘위에마우스올리면나타나는 글씨크기 */
 		height: 2em; /* 아이콘위에마우스올리면나타나는 글씨칸크기 (상하)*/
 		line-height: 2.0em; /* 아이콘위에마우스올리면나타나는 글씨의상하위치 */

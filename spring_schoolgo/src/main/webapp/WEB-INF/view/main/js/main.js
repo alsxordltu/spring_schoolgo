@@ -70,16 +70,22 @@
 				// Body.
 					$body._resize = function() {
 						var factor = ($window.width() * $window.height()) / (1440 * 900);
-						$body.css('font-size', Math.min(Math.max(Math.floor(factor * settings.sizeFactor), settings.sizeMin), settings.sizeMax) + 'pt');
+						/*$body.css('font-size', Math.min(Math.max(Math.floor(factor * settings.sizeFactor), settings.sizeMin), settings.sizeMax) + 'pt');*/
 						$main.height(panels[activePanelId].outerHeight());
 						$body._reposition();
 					};
 
+					/*$body._reposition = function() {
+						if (skel.vars.touch && (window.orientation == 0 || window.orientation == 180))
+							$wrapper.css('padding-top', Math.max((($window.height() - (panels[activePanelId].outerHeight() + $footer.outerHeight())) / 2) - $nav.height(), 30) + 'px');
+						else
+							$wrapper.css('padding-top', ((($window.height() - panels[firstPanelId].height()) / 2) - $nav.height()) + 'px');
+					};*/
 					$body._reposition = function() {
 						if (skel.vars.touch && (window.orientation == 0 || window.orientation == 180))
-							$wrapper.css('padding-top', 0+ 'px');
+							$wrapper.css('padding-top', 0 + 'px');
 						else
-							$wrapper.css('padding-top', 0+ 'px');
+							$wrapper.css('padding-top', 0 + 'px');
 					};
 
 				// Panels.
