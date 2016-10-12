@@ -8,4 +8,7 @@ public interface Userservice {
 	int delete(User user);
 	int login(String id, String pass);
 	User getUserInfo(String id);
+	int duplicationCheckId(String id);
+	int duplicationCheckNickname(String nickname);
+	
 }
