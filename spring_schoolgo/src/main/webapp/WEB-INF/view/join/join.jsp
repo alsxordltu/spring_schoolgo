@@ -29,11 +29,21 @@
 					
 						<h2>JOIN</h2>
 						<sform:form method="post" action="join" modelAttribute="user">
+							
 							<div class="field">
-								<sform:input path="userId"  placeholder="Id"/>
-								<sform:errors element="span" path="userId"></sform:errors>
+							
+								<sform:input path="userId"  placeholder="Id" style="width:200px; float:left"/>
+								<input type="submit" value="중복확인"><p>
+								
+						
+								<sform:errors element="span" path="userId">
+								</sform:errors>
+							
+								
+								
 				<!-- 				<input type="text" name="userId" id="userId" placeholder="Id" />
 				 -->		</div>
+				 
 							<div class="field">
 							<sform:input type="password" path="pass" placeholder="Pass"/>
 							<sform:errors element="span" path="pass"></sform:errors>
@@ -45,7 +55,8 @@
 <!-- 								<input type="text" name="userName" id="userNane" placeholder="Name" />
  -->							</div>
 							<div class="field">
-								<sform:input path="nickName"  placeholder="Nickname"/>
+								<sform:input path="nickName"  placeholder="Nickname" style="width:200px; float:left"/>
+								<input type="submit" value="중복확인"><p>
 								<sform:errors element="span" path="nickName"></sform:errors>
 <!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
  -->							</div>
