@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 
 <!--
@@ -34,7 +35,11 @@
 					<sform:input path="userId" placeholder="Id"
 						style="width:200px; float:left" />
 						
+
 					<input type="button" onclick="location.href='duplicationCheckId?id=${userId}'" value="중복확인"/>
+
+					<input type="button"  id="checkId" value="중복확인">
+
 					<p>
 
 
@@ -118,7 +123,12 @@
 
 	<!-- Scripts -->
 	<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+
+</body>
+<script src="http://code.jquery.com/jquery.js"></script>
 	<script>
+			
+	
 		if ('addEventListener' in window) {
 			window.addEventListener('load', function() {
 				document.body.className = document.body.className.replace(
@@ -127,15 +137,37 @@
 			document.body.className += (navigator.userAgent
 					.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 		}
-
-		$("#userId")
+		<c:url value="/duplicationCheckId" var="check" />
+		$("#checkId").on("click", function(){
+			$.ajax({
+				url : "${check}",
+				type : "post",
+				data : {
+					"input" : $("#userId").val()
+				},
+				success:function(res){
+					if(res==0){
+						alert("중복 ID입니다.");
+					}else{
+						alert("사용 가능한 ID입니다.");
+					}
+					
+					
+				},
+				error : function(xhr, status, error){
+					alert(error);
+				}
+			});
+		});
+		/* $("#userId")
 				.keyup(
 						function() {
-							$
-									.ajax({
-										url : "/duplicationCheck",
+							$.ajax({
+										url : "${check}",
 										type : "post",
-										data : $("form").serialize(),
+										data : {
+											"input" : $("#userId").val()
+										},
 										success : function(data) {
 											if (data.length > 0) {
 												document
@@ -156,7 +188,6 @@
 									});
 
 							return false;
-						});
+						}); */
 	</script>
-</body>
 </html>
