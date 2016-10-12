@@ -34,7 +34,7 @@
 					<sform:input path="userId" placeholder="Id"
 						style="width:200px; float:left" />
 						
-					<input type="button" onclick="location.href='duplicationCheckId?id=${userId}'" value="중복확인">
+					<input type="button" onclick="location.href='duplicationCheckId?id=${userId}'" value="중복확인"/>
 					<p>
 
 
