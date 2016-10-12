@@ -150,11 +150,11 @@
 			<div id=btndiv style="float:left; width:900px; height:55px;">
 
 				<div style="margin:0 0 0 250px; float:left; ">
-					<a href='gotomain#mypage'><input type="button" value="저장하기"></a>
+					<a href='gotomain#addroute'><input type="button" value="저장하기"></a>
 				</div>
 				
 				<div style="margin:0 0 0 20px; float:left; ">
-					<a href='gotomain#mypage'><input type="button" value="돌아가기"></a>
+					<a href='gotomain#addroute'><input type="button" value="돌아가기"></a>
 				</div>
 				
 				</div>
