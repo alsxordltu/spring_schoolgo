@@ -39,7 +39,14 @@ public class UserserviceImpl implements Userservice {
 		int result = repo.delete(user);
 		logger.trace("delete service 호출");
 		return result;
-	}	
+	}
+	
+	@Override
+	public User getUserInfo(String id) {
+		User user = new User();
+		user = repo.getUserInfo(id);
+		return user;
+	}
 	
 	/*id값으로 id와 pass가 일치하는지*/
 	@Override
@@ -57,14 +64,30 @@ public class UserserviceImpl implements Userservice {
 		}
 		return 1;
 	}
-
+	
+	@Override
+	public int duplicationCheckId(String id) {
+		List<String> userId = repo.getUser();
+		if(userId.contains(id)){
+			logger.trace("서비스, ID중복");
+			return 0;
+		}else{
+			logger.trace("서비스, ID중복체크 통과");
+			return 1;
+		}
+	}
 
 
 	@Override
-	public User getUserInfo(String id) {
-		User user = new User();
-		user = repo.getUserInfo(id);
-		return user;
+	public int duplicationCheckNickname(String nickname) {
+		List<String> nickName = repo.getUser();
+		if(nickName.contains(nickname)){
+			logger.trace("서비스, nickname중복");
+			return 0;
+		}else{
+			logger.trace("서비스, nickname중복체크 통과");
+			return 1;
+		}
 	}
 
 

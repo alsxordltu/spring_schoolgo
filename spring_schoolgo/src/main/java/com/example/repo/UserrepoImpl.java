@@ -58,6 +58,12 @@ public class UserrepoImpl implements Userrepo {
 		return template.selectOne(stmt,userId);
 	}
 
+	@Override
+	public List<String> getUserNickname() {
+		String stmt = NAME_SPACE + "getAllNickname";
+		return template.selectList(stmt);
+	}
+
 
 
 

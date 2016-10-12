@@ -11,6 +11,9 @@
 	<select id="getAllUserId" resultMap="userId">
 		select user_id from tuser
 	</select>
+	<select id="getAllNickname" resultMap="userId">
+		select nickname from tuser
+	</select>
 	
 	<select id="getPassbyId" resultMap="getPass" parameterType="String">
 		select pass from tuser where user_id = #{userId}

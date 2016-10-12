@@ -40,7 +40,7 @@
 							<th style="padding: 0 35px 15px 0;"><h6>금</h6></th>
 
 						</tr>
-
+						
 						<tr>
 
 							<td><input id="mon1" name="mon" type="radio" class="radio">
@@ -52,6 +52,7 @@
 								<label for="tue1" class="radio-label"> <i
 									class="fa fa-check"></i> <span>1교시</span>
 							</label></td>
+}
 
 							<td><input id="wed1" name="wed" type="radio" class="radio">
 								<label for="wed1" class="radio-label"> <i
@@ -68,7 +69,6 @@
 									class="fa fa-check"></i> <span>1교시</span>
 							</label></td>
 						</tr>
-
 
 						<tr>
 
@@ -270,16 +270,16 @@
 
 
 
-			<div id=btndiv>
+				<div id=btndiv>
 
-				<div style="margin:0 0 0 200px; float:left; ">
-					<a href='gotomain#mypage'><input type="button" value="저장하기"></a>
-				</div>
-				
-				<div style="margin:0 0 0 20px; float:left; ">
-					<a href='gotomain#mypage'><input type="button" value="돌아가기"></a>
-				</div>
-				
+					<div style="margin: 0 0 0 200px; float: left;">
+						<a href='gotomain#mypage'><input type="button" value="저장하기"></a>
+					</div>
+
+					<div style="margin: 0 0 0 20px; float: left;">
+						<a href='gotomain#mypage'><input type="button" value="돌아가기"></a>
+					</div>
+
 				</div>
 
 
