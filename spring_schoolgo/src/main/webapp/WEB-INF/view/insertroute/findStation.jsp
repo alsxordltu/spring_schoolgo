@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,9 @@
 </style>
 </head>
 <body>
+	
 	<input type="text" id="stationName">
-	<button id="getdata" onclick="location.href='gotofindStation?input=${#sationName}'">역 검색</button>
+	<button id="getdata" onclick="findStation()">역 검색</button>
 	<table id="info">
 		
 		
@@ -21,10 +23,13 @@
 </body>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
-function test(){
-	alert("test");
+
+function findStation(){
+	var string = $("#stationName").val();
+	location.href="findstation?input="+string;
 }
-/* <c:url value="/findstation" var="fstation" />
+
+/*  <c:url value="/findstation" var="fstation" />
 	$("#getdata").on("click", function(){
 		
 		$.ajax({
@@ -49,6 +54,6 @@ function test(){
 			}
 		});
 	});
- */
+  */
 </script>
 </html>
