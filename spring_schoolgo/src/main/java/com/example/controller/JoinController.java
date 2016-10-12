@@ -69,12 +69,19 @@ public class JoinController {
 	}*/
 	
 	@RequestMapping(value="/duplicationCheckId", method=RequestMethod.POST)
-	public @ResponseBody int findStation(@RequestParam String input){
-		int result = service.duplicationCheckId(input);
+	public @ResponseBody int checkId(@RequestParam String id){
+		int result = service.duplicationCheckId(id);
 		return result;
 	}
 
-	
+	@RequestMapping(value="/duplicationCheckNickname", method=RequestMethod.POST)
+	public @ResponseBody int checkNickname(@RequestParam String nickname){
+		logger.trace("듀플컨트롤러" );
+		int result = service.duplicationCheckNickname(nickname);
+		return result;
+	}
+
+
 	@InitBinder
 	   public void setEssentialFields(WebDataBinder binder){
 	      binder.setRequiredFields("userId", "pass", "userName","nickName","email","phoneNum");

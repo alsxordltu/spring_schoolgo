@@ -64,8 +64,8 @@
             <div class="field">
                <sform:input path="nickName" placeholder="Nickname"
                   style="width:200px; float:left" />
-               <input type="submit" value="중복확인">
-               <p>
+                  <input type="button"  id="checkNickname" value="중복확인">
+            <p>
                   <sform:errors element="span" path="nickName"></sform:errors>
                   <!--                         <input type="text" name="nickName" id="nickName" placeholder="Nickname" />
  -->
@@ -134,13 +134,15 @@
          document.body.className += (navigator.userAgent
                .match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
       }
+      
+      
       <c:url value="/duplicationCheckId" var="check" />
       $("#checkId").on("click", function(){
          $.ajax({
             url : "${check}",
             type : "post",
             data : {
-               "input" : $("#userId").val()
+               "id" : $("#userId").val()
             },
             success:function(res){
                if(res==0){
@@ -156,6 +158,32 @@
             }
          });
       });
+      
+      <c:url value="/duplicationCheckNickname" var="nickcheck" />
+          $("#checkNickname").on("click", function(){
+             $.ajax({
+                url : "${nickcheck}",
+                type : "post",
+                data : {
+                   "nickname" : $("#nickName").val()
+                },
+                success:function(res){
+                   if(res==0){
+                      alert("중복 닉네임입니다.");
+                   }else{
+                      alert("사용 가능한 닉네임입니다.");
+                   }
+                   
+                   
+                },
+                error : function(xhr, status, error){
+                   alert(error);
+                }
+             });
+          });
+      
+      
+      
       /* $("#userId")
             .keyup(
                   function() {

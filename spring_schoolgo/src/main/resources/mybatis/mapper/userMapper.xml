@@ -11,7 +11,7 @@
 	<select id="getAllUserId" resultMap="userId">
 		select user_id from tuser
 	</select>
-	<select id="getAllNickname" resultMap="userId">
+	<select id="getAllNickname" resultMap="nickname">
 		select nickname from tuser
 	</select>
 	
@@ -33,7 +33,12 @@
 		
 	<resultMap type="String" id="userId">
 		<id column="user_id" property="userId"/> 
+
 	</resultMap>
+	<resultMap type="String" id="nickname">
+		<id column="nickname" property="nickName"/> 
+	</resultMap>
+
 	
 	<resultMap type="String" id="getPass">
 		<result column="pass" property="pass"/> 
