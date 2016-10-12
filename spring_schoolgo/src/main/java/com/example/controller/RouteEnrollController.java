@@ -19,26 +19,16 @@ public class RouteEnrollController {
 	
 	private static Logger logger = LoggerFactory.getLogger(RouteEnrollController.class);
 	
-	/*@RequestMapping(value="/gotologin", method=RequestMethod.GET)
-	public String gotologinForm(){
-		return "login/login";
-	}
-		
-	@RequestMapping(value="/gotojoin", method=RequestMethod.GET)
-	public String gotojoinForm(User user){
-		return "join/join";
-	}*/
-	
 	@Autowired
 	StationService service;
 	
-	@RequestMapping(value="/findstation", method=RequestMethod.POST)
-	public @ResponseBody List<Station> findStation(@RequestParam String input){
+	@RequestMapping(value="/findstation", method=RequestMethod.GET)
+	public String findStation(@RequestParam String input){
 		
 		List<Station> station = service.findStation(input);
 		logger.trace("컨트롤단, 검색 결과 : {}", station);
 		
-		return station;
+		return "insertroute/findStation";
 	}
 
 }

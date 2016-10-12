@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.config.ApplicationConfig;
 import com.example.repo.Userrepo;
+import com.example.service.Userservice;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=ApplicationConfig.class)
 public class GetUserTest {
@@ -23,6 +24,9 @@ public class GetUserTest {
 	
 	@Autowired
 	Userrepo repo;
+	
+	@Autowired
+	Userservice service;
 	
 	
 	@Test
@@ -41,7 +45,8 @@ public class GetUserTest {
 	
 	@Test
 	public void test3(){
-		List<String> nickname = repo.getUserNickname();
+		int result = service.duplicationCheckNickname("택택택");
+		logger.trace("결과 : {}", result);
 		
 	}
 

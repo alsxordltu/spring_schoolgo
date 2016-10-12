@@ -80,9 +80,9 @@ public class UserserviceImpl implements Userservice {
 
 	@Override
 	public int duplicationCheckNickname(String nickname) {
-		List<String> Nickname = repo.getUserNickname();
-		logger.trace("서비스, nicknameList  : {}", Nickname);
-		if(Nickname.contains(nickname)){
+		List<String> nickName = repo.getUserNickname();
+		logger.trace("서비스, nicknameList  : {}", nickName);
+		if(nickName.contains(nickname)){
 			logger.trace("서비스, nickname중복");
 			return 0;
 		}else{
