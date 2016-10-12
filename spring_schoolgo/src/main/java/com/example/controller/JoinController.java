@@ -41,13 +41,15 @@ public class JoinController {
 	}
 	
 	
-	@RequestMapping(value = "/duplicationCheckId")
-	public String duplicationCheckId(Model model,  HttpServletRequest request, User user) throws Exception {
+	@RequestMapping(value = "/duplicationCheckId", method = RequestMethod.GET)
+	public String duplicationCheckId(Model model, @RequestParam String id) {
 		
-		HttpSession session = request.getSession();
-		String id = user.getUserId();
-		session.setAttribute("userId", id);
-		int result = service.duplicationCheckId(id);
+		logger.trace("duplicationCheckId 컨트롤러");
+		User userinfo = new User();
+		userinfo = service.getUserInfo(id);
+		logger.trace("id확인 : {}", id);
+		String userid = userinfo.getUserId();
+		int result = service.duplicationCheckId(userid);
 		logger.trace("컨트롤러, userId 중복체크 - {}", result);
 		return "join/join";
 	}
