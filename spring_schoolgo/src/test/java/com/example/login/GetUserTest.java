@@ -46,8 +46,8 @@ public class GetUserTest {
 	@Test
 	public void test3(){
 		int result = service.duplicationCheckNickname("택택택");
-		logger.trace("결과 : {}", result);
-		
+		logger.trace("결과 : {}", result);	
+
 	}
 
 }

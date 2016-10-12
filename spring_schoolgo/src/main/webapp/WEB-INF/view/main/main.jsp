@@ -72,9 +72,8 @@
 
 				<div id="route11" class="routeclass"
 					style="width: 600px; height: auto; display: none;">
-					<button id="btn11" style="width: 150px; height: 40px; float: left;">등교하기</button>
-					<button id="btn12"
-						style="width: 150px; height: 40px; margin: 0 70px 0 70px; float: left;">하교하기</button>
+					<button id="btn11" style="width: 150px; height: 40px; float: left;" onclick="location.href='gotoroute1go'">등교하기</button>
+					<button id="btn12" style="width: 150px; height: 40px; margin: 0 70px 0 70px; float: left;" onclick="location.href='gotoroute1come'">하교하기</button>
 					<button id="btn13" style="width: 150px; height: 40px; float: left;">루트정보</button>
 				</div>
 
