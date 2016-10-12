@@ -30,11 +30,11 @@
 			<sform:form method="post" action="join" modelAttribute="user">
 
 				<div class="field">
-					
+
 					<sform:input path="userId" placeholder="Id"
-						style="width:200px; float:left" />
-						
-					<input type="button" onclick="location.href='duplicationCheckId?id=${userId}'" value="중복확인"/>
+						style="width:200px; float:left" id="idcheck" />
+
+					<input type="button" id="userId" value="중복확인" />
 					<p>
 
 
@@ -128,35 +128,7 @@
 					.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 		}
 
-		$("#userId")
-				.keyup(
-						function() {
-							$
-									.ajax({
-										url : "/duplicationCheck",
-										type : "post",
-										data : $("form").serialize(),
-										success : function(data) {
-											if (data.length > 0) {
-												document
-														.getElementById("duplicateResult").value = "이미 해당 아이디로 가입된 회원가 있습니다.";
-											} else {
-												if ($("#userId").val().length < 5) {
-													document
-															.getElementById("duplicateResult").value = "아이디를 5자 이상 입력해주세요.";
-												} else {
-													document
-															.getElementById("duplicateResult").value = "사용 가능한 아이디입니다.";
-												}
-											}
-										},
-										error : function(error) {
-											alert(error.statusText);
-										}
-									});
 
-							return false;
-						});
 	</script>
 </body>
 </html>

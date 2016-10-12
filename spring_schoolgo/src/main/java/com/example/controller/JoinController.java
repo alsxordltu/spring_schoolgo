@@ -63,6 +63,7 @@ public class JoinController {
 		logger.trace("컨트롤러, nickname 중복체크 - {}", result);
 		return "join/join";
 	}
+
 	
 	@InitBinder
 	   public void setEssentialFields(WebDataBinder binder){
