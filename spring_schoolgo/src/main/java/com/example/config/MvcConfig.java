@@ -89,7 +89,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     //주석
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-    	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join","/gototutorial","/gotofindid","/gotofindpw","/duplicationCheckId");
+    	registry.addInterceptor(new SessionCheckInterceptor()).excludePathPatterns("/gotologin","/gotojoin","/login","/join","/gototutorial","/gotofindid","/gotofindpw","/duplicationCheckId","/duplicationCheckNickname");
     }
 
 

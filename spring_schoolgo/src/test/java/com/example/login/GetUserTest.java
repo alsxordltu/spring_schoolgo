@@ -42,7 +42,7 @@ public class GetUserTest {
 	@Test
 	public void test3(){
 		List<String> nickname = repo.getUserNickname();
-		
+		assertThat(nickname, is(notNullValue()));	
 	}
 
 }
