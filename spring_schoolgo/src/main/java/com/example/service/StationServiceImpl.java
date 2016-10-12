@@ -25,6 +25,7 @@ public class StationServiceImpl implements StationService {
 	public List<Station> findStation(String input) {
 		String change = "%" + input + "%";
 		List<Station> station = sRepo.findStation(change);
+		logger.trace("서비스단, 검색 결과 : {}", station);
 		return station;
 	}
 }

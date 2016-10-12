@@ -20,7 +20,7 @@
 	
 			<nav id="nav" class="navtable" style="display:block;">
 			<div style="float:left; width:220px; height:100px"></div>
-			<a id="animate" ><i class="icon fa-plus-circle fa-lg">Insert</i></a>
+			<a id="animate" ><i class="icon fa-user fa-lg">Manager</i></a>
 		</nav>	
 		
 		<!-- Main -->
@@ -54,7 +54,7 @@
 <script>
 $("document").ready(function(){
 	$("#animate").animate({
-		left:160
+		left:8s0
 		/* top:-140 */
 	});
 });

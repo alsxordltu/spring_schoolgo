@@ -25,24 +25,15 @@
 		<!-- Main -->
 		<section id="main">
 
-
-			<h2>LOGIN ^_^</h2>
-
-			<sform:form method="post" action="login" modelAttribute="user">
-				<div class="field">
-					<input type="text" name="id" id="id" placeholder="Id" />
-				</div>
-				<div class="field">
-					<input type="password" name="pass" id="pass" placeholder="Pass" />
-				</div>
-
-
+			<h5>로그인에 실패하였습니다.</h5>
+			<h6>ID와 비밀번호를 확인하세요.</h6>
+			
 				<div>
-					<input type="submit" value="로그인"> 
-					<input type="button" onclick="location.href='index.jsp'" value="돌아가기">
-				
+					<input type="button" onclick="location.href='gotofindid'" value="ID 찾기">
+					<input type="button" onclick="location.href='gotofindpw'" value="비밀번호 찾기">	 
+					<input type="button" onclick="location.href='gotologin'" value="돌아가기">
 				</div>
-			</sform:form>
+			
 
 
 		</section>

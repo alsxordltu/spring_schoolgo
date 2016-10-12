@@ -25,24 +25,13 @@
 		<!-- Main -->
 		<section id="main">
 
-
-			<h2>LOGIN ^_^</h2>
-
-			<sform:form method="post" action="login" modelAttribute="user">
-				<div class="field">
-					<input type="text" name="id" id="id" placeholder="Id" />
-				</div>
-				<div class="field">
-					<input type="password" name="pass" id="pass" placeholder="Pass" />
-				</div>
-
-
+			<h5>ID찾기</h5>
+			
+			
 				<div>
-					<input type="submit" value="로그인"> 
-					<input type="button" onclick="location.href='index.jsp'" value="돌아가기">
-				
+					<input type="button" onclick="location.href='gotologin'" value="돌아가기">
 				</div>
-			</sform:form>
+			
 
 
 		</section>

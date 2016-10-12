@@ -13,5 +13,10 @@ public class Station {
 	String stationName;
 	String lineNum;
 	String frCode;
+	@Override
+	public String toString() {
+		return "Station [stationCode=" + stationCode + ", stationName=" + stationName + ", lineNum=" + lineNum
+				+ ", frCode=" + frCode + "]";
+	}
 
 }

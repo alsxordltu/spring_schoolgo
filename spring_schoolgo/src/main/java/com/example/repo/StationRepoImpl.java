@@ -20,5 +20,5 @@ public class StationRepoImpl implements StationRepo {
 	public List<Station> findStation(String input) {
 		String stmt = NAME_SPACE + "searchStation";
 		return template.selectList(stmt, input);
-	}	
+	}
 }

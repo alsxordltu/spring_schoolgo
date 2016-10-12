@@ -69,7 +69,19 @@ public class LoginController {
 			return "main/main";
 		}
 		logger.trace("컨트롤러, 로그인 실패");
-		return "login/login";
+		return "login/loginfail";
+	}
+	
+
+	
+	@RequestMapping(value="/gotofindid", method=RequestMethod.GET)
+	public String gotofindId(){
+		return "login/findid";
+	}
+	
+	@RequestMapping(value="/gotofindpw", method=RequestMethod.GET)
+	public String gotofindPw(){
+		return "login/findpw";
 	}
 	
 	

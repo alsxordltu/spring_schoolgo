@@ -60,14 +60,17 @@
 
 			<!-- Me -->
 
-			<article id="me" class="panel" style="padding:50px 100px 50px 100px;">
+			<article id="me" class="panel" style="padding:50px 100px 50px 100px; height:500px;">
 			
 			
-			<div id="route1" class="routeclass" style="width:700px; height:80px;">
+			<div id="route1" class="routeclass" style="width:700px; height:auto;">
 			<button id="btn1" style="width:600px; height:50px; margin:15px 50px 15px 50px;">btn1</button>
-			<button id="btn11" style="width:150px; height:40px; margin:15px 35px 15px 50px; float:left; display:none;">btn11</button>
-			<button id="btn12" style="width:150px; height:40px; margin:15px 35px 15px 35px; float:left; display:none;">btn12</button>
-			<button id="btn13" style="width:150px; height:40px; margin:15px 50px 15px 35px; float:left; display:none;">btn13</button>
+			</div>
+			
+			<div id="route11" class="routeclass" style="width:700px; height:auto; display:none;">
+			<button id="btn11" style="width:150px; height:40px; margin:15px 35px 15px 50px; float:left;">btn11</button>
+			<button id="btn12" style="width:150px; height:40px; margin:15px 35px 15px 35px; float:left;">btn12</button>
+			<button id="btn13" style="width:150px; height:40px; margin:15px 50px 15px 35px; float:left;">btn13</button>
 			</div>
 		
 			
@@ -269,19 +272,9 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
 <script>
-
-$("#btn1").on("click",function(){
-	$("#btn11").fadeIn(350);({
-	});
-	$("#btn11").css("display","block")
-	
-/* 	$("#btn12").fadeIn(350);({
-	});
-	$("#btn13").fadeIn(350);({
-	}); */
-	
-});
-
+ $("#btn1").on("click",function(){
+	$("#route11").css("display","block");
+}); 
 </script> 
 </body>
 </html>

@@ -22,19 +22,30 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
-
 		<!-- Main -->
 		<section id="main">
 
 
 			<h2>JOIN</h2>
 			<sform:form method="post" action="join" modelAttribute="user">
+
 				<div class="field">
-					<sform:input path="userId" placeholder="Id" />
-					<sform:errors element="span" path="userId"></sform:errors>
-					<!-- 				<input type="text" name="userId" id="userId" placeholder="Id" />
+
+					<sform:input path="userId" placeholder="Id"
+						style="width:200px; float:left" />
+					<input type="submit" value="중복확인">
+					<p>
+
+
+						<sform:errors element="span" path="userId">
+						</sform:errors>
+
+
+
+						<!-- 				<input type="text" name="userId" id="userId" placeholder="Id" />
 				 -->
 				</div>
+
 				<div class="field">
 					<sform:input type="password" path="pass" placeholder="Pass" />
 					<sform:errors element="span" path="pass"></sform:errors>
@@ -48,9 +59,12 @@
  -->
 				</div>
 				<div class="field">
-					<sform:input path="nickName" placeholder="Nickname" />
-					<sform:errors element="span" path="nickName"></sform:errors>
-					<!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
+					<sform:input path="nickName" placeholder="Nickname"
+						style="width:200px; float:left" />
+					<input type="submit" value="중복확인">
+					<p>
+						<sform:errors element="span" path="nickName"></sform:errors>
+						<!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
  -->
 				</div>
 				<div class="field">
@@ -62,7 +76,6 @@
 				<div class="field">
 					<sform:input type="text" path="phoneNum" placeholder="Phone" />
 					<sform:errors element="span" path="phoneNum"></sform:errors>
-
 					<!-- 			<input type="text" name="phoneNum" id="phoneNum" placeholder="Phone" />
 					 -->
 				</div>
@@ -88,14 +101,6 @@
 				</div>
 
 			</sform:form>
-				<div>
-				<sform:form method="post" action="duplicationCheckId" modelAttribute="userId">
-					<input type="submit" value="id 중복">
-				</sform:form>
-				<sform:form method="post" action="duplicationCheckNickname"  modelAttribute="userId">				
-					<input type="submit" value="nick 중복">
-				</sform:form>
-				</div>
 
 
 		</section>
@@ -152,6 +157,5 @@
 							return false;
 						});
 	</script>
-
 </body>
 </html>

@@ -9,11 +9,11 @@
 		select STATION_CD, STATION_NM, LINE_NUM, FR_CODE from subway where station_nm like #{input}
 	</select>
 	
-	<resultMap type="String" id="searchStationByName">
-		<id column="STATION_NM" property="stationName"/> 
-		<result column="STATION_NM" property="pass"/>
-		<result column="LINE_NUM" property="userName"/>
-		<result column="FR_CODE" property="nickName"/>
+	<resultMap type="Station" id="searchStationByName">
+		<id column="STATION_CD" property="stationCode"/> 
+		<result column="STATION_NM" property="stationName"/>
+		<result column="LINE_NUM" property="lineNum"/>
+		<result column="FR_CODE" property="frCode"/>
 	</resultMap>
 	<!-- <insert id="insert" parameterType="user">
 		insert into tuser
