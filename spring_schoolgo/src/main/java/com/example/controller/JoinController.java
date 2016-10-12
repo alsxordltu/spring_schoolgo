@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.dto.Station;
 import com.example.dto.User;
 import com.example.service.Userservice;
 
@@ -41,7 +45,7 @@ public class JoinController {
 	}
 	
 	
-	@RequestMapping(value = "/duplicationCheckId", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/duplicationCheckId", method = RequestMethod.GET)
 	public String duplicationCheckId(Model model, @RequestParam String id) {
 		
 		logger.trace("duplicationCheckId 컨트롤러");
@@ -62,6 +66,12 @@ public class JoinController {
 		int result = service.duplicationCheckNickname(nickname);
 		logger.trace("컨트롤러, nickname 중복체크 - {}", result);
 		return "join/join";
+	}*/
+	
+	@RequestMapping(value="/duplicationCheckId", method=RequestMethod.POST)
+	public @ResponseBody int findStation(@RequestParam String input){
+		int result = service.duplicationCheckId(input);
+		return result;
 	}
 
 	
