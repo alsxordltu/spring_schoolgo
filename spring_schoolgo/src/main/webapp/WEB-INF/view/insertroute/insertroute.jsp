@@ -14,6 +14,9 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="insert_css/main.css" />
 <link rel="stylesheet" href="insert_css/form.css" />
+<%
+ String routename = request.getParameter("routename");
+%>
 </head>
 <body>
 
@@ -45,7 +48,7 @@
 			<div style="height:400px;">
 			
 			<div style="padding-top:15px; padding-bottom:15px;">
-			<h6 text-align=center>섭이의 루트 2</h6>
+			<h6 text-align=center><%=routename%></h6>
 			</div>
 			
 				
@@ -82,15 +85,15 @@
 			
 			
 			
-			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<div id="home" style="float:left; width:450px; height:40px; ">
 			<h5>집에서 역까지 어떻게 가세요?</h5>
 			</div>
 			
-			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<div id="school" style="float:left; width:450px; height:40px; ">
 			<h5>역에서 학교까지 어떻게 가세요?</h5>
 			</div>
 			
-			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<div id="home" style="float:left; width:450px; height:40px; ">
 			<select>
 			<option>선택하기</option>
 			<option>도보</option>
@@ -99,7 +102,7 @@
 			</div>
 			
 			
-			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<div id="school" style="float:left; width:450px; height:40px; ">
 			<select>
 			<option>선택하기</option>
 			<option>도보</option>
@@ -108,16 +111,16 @@
 			</div>
 			
 				
-			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<div id="home" style="float:left; width:450px; height:40px;">
 			<h5>소요시간</h5>
 			</div>
 			
-			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<div id="school" style="float:left; width:450px; height:40px; ">
 			<h5>소요시간</h5>
 			</div>
 			
 			
-			<div id="home" style="float:left; width:450px; height:40px; background:gray;">
+			<div id="home" style="float:left; width:450px; height:40px; ">
 			<select>
 			<option>선택하기</option>
 			<option>도보</option>
@@ -132,7 +135,7 @@
 			분
 			</div>
 			
-			<div id="school" style="float:left; width:450px; height:40px; background:brown;">
+			<div id="school" style="float:left; width:450px; height:40px; ">
 			<select>
 			<option>선택하기</option>
 			<option>도보</option>

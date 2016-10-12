@@ -65,15 +65,18 @@
 
 
 				<div id="route1" class="routeclass"
-					style="width: 600px; height: auto; margin-bottom:15px;">
+					style="width: 600px; height: auto; margin-bottom: 15px;">
 					<button id="btn1" style="width: 600px; height: 50px;">섭이의
 						루트1</button>
 				</div>
 
 				<div id="route11" class="routeclass"
 					style="width: 600px; height: auto; display: none;">
-					<button id="btn11" style="width: 150px; height: 40px; float: left;" onclick="location.href='gotoroute1go'">등교하기</button>
-					<button id="btn12" style="width: 150px; height: 40px; margin: 0 70px 0 70px; float: left;" onclick="location.href='gotoroute1come'">하교하기</button>
+					<button id="btn11" style="width: 150px; height: 40px; float: left;"
+						onclick="location.href='gotoroute1go'">등교하기</button>
+					<button id="btn12"
+						style="width: 150px; height: 40px; margin: 0 70px 0 70px; float: left;"
+						onclick="location.href='gotoroute1come'">하교하기</button>
 					<button id="btn13" style="width: 150px; height: 40px; float: left;">루트정보</button>
 				</div>
 
@@ -90,20 +93,21 @@
 				</header>
 				<section>
 
+					<form name="routenext" method="get" action="gotoinsertroute">
+						<div style="margin-left: 200px; margin-right: auto;">
+							<h5 style="float: left">루트 이름을 입력하세요! &nbsp&nbsp&nbsp</h5>
 
-					<div style="margin-left: 200px; margin-right: auto;">
-						<h5 style="float: left">루트 이름을 입력하세요! &nbsp&nbsp&nbsp</h5>
-						<input type="text">
-						<!-- <h5 style="float:left">어디로 가세요? &nbsp&nbsp&nbsp</h5>
-					<select>
-					<option>학교</option>
-					<option>학교</option>
-					</select> -->
-					</div>
-					<div style="margin: 50px auto auto 300px">
+							<input type="text" name="routename">
+						</div>
+
+
+						<!-- 					<div style="margin: 50px auto auto 300px">
 						<a class="button" onclick="location.href='gotoinsertroute'">등록하러
 							가기</a>
 					</div>
+ -->
+						<input type="submit" value="등록하러 가기">
+					</form>
 
 
 
