@@ -74,7 +74,7 @@ public class JoinController {
 		return result;
 	}
 
-	@RequestMapping(value="/duplicationCheckNickname", method=RequestMethod.POST)
+	@RequestMapping(value="/dupl.icationCheckNickname", method=RequestMethod.POST)
 	public @ResponseBody int checkNickname(@RequestParam String nickname){
 		logger.trace("듀플컨트롤러" );
 		int result = service.duplicationCheckNickname(nickname);
