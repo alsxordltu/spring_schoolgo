@@ -13,9 +13,9 @@ import com.example.dto.User;
 import com.example.service.Userservice;
 
 @Controller
-public class UpdateController {
+public class UserUpdateController {
 	
-	private static Logger logger = LoggerFactory.getLogger(UpdateController.class);
+	private static Logger logger = LoggerFactory.getLogger(UserUpdateController.class);
 
 	@Autowired
 	Userservice service;

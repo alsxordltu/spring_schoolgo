@@ -15,7 +15,7 @@ import com.example.dto.User;
 import com.example.service.Userservice;
 
 @Controller
-public class DeleteController {
+public class UserDeleteController {
 	private static Logger logger = LoggerFactory.getLogger(JoinController.class);
 
 	@Autowired
