@@ -8,6 +8,7 @@
 		values(#{userId}, #{pass}, #{userName}, #{nickName}, #{email},
 		#{phoneNum})
 	</insert>
+	
 	<select id="getAllUserId" resultMap="userId">
 		select user_id from tuser
 	</select>

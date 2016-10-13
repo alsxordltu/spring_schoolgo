@@ -18,10 +18,10 @@ public class BoardinsertController {
 
 	private static Logger logger = LoggerFactory.getLogger(BoardinsertController.class);
 
-	@Autowired
-	BoardService service;
+/*	@Autowired
+	BoardService service;*/
 
-	//글입력
+/*	//글입력
 	@RequestMapping(value = "/insertfreeboard", method = RequestMethod.GET)
 	public String write(Freeboard board) {
 		logger.trace("boardinsert 컨트롤러");
@@ -29,7 +29,7 @@ public class BoardinsertController {
 		return "tutorial/tutorial";
 	}
 
-
+*/
 	@InitBinder
 	   public void setEssentialFields(WebDataBinder binder){
 	      binder.setRequiredFields("fb_no", "userId", "content","regdate");

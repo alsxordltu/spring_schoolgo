@@ -12,6 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!-- <link rel="stylesheet" href="csds/login.css" /> -->
 		<link rel="stylesheet" href="index_css/login.css" />
+     
       
 	</head>
 	<body class="is-loading">
@@ -23,7 +24,8 @@
 					<section id="main">
 						<header>
 							<span class="avatar"><img src="index_img/00.jpg" alt="그림없음" width="150"/></span>
-							<h1>학교가자!</h1>
+							<h1>학교가자!  현재 시간은 <span id="clock"></span>
+							</h1>
 							<!-- <p>Senior Psychonautics Engineer</p> -->
 						</header>
 						<footer>
@@ -54,6 +56,26 @@
 					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 				}
+				function printTime() {
+				    // clock 객체 생성
+				    var clock = document.getElementById("clock");
+				    var now = new Date();
+				    clock.innerHTML =
+				      now.getFullYear() + "년 " +
+				      (now.getMonth()+1) + "월 " +
+				      now.getDate() + "일 " +
+				      now.getHours() + "시 " +
+				      now.getMinutes() + "분 " +
+				      now.getSeconds() + "초";
+				     
+				    // 1초 후에 함수 호출
+				    setTimeout("printTime()", 1000);
+				  };
+				 
+				  // 창이뜨면, html이 로딩되면 함수 호출
+				  window.onload = function() {
+				    printTime();
+				  };
 			</script>
 
 	</body>
