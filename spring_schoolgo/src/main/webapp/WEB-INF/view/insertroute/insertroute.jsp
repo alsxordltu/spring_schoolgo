@@ -14,9 +14,11 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="insert_css/main.css" />
 <link rel="stylesheet" href="insert_css/form.css" />
+
 <%
 	String routename = request.getParameter("routename");
 %>
+
 </head>
 <body>
 
@@ -85,8 +87,8 @@
 					</div>
 
 					<div id="home" style="float: left; width: 450px; height: 50px;">
-						<input type=text value="역 명을 입력하세요" readonly
-							style="margin: 5px 0 5px 0">
+						<a href="gotofindStation"> <input type=text value="역 명을 입력하세요"
+							readonly style="margin: 5px 0 5px 0"></a>
 						<!-- <button id="stationName"     style="width:150px; height:50px;">역 명 검색</button> -->
 					</div>
 
@@ -97,37 +99,42 @@
 
 
 					<div id="home" style="float: left; width: 450px; height: 150px;">
-						<h5 style="text-align:center;">집에서 역까지 어떻게 가세요?</h5>
+						<h5 style="text-align: center;">집에서 역까지 어떻게 가세요?</h5>
 					</div>
 
-					<div id="home" style="float: left; width: 450px; height: 150px;">
-					
-						<select style="float: left;">
-							<option>선택하기</option>
-							<option>도보</option>
-							<option>버스</option>
+
+					<div id="home" style="float: left; width: 150px; height: 100px; border:1pt solid silver;">
+						
+						<select>
+						<option>도보</option>
+						<option>버스</option>
+						<option>택시</option>
+						<option>자전거</option>
 						</select>
 						
-						
-						<h2 style="float: left;">로</h2><p>
-						
-						<select style="float: left;">
-							<option>3</option>
-							<option>1</option>
-							<option>1</option>
-							<option>1</option>
-							<option>1</option>
-
-						</select> 시간 <select style="float: left;">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-						</select> 분
-						<h2 style="float: left;">걸려요!</h2>
 					</div>
-
-
-
+					
+					
+					
+					
+					
+					<div id="home" style="float: left; width: 200px; height: 100px; background:green;">
+						<select>
+						<option>1시간</option>
+						<option>2시간</option>
+						<option>3시간</option>
+						
+						</select>
+						
+						<select>
+						<option>15분</option>
+						<option>30분</option>
+						<option>45분</option>
+						</select>
+					</div>
+					
+					
+					
 				</div>
 
 
@@ -170,6 +177,10 @@
 	<script src="insert_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="insert_js/main.js"></script>
+	<script type='text/javascript'
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
+
 	<script>
 		$("document").ready(function() {
 			$("#animate").animate({
@@ -182,5 +193,6 @@
 			window.open("gotofindStation");
 		});
 	</script>
+
 </body>
 </html>
