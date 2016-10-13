@@ -10,9 +10,12 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
 .grid_3 {
 	float: left;
 }
+
+
 
 /* Reset */
 .map {
@@ -782,7 +785,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 	animation: none !important;
 }
 
-input, textarea, select {
+input, textarea{
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 300;
 	color: #777777;
@@ -861,8 +864,7 @@ form label {
 	margin: 0 0 1em 0;
 }
 
-form input[type="text"], form input[type="email"], form input[type="password"],
-	form select, form textarea {
+form input[type="text"], form input[type="email"], form input[type="password"], form textarea {
 	-webkit-appearance: none;
 	border: 0;
 	background: #f4f4f4;
@@ -875,12 +877,11 @@ form input[type="text"], form input[type="email"], form input[type="password"],
 }
 
 form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus,
-	form select:focus, form textarea:focus {
+	 form textarea:focus {
 	background: #f8f8f8;
 }
 
-form input[type="text"], form input[type="email"], form input[type="password"],
-	form select {
+form input[type="text"], form input[type="email"], form input[type="password"]{
 	line-height: 1.35em;
 }
 
@@ -1129,7 +1130,7 @@ ol.default li {
 		font-size: 14pt;
 		line-height: 1.75em;
 	}
-	input, textarea, select {
+	input, textarea {
 		font-size: 14pt;
 		line-height: 1.75em;
 	}
@@ -1380,7 +1381,7 @@ ol.default li {
 /* Mobile */
 @media screen and (max-width: 736px) {
 	/* Basic */
-	body, input, textarea, select {
+	body, input, textarea {
 		font-size: 11pt;
 		line-height: 1.75em;
 	}

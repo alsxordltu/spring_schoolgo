@@ -14,15 +14,18 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="insert_css/main.css" />
 <link rel="stylesheet" href="insert_css/form.css" />
+
 <%
- String routename = request.getParameter("routename");
+	String routename = request.getParameter("routename");
 %>
+
 </head>
 <body>
 
 	<!-- Wrapper-->
 	<div id="logo">
-		<a href='gotomain'><img src="insert_img/gogo.png" alt="" width="300"></a>
+		<a href='gotomain'><img src="insert_img/gogo.png" alt=""
+			width="300"></a>
 
 
 	</div>
@@ -31,10 +34,10 @@
 
 
 
-		<nav id="nav" class="navtable" style="display:block;">
-			<div style="float:left; width:220px; height:100px"></div>
-			<a id="animate" ><i class="icon fa-plus-circle fa-lg">Insert</i></a>
-		</nav>	
+		<nav id="nav" class="navtable" style="display: block;">
+			<div style="float: left; width: 220px; height: 100px"></div>
+			<a id="animate"><i class="icon fa-plus-circle fa-lg">Insert</i></a>
+		</nav>
 
 		<!-- Main -->
 		<div id="main">
@@ -43,138 +46,128 @@
 
 			<!-- Me -->
 
-			<article id="me" class="panel" style="padding:50px 0 50px 0;">
-			
-			<div style="height:400px;">
-			
-			<div style="padding-top:15px; padding-bottom:15px;">
-			<h6 text-align=center><%=routename%></h6>
-			</div>
-			
-				
-			<div id="home" style="float:left; width:100px; height:120px; ">
-			<img src="insert_img/home.png" width="100px" >
-			</div>
-			<div id="home" style="float:left; width:100px; height:120px;">
-			<img src="insert_img/arrow.png" width="80px" style="margin: 20px 0 0 10px" >
-			</div>
-			
-			
-			
-			<div id="home" style="float:left; width:150px; height:120px;">
-			<input type=text value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
-			<button id="stationName"     style="width:150px; height:50px;">역 명 검색</button>
-			</div>
-			
-			<div id="home" style="float:left; width:200px; height:120px;">
-			<img src="insert_img/metro.png" width="100px" style="margin:5px 50px 5px 50px;">
-			</div>
-			
-			<div id="school" style="float:left; width:150px; height:120px;">
-			<input type=text value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
-			<button style="width:150px; height:50px;">역 명 검색</button>
-			</div>
-			
-			<div id="school" style="float:left; width:100px; height:120px;">
-			<img src="insert_img/arrow.png" width="80px" style="margin: 20px 0 0 10px" >
-			</div>
-			
-			<div id="school" style="float:left; width:100px; height:120px;">
-			<img src="insert_img/school.png" width="100px">
-			</div>
-			
-			
-			
-			<div id="home" style="float:left; width:450px; height:40px; ">
-			<h5>집에서 역까지 어떻게 가세요?</h5>
-			</div>
-			
-			<div id="school" style="float:left; width:450px; height:40px; ">
-			<h5>역에서 학교까지 어떻게 가세요?</h5>
-			</div>
-			
-			<div id="home" style="float:left; width:450px; height:40px; ">
-			<select>
-			<option>선택하기</option>
-			<option>도보</option>
-			<option>버스</option>			
-			</select>
-			</div>
-			
-			
-			<div id="school" style="float:left; width:450px; height:40px; ">
-			<select>
-			<option>선택하기</option>
-			<option>도보</option>
-			<option>버스</option>			
-			</select>
-			</div>
-			
-				
-			<div id="home" style="float:left; width:450px; height:40px;">
-			<h5>소요시간</h5>
-			</div>
-			
-			<div id="school" style="float:left; width:450px; height:40px; ">
-			<h5>소요시간</h5>
-			</div>
-			
-			
-			<div id="home" style="float:left; width:450px; height:40px; ">
-			<select>
-			<option>선택하기</option>
-			<option>도보</option>
-			<option>버스</option>			
-			</select>
-			시간
-			<select>
-			<option>선택하기</option>
-			<option>도보</option>
-			<option>버스</option>			
-			</select>
-			분
-			</div>
-			
-			<div id="school" style="float:left; width:450px; height:40px; ">
-			<select>
-			<option>선택하기</option>
-			<option>도보</option>
-			<option>버스</option>			
-			</select>
-			시간
-			<select>
-			<option>선택하기</option>
-			<option>도보</option>
-			<option>버스</option>			
-			</select>
-			분
-			</div>
-			
-			<div id=btndiv style="float:left; width:900px; height:55px;">
+			<article id="me" class="panel" style="padding: 50px 0 50px 0;">
 
-				<div style="margin:0 0 0 250px; float:left; ">
-					<a href='gotomain#addroute'><input type="button" value="저장하기"></a>
+
+				<div style="width: 900px;">
+					<h6 style="text-align: center;">루트 등록하기 Part1</h6>
 				</div>
-				
-			<!-- 	<div style="margin:0 0 0 20px; float:left; ">
-					<a href='gotomain#addroute'><input type="button" value="돌아가기"></a>
+
+				<div style="width: 900px; height: 50px; margin-top: 20px;">
+					<h4 align=center><%=routename%></h4>
 				</div>
-				 -->
+
+
+
+				<div id="rou1"
+					style="width: 900px; height: 200px; padding: 0 150px 10px 150px;">
+
+					<div id="home"
+						style="float: left; width: 200px; height: 180px; padding: 30px 0 0 20px;">
+						<img src="insert_img/metro.png" width="140px">
+					</div>
+
+					<div id="home"
+						style="float: left; width: 200px; height: 180px; padding: 30px 0 0 35px;">
+						<img src="insert_img/arrow.png" width="120px">
+						<!-- style="margin: 20px 0 0 10px" -->
+					</div>
+
+					<div id="home"
+						style="float: left; width: 200px; height: 180px; padding: 30px 0 0 20px;">
+						<img src="insert_img/school.png" width="140px">
+					</div>
 				</div>
-				
-			</div>
+
+
+				<div id="rou2" style="width: 900px; height: 100px;">
+
+					<div id="home" style="float: left; width: 450px; height: 50px;">
+						<h5 style="text-align: center;">도착역을 알려주세요!</h5>
+					</div>
+
+					<div id="home" style="float: left; width: 450px; height: 50px;">
+						<a href="gotofindStation"> <input type=text value="역 명을 입력하세요"
+							readonly style="margin: 5px 0 5px 0"></a>
+						<!-- <button id="stationName"     style="width:150px; height:50px;">역 명 검색</button> -->
+					</div>
+
+				</div>
+
+
+				<div id="rou3" style="width: 900px; height: 100px;">
+
+
+					<div id="home" style="float: left; width: 450px; height: 150px;">
+						<h5 style="text-align: center;">역에서 집까지 어떻게 가세요?</h5>
+					</div>
+
+
+					<div id="home" style="float: left; width: 150px; height: 100px; border:1pt solid silver;">
+						
+						<select>
+						<option>도보</option>
+						<option>버스</option>
+						<option>택시</option>
+						<option>자전거</option>
+						</select>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div id="home" style="float: left; width: 200px; height: 100px; background:green;">
+						<select>
+						<option>1시간</option>
+						<option>2시간</option>
+						<option>3시간</option>
+						
+						</select>
+						
+						<select>
+						<option>15분</option>
+						<option>30분</option>
+						<option>45분</option>
+						</select>
+					</div>
+					
+					
+					
+				</div>
+
+
+
+
+
+
+
+				<div id=btndiv style="float: left; width: 900px; height: 55px;">
+
+					<div style="margin: 0 0 0 250px; float: left;">
+						<a href='gotoinsertresult'><input type="button" value="다음"></a>
+					</div>
+
+					<div style="margin: 0 0 0 20px; float: left;">
+						<a href='gotoinsertroute'><input type="button" value="돌아가기"></a>
+					</div>
+
+				</div>
+
+
 			</article>
 
 
 		</div>
 
-	<!-- Footer -->
-			<div id="footer">
-				<ul class="copyright">
-					<li>&copy; Untitled.</li>
-					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
+		<!-- Footer -->
+		<div id="footer">
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
 	</div>
 
 	<!-- Scripts -->
@@ -184,19 +177,22 @@
 	<script src="insert_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="insert_js/main.js"></script>
-<script>
-	
-	$("document").ready(function(){
-		$("#animate").animate({
-			left:160
-			/* top:-140 */
-		});
-	
+	<script type='text/javascript'
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 
-	});
-	$("#stationName").on("click", function(){
-		window.open("gotofindStation");
-	});
+
+	<script>
+		$("document").ready(function() {
+			$("#animate").animate({
+				left : 160
+			/* top:-140 */
+			});
+
+		});
+		$("#stationName").on("click", function() {
+			window.open("gotofindStation");
+		});
 	</script>
+
 </body>
 </html>
