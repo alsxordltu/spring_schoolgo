@@ -45,6 +45,119 @@
 
 
 			<!-- Me -->
+<<<<<<< Upstream, based on branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
+=======
+
+			<article id="me" class="panel" style="padding:50px 0 50px 0;">
+			
+			<div style="height:400px;">
+			
+			<div style="padding-top:15px; padding-bottom:15px;">
+			<h6 text-align=center><%=routename%></h6>
+			</div>
+			
+				
+			<div id="home" style="float:left; width:100px; height:120px; ">
+			<img src="insert_img/home.png" width="100px" >
+			</div>
+			<div id="home" style="float:left; width:100px; height:120px;">
+			<img src="insert_img/arrow.png" width="80px" style="margin: 20px 0 0 10px" >
+			</div>
+			
+			
+			
+			<div id="home" style="float:left; width:150px; height:120px;">
+			<input type=hidden name="resultStationCode">
+			<input type=text name="resultStationName" value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
+			<button id="stationName"     style="width:150px; height:50px;">역 명 검색</button>
+			</div>
+			
+			<div id="home" style="float:left; width:200px; height:120px;">
+			<img src="insert_img/metro.png" width="100px" style="margin:5px 50px 5px 50px;">
+			</div>
+			
+			<div id="school" style="float:left; width:150px; height:120px;">
+			<input type=text name="resultStationName2" value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
+			<button style="width:150px; height:50px;">역 명 검색</button>
+			</div>
+			
+			<div id="school" style="float:left; width:100px; height:120px;">
+			<img src="insert_img/arrow.png" width="80px" style="margin: 20px 0 0 10px" >
+			</div>
+			
+			<div id="school" style="float:left; width:100px; height:120px;">
+			<img src="insert_img/school.png" width="100px">
+			</div>
+			
+			
+			
+			<div id="home" style="float:left; width:450px; height:40px; ">
+			<h5>집에서 역까지 어떻게 가세요?</h5>
+			</div>
+			
+			<div id="school" style="float:left; width:450px; height:40px; ">
+			<h5>역에서 학교까지 어떻게 가세요?</h5>
+			</div>
+			
+			<div id="home" style="float:left; width:450px; height:40px; ">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			</div>
+			
+			
+			<div id="school" style="float:left; width:450px; height:40px; ">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			</div>
+			
+				
+			<div id="home" style="float:left; width:450px; height:40px;">
+			<h5>소요시간</h5>
+			</div>
+			
+			<div id="school" style="float:left; width:450px; height:40px; ">
+			<h5>소요시간</h5>
+			</div>
+			
+			
+			<div id="home" style="float:left; width:450px; height:40px; ">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			시간
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			분
+			</div>
+			
+			<div id="school" style="float:left; width:450px; height:40px; ">
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			시간
+			<select>
+			<option>선택하기</option>
+			<option>도보</option>
+			<option>버스</option>			
+			</select>
+			분
+			</div>
+			
+			<div id=btndiv style="float:left; width:900px; height:55px;">
+>>>>>>> 2248f4a 역검색 구현 끗
 
 			<article id="me" class="panel" style="padding: 50px 0 50px 0;">
 
@@ -180,6 +293,7 @@
 	<script type='text/javascript'
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 
 	<script>
 		$("document").ready(function() {
@@ -194,5 +308,12 @@
 		});
 	</script>
 
+=======
+	});
+	$("#stationName").on("click", function(){
+		windObject = window.open('gotofindStation', '', 'left=200, top=200, width=640, height=480, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=no');
+	});
+	</script>
+>>>>>>> 2248f4a 역검색 구현 끗
 </body>
 </html>

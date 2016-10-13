@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.StationMapper">
+
+	<select id="searchStation" resultMap="searchStationByName" parameterType="String">
+		select STATION_CD, STATION_NM, LINE_NUM, FR_CODE from subway where station_nm like #{input}
+	</select>
+	
+	<resultMap type="Station" id="searchStationByName">
+		<id column="STATION_CD" property="stationCode"/> 
+		<result column="STATION_NM" property="stationName"/>
+		<result column="LINE_NUM" property="lineNum"/>
+		<result column="FR_CODE" property="frCode"/>
+	</resultMap>
+	<!-- <insert id="insert" parameterType="user">
+		insert into tuser
+		values(#{userId}, #{pass}, #{userName}, #{nickName}, #{email},
+		#{phoneNum})
+	</insert>
+	-->
+	
+</mapper>

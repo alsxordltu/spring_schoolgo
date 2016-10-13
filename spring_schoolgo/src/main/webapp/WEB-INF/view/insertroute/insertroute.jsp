@@ -190,7 +190,7 @@
 
 		});
 		$("#stationName").on("click", function() {
-			window.open("gotofindStation");
+			window.open('gotofindStation', '', 'left=200, top=200, width=640, height=480, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=no');
 		});
 	</script>
 
