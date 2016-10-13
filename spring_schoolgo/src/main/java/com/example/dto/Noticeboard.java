@@ -1,5 +1,7 @@
 package com.example.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,12 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Timetable {
+public class Noticeboard {
+	int nb_no;
 	String userId;
-	int mon;
-	int tue;
-	int wed;
-	int thu;
-	int fri;
-		
+	String content;
+	Date regdate;
 }
