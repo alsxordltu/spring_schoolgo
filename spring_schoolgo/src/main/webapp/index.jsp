@@ -24,8 +24,10 @@
 					<section id="main">
 						<header>
 							<span class="avatar"><img src="index_img/00.jpg" alt="그림없음" width="150"/></span>
-							<h1>학교가자!  현재 시간은 <span id="clock"></span>
-							</h1>
+							<h1>학교가자!</h1>
+							<h3>현재 시간은 <span id="clock"></span><br>
+							도착해야 하는 시간 : <span id="arrivetime"></span><br>
+							남은 시간 : <span id="hour"></span>시간 <span id="min"></span>분 <span id="sec"> 초 남았다.</span></h3>
 							<!-- <p>Senior Psychonautics Engineer</p> -->
 						</header>
 						<footer>
@@ -51,7 +53,13 @@
 
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-			<script>
+			<%
+			
+			
+			%>
+
+	</body>
+				<script>
 				if ('addEventListener' in window) {
 					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
@@ -59,17 +67,52 @@
 				function printTime() {
 				    // clock 객체 생성
 				    var clock = document.getElementById("clock");
+				    var hour = document.getElementById("hour"); 
+				    var min = document.getElementById("min"); 
+				    var sec = document.getElementById("sec"); 
+					var arrivetime = document.getElementById("arrivetime");
+				    
 				    var now = new Date();
-				    clock.innerHTML =
-				      now.getFullYear() + "년 " +
-				      (now.getMonth()+1) + "월 " +
-				      now.getDate() + "일 " +
-				      now.getHours() + "시 " +
+				    var arrive = new Date(null,null,null,11,50,45);
+				    //도착시간-현재시간 의 간격을 초로 바꿈
+				    //var remaintime = DateDiff("S",clock,arrivetime);
+				    				    				   
+				    var day, hour, min, sec, mod;
+				    var remaincountext;
+					
+				    remaincounttext="";
+				    
+				    clock.innerHTML =  
+				      now.getHours() + "시간 " +
 				      now.getMinutes() + "분 " +
 				      now.getSeconds() + "초";
 				     
 				    // 1초 후에 함수 호출
 				    setTimeout("printTime()", 1000);
+				    
+				    arrivetime.innerHTML = 
+					      arrive.getHours() + "시간 " +
+					      arrive.getMinutes() + "분 " +
+					      arrive.getSeconds() + "초";
+				    //남은일수
+				    day=Math.floor(remaintime/(3600*24));
+				    mod=remaintime%(24*3600);
+				    
+				    //남은시간
+				    hour=Math.floor(mod/3600);
+				    mod=mod%3600;
+				    
+				    //남은분
+				    min=Math.floor(mod/60);
+				    
+				    //남은초
+				    sec=mod%60;
+				    
+/* 				    hour.innerHTML="hour";
+				    min.innerHTML="min";
+				    sec.innerHTML="sec";
+				     */
+				    	
 				  };
 				 
 				  // 창이뜨면, html이 로딩되면 함수 호출
@@ -77,6 +120,4 @@
 				    printTime();
 				  };
 			</script>
-
-	</body>
 </html>
