@@ -16,6 +16,11 @@ public class InsertRouteController {
 		return "insertroute/findStation";
 	}
 	
+	@RequestMapping(value="/gotoinsertroute2", method=RequestMethod.GET)
+	public String gotoinsertroute2(){
+		return "insertroute/insertroute2";
+	}
+	
 	
 
 }
