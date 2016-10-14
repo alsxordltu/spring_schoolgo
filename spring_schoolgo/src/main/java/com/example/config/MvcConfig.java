@@ -82,6 +82,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     	registry.addResourceHandler("/insert_font/**").addResourceLocations(PATH + "insertroute/fonts/");
     	registry.addResourceHandler("/insert_js/**").addResourceLocations(PATH + "insertroute/js/");
 		
+       	//등교하교 관련 리소스 경로
+    	registry.addResourceHandler("/gocome_css/**").addResourceLocations(PATH + "goandcome/css/");
+    	registry.addResourceHandler("/gocome_img/**").addResourceLocations(PATH + "goandcome/images/");
+    	registry.addResourceHandler("/gocome_font/**").addResourceLocations(PATH + "goandcome/fonts/");
+    	registry.addResourceHandler("/gocome_js/**").addResourceLocations(PATH + "goandcome/js/");
+		
 		
 		
 		

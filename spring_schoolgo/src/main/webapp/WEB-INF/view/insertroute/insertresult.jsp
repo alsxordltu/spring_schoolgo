@@ -63,8 +63,7 @@
          
          <div id="home" style="float:left; width:150px; height:120px;">
          <input type=hidden name="resultStationCode">
-         <input type=text name="resultStationName" value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
-         <button id="stationName"     style="width:150px; height:50px;">역 명 검색</button>
+         <input type=text name="resultStationName" value="역값 넘기기" readonly style="margin: 5px 0 5px 0">
          </div>
          
          <div id="home" style="float:left; width:200px; height:120px;">
@@ -72,8 +71,7 @@
          </div>
          
          <div id="school" style="float:left; width:150px; height:120px;">
-         <input type=text name="resultStationName2" value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0">
-         <button style="width:150px; height:50px;">역 명 검색</button>
+         <input type=text name="resultStationName2" value="역값 넘기기" readonly style="margin: 5px 0 5px 0">
          </div>
          
          <div id="school" style="float:left; width:100px; height:120px;">
@@ -88,6 +86,7 @@
          
          <div id="home" style="float:left; width:450px; height:40px; ">
          <h5>집에서 역까지 어떻게 가세요?</h5>
+         
          </div>
          
          <div id="school" style="float:left; width:450px; height:40px; ">
@@ -95,20 +94,12 @@
          </div>
          
          <div id="home" style="float:left; width:450px; height:40px; ">
-         <select>
-         <option>선택하기</option>
-         <option>도보</option>
-         <option>버스</option>         
-         </select>
+         <input type="text"  value="값 넘기기"  readonly>
          </div>
          
          
          <div id="school" style="float:left; width:450px; height:40px; ">
-         <select>
-         <option>선택하기</option>
-         <option>도보</option>
-         <option>버스</option>         
-         </select>
+         <input type="text"  value="값 넘기기"  readonly>
          </div>
          
             
@@ -122,33 +113,11 @@
          
          
          <div id="home" style="float:left; width:450px; height:40px; ">
-         <select>
-         <option>선택하기</option>
-         <option>도보</option>
-         <option>버스</option>         
-         </select>
-         시간
-         <select>
-         <option>선택하기</option>
-         <option>도보</option>
-         <option>버스</option>         
-         </select>
-         분
+         <input type="text"  value="값 넘기기"  readonly>
          </div>
          
          <div id="school" style="float:left; width:450px; height:40px; ">
-         <select>
-         <option>선택하기</option>
-         <option>도보</option>
-         <option>버스</option>         
-         </select>
-         시간
-         <select>
-         <option>선택하기</option>
-         <option>도보</option>
-         <option>버스</option>         
-         </select>
-         분
+         <input type="text"  value="값 넘기기"  readonly>
          </div>
          
          <div id=btndiv style="float:left; width:900px; height:55px;">

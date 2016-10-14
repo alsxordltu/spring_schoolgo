@@ -42,6 +42,18 @@ public class MainController {
 	 * join(User user){ service.join(user); return "tutorial"; }
 	 */
 
+
+	@RequestMapping(value="/gotogo", method=RequestMethod.GET) public
+	String gotogo(){ return "goandcome/go"; }	
+	
+	@RequestMapping(value="/gotocome", method=RequestMethod.GET) public
+	String gotocome(){ return "goandcome/come"; }	
+	
+
+	
+	
+	
+	
 	@RequestMapping(value="/gotoinsertroute", method=RequestMethod.GET) public
 	String gotoinsertroute(){ return "insertroute/insertroute"; }			
 	

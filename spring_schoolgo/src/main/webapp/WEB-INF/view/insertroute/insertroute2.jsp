@@ -50,7 +50,7 @@
 
 
 				<div style="width: 900px;">
-					<h6 style="text-align: center;">루트 등록하기 Part1</h6>
+					<h6 style="text-align: center;">루트 등록하기 Part2</h6>
 				</div>
 
 				<div style="width: 900px; height: 50px; margin-top: 20px;">
@@ -64,7 +64,7 @@
 
 					<div id="home"
 						style="float: left; width: 200px; height: 180px; padding: 30px 0 0 20px;">
-						<img src="insert_img/home.png" width="140px">
+						<img src="insert_img/metro.png" width="140px">
 					</div>
 
 					<div id="home"
@@ -75,7 +75,7 @@
 
 					<div id="home"
 						style="float: left; width: 200px; height: 180px; padding: 30px 0 0 20px;">
-						<img src="insert_img/metro.png" width="140px">
+						<img src="insert_img/school.png" width="140px">
 					</div>
 				</div>
 
