@@ -23,7 +23,7 @@ public class InsertRouteController {
 	
 	@RequestMapping(value="/gotoinsertresult", method=RequestMethod.GET)
 	public String gotoinsertresult(){
-		return "insertroute/gotoinsertresult";
+		return "insertroute/insertresult";
 	}
 	
 	
