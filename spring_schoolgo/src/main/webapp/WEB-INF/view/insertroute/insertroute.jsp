@@ -45,7 +45,7 @@
 
 
 			<!-- Me -->
-			<form action="gotoinsertroute2">
+			<form name="insertroutehometostation" action="gotoinsertroute2">
 				<article id="me" class="panel" style="padding: 50px 0 50px 0;">
 
 
@@ -108,13 +108,15 @@
 
 						<div id="home"
 							style="float: left; width: 150px; height: 100px; border: 1pt solid silver;">
-
-							<select>
-								<option>도보</option>
-								<option>버스</option>
-								<option>택시</option>
-								<option>자전거</option>
+							
+							<select name="hometostation" onchange="hometostation(this.value);">
+								<option value="">교통수단선택
+								<option value="working">도보
+								<option value="bus">버스
+								<option value="taxi">택시
+								<option value="bicycle">자전거
 							</select>
+							<!-- <input type="hidden" name="hometostationtrans"> -->
 
 						</div>
 
@@ -124,15 +126,28 @@
 
 						<div id="home"
 							style="float: left; width: 200px; height: 100px; background: green;">
-							<select>
-								<option>1시간</option>
-								<option>2시간</option>
-								<option>3시간</option>
-
-							</select> <select>
-								<option>15분</option>
-								<option>30분</option>
-								<option>45분</option>
+							
+							<select name="hometostationhour" onchange="hometostationhour(this.value);">
+								<option value="">시간
+								<option value="1">1시간
+								<option value="2">2시간
+								<option value="3">3시간
+							</select> 
+							
+							<select name="hometostationminute" onchange="hometostationminute(this.value);">
+								<option value="">분
+								<option value="0">00분
+								<option value="05">05분
+								<option value="10">10분
+								<option value="15">15분
+								<option value="20">20분
+								<option value="25">25분
+								<option value="30">30분
+								<option value="35">35분
+								<option value="40">40분
+								<option value="45">45분
+								<option value="50">50분
+								<option value="55">55분
 							</select>
 						</div>
 
@@ -203,6 +218,10 @@
 											'',
 											'left=200, top=200, width=640, height=480, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=no');
 						});
+		
+/* 		function hometostation(value) {
+			document.insertroutehometostation.hometostationtrans.value=value;
+		} */
 	</script>
 
 </body>
