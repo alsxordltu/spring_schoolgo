@@ -58,10 +58,18 @@
 
 
 
+
+
+
 			<!-- Me -->
 
 			<article id="me" class="panel"
 				style="padding: 50px 120px 65px 120px;">
+
+
+
+
+
 
 
 				<div id="route1" class="routeclass"
@@ -69,7 +77,7 @@
 					<button id="btn1" style="width: 600px; height: 50px;">섭이의
 						루트1</button>
 				</div>
-
+				
 				<div id="route11" class="routeclass"
 					style="width: 600px; height: auto; display: none;">
 					<button id="btn11" style="width: 150px; height: 40px; float: left;"
@@ -84,6 +92,15 @@
 
 
 			</article>
+
+
+
+
+
+
+
+
+
 
 
 			<!-- addroute -->

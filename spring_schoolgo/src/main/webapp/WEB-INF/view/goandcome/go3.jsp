@@ -56,12 +56,12 @@
 
 				<div id="bottom" style="height: 50px;">
 					<a href='gotomain'><input type="button" value="출발하기" style="margin: 20px 0 0 290px"></a>
-				</div> 
+				</div>
 			</article>
 		</div>
 
 		<!-- Footer -->
-		<div id="footer"> 
+		<div id="footer">
 			<ul class="copyright">
 				<li>&copy; Untitled.</li>
 				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
@@ -89,8 +89,8 @@ $("document").ready(function(){
 					function printTime() {
 					now = new Date(); 
 					
-					//디데이 설정하기, (년, 월-1(0월이 1월,), 일, 시, 분, 초)
-					dday = new Date(2016,9,14,15,01,00);  
+					//디데이 설정하기, (년, 월, 일, 시, 분, 초)
+					dday = new Date(2016,10,14,18,00,00);  
 					
 					
 					//날자 계산해줌
@@ -108,8 +108,6 @@ $("document").ready(function(){
 					//초 계산해줌
 					seconds = (dday - now) / 1000 - (24 * 60 * 60 * dRound) - (60 * 60 * hRound) - (60 * mRound); 
 					sRound = Math.round(seconds); 
-					
-					
 					
 					
 					//1초마다 함수호출
@@ -164,17 +162,8 @@ $("document").ready(function(){
 				    	mRound+ "분  " +
 				    	sRound + "초";
 			
-				    var tttt = dday-now;
-				    console.log(tttt);
+					   
 				    
-				    var bool = false;
-				    
-				    
-				    //5분이면 300000인데, 이것을 프로그램이 딱 맟출 수 없기에 1초의 시간오차 줌 
-				    if(tttt<300000 && tttt>299000){
-				    	bool=true;					  
-					  }
-				    console.log(bool);
 				    
 				 /* document.getElementById("hour").innerHTML = hRound; 
 				    document.getElementById("min").innerHTML = mRound; 
@@ -187,8 +176,6 @@ $("document").ready(function(){
 				  window.onload = function() {
 				    printTime();
 				  };
-				  
-				  
 				 
 				  
 				  
