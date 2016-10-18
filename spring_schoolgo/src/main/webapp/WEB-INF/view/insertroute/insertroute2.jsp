@@ -90,7 +90,8 @@
 						</div>
 
 						<div id="home" style="float: left; width: 450px; height: 50px;">
-							<a href="gotofindStation"> <input type=text
+							<input type="hidden" name="resultStationCode">
+							<a href="#" id="stationName"> <input type="text" name="resultStationName" 
 								value="역 명을 입력하세요" readonly style="margin: 5px 0 5px 0"></a>
 						</div>
 
@@ -182,7 +183,7 @@
 	<script src="insert_js/main.js"></script>
 	<script type='text/javascript'
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-
+	<script src="http://code.jquery.com/jquery.js"></script>
 
 	<script>
 		$("document").ready(function() {
