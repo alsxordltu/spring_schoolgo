@@ -58,162 +58,278 @@
 			<article id="me" class="panel" style="padding: 50px 0 50px 0;">
 
 
-				<div style="height: 400px;">
-
+					<div style="width: 100%;">
+						<h6 style="text-align: center;">루트 등록하기 최종화면이야</h6>
+					</div>
+					
 					<div style="padding-top: 15px; padding-bottom: 15px;">
 						<h4 align=center>
 							<input type="hidden" name="routename3"
-								value="<%=routename3%>"><%=routename3%>
-								</h4>
+								value="<%=routename3%>"><%=routename3%></h4>
+					</div>
+					
+					
+					
+					
+					
+			<!-- **전체 상단** 아이콘들과 입력도착 역들 나오는 곳  -->
+			<div style="width:100%; height:120px">
+			
+			
+			
+			
+			
+				<!-- 좌측 40%부분 div -->
+				<div style="height: 120px; width:40%; float: left;">
+				
+					<!-- 집 모양 아이콘 div -->
+					<div id="home" style="width: 40%; height: 100%; float: left;
+					margin-bottom:50px">
+						<img src="insert_img/home.png" width="100%;">
 					</div>
 
-
-					<div id="home" style="float: left; width: 100px; height: 120px;">
-						<img src="insert_img/home.png" width="100px">
-					</div>
-					<div id="home" style="float: left; width: 100px; height: 120px;">
-						<img src="insert_img/arrow.png" width="80px"
-							style="margin: 20px 0 0 10px">
-					</div>
-
-
-
-					<div id="home" style="float: left; width: 150px; height: 120px;">
+					<!-- 화살표 아이콘, 입력한 출발역 출력 div -->
+					<div id="home" style="width: 60%; height: 100%; float: left;
+					margin-bottom:50px">
+					
+						<div style="width:100%; height:50%; padding:10px 10px 10px 20px">
+						<img src="insert_img/arrow.png" width="50%">
+						</div>
+						
+						<div style="width:100%; height:50%; padding:30px 10px 10px 20px">
 						<input type=hidden name="resultStationCode"> <input
-							type=text name="resultStationName" value="역 명을 입력하세요" readonly
+								type=text name="resultStationName" value="입력한 출발역 여기다가" readonly
+								style="margin: 5px 0 5px 0">
+						</div>
+						
+						
+					</div>
+					
+				
+					
+				<%-- 	<!-- 입력한 이동수단 출력 div -->
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<h5>이동수단 : </h5>
+					</div>
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<%=hometostaion %>	
+					</div>
+					
+					
+					<!-- 우리가 계산해서 넣어주는 소요시간 div -->
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<h5>소요시간 : </h5>
+					</div>
+					
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<h5>우리가 계산해서 넣어쥰다</h5>
+					</div> --%>
+					
+				</div>
+				
+				
+				
+				
+				<!-- 중간 지하철 부분 20% div -->
+				<div style="height: 400px; width:20%; float: left;">
+				
+					<!-- 지하철 모양 아이콘 div -->
+					<div id="home" style=" width: 100%; height: 100%;">
+						<img src="insert_img/metro.png" width="100%;">
+					</div>					
+					
+				<!-- 	<div id="home" style="width: 50%; height: 40px;">
+						<h5>지나는 정거장 수 : </h5>
+					</div>
+					
+					
+					<div id="home" style="width: 50%; height: 40px;">
+						<h5>우리가 계산해서 넣어쥰다</h5>	
+					</div>
+					
+					<div id="home" style="width: 50%; height: 40px;">
+						<h5>소요시간 : </h5>
+					</div>
+					
+					<div id="home" style="width: 50%; height: 40px;">
+						<h5>우리가 계산해서 넣어쥰다</h5>
+					</div>
+					 -->
+				</div>
+				
+				
+				<!-- 우측 40%부분 div -->
+				<div style="height: 100%; width:40%; float: left;">
+				
+					
+					
+					<!-- 입력한 도착역 출력 div -->
+					
+					
+					<!-- 화살표 아이콘, 입력한 출발역 출력 div -->
+					<div id="home" style="width: 60%; height: 100%; float: left;
+					margin-bottom:50px">
+					
+						<div style="width:100%; height:50%; padding:10px 10px 10px 20px">
+						<img src="insert_img/arrow.png" width="50%">
+						</div>
+						
+						<div style="width:100%; height:50%; padding:30px 10px 10px 20px">
+						<input type=hidden name="resultStationCode"> <input
+							type=text name="resultStationName" value="입력한 도착역 여기다가" readonly
 							style="margin: 5px 0 5px 0">
-						<button id="stationName" style="width: 150px; height: 50px;">역
-							명 검색</button>
-					</div>
-
-					<div id="home" style="float: left; width: 200px; height: 120px;">
-						<img src="insert_img/metro.png" width="100px"
-							style="margin: 5px 50px 5px 50px;">
-					</div>
-
-					<div id="school" style="float: left; width: 150px; height: 120px;">
-						<input type=text name="resultStationName2" value="역 명을 입력하세요"
-							readonly style="margin: 5px 0 5px 0">
-						<button style="width: 150px; height: 50px;">역 명 검색</button>
-					</div>
-
-					<div id="school" style="float: left; width: 100px; height: 120px;">
-						<img src="insert_img/arrow.png" width="80px"
-							style="margin: 20px 0 0 10px">
-					</div>
-
-					<div id="school" style="float: left; width: 100px; height: 120px;">
-						<img src="insert_img/school.png" width="100px">
-					</div>
-
-
-
-					<div id="home" style="float: left; width: 450px; height: 40px;">
-						<h5>집에서 역까지 어떻게 가세요?</h5>
-					</div>
-
-					<div id="school" style="float: left; width: 450px; height: 40px;">
-						<h5>역에서 학교까지 어떻게 가세요?</h5>
-					</div>
-
-					<div id="home" style="float: left; width: 450px; height: 40px;">
-							집->지하철역 : <%=hometostaion %>
-							<!-- <select name="hometostation" onchange="hometostation(this.value);">
-								<option value="">교통수단선택
-								<option value="working">도보
-								<option value="bus">버스
-								<option value="taxi">택시
-								<option value="bicycle">자전거
-							</select> -->
-					</div>
-
-
-					<div id="school" style="float: left; width: 450px; height: 40px;">
-							지하철역->학교 : <%=stationtoschool %>
-<!-- 							<select name="stationtoschool" onchange="stationtoschool(this.value);">
-								<option value="">교통수단선택
-								<option value="working">도보
-								<option value="bus">버스
-								<option value="taxi">택시
-								<option value="bicycle">자전거
-							</select> -->
-					</div>
-
-
-					<div id="home" style="float: left; width: 450px; height: 40px;">
-						<h5>소요시간</h5>
-					</div>
-
-					<div id="school" style="float: left; width: 450px; height: 40px;">
-						<h5>소요시간</h5>
-					</div>
-
-
-					<div id="home" style="float: left; width: 450px; height: 40px;">
-								
-								입력한 시간 : <%=hometostationhour %> 시간 <%=hometostationminute %> 분
-								<!-- 							<select name="hometostationhour" onchange="hometostationhour(this.value);">
-								<option value="">시간
-								<option value="1">1시간
-								<option value="2">2시간
-								<option value="3">3시간
-							</select> 시간  -->
+						</div>
 						
-<!-- 							<select name="hometostationminute" onchange="hometostationminute(this.value);">
-								<option value="">분
-								<option value="0">00분
-								<option value="05">05분
-								<option value="10">10분
-								<option value="15">15분
-								<option value="20">20분
-								<option value="25">25분
-								<option value="30">30분
-								<option value="35">35분
-								<option value="40">40분
-								<option value="45">45분
-								<option value="50">50분
-								<option value="55">55분
-							</select> 분 -->
-					</div>
-
-					<div id="school" style="float: left; width: 450px; height: 40px;">
-						입력한 시간 : <%=stationtoschoolhour %> 시간 <%=stationtoschoolminute %> 분		
 						
-<!-- 													<select name="stationtoschoolhour" onchange="stationtoschoolhour(this.value);">
-								<option value="">시간
-								<option value="1">1시간
-								<option value="2">2시간
-								<option value="3">3시간
-							</select> 시간
-						
-													
-							<select name="stationtoschoolminute" onchange="stationtoschoolminute(this.value);">
-								<option value="">분
-								<option value="0">00분
-								<option value="05">05분
-								<option value="10">10분
-								<option value="15">15분
-								<option value="20">20분
-								<option value="25">25분
-								<option value="30">30분
-								<option value="35">35분
-								<option value="40">40분
-								<option value="45">45분
-								<option value="50">50분
-								<option value="55">55분
-							</select> 분 -->
+					</div>				
+					<!-- 학교 모양 아이콘 div -->
+					<div id="school" style="width: 40%; height: 100%;  float: left;">
+						<img src="insert_img/school.png" width="100%;">
 					</div>
+					
+					<%-- 
+					<div id="school" style="width: 50%; height: 40px;">
+						<h5>이동수단 : </h5>
+					</div>
+					
+					
+					<div id="school" style="width: 50%; height: 40px;">
+							<%=hometostaion %>	
+					</div>
+					
+					<div id="school" style="width: 50%; height: 40px;">
+						<h5>소요시간 : </h5>
+					</div>
+					
+					<div id="school" style="width: 50%; height: 40px;">
+						<h5>우리가 계산해서 넣어쥰다</h5>
+					</div> --%>
+					
+				</div>
+				
+			</div>
+			
+			<!-- **전체 하단** 입력 교통수단, 계산된 각각의 소요시간 나오는 곳  -->
+			<div style="width:100%; height:300px">
+			<!-- 좌측 33.3333%부분 div -->
+				<div style="height: 120px; width:33.3333%; float: left;">
+				
+				    <!-- 입력한 이동수단 출력 div -->
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<h5>이동수단 : </h5>
+					</div>
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<%=hometostaion %>	
+					</div>
+					
+					
+					<!-- 우리가 계산해서 넣어주는 소요시간 div -->
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<h5>소요시간 : </h5>
+					</div>
+					
+					<div id="home" style="width: 50%; height: 40px; float: left;">
+						<h5>우리가 계산해서 넣어쥰다</h5>
+					</div> 
+					
+				</div>
+				
+				
+				
+				
+				<!-- 중간 지하철 부분 33.3333% div -->
+				<div style="height: 400px; width:33.3333%; float: left;">
+				
+					<!-- 지하철 모양 아이콘 div -->
+					<div id="home" style=" width: 100%; height: 100%;">
+						<img src="insert_img/metro.png" width="100%;">
+					</div>					
+					
+				<!-- 	<div id="home" style="width: 50%; height: 40px;">
+						<h5>지나는 정거장 수 : </h5>
+					</div>
+					
+					
+					<div id="home" style="width: 50%; height: 40px;">
+						<h5>우리가 계산해서 넣어쥰다</h5>	
+					</div>
+					
+					<div id="home" style="width: 50%; height: 40px;">
+						<h5>소요시간 : </h5>
+					</div>
+					
+					<div id="home" style="width: 50%; height: 40px;">
+						<h5>우리가 계산해서 넣어쥰다</h5>
+					</div>
+					 -->
+				</div>
+				
+				
+				<!-- 우측 33.3333%부분 div -->
+				<div style="height: 100%; width:33.3333%; float: left;">
+				
+					
+					
+					<!-- 입력한 도착역 출력 div -->
+					
+					
+					<!-- 화살표 아이콘, 입력한 출발역 출력 div -->
+					<div id="home" style="width: 60%; height: 100%; float: left;
+					margin-bottom:50px">
+					
+						<div style="width:100%; height:50%; padding:10px 10px 10px 20px">
+						<img src="insert_img/arrow.png" width="50%">
+						</div>
+						
+						<div style="width:100%; height:50%; padding:30px 10px 10px 20px">
+						<input type=hidden name="resultStationCode"> <input
+							type=text name="resultStationName" value="입력한 도착역 여기다가" readonly
+							style="margin: 5px 0 5px 0">
+						</div>
+						
+						
+					</div>				
+					<!-- 학교 모양 아이콘 div -->
+					<div id="school" style="width: 40%; height: 100%;  float: left;">
+						<img src="insert_img/school.png" width="100%;">
+					</div>
+					
+					<%-- 
+					<div id="school" style="width: 50%; height: 40px;">
+						<h5>이동수단 : </h5>
+					</div>
+					
+					
+					<div id="school" style="width: 50%; height: 40px;">
+							<%=hometostaion %>	
+					</div>
+					
+					<div id="school" style="width: 50%; height: 40px;">
+						<h5>소요시간 : </h5>
+					</div>
+					
+					<div id="school" style="width: 50%; height: 40px;">
+						<h5>우리가 계산해서 넣어쥰다</h5>
+					</div> --%>
+					
+				</div>
+			
+			
+			
+			
+			</div>			
+				
+				
+				<div id=btndiv style="float: left; width: 100%; height: 55px;">
 
-					<div id=btndiv style="float: left; width: 900px; height: 55px;">
-
-						<div style="margin: 0 0 0 250px; float: left;">
+						<div style="margin: 0 0 0 380px; float: left;">
 							<a href='gotomain'><input type="button" value="저장하기"></a>
 						</div>
 
 
-					</div>
-
 				</div>
+
+						
 			</article>
 
 

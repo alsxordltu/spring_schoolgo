@@ -49,15 +49,14 @@
 				<article id="me" class="panel" style="padding: 50px 0 50px 0;">
 
 
-					<div style="width: 900px;">
+					<div style="width: 100%;">
 						<h6 style="text-align: center;">루트 등록하기 Part1</h6>
 					</div>
 
 					<div style="width: 900px; height: 50px; margin-top: 20px;">
 						<h4 align=center>
 							<input type="hidden" name="routename1"
-								value="<%=routename%>">
-							<%=routename%></h4>
+								value="<%=routename%>"><%=routename%></h4>
 					</div>
 
 
@@ -120,40 +119,6 @@
 							<!-- <input type="hidden" name="hometostationtrans"> -->
 
 						</div>
-
-
-
-
-
-						<div id="home"
-							style="float: left; width: 200px; height: 100px; background: green;">
-							
-							<select name="hometostationhour" onchange="hometostationhour(this.value);">
-								<option value="">시간
-								<option value="1">1시간
-								<option value="2">2시간
-								<option value="3">3시간
-							</select> 
-							
-							<select name="hometostationminute" onchange="hometostationminute(this.value);">
-								<option value="">분
-								<option value="0">00분
-								<option value="05">05분
-								<option value="10">10분
-								<option value="15">15분
-								<option value="20">20분
-								<option value="25">25분
-								<option value="30">30분
-								<option value="35">35분
-								<option value="40">40분
-								<option value="45">45분
-								<option value="50">50분
-								<option value="55">55분
-							</select>
-						</div>
-
-
-
 					</div>
 
 
@@ -164,14 +129,15 @@
 
 					<div id=btndiv style="float: left; width: 900px; height: 55px;">
 
-						<div style="margin: 0 0 0 250px; float: left;">
-							<input type="submit" value="다음"></a>
-						</div>
+						
 
-						<div style="margin: 0 0 0 20px; float: left;">
+						<div style="margin: 0 0 0 270px; float: left;">
 							<a href='gotomain#addroute'><input type="button" value="돌아가기"></a>
 						</div>
-
+						
+						<div style="margin: 0 0 0 20px; float: left;">
+							<input type="submit" value="다음"></a>
+						</div>
 					</div>
 
 

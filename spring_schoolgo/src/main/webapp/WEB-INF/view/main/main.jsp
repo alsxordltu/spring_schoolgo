@@ -108,28 +108,40 @@
 				<header>
 					<h6 text-align=center>루트 등록하기</h6>
 				</header>
-				<section>
+				
+				<div style="width:100%; float:left;">
 
 					<form name="routenext" method="get" action="gotoinsertroute">
-						<div style="margin-left: 200px; margin-right: auto;">
-							<h5 style="float: left">루트 이름을 입력하세요! &nbsp&nbsp&nbsp</h5>
-
+						
+						<div style="width:50%; float:left; padding: 0 50px 0 0;">
+							<h5 text-align=center=>출발지를 입력하세요!</h5>
+							<input type="text" >
+							
+							
+						</div>
+						
+						<div style="width:50%; float:left; padding: 0 0 0 50px;">
+							
+							<h5 text-align=center=>도착지를 입력하세요!</h5>
+							<input type="text">
+							
+						</div>
+						
+						
+						<div style="margin: 50px 0 100px 0; float:left; width:100%; ">
+							<h5 text-align=center=>루트 이름을 입력하세요!</h5>
 							<input type="text" name="routename">
 						</div>
 
 
-						<!-- 					<div style="margin: 50px auto auto 300px">
-						<a class="button" onclick="location.href='gotoinsertroute'">등록하러
-							가기</a>
-					</div>
- -->
-						<input type="submit" value="등록하러 가기">
+					
+						<input type="submit" value="등록하러 가기" style="margin:10px 0 0 280px;">
 					</form>
 
 
 
 
-				</section>
+				</div>
 			</article>
 
 
@@ -151,7 +163,7 @@
 					<!-- h6=헤더 -->
 				</header>
 
-				<div style="margin: 80px auto auto 200px">
+				<div style=" width:100%; margin: 100px 0 50px 170px">
 					<input type="button" value="등교시간 등록하기" id="timetable"
 						onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp <input
 						type="button" value="개인정보 수정" id="updateprofile"
@@ -163,7 +175,7 @@
 				<!-- onclick="location.href='gotoroutemanager'" -->
 
 
-				<div style="margin: 50px auto auto 140px">
+				<div style=" width:100%; margin: 50px 0 50px 100px">
 					<input type="button" value="루트 관리" id="routemanager"
 						onclick="location.href='gotoroutemanager'">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<input type="button" value="교통비 가계부" id="costcal"
