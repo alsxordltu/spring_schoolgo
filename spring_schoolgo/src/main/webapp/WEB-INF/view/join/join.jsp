@@ -83,9 +83,9 @@
                 -->
             </div>
             <div class="field">
-            	<sform:checkbox path="agree" placeholder="Agree" required/>
-               <!-- <input type="checkbox" id="agree" name="agree" placeholder="Agree"
-                  required /> --><label for="agree">개인정보 활용에 동의합니다</label>
+            	
+               <input type="checkbox" id="agree" name="agree" placeholder="Agree"
+                  required /><label for="agree">개인정보 활용에 동의합니다</label>
             </div>
 
             <!--                      <div class="field">
