@@ -29,9 +29,7 @@
 						<footer>
 							<ul class="icons"><!--  메인화면의 아이콘 설정 -->
 								<li><a href="gotologin" class="fa-sign-in">로그인</a></li>
-								<li><a href="gotojoin" class="fa-user-plus">회원가입</a></li>
-								<li><a href="gotomain" class="fa-user-plus">찬섭전용</a></li>
-								
+								<li><a href="gotojoin" class="fa-user-plus">회원가입</a></li>								
 							</ul>
 						</footer>
 					</section>
@@ -41,7 +39,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="copyright">
-							<li>&copy; Jane Doe</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; 공주대학교 청년취업아카데미</li><li>Create: Six company</a></li>
 						</ul>
 					</footer>
 

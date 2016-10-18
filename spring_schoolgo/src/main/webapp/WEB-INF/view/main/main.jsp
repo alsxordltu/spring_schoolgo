@@ -1,349 +1,246 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
-
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> 
 <!DOCTYPE HTML>
+
 <!--
-   Astral by HTML5 UP
-   html5up.net | @ajlkn
-   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Striped by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-<head>
-<title>Astral by HTML5 UP</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="main_css/main.css" />
-<link rel="stylesheet" href="main_css/form.css" />
-</head>
-<body>
+	<head>
+		<title>Striped by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="main_css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
 
-	<!-- Wrapper-->
-	<div id="logo" style="float: left">
-		<a href='gotomain'><img src="main_img/gogo.png" alt="" width="300"></a>
-	</div>
-	<div id="welcome" style="float: right; margin: 15px 10px 0 0;">
-		<h5>${nickName}님☆환영합니다^-^</h5>
-		<form name="logout" action="logout" style="margin-bottom: 0;">
-			<input type="submit" value="로그아웃">
-		</form>
-	</div>
-	<div id="wrapper">
-		<!-- style=" padding-top:68px; opacity:1; " -->
+		<!-- Content -->
+			<div id="content">
+				<div class="inner">
 
-		<!-- Nav -->
-		<!--  <nav id="nav">
-                  <a href="#me" class="icon fa-home  active "><span>학교가기</span></a>
-                  <a href="#addroute" class="icon fa-plus-circle fa-3x"><span>루트 등록</span></a>
-                  <a href="#shareroute" class="icon fa-comments"><span>루트 공유</span></a>
-                  <a href="#mypage" class="icon fa-user"><span>마이페이지</span></a>
-                  <a href="#contactus" class="icon fa-question-circle"><span>Contact Us</span></a>
-               </nav>  -->
+					<!-- Post -->
+						<article class="box post post-excerpt">
+							<header>
+								<!--
+									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
+									if they get too long. You can also remove the <p> entirely if you don't
+									need a subtitle.
+								-->
+								<h2><a href="#">Welcome to Striped</a></h2>
+								<p>A free, fully responsive HTML5 site template by HTML5 UP</p>
+							</header>
+							<div class="info">
+								<!--
+									Note: The date should be formatted exactly as it's shown below. In particular, the
+									"least significant" characters of the month should be encapsulated in a <span>
+									element to denote what gets dropped in 1200px mode (eg. the "uary" in "January").
+									Oh, and if you don't need a date for a particular page or post you can simply delete
+									the entire "date" element.
 
+								-->
+								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, 2014</span></span>
+								<!--
+									Note: You can change the number of list items in "stats" to whatever you want.
+								-->
+								<ul class="stats">
+									<li><a href="#" class="icon fa-comment">16</a></li>
+									<li><a href="#" class="icon fa-heart">32</a></li>
+									<li><a href="#" class="icon fa-twitter">64</a></li>
+									<li><a href="#" class="icon fa-facebook">128</a></li>
+								</ul>
+							</div>
+							<a href="#" class="image featured"><img src="main_img/pic01.jpg" alt="" /></a>
+							<p>
+								<strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
+								for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
+								repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
+							</p>
+							<p>
+								Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
+								or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
+								<a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new releases and updates.
+							</p>
+						</article>
 
+					<!-- Post -->
+						<article class="box post post-excerpt">
+							<header>
+								<h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+								<p>Feugiat interdum sed commodo ipsum consequat dolor nullam metus</p>
+							</header>
+							<div class="info">
+								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">8</span><span class="year">, 2014</span></span>
+								<ul class="stats">
+									<li><a href="#" class="icon fa-comment">16</a></li>
+									<li><a href="#" class="icon fa-heart">32</a></li>
+									<li><a href="#" class="icon fa-twitter">64</a></li>
+									<li><a href="#" class="icon fa-facebook">128</a></li>
+								</ul>
+							</div>
+							<a href="#" class="image featured"><img src="main_img/pic02.jpg" alt="" /></a>
+							<p>
+								Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
+								Nunc nulla velit, fermentum quis interdum quis, tate etiam commodo lorem ipsum dolor sit amet dolore.
+								Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
+								Nunc nulla velit, fermentum quis interdum quis, convallis eu sapien. Integer sed ipsum ante.
+							</p>
+						</article>
 
-		<nav id="nav">
-			<a href="#me" class="active"><i class="icon fa-home fa-lg"></i><span>학교가기</span></a>
-			<a href="#addroute"><i class="icon fa-plus-circle fa-lg"></i> <span>루트등록</span></a>
-			<a href="#shareroute"><i class="icon fa-comments fa-lg"></i> <span>루트공유</span></a>
-			<a href="#mypage"><i class="icon fa-user fa-lg"></i><span>마이페이지</span></a>
-			<a href="#contactus"><i class="icon fa-question-circle fa-lg"></i><span>Contact
-					Us</span></a>
-
-
-		</nav>
-
-
-		<!-- Main -->
-		<div id="main">
-
-
-
-
-
-
-			<!-- Me -->
-
-			<article id="me" class="panel"
-				style="padding: 50px 120px 65px 120px;">
-
-
-
-
-
-
-
-				<div id="route1" class="routeclass"
-					style="width: 600px; height: auto; margin-bottom: 15px;">
-					<button id="btn1" style="width: 600px; height: 50px;">섭이의
-						루트1</button>
-				</div>
-
-				<div id="route11" class="routeclass"
-					style="width: 600px; height: auto; display: none;">
-					<button id="btn11" style="width: 150px; height: 40px; float: left;"
-						onclick="location.href='gotogo'">등교하기</button>
-					<button id="btn12"
-						style="width: 150px; height: 40px; margin: 0 70px 0 70px; float: left;"
-						onclick="location.href='gotocome'">하교하기</button>
-					<button id="btn13" style="width: 150px; height: 40px; float: left;">루트정보</button>
-				</div>
-
-
-
-
-			</article>
-
-
-
-
-
-
-
-
-
-
-
-			<!-- addroute -->
-			<article id="addroute" class="panel">
-				<header>
-					<h6 text-align=center>루트 등록하기</h6>
-				</header>
-
-				<div style="width: 100%; float: left;">
-
-					<form name="routenext" method="get" action="gotoinsertroute">
-
-						<div style="width: 50%; float: left; padding: 0 50px 0 0;">
-							<h5 text-align=center=>출발지를 입력하세요!</h5>
-							<a href="gotosearch"> <input type="text" name="start"
-								readonly> <input type="text" name="start"
-								value="여기에값받아올듯" readonly></a>
-
-
+					<!-- Pagination -->
+						<div class="pagination">
+							<!--<a href="#" class="button previous">Previous Page</a>-->
+							<div class="pages">
+								<a href="#" class="active">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<span>&hellip;</span>
+								<a href="#">20</a>
+							</div>
+							<a href="#" class="button next">Next Page</a>
 						</div>
 
-						<div style="width: 50%; float: left; padding: 0 0 0 50px;">
-
-							<h5 text-align=center=>도착지를 입력하세요!</h5>
-							<a href="gotosearch"> <input type="text" name="end"
-								readonly> <input type="text" name="start"
-								value="여기에값받아올듯" readonly></a>
-
-						</div>
-
-
-						<div style="margin: 50px 0 100px 0; float: left; width: 100%;">
-							<h5 text-align=center=>루트 이름을 입력하세요!</h5>
-							<input type="text" name="routename">
-						</div>
-
-
-
-						<input type="submit" value="등록하러 가기"
-							style="margin: 10px 0 0 280px;">
-					</form>
-
-
-
-
 				</div>
-			</article>
-
-
-
-			<!-- shareroute -->
-			<article id="shareroute" class="panel">
-				<header>
-					<h2>여기에 루트 공유 게시판</h2>
-				</header>
-
-			</article>
-
-
-
-			<!-- mypage -->
-			<article id="mypage" class="panel">
-				<header>
-					<h6 text-align=center>마이페이지</h6>
-					<!-- h6=헤더 -->
-				</header>
-
-				<div style="width: 100%; margin: 100px 0 50px 170px">
-					<input type="button" value="등교시간 등록하기" id="timetable"
-						onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp <input
-						type="button" value="개인정보 수정" id="updateprofile"
-						onclick="location.href='updateUser?id=${userId}'">
-					<%-- "${updateUser }?id=hong" --%>
-				</div>
-
-
-				<!-- onclick="location.href='gotoroutemanager'" -->
-
-
-				<div style="width: 100%; margin: 50px 0 50px 100px">
-					<input type="button" value="루트 관리" id="routemanager"
-						onclick="location.href='gotoroutemanager'">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<input type="button" value="교통비 가계부" id="costcal"
-						onclick="location.href='gotocostcal'">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					<input type="button" value="나의 활동내역" id="myactivity"
-						onclick="location.href='gotomyactivity'">
-				</div>
-			</article>
-
-			<!-- mypage - 등교시간 등록하기 -->
-			<article id="mytimetable" class="panel">
-
-				<div style="margin: 50px auto auto 140px">
-					<h6>12313123213</h6>
-				</div>
-			</article>
-
-
-
-
-
-
-
-
-
-
-
-			<!-- contactus -->
-			<article id="contactus" class="panel">
-				<div class="container_12">
-					<div class="grid_12">
-						<div class="slogan">
-							<h3>Get in Touch</h3>
-							<div class="text1">Gyrto ivamus at magna non nunc tristique
-								rhoncusu. Lliquam nibh ante, egestas id dictum a, commodo luctus
-								mibero. Praesent faucibus malesuada faucibu. Monec laoreet metus
-								id laoreet malesuadw.</div>
-						</div>
-					</div>
-					<div class="clear"></div>
-					<div class="map">
-						<div class="grid_3">
-							<div class="text1">Address</div>
-							<address>
-								<dl>
-									<dt>
-										The Company Name Inc.<br> 8901 Marmora Road,<br>
-										Glasgow, D04 89GR.
-									</dt>
-									<dd>
-										<span>Freephone:</span>+1 800 559 6580
-									</dd>
-									<dd>
-										<span>Telephone:</span>+1 800 603 6035
-									</dd>
-									<dd>
-										<span>FAX:</span>+1 800 889 9898
-									</dd>
-									<dd>
-										E-mail: <a href="#" class="link-1">mail@demolink.org</a>
-									</dd>
-									<dd>
-										Skype: <a href="#" class="link-1">@skypename</a>
-									</dd>
-								</dl>
-							</address>
-						</div>
-						<div class="grid_3">
-							<div class="text1">&nbsp;</div>
-							<figure>
-								<iframe
-									src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
-							</figure>
-						</div>
-						<div class="grid_5 prefix_1">
-							<div class="text1">Ask a Question</div>
-							<form id="form" action="#">
-								<div class="success_wrapper">
-									<div class="success">
-										Contact form submitted!<br> <strong>We will be
-											in touch soon.</strong>
-									</div>
-								</div>
-								<fieldset>
-									<label class="name"> <input type="text" value="Name:">
-										<br class="clear"> <span class="error error-empty">*This
-											is not a valid name.</span><span class="empty error-empty">*This
-											field is required.</span>
-									</label> <label class="email"> <input type="text"
-										value="E-mail:"> <br class="clear"> <span
-										class="error error-empty">*This is not a valid email
-											address.</span><span class="empty error-empty">*This field is
-											required.</span>
-									</label> <label class="message"> <textarea>Message:</textarea>
-										<br class="clear"> <span class="error">*The
-											message is too short.</span> <span class="empty">*This field
-											is required.</span>
-									</label>
-									<div class="clear"></div>
-									<div class="btns">
-										<a data-type="submit" class="link1">Send</a>
-										<div class="clear"></div>
-									</div>
-								</fieldset>
-							</form>
-						</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</article>
-
-
-
-
-
-
-
-			<!-- Footer -->
-			<div id="footer">
-				<ul class="copyright">
-					<li>&copy; Untitled.</li>
-					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
 			</div>
 
-		</div>
+		<!-- Sidebar -->
+			<div id="sidebar">
+
+				<!-- Logo -->
+					<h1 id="logo"><a href="#">STRIPED</a></h1>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="#">메인</a></li>
+							<li><a href="#">학교가기</a></li>
+							<li><a href="#">루트등록</a></li>
+							<li><a href="#">루트공유</a></li>
+							<li><a href="#">Contact Me</a></li>
+						</ul>
+					</nav>
+
+				<!-- Search -->
+					<!-- <section class="box search">
+						<form method="post" action="#">
+							<input type="text" class="text" name="search" placeholder="Search" />
+						</form>
+					</section> -->
+
+				<!-- Text -->
+					<!-- <section class="box text-style1">
+						<div class="inner">
+							<p>
+								<strong>Striped:</strong> A free and fully responsive HTML5 site
+								template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>
+							</p>
+						</div>
+					</section> -->
+
+				<!-- Recent Posts -->
+					<section class="box recent-posts">
+						<header>
+							<h2>마이페이지</h2>
+						</header>
+						<ul>
+							<li><a href="#">시간표 등록</a></li>
+							<li><a href="#">개인정보 수정</a></li>
+							<li><a href="#">루트관리</a></li>
+							<li><a href="#">교통비 가계부</a></li>
+							<li><a href="#">활동내역</a></li>
+						</ul>
+					</section>
+
+				<!-- Recent Comments -->
+				<!-- 	<section class="box recent-comments">
+						<header>
+							<h2>Recent Comments</h2>
+						</header>
+						<ul>
+							<li>case on <a href="#">Lorem ipsum dolor</a></li>
+							<li>molly on <a href="#">Sed dolore magna</a></li>
+							<li>case on <a href="#">Sed dolore magna</a></li>
+						</ul>
+					</section> -->
+
+				<!-- Calendar -->
+					<!-- <section class="box calendar">
+						<div class="inner">
+							<table>
+								<caption>July 2014</caption>
+								<thead>
+									<tr>
+										<th scope="col" title="Monday">M</th>
+										<th scope="col" title="Tuesday">T</th>
+										<th scope="col" title="Wednesday">W</th>
+										<th scope="col" title="Thursday">T</th>
+										<th scope="col" title="Friday">F</th>
+										<th scope="col" title="Saturday">S</th>
+										<th scope="col" title="Sunday">S</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="4" class="pad"><span>&nbsp;</span></td>
+										<td><span>1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+									</tr>
+									<tr>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+										<td><a href="#">6</a></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><a href="#">10</a></td>
+									</tr>
+									<tr>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+										<td><span>13</span></td>
+										<td class="today"><a href="#">14</a></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+									</tr>
+									<tr>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><a href="#">23</a></td>
+										<td><span>24</span></td>
+									</tr>
+									<tr>
+										<td><a href="#">25</a></td>
+										<td><span>26</span></td>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td class="pad" colspan="3"><span>&nbsp;</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section> -->
+
+				<!-- Copyright -->
+					<ul id="copyright">
+						<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
 
 		<!-- Scripts -->
-		<script src="main_js/jquery.min.js"></script>
-		<script src="main_js/skel.min.js"></script>
-		<script src="main_js/skel-viewport.min.js"></script>
-		<script src="main_js/util.js"></script>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="main_js/main.js"></script>
+			<script src="main_js/jquery.min.js"></script>
+			<script src="main_js/skel.min.js"></script>
+			<script src="main_js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="main_js/main.js"></script>
 
-		<!-- Footer -->
-		<div id="footer">
-			<ul class="copyright">
-				<li>&copy; Untitled.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="main_js/jquery.min.js"></script>
-	<script src="main_js/skel.min.js"></script>
-	<script src="main_js/skel-viewport.min.js"></script>
-	<script src="main_js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="main_js/main.js"></script>
-	<script>
-		var index = 0;
-		$("#btn1").on("click", function() {
-			if (index == 0) {
-				$("#route11").fadeIn(350);
-				index++;
-			} else {
-				$("#route11").fadeOut(350);
-				index--;
-			}
-		});
-	</script>
-</body>
+	</body>
 </html>
