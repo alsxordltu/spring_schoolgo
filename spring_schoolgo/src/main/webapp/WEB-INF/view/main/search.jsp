@@ -14,25 +14,23 @@ table {
 </head>
 <body>
 
-	<input type="text" id="stationName">
-	<button id="getdata" onclick="findStation()">검색</button>
+	<div id="map" style="width: 100%; height: 350px;"></div>
+	<p>
+		<button onclick="getInfo()">지도 정보 보기</button>
+		<br>
+	</p>
+	<p id="infoDiv"></p>
 
+	<form action="">
+		<input type="text" id="startsearch"> <input type="button"
+			value="검색" onclick="searchMap();"> <br> <br>
+		<div id="map" style="width: 500px; height: 400px;"></div>
+		<div id="out"></div>
+		<br> <input type="submit" value="확인">
 
-	<%-- 	<table id="info">
-		<tr><th>역코드</th><th>역명</th><th>호선</th><th>버튼</th></tr>
-		<c:forEach var="result" items="${stationSearchResultList }" varStatus="status">
-		
-		<tr>
-			<td><a href="<%=request.getContextPath()%>/EmpRetrieveServlet?empId=${employee.empId }">${employee.empId }</a></td>
-			<td><input type="text" name="code${status.count }" value="${result.stationCode }" ></td>
-			<td><input type="text" name="stationName${status.count }" value="${result.stationName }" ></td>
-			<td><input type="text" name="lineNum${status.count }" value="${result.lineNum }"></td>
-			<td><input type="button"  id="select" value="선택"  onclick="selectStation(${result.stationCode },${result.stationName })" data-stationCode="${result.stationCode }"  data-stationName="${result.stationName }"></td>
-		</tr>
-	</c:forEach>
-	</table>
- --%>
-	<div id="map" style="width: 500px; height: 400px;"></div>
+	</form>
+	<script type="text/javascript"
+		src="//apis.daum.net/maps/maps3.js?apikey=3e62ecc809bbf6026130d87653a9dd87&libraries=services"></script>
 	<script type="text/javascript"
 		src="//apis.daum.net/maps/maps3.js?apikey=3e62ecc809bbf6026130d87653a9dd87"></script>
 	<script>
@@ -42,64 +40,116 @@ table {
 			level : 3
 		};
 
-		var map = new daum.maps.Map(container, options);
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨
+		};
+
+		var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+		// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+		var mapTypeControl = new daum.maps.MapTypeControl();
+
+		// 지도 타입 컨트롤을 지도에 표시합니다
+		map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+		function getInfo() {
+			// 지도의 현재 중심좌표를 얻어옵니다 
+			var center = map.getCenter();
+
+			// 지도의 현재 레벨을 얻어옵니다
+			var level = map.getLevel();
+
+			// 지도타입을 얻어옵니다
+			var mapTypeId = map.getMapTypeId();
+
+			// 지도의 현재 영역을 얻어옵니다 
+			var bounds = map.getBounds();
+
+			// 영역의 남서쪽 좌표를 얻어옵니다 
+			var swLatLng = bounds.getSouthWest();
+
+			// 영역의 북동쪽 좌표를 얻어옵니다 
+			var neLatLng = bounds.getNorthEast();
+
+			// 영역정보를 문자열로 얻어옵니다. ((남,서), (북,동)) 형식입니다
+			var boundsStr = bounds.toString();
+
+			var message = '지도 중심좌표는 위도 ' + center.getLat() + ', <br>';
+			message += '경도 ' + center.getLng() + ' 이고 <br>';
+			message += '지도 레벨은 ' + level + ' 입니다 <br> <br>';
+			message += '지도 타입은 ' + mapTypeId + ' 이고 <br> ';
+			message += '지도의 남서쪽 좌표는 ' + swLatLng.getLat() + ', '
+					+ swLatLng.getLng() + ' 이고 <br>';
+			message += '북동쪽 좌표는 ' + neLatLng.getLat() + ', '
+					+ neLatLng.getLng() + ' 입니다';
+
+			var infoDiv = document.getElementById('infoDiv');
+			infoDiv.innerHTML = message;
+		}
 	</script>
 
 </body>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
-	function findStation() {
-		var string = $("#stationName").val();
-		location.href = "findstation?input=" + string;
+	function searchMap() {
+		
+		var inputstartvalue = document.getElementById('startsearch').value;
+		var output = document.getElementById('out');
+		output.innerHTML = inputstartvalue;
+		
+		//장소검색 서비스객체 생성
+		var map = new daum.maps.Map(container, options);
+
+		//지도객체설정
+		var places = new daum.maps.services.Places();
+
+		places.keywordSearch(inputstartvalue, callback);
+		console.log(inputstartvalue);
+		places.setMap(map);
+
+		var callback = function(status, result) {
+			if (status === daum.maps.services.Status.OK) {
+				console.log(result);
+			}
+		};
+
+		//keywordSearch(keyword, callback, options)
+
+/* 
+		// 공공기관 코드 검색
+		//categorySearch(code, callback, options)
+		places.categorySearch('PO3', callback, {
+			// Map 객체를 지정하지 않았으므로 좌표객체를 생성하여 넘겨준다.
+			location : new daum.maps.LatLng(37.564968, 126.939909)
+		});
+
+		//주소-좌표간 변환 서비스 객체 생성
+		var geocoder = new daum.maps.services.Geocoder();
+
+		//addr2coord(addr, callback, options)
+		//주소 정보에 해당하는 좌표값 요청
+		var callback2 = function(status, result) {
+			if (status === daum.maps.services.Status.OK) {
+				console.log(result);
+			}
+		};
+		geocoder.addr2coord('해남군 송지면', callback2); */
+		
+		
+		var geocoder = new daum.maps.services.Geocoder();
+
+		var callback = function(status, result) {
+		    if (status === daum.maps.services.Status.OK) {
+		        console.log(result);
+		    }
+		};
+
+		geocoder.addr2coord('해남군 송지면', callback);
+		output.innerHTML += geocoder;
+		
 	}
-
-	$(document).on(
-			"click",
-			"#select",
-			function(e) {
-
-				opener.document.all.resultStationCode.value = $(this).attr(
-						"data-stationCode");
-				opener.document.all.resultStationName.value = $(this).attr(
-						"data-stationName");
-				window.close();
-			});
-
-	/*  function selectStation(code, name){
-	 opener.document.all.resultStationName.value = code;
-	 opener.document.all.resultStationName2.value = name;
-	
-	 }  */
-
-	/* $("#select1").on("click", function(){
-	 console.log("hello");
-	 }); */
-
-	/*  <c:url value="/findstation" var="fstation" />
-	 $("#getdata").on("click", function(){
-	
-	 $.ajax({
-	 url:"${fstation}",
-	 type:"post",
-	 data:{
-	 "input" : $("#stationName").val()
-	 },
-	 success:function(res){
-	 console.log(res)
-	 var row = "";
-	 row += 	"<tr><th>역명</th><th>호선</th><th>선택</th></tr>";
-	 $(res).each(function(index, data){
-	 var name = data.stationName;
-	 var line = data.lineNum;
-	 row += "<tr><td>"+name+"</td><td>"+line+"</td><td><input type='button' action='test()' value='선택'></td></tr>";
-	 });
-	 $("#info").html($("#info").html()+row);
-	 },
-	 error : function(xhr, status, error){
-	 alert(error);
-	 }
-	 });
-	 });
-	 */
 </script>
 </html>
