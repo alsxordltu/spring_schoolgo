@@ -115,15 +115,16 @@
 						
 						<div style="width:50%; float:left; padding: 0 50px 0 0;">
 							<h5 text-align=center=>출발지를 입력하세요!</h5>
-							<input type="text" >
-							
+							<input type="text" name="start" readonly>
+								<a href="gotosearch">검색</a>
+							</input>
 							
 						</div>
 						
 						<div style="width:50%; float:left; padding: 0 0 0 50px;">
 							
 							<h5 text-align=center=>도착지를 입력하세요!</h5>
-							<input type="text">
+							<input type="text" >
 							
 						</div>
 						

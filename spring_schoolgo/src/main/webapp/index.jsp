@@ -12,8 +12,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!-- <link rel="stylesheet" href="csds/login.css" /> -->
 		<link rel="stylesheet" href="index_css/login.css" />
-     
-      
+       
+
 	</head>
 	<body class="is-loading">
 
@@ -25,7 +25,6 @@
 						<header>
 							<span class="avatar"><img src="index_img/00.jpg" alt="그림없음" width="150"/></span>
 							<h1>학교가자!</h1>
-							
 						</header>
 						<footer>
 							<ul class="icons"><!--  메인화면의 아이콘 설정 -->
