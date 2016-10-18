@@ -77,7 +77,7 @@
 					<button id="btn1" style="width: 600px; height: 50px;">섭이의
 						루트1</button>
 				</div>
-				
+
 				<div id="route11" class="routeclass"
 					style="width: 600px; height: auto; display: none;">
 					<button id="btn11" style="width: 150px; height: 40px; float: left;"
@@ -108,35 +108,39 @@
 				<header>
 					<h6 text-align=center>루트 등록하기</h6>
 				</header>
-				
-				<div style="width:100%; float:left;">
+
+				<div style="width: 100%; float: left;">
 
 					<form name="routenext" method="get" action="gotoinsertroute">
-						
-						<div style="width:50%; float:left; padding: 0 50px 0 0;">
+
+						<div style="width: 50%; float: left; padding: 0 50px 0 0;">
 							<h5 text-align=center=>출발지를 입력하세요!</h5>
-							<input type="text" name="start" readonly>
-								<a href="gotosearch">검색</a>
-							</input>
-							
+							<a href="gotosearch"> <input type="text" name="start"
+								readonly> <input type="text" name="start"
+								value="여기에값받아올듯" readonly></a>
+
+
 						</div>
-						
-						<div style="width:50%; float:left; padding: 0 0 0 50px;">
-							
+
+						<div style="width: 50%; float: left; padding: 0 0 0 50px;">
+
 							<h5 text-align=center=>도착지를 입력하세요!</h5>
-							<input type="text" >
-							
+							<a href="gotosearch"> <input type="text" name="end"
+								readonly> <input type="text" name="start"
+								value="여기에값받아올듯" readonly></a>
+
 						</div>
-						
-						
-						<div style="margin: 50px 0 100px 0; float:left; width:100%; ">
+
+
+						<div style="margin: 50px 0 100px 0; float: left; width: 100%;">
 							<h5 text-align=center=>루트 이름을 입력하세요!</h5>
 							<input type="text" name="routename">
 						</div>
 
 
-					
-						<input type="submit" value="등록하러 가기" style="margin:10px 0 0 280px;">
+
+						<input type="submit" value="등록하러 가기"
+							style="margin: 10px 0 0 280px;">
 					</form>
 
 
@@ -164,7 +168,7 @@
 					<!-- h6=헤더 -->
 				</header>
 
-				<div style=" width:100%; margin: 100px 0 50px 170px">
+				<div style="width: 100%; margin: 100px 0 50px 170px">
 					<input type="button" value="등교시간 등록하기" id="timetable"
 						onclick="location.href='gototimetable'">&nbsp&nbsp&nbsp <input
 						type="button" value="개인정보 수정" id="updateprofile"
@@ -176,7 +180,7 @@
 				<!-- onclick="location.href='gotoroutemanager'" -->
 
 
-				<div style=" width:100%; margin: 50px 0 50px 100px">
+				<div style="width: 100%; margin: 50px 0 50px 100px">
 					<input type="button" value="루트 관리" id="routemanager"
 						onclick="location.href='gotoroutemanager'">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<input type="button" value="교통비 가계부" id="costcal"
