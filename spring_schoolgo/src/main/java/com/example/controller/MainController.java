@@ -74,6 +74,11 @@ public class MainController {
 	@RequestMapping(value="/gotomyactivity", method=RequestMethod.GET) public
 	String gotomyactivity(){ return "mypage/5myactivity"; }	
 	
+	@RequestMapping(value="/gotosearch", method=RequestMethod.GET) public
+	String gotosearch(){ return "main/search"; }	
+	
+	
+	
 
 		
 					
