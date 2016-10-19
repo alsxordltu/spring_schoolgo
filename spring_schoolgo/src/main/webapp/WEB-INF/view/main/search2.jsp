@@ -394,9 +394,9 @@ function removeAllChildNods(el) {
     </style>
   </head>
   <body>
-  	<form id="form1" action="getlocation" method="get">
+  	<form id="form1" action="getlocation2" method="get">
   	 	<input type="text" id="pacinput" name="pacinput" class="controls" placeholder="Search Box">
-    	<input type="text" id="resultstring2" name="resultstring2" placeholder="Search Box2">
+    	<input type="text" id="resultstring3" name="resultstring3" placeholder="Search Box2">
     	<input id="pac-button" class="controls" type="button" value="확인" onclick="getlocation()">
     	<input type="text" id="resultstring" name="resultstring">
     </form>
@@ -475,7 +475,7 @@ function getlocation(){
 	var input = document.getElementById('pacinput').value;	
 	var url = "https://apis.daum.net/local/geo/addr2coord?apikey=3e62ecc809bbf6026130d87653a9dd87&q="+ input +"&output=json";
 	document.getElementById('resultstring').value = url;
-	document.getElementById('resultstring2').value = input;	
+	document.getElementById('resultstring3').value = input;	
 	document.getElementById('form1').submit();
 	
 }

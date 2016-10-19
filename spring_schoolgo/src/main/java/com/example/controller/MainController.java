@@ -1,11 +1,18 @@
 package com.example.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller // 컨트롤러 선언
 public class MainController {
+	private static Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	/*
 	 * @Autowired Userservice service;
@@ -55,7 +62,32 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/gotoinsertroute", method=RequestMethod.GET) public
-	String gotoinsertroute(){ return "insertroute/insertroute"; }			
+	String gotoinsertroute(HttpServletRequest request){ 
+		logger.trace("루트등록 초기화 컨트롤러 ");
+/*		HttpSession session = request.getSession();
+		session.getAttribute("start");
+		logger.trace("start : {}" , session.getAttribute("start"));*/
+		
+/*		
+		if(start!=null){
+			logger.trace("출발지입력됨");
+			session.setAttribute(start, "start");
+		}
+		else{
+			logger.trace("출발지x");
+		}
+		if(start!=null){
+			logger.trace("도착지입력됨");
+			session.setAttribute(end, "end");		
+		}
+		else{
+			logger.trace("도착지x");
+		}
+		*/
+		
+		
+		return "insertroute/insertroute"; 
+	}			
 	
 	@RequestMapping(value="/gototimetable", method=RequestMethod.GET) public
 	String gototimetable(){ return "mypage/1timetable"; }	
@@ -74,8 +106,6 @@ public class MainController {
 	@RequestMapping(value="/gotomyactivity", method=RequestMethod.GET) public
 	String gotomyactivity(){ return "mypage/5myactivity"; }	
 	
-	@RequestMapping(value="/gotosearch", method=RequestMethod.GET) public
-	String gotosearch(){ return "main/search"; }	
 	
 	
 	

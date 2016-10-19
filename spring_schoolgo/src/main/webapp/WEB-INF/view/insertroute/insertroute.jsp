@@ -15,7 +15,12 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
-
+		<%
+		
+			String searchdata = (String)session.getAttribute("start");
+			String searchdata2 = (String)session.getAttribute("end");
+				
+		%>
 		<!-- Content -->
 			<div id="content">
 				<div class="inner">
@@ -36,17 +41,17 @@
 						<div style="width: 50%; float: left; padding: 0 50px 0 0;">
 							<h5 align=center>출발지를 입력하세요!</h5>
 							<a href="gotosearch"> <input type="text" name="start"
-								readonly> <input type="text" name="start"
-								value="여기에값받아올듯" readonly></a>
+								value="${searchdata}" readonly></a>
+								<input type="hidden" name="startlocation" value="${searchdata}">
 						</div>
 
 
 						<!-- 도착지 값 -->
 						<div style="width: 50%; float: left; padding: 0 0 0 50px;">
 							<h5 align=center>도착지를 입력하세요!</h5>
-							<a href="gotosearch"> <input type="text" name="end"
-								readonly> <input type="text" name="start"
-								value="여기에값받아올듯" readonly></a>
+							<a href="gotosearch2"> <input type="text" name="end"
+								value="${searchdata2}" readonly></a>
+								<input type="hidden" name="endlocation" value="${searchdata2}">								
 						</div>
 
 
