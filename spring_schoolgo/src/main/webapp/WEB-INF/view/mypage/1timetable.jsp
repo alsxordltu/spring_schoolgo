@@ -1,314 +1,243 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> 
 <!DOCTYPE HTML>
+
+<!--
+	Striped by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-<title>Astral by HTML5 UP</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="my_css/main.css" />
-<link rel="stylesheet" href="my_css/form.css" />
-</head>
-<body>
+	<head>
+		<title>Striped by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="main_css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
 
-	<!-- Wrapper-->
-	<div id="logo">
-		<a href='gotomain'><img src="my_img/gogo.png" alt="" width="300"></a>
-	</div>
+		<!-- Content -->
+			<div id="content">
+				<div class="inner">
 
-	<div id="wrapper">
+					<!-- Post -->
+						<article class="box post post-excerpt">
+							<header>
+								
+								<!-- 아티클 제목 -->
+								<h2><a href="#">시간표 등록하자</a></h2>
+								<p>빠른 시일내에 완성하겟슴다</p>
+							</header>
+							<div class="info">
+								<!--
+									Note: The date should be formatted exactly as it's shown below. In particular, the
+									"least significant" characters of the month should be encapsulated in a <span>
+									element to denote what gets dropped in 1200px mode (eg. the "uary" in "January").
+									Oh, and if you don't need a date for a particular page or post you can simply delete
+									the entire "date" element.
 
-		<nav id="nav" class="navtable" style="display: block;">
-			<div style="float: left; width: 220px; height: 100px"></div>
-			<a id="animate"><i class="icon fa-user">Timetable</i></a>
-		</nav>
+								-->
+								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, 2014</span></span>
+								<!--
+									Note: You can change the number of list items in "stats" to whatever you want.
+								-->
+								<ul class="stats">
+									<li><a href="#" class="icon fa-comment">16</a></li>
+									<li><a href="#" class="icon fa-heart">32</a></li>
+									<li><a href="#" class="icon fa-twitter">64</a></li>
+									<li><a href="#" class="icon fa-facebook">128</a></li>
+								</ul>
+							</div>
+							<a href="#" class="image featured"><img src="main_img/pic01.jpg" alt="" /></a>
+							<p>
+								<strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
+								for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
+								repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
+							</p>
+							<p>
+								Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
+								or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
+								<a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new releases and updates.
+							</p>
+						</article>
 
-		<!-- Main -->
-		<div id="main">
+					<!-- Post -->
+						<article class="box post post-excerpt">
+							<header>
+								<h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+								<p>Feugiat interdum sed commodo ipsum consequat dolor nullam metus</p>
+							</header>
+							<div class="info">
+								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">8</span><span class="year">, 2014</span></span>
+								<ul class="stats">
+									<li><a href="#" class="icon fa-comment">16</a></li>
+									<li><a href="#" class="icon fa-heart">32</a></li>
+									<li><a href="#" class="icon fa-twitter">64</a></li>
+									<li><a href="#" class="icon fa-facebook">128</a></li>
+								</ul>
+							</div>
+							<a href="#" class="image featured"><img src="main_img/pic02.jpg" alt="" /></a>
+							<p>
+								Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
+								Nunc nulla velit, fermentum quis interdum quis, tate etiam commodo lorem ipsum dolor sit amet dolore.
+								Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
+								Nunc nulla velit, fermentum quis interdum quis, convallis eu sapien. Integer sed ipsum ante.
+							</p>
+						</article>
 
-			<!-- Me -->
-			<article id="me" class="panel"
-				style="padding: 50px 100px 50px 100px;">
-
-				<div id=timetable>
-					<table border="1">
-						<tr>
-							<th style="padding: 0 35px 15px 0;"><h6>월</h6></th>
-							<th style="padding: 0 35px 15px 0;"><h6>화</h6></th>
-							<th style="padding: 0 35px 15px 0;"><h6>수</h6></th>
-							<th style="padding: 0 35px 15px 0;"><h6>목</h6></th>
-							<th style="padding: 0 35px 15px 0;"><h6>금</h6></th>
-
-						</tr>
-						
-						<tr>
-
-							<td><input id="mon1" name="mon" type="radio" class="radio">
-								<label for="mon1" class="radio-label"> <i
-									class="fa fa-check"></i> <span>1교시</span>
-							</label></td>
-
-							<td><input id="tue1" name="tue" type="radio" class="radio">
-								<label for="tue1" class="radio-label"> <i
-									class="fa fa-check"></i> <span>1교시</span>
-							</label></td>
-}
-
-							<td><input id="wed1" name="wed" type="radio" class="radio">
-								<label for="wed1" class="radio-label"> <i
-									class="fa fa-check"></i> <span>1교시</span>
-							</label></td>
-
-							<td><input id="thu1" name="thu" type="radio" class="radio">
-								<label for="thu1" class="radio-label"> <i
-									class="fa fa-check"></i> <span>1교시</span>
-							</label></td>
-
-							<td><input id="fri1" name="fri" type="radio" class="radio">
-								<label for="fri1" class="radio-label"> <i
-									class="fa fa-check"></i> <span>1교시</span>
-							</label></td>
-						</tr>
-
-						<tr>
-
-							<td><input id="mon2" name="mon" type="radio" class="radio">
-								<label for="mon2" class="radio-label"> <i
-									class="fa fa-check"></i> <span>2교시</span>
-							</label></td>
-
-							<td><input id="tue2" name="tue" type="radio" class="radio">
-								<label for="tue2" class="radio-label"> <i
-									class="fa fa-check"></i> <span>2교시</span>
-							</label></td>
-
-							<td><input id="wed2" name="wed" type="radio" class="radio">
-								<label for="wed2" class="radio-label"> <i
-									class="fa fa-check"></i> <span>2교시</span>
-							</label></td>
-
-							<td><input id="thu2" name="thu" type="radio" class="radio">
-								<label for="thu2" class="radio-label"> <i
-									class="fa fa-check"></i> <span>2교시</span>
-							</label></td>
-
-							<td><input id="fri2" name="fri" type="radio" class="radio">
-								<label for="fri2" class="radio-label"> <i
-									class="fa fa-check"></i> <span>2교시</span>
-							</label></td>
-						</tr>
-
-						<tr>
-
-							<td><input id="mon3" name="mon" type="radio" class="radio">
-								<label for="mon3" class="radio-label"> <i
-									class="fa fa-check"></i> <span>3교시</span>
-							</label></td>
-
-							<td><input id="tue3" name="tue" type="radio" class="radio">
-								<label for="tue3" class="radio-label"> <i
-									class="fa fa-check"></i> <span>3교시</span>
-							</label></td>
-
-							<td><input id="wed3" name="wed" type="radio" class="radio">
-								<label for="wed3" class="radio-label"> <i
-									class="fa fa-check"></i> <span>3교시</span>
-							</label></td>
-
-							<td><input id="thu3" name="thu" type="radio" class="radio">
-								<label for="thu3" class="radio-label"> <i
-									class="fa fa-check"></i> <span>3교시</span>
-							</label></td>
-
-							<td><input id="fri3" name="fri" type="radio" class="radio">
-								<label for="fri3" class="radio-label"> <i
-									class="fa fa-check"></i> <span>3교시</span>
-							</label></td>
-						</tr>
-
-						<tr>
-
-							<td><input id="mon4" name="mon" type="radio" class="radio">
-								<label for="mon4" class="radio-label"> <i
-									class="fa fa-check"></i> <span>4교시</span>
-							</label></td>
-
-							<td><input id="tue4" name="tue" type="radio" class="radio">
-								<label for="tue4" class="radio-label"> <i
-									class="fa fa-check"></i> <span>4교시</span>
-							</label></td>
-
-							<td><input id="wed4" name="wed" type="radio" class="radio">
-								<label for="wed4" class="radio-label"> <i
-									class="fa fa-check"></i> <span>4교시</span>
-							</label></td>
-
-							<td><input id="thu4" name="thu" type="radio" class="radio">
-								<label for="thu4" class="radio-label"> <i
-									class="fa fa-check"></i> <span>4교시</span>
-							</label></td>
-
-							<td><input id="fri4" name="fri" type="radio" class="radio">
-								<label for="fri4" class="radio-label"> <i
-									class="fa fa-check"></i> <span>4교시</span>
-							</label></td>
-						</tr>
-
-						<tr>
-
-							<td><input id="mon5" name="mon" type="radio" class="radio">
-								<label for="mon5" class="radio-label"> <i
-									class="fa fa-check"></i> <span>5교시</span>
-							</label></td>
-
-							<td><input id="tue5" name="tue" type="radio" class="radio">
-								<label for="tue5" class="radio-label"> <i
-									class="fa fa-check"></i> <span>5교시</span>
-							</label></td>
-
-							<td><input id="wed5" name="wed" type="radio" class="radio">
-								<label for="wed5" class="radio-label"> <i
-									class="fa fa-check"></i> <span>5교시</span>
-							</label></td>
-
-							<td><input id="thu5" name="thu" type="radio" class="radio">
-								<label for="thu5" class="radio-label"> <i
-									class="fa fa-check"></i> <span>5교시</span>
-							</label></td>
-
-							<td><input id="fri5" name="fri" type="radio" class="radio">
-								<label for="fri5" class="radio-label"> <i
-									class="fa fa-check"></i> <span>5교시</span>
-							</label></td>
-						</tr>
-
-						<tr>
-
-							<td><input id="mon6" name="mon" type="radio" class="radio">
-								<label for="mon6" class="radio-label"> <i
-									class="fa fa-check"></i> <span>6교시</span>
-							</label></td>
-
-							<td><input id="tue6" name="tue" type="radio" class="radio">
-								<label for="tue6" class="radio-label"> <i
-									class="fa fa-check"></i> <span>6교시</span>
-							</label></td>
-
-							<td><input id="wed6" name="wed" type="radio" class="radio">
-								<label for="wed6" class="radio-label"> <i
-									class="fa fa-check"></i> <span>6교시</span>
-							</label></td>
-
-							<td><input id="thu6" name="thu" type="radio" class="radio">
-								<label for="thu6" class="radio-label"> <i
-									class="fa fa-check"></i> <span>6교시</span>
-							</label></td>
-
-							<td><input id="fri6" name="fri" type="radio" class="radio">
-								<label for="fri6" class="radio-label"> <i
-									class="fa fa-check"></i> <span>6교시</span>
-							</label></td>
-						</tr>
-
-						<tr>
-
-							<td><input id="mon7" name="mon" type="radio" class="radio">
-								<label for="mon7" class="radio-label"> <i
-									class="fa fa-check"></i> <span>7교시</span>
-							</label></td>
-
-							<td><input id="tue7" name="tue" type="radio" class="radio">
-								<label for="tue7" class="radio-label"> <i
-									class="fa fa-check"></i> <span>7교시</span>
-							</label></td>
-
-							<td><input id="wed7" name="wed" type="radio" class="radio">
-								<label for="wed7" class="radio-label"> <i
-									class="fa fa-check"></i> <span>7교시</span>
-							</label></td>
-
-							<td><input id="thu7" name="thu" type="radio" class="radio">
-								<label for="thu7" class="radio-label"> <i
-									class="fa fa-check"></i> <span>7교시</span>
-							</label></td>
-
-							<td><input id="fri7" name="fri" type="radio" class="radio">
-								<label for="fri7" class="radio-label"> <i
-									class="fa fa-check"></i> <span>7교시</span>
-							</label></td>
-						</tr>
-
-						<tr>
-
-							<td><input id="mon8" name="mon" type="radio" class="radio">
-								<label for="mon8" class="radio-label"> <i
-									class="fa fa-check"></i> <span>8교시</span>
-							</label></td>
-
-							<td><input id="tue8" name="tue" type="radio" class="radio">
-								<label for="tue8" class="radio-label"> <i
-									class="fa fa-check"></i> <span>8교시</span>
-							</label></td>
-
-							<td><input id="wed8" name="wed" type="radio" class="radio">
-								<label for="wed8" class="radio-label"> <i
-									class="fa fa-check"></i> <span>8교시</span>
-							</label></td>
-
-							<td><input id="thu8" name="thu" type="radio" class="radio">
-								<label for="thu8" class="radio-label"> <i
-									class="fa fa-check"></i> <span>8교시</span>
-							</label></td>
-
-							<td><input id="fri8" name="fri" type="radio" class="radio">
-								<label for="fri8" class="radio-label"> <i
-									class="fa fa-check"></i> <span>8교시</span>
-							</label></td>
-						</tr>
-					</table>
-				</div>
-
-
-
-				<div id=btndiv>
-
-					<div style="margin: 0 0 0 200px; float: left;">
-						<a href='gotomain#mypage'><input type="button" value="저장하기"></a>
-					</div>
-
-					<div style="margin: 0 0 0 20px; float: left;">
-						<a href='gotomain#mypage'><input type="button" value="돌아가기"></a>
-					</div>
+					<!-- Pagination -->
+						<div class="pagination">
+							<!--<a href="#" class="button previous">Previous Page</a>-->
+							<div class="pages">
+								<a href="#" class="active">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<span>&hellip;</span>
+								<a href="#">20</a>
+							</div>
+							<a href="#" class="button next">Next Page</a>
+						</div>
 
 				</div>
+			</div>
 
+		<!-- Sidebar -->
+			<div id="sidebar">
 
-			</article>
-		</div>
+				<!-- Logo -->
+					<h1 id="logo"><a href="#">STRIPED</a></h1>
 
-		<!-- Footer -->
-		<div id="footer">
-			<ul class="copyright">
-				<li>&copy; Untitled.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</div>
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="gotomain">메인</a></li>
+							<li><a href="#">학교가기</a></li>
+							<li><a href="gotoinsertroute">루트등록</a></li>
+							<li><a href="#">루트공유</a></li>
+							<li><a href="#">Contact Me</a></li>
+						</ul>
+					</nav>
 
-	<!-- Scripts -->
-	<script src="my_js/jquery.min.js"></script>
-	<script src="my_js/skel.min.js"></script>
-	<script src="my_js/skel-viewport.min.js"></script>
-	<script src="my_js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="my_js/main.js"></script>
-	<script>
-		$("document").ready(function() {
-			$("#animate").animate({
-				left : 110
-			/* top:-140 */
-			});
-		});
-	</script>
-</body>
+				<!-- Search -->
+					<!-- <section class="box search">
+						<form method="post" action="#">
+							<input type="text" class="text" name="search" placeholder="Search" />
+						</form>
+					</section> -->
+
+				<!-- Text -->
+					<!-- <section class="box text-style1">
+						<div class="inner">
+							<p>
+								<strong>Striped:</strong> A free and fully responsive HTML5 site
+								template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>
+							</p>
+						</div>
+					</section> -->
+
+				<!-- Recent Posts -->
+					<section class="box recent-posts">
+						<header>
+							<h2>마이페이지</h2>
+						</header>
+						<ul>
+							<li><a href="#">시간표 등록</a></li>
+							<li><a href="#">개인정보 수정</a></li>
+							<li><a href="#">루트관리</a></li>
+							<li><a href="#">교통비 가계부</a></li>
+							<li><a href="#">활동내역</a></li>
+						</ul>
+					</section>
+
+				<!-- Recent Comments -->
+				<!-- 	<section class="box recent-comments">
+						<header>
+							<h2>Recent Comments</h2>
+						</header>
+						<ul>
+							<li>case on <a href="#">Lorem ipsum dolor</a></li>
+							<li>molly on <a href="#">Sed dolore magna</a></li>
+							<li>case on <a href="#">Sed dolore magna</a></li>
+						</ul>
+					</section> -->
+
+				<!-- Calendar -->
+					<!-- <section class="box calendar">
+						<div class="inner">
+							<table>
+								<caption>July 2014</caption>
+								<thead>
+									<tr>
+										<th scope="col" title="Monday">M</th>
+										<th scope="col" title="Tuesday">T</th>
+										<th scope="col" title="Wednesday">W</th>
+										<th scope="col" title="Thursday">T</th>
+										<th scope="col" title="Friday">F</th>
+										<th scope="col" title="Saturday">S</th>
+										<th scope="col" title="Sunday">S</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="4" class="pad"><span>&nbsp;</span></td>
+										<td><span>1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+									</tr>
+									<tr>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+										<td><a href="#">6</a></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><a href="#">10</a></td>
+									</tr>
+									<tr>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+										<td><span>13</span></td>
+										<td class="today"><a href="#">14</a></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+									</tr>
+									<tr>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><a href="#">23</a></td>
+										<td><span>24</span></td>
+									</tr>
+									<tr>
+										<td><a href="#">25</a></td>
+										<td><span>26</span></td>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td class="pad" colspan="3"><span>&nbsp;</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section> -->
+
+				<!-- Copyright -->
+					<ul id="copyright">
+						<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="main_js/jquery.min.js"></script>
+			<script src="main_js/skel.min.js"></script>
+			<script src="main_js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="main_js/main.js"></script>
+
+	</body>
 </html>

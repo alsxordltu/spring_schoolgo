@@ -16,16 +16,14 @@ public class InsertRouteController {
 		return "insertroute/findStation";
 	}
 	
-	@RequestMapping(value="/gotoinsertroute2", method=RequestMethod.GET)
-	public String gotoinsertroute2(){
-		return "insertroute/insertroute2";
+	@RequestMapping(value="/gotoinsert1", method=RequestMethod.GET)
+	public String gotoinsert1(){
+		return "insertroute/insert1";
 	}
 	
-	@RequestMapping(value="/gotoinsertresult", method=RequestMethod.GET)
-	public String gotoinsertresult(){
-		return "insertroute/insertresult";
+	@RequestMapping(value="/gotoinsert2", method=RequestMethod.GET)
+	public String gotoinsert2(){
+		return "insertroute/insert2";
 	}
-	
-	
 
 }

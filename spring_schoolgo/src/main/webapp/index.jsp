@@ -22,6 +22,7 @@
 
 				<!-- Main -->
 					<section id="main">
+					
 						<header>
 							<span class="avatar"><img src="index_img/00.jpg" alt="그림없음" width="150"/></span>
 							<h1>학교가자!</h1>

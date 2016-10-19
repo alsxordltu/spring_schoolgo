@@ -24,13 +24,10 @@
 					<!-- Post -->
 						<article class="box post post-excerpt">
 							<header>
-								<!--
-									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
-									if they get too long. You can also remove the <p> entirely if you don't
-									need a subtitle.
-								-->
-								<h2><a href="#">Welcome to Striped</a></h2>
-								<p>A free, fully responsive HTML5 site template by HTML5 UP</p>
+								
+								<!-- 아티클 제목 -->
+								<h2><a href="#">메인페이지 공사중...</a></h2>
+								<p>빠른 시일내에 완성하겟슴다</p>
 							</header>
 							<div class="info">
 								<!--
@@ -110,14 +107,14 @@
 			<div id="sidebar">
 
 				<!-- Logo -->
-					<h1 id="logo"><a href="#">STRIPED</a></h1>
+					<h1 id="logo"><img src="main_img/pic01.jpg" alt="" /></a></h1>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li class="current"><a href="#">메인</a></li>
+							<li class="current"><a href="gotomain">메인</a></li>
 							<li><a href="#">학교가기</a></li>
-							<li><a href="#">루트등록</a></li>
+							<li><a href="gotoinsertroute">루트등록</a></li>
 							<li><a href="#">루트공유</a></li>
 							<li><a href="#">Contact Me</a></li>
 						</ul>
@@ -146,7 +143,7 @@
 							<h2>마이페이지</h2>
 						</header>
 						<ul>
-							<li><a href="#">시간표 등록</a></li>
+							<li><a href="gototimetable">시간표 등록</a></li>
 							<li><a href="#">개인정보 수정</a></li>
 							<li><a href="#">루트관리</a></li>
 							<li><a href="#">교통비 가계부</a></li>

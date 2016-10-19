@@ -22,43 +22,27 @@
 
 					<!-- Post -->
 						<article class="box post post-excerpt">
-						
-							<!-- 헤더부분 -->
 							<header>
-								<h2 align="center">루트 등록</h2>
-								<p align="center">당신의 루트를 등록할 수 있습니다.</p>
+								<h2 align="center">이동 수단 중 버스 선택시,나오는 창</h2>
+								<h2 align="center">이 버정들 중 당신이 주로 이용하는 버정을 선택하세요</h2>
+								<p align="center">당신의 주변에 있는 버정들입니다..</p>
 							</header>
 							
-							
-					<form name="routenext" method="get" action="gotoinsert1">
+							<form name="routenext" method="get" action="gotoinsertroute">
 
-						<!-- 출발지 값 -->
-						<div style="width: 50%; float: left; padding: 0 50px 0 0;">
-							<h5 align=center>출발지를 입력하세요!</h5>
-							<a href="gotosearch"> <input type="text" name="start"
-								readonly> <input type="text" name="start"
-								value="여기에값받아올듯" readonly></a>
+						<div style="width: 100%; float: left; padding: 0 50px 0 0;">
+							<h5 align=center>1번버정</h5>
+						</div>
+
+						<div style="width: 100%; float: left; padding: 0 0 0 50px;">
+
+							<h5 align=center>2번버정.</h5>
 						</div>
 
 
-						<!-- 도착지 값 -->
-						<div style="width: 50%; float: left; padding: 0 0 0 50px;">
-							<h5 align=center>도착지를 입력하세요!</h5>
-							<a href="gotosearch"> <input type="text" name="end"
-								readonly> <input type="text" name="start"
-								value="여기에값받아올듯" readonly></a>
-						</div>
+						
 
 
-
-						<!-- 루트명 입력(값넘기기) -->
-						<div style="margin: 50px 0 100px 0; float: left; width: 100%;">
-							<h5 align=center>루트 이름을 입력하세요!</h5>
-							<input type="text" name="routename">
-						</div>
-
-
-					<!-- 섭밋 버튼 -->
 					<div style="text-align:center">
 						<input type="submit" value="등록하러 가기">
 					</div>
