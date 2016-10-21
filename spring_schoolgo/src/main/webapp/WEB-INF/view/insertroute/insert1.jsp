@@ -15,7 +15,9 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-
+<%
+	String routename = (String)session.getAttribute("routename");
+%>
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -25,7 +27,7 @@
 				<form name="route1next" method="get" action="gotoinsert2">
 				<header>
 					<h2 align="center">루트 등록</h2>
-					<p align="center">루트명 여기에 받아오기</p>
+					<p align="center"><%=routename %></p>
 				</header>
 
 				<div id="insert1left">

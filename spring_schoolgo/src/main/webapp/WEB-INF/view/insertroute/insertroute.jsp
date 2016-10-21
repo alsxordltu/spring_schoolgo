@@ -19,12 +19,17 @@
 			
 			String searchdata = (String)session.getAttribute("start");
 			String searchdata2 = (String)session.getAttribute("end");
+			String routename="";
 			if(searchdata==null){
 				searchdata="";				
 			}
 			if(searchdata2==null){
 				searchdata2="";				
 			}
+			if(session.getAttribute("routename")!=null){
+				routename=(String)session.getAttribute("routename");
+			}
+		
 		%>
 		<!-- Content -->
 			<div id="content">
@@ -56,7 +61,8 @@
 							<h5 align=center>도착지를 입력하세요!</h5>
 							<a href="gotosearch2"> <input type="text" name="end"
 								value="<%=searchdata2%>" readonly></a>
-								<input type="hidden" name="endlocation" value="${searchdata2}">								
+								<input type="hidden" name="endlocation" value="${searchdata2}">	
+															
 						</div>
 
 
@@ -64,7 +70,7 @@
 						<!-- 루트명 입력(값넘기기) -->
 						<div style="margin: 50px 0 100px 0; float: left; width: 100%;">
 							<h5 align=center>루트 이름을 입력하세요!</h5>
-							<input type="text" name="routename">
+							<input type="text" name="routename" value="<%=routename %>">
 						</div>
 
 

@@ -352,16 +352,17 @@ function removeAllChildNods(el) {
   text-overflow: ellipsis;
   width: 300px;
 }
-@media screen and( min-width: 737px){
+@media screen and (max-width: 736px) {
 #pacinput {
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
-  font-weight: 300; 
+  font-weight: 300;
+  
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 30%;
-}
+  width: 160px;
+   }
 }
 
 #pac-button {
