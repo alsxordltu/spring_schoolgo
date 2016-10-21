@@ -1,14 +1,16 @@
 package com.example.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.dto.User;
+
 
 @Controller // 컨트롤러 선언
 public class MainController {
@@ -49,75 +51,58 @@ public class MainController {
 	 * join(User user){ service.join(user); return "tutorial"; }
 	 */
 
+	@RequestMapping(value = "/gotogo", method = RequestMethod.GET)
+	public String gotogo() {
+		return "goandcome/go";
+	}
 
-	@RequestMapping(value="/gotogo", method=RequestMethod.GET) public
-	String gotogo(){ return "goandcome/go"; }	
-	
-	@RequestMapping(value="/gotocome", method=RequestMethod.GET) public
-	String gotocome(){ return "goandcome/come"; }	
-	
+	@RequestMapping(value = "/gotocome", method = RequestMethod.GET)
+	public String gotocome() {
+		return "goandcome/come";
+	}
 
-	
-	
-	
-	
-	@RequestMapping(value="/gotoinsertroute", method=RequestMethod.GET) public
-	String gotoinsertroute(HttpServletRequest request){ 
+	@RequestMapping(value = "/gotoinsertroute", method = RequestMethod.GET)
+	public String gotoinsertroute(HttpServletRequest request) {
 		logger.trace("루트등록 초기화 컨트롤러 ");
-/*		HttpSession session = request.getSession();
-		session.getAttribute("start");
-		logger.trace("start : {}" , session.getAttribute("start"));*/
-		
-/*		
-		if(start!=null){
-			logger.trace("출발지입력됨");
-			session.setAttribute(start, "start");
-		}
-		else{
-			logger.trace("출발지x");
-		}
-		if(start!=null){
-			logger.trace("도착지입력됨");
-			session.setAttribute(end, "end");		
-		}
-		else{
-			logger.trace("도착지x");
-		}
-		*/
-		
-		
-		return "insertroute/insertroute"; 
-	}			
-	
-	@RequestMapping(value="/gototimetable", method=RequestMethod.GET) public
-	String gototimetable(){ return "mypage/1timetable"; }	
-	
-	@RequestMapping(value="/gotoupdateprofile", method=RequestMethod.GET) 
-	public String gotoupdateprofile(){
-		return "mypage/2updateprofile"; 
-	}	
-	
-	@RequestMapping(value="/gotoroutemanager", method=RequestMethod.GET) public
-	String gotoroutemanager(){ return "mypage/3routemanager"; }	
-	
-	@RequestMapping(value="/gotocostcal", method=RequestMethod.GET) public
-	String gotocostcal(){ return "mypage/4costcal"; }	
-	
-	@RequestMapping(value="/gotomyactivity", method=RequestMethod.GET) public
-	String gotomyactivity(){ return "mypage/5myactivity"; }	
-	
-	
-	
-	
+		/*
+		 * HttpSession session = request.getSession();
+		 * session.getAttribute("start"); logger.trace("start : {}" ,
+		 * session.getAttribute("start"));
+		 */
 
-		
-					
-	
-	
+		/*
+		 * if(start!=null){ logger.trace("출발지입력됨"); session.setAttribute(start,
+		 * "start"); } else{ logger.trace("출발지x"); } if(start!=null){
+		 * logger.trace("도착지입력됨"); session.setAttribute(end, "end"); } else{
+		 * logger.trace("도착지x"); }
+		 */
 
-					
-	
-	
-	
-	
+		return "insertroute/insertroute";
+	}
+
+	@RequestMapping(value = "/gototimetable", method = RequestMethod.GET)
+	public String gototimetable() {
+		return "mypage/1timetable";
+	}
+
+	@RequestMapping(value = "/gotoupdateprofile", method = RequestMethod.GET)
+	public String gotoupdateprofile() {
+		return "mypage/2updateprofile";
+	}
+
+	@RequestMapping(value = "/gotoroutemanager", method = RequestMethod.GET)
+	public String gotoroutemanager() {
+		return "mypage/3routemanager";
+	}
+
+	@RequestMapping(value = "/gotocostcal", method = RequestMethod.GET)
+	public String gotocostcal() {
+		return "mypage/4costcal";
+	}
+
+	@RequestMapping(value = "/gotomyactivity", method = RequestMethod.GET)
+	public String gotomyactivity() {
+		return "mypage/5myactivity";
+	}
+
 }

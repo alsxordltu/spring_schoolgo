@@ -143,11 +143,11 @@
 							<h2>마이페이지</h2>
 						</header>
 						<ul>
-							<li><a href="#">시간표 등록</a></li>
-							<li><a href="#">개인정보 수정</a></li>
-							<li><a href="#">루트관리</a></li>
-							<li><a href="#">교통비 가계부</a></li>
-							<li><a href="#">활동내역</a></li>
+							<li><a href="gototimetable">시간표 등록</a></li>
+							<li><a href="gotoupdateprofile">개인정보 수정</a></li>
+							<li><a href="gotoroutemanager">루트관리</a></li>
+							<li><a href="gotocostcal">교통비 가계부</a></li>
+							<li><a href="gotomyactivity">활동내역</a></li>
 						</ul>
 					</section>
 

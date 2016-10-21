@@ -20,19 +20,14 @@
 		<!-- Content -->
 			<div id="content">
 				<div class="inner">
-	<div id="welcome" style="float: right; margin: 15px 10px 0 0;">
-		<h5>${nickName}님☆환영합니다^-^</h5>
-		<form name="logout" action="logout" style="margin-bottom: 0;">
-			<input type="submit" value="로그아웃">
-		</form>
-	</div>
+
 					<!-- Post -->
 						<article class="box post post-excerpt">
 							<header>
 								
 								<!-- 아티클 제목 -->
-								<h2><a href="#">메인페이지 공사중...</a></h2>
-								<p>빠른 시일내에 완성하겟슴다</p>
+								<h2><a href="#">활동내력</a></h2>
+								<h1>활동내역</h1>
 							</header>
 							<div class="info">
 								<!--
@@ -112,7 +107,7 @@
 			<div id="sidebar">
 
 				<!-- Logo -->
-					<h1 id="logo"><img src="main_img/pic01.jpg" alt="" /></a></h1>
+					<h1 id="logo"><a href="#">STRIPED</a></h1>
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -149,7 +144,7 @@
 						</header>
 						<ul>
 							<li><a href="gototimetable">시간표 등록</a></li>
-							<li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
+							<li><a href="gotoupdateprofile">개인정보 수정</a></li>
 							<li><a href="gotoroutemanager">루트관리</a></li>
 							<li><a href="gotocostcal">교통비 가계부</a></li>
 							<li><a href="gotomyactivity">활동내역</a></li>

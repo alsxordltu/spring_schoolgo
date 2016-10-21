@@ -1,4 +1,5 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> 
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE HTML>
 
 <!--
@@ -7,6 +8,10 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="my_css/main.css" />
+<link rel="stylesheet" href="my_css/form.css" />
 	<head>
 		<title>Striped by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -20,76 +25,109 @@
 		<!-- Content -->
 			<div id="content">
 				<div class="inner">
-	<div id="welcome" style="float: right; margin: 15px 10px 0 0;">
-		<h5>${nickName}님☆환영합니다^-^</h5>
-		<form name="logout" action="logout" style="margin-bottom: 0;">
-			<input type="submit" value="로그아웃">
-		</form>
+
+	
+	<div id="wrapper">
+
+
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Me -->
+			<article id="me" class="panel"
+				style="padding: 50px 100px 50px 100px;">
+
+				<div style="height: 1000px;">
+
+					개인정보수정
+					<sform:form method="post" action="updateUser" modelAttribute="User">
+						<div class="field">
+						userId(변경불가)
+							<sform:input path="userId" placeholder="Id" readonly="true" />
+							<sform:errors element="span" path="userId"></sform:errors>
+				
+						</div>
+						<div class="field">
+							pass
+							<sform:input type="password" path="pass" placeholder="Pass" />
+							<sform:errors element="span" path="pass"></sform:errors>
+							<!-- 	<input type="text" name="pass" id="pass" placeholder="Pass" />
+							 -->
+						</div>
+						<div class="field">
+							userName
+							<sform:input path="userName" placeholder="Name" />
+							<sform:errors element="span" path="userName"></sform:errors>
+							<!-- 								<input type="text" name="userName" id="userNane" placeholder="Name" />
+ -->
+						</div>
+						<div class="field">
+							nickName
+							<sform:input path="nickName" placeholder="Nickname" />
+							<sform:errors element="span" path="nickName"></sform:errors>
+							<!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
+ -->
+						</div>
+						<div class="field">
+							email
+							<sform:input type="email" path="email" placeholder="Email" />
+							<sform:errors element="span" path="email"></sform:errors>
+							<!-- 								<input type="email" name="email" id="email" placeholder="Email" />
+ -->
+						</div>
+						<div class="field">
+							phoneNum
+							<sform:input type="text" path="phoneNum" placeholder="Phone" />
+							<sform:errors element="span" path="phoneNum"></sform:errors>
+						</div>
+						<div>
+							<input type="submit" value="수정하기" >
+							<input type="button" onclick="location.href='gotomain#mypage'"
+								value="마이페이지로">
+							<input type="button" onclick="location.href='deleteUser?id=${userId}'"
+								value="회원탈퇴">
+						</div>
+					</sform:form>
+
+				</div>
+				<br>
+
+			</article>
+
+
+		</div>
+
+		<!-- Footer -->
+		<div id="footer">
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
 	</div>
-					<!-- Post -->
-						<article class="box post post-excerpt">
-							<header>
-								
-								<!-- 아티클 제목 -->
-								<h2><a href="#">메인페이지 공사중...</a></h2>
-								<p>빠른 시일내에 완성하겟슴다</p>
-							</header>
-							<div class="info">
-								<!--
-									Note: The date should be formatted exactly as it's shown below. In particular, the
-									"least significant" characters of the month should be encapsulated in a <span>
-									element to denote what gets dropped in 1200px mode (eg. the "uary" in "January").
-									Oh, and if you don't need a date for a particular page or post you can simply delete
-									the entire "date" element.
 
-								-->
-								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">14</span><span class="year">, 2014</span></span>
-								<!--
-									Note: You can change the number of list items in "stats" to whatever you want.
-								-->
-								<ul class="stats">
-									<li><a href="#" class="icon fa-comment">16</a></li>
-									<li><a href="#" class="icon fa-heart">32</a></li>
-									<li><a href="#" class="icon fa-twitter">64</a></li>
-									<li><a href="#" class="icon fa-facebook">128</a></li>
-								</ul>
-							</div>
-							<a href="#" class="image featured"><img src="main_img/pic01.jpg" alt="" /></a>
-							<p>
-								<strong>Hello!</strong> You're looking at <strong>Striped</strong>, a fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a>
-								for <a href="http://html5up.net">HTML5 UP</a> It features a clean, minimalistic design, styling for all basic page elements (including blockquotes, tables and lists), a
-								repositionable sidebar (left or right), and HTML5/CSS3 code designed for quick and easy customization (see code comments for details).
-							</p>
-							<p>
-								Striped is released for free under the <a href="http://html5up.net/license">Creative Commons Attribution license</a> so feel free to use it for personal projects
-								or even commercial ones &ndash; just be sure to credit <a href="http://html5up.net">HTML5 UP</a> for the design. If you like what you see here, be sure to check out
-								<a href="http://html5up.net">HTML5 UP</a> for more cool designs or follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new releases and updates.
-							</p>
-						</article>
-
-					<!-- Post -->
-						<article class="box post post-excerpt">
-							<header>
-								<h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
-								<p>Feugiat interdum sed commodo ipsum consequat dolor nullam metus</p>
-							</header>
-							<div class="info">
-								<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">8</span><span class="year">, 2014</span></span>
-								<ul class="stats">
-									<li><a href="#" class="icon fa-comment">16</a></li>
-									<li><a href="#" class="icon fa-heart">32</a></li>
-									<li><a href="#" class="icon fa-twitter">64</a></li>
-									<li><a href="#" class="icon fa-facebook">128</a></li>
-								</ul>
-							</div>
-							<a href="#" class="image featured"><img src="main_img/pic02.jpg" alt="" /></a>
-							<p>
-								Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
-								Nunc nulla velit, fermentum quis interdum quis, tate etiam commodo lorem ipsum dolor sit amet dolore.
-								Quisque vel sapien sit amet tellus elementum ultricies. Nunc vel orci turpis. Donec id malesuada metus.
-								Nunc nulla velit, fermentum quis interdum quis, convallis eu sapien. Integer sed ipsum ante.
-							</p>
-						</article>
+	<!-- Scripts -->
+	<script src="my_js/jquery.min.js"></script>
+	<script src="my_js/skel.min.js"></script>
+	<script src="my_js/skel-viewport.min.js"></script>
+	<script src="my_js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="my_js/main.js"></script>
+	<script>
+		$("document").ready(function() {
+			$("#animate").animate({
+				left : 145
+			/* top:-140 */
+			});
+		});
+	</script>
+					
+					
+					
+					
+					
+					
 
 					<!-- Pagination -->
 						<div class="pagination">
@@ -112,7 +150,7 @@
 			<div id="sidebar">
 
 				<!-- Logo -->
-					<h1 id="logo"><img src="main_img/pic01.jpg" alt="" /></a></h1>
+					<h1 id="logo"><a href="#">STRIPED</a></h1>
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -149,7 +187,7 @@
 						</header>
 						<ul>
 							<li><a href="gototimetable">시간표 등록</a></li>
-							<li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
+							<li><a href="gotoupdateprofile">개인정보 수정</a></li>
 							<li><a href="gotoroutemanager">루트관리</a></li>
 							<li><a href="gotocostcal">교통비 가계부</a></li>
 							<li><a href="gotomyactivity">활동내역</a></li>

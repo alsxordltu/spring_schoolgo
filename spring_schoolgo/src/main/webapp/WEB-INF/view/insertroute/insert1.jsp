@@ -17,7 +17,22 @@
 <body>
 <%
 	String routename = (String)session.getAttribute("routename");
-%>
+			
+
+			String hometostation = (String)session.getAttribute("hometostation");
+			String stationtoschool = (String)session.getAttribute("stationtoschool");
+/* 			
+			String routename="";
+			if(searchdata==null){
+				searchdata="";				
+			}
+			if(searchdata2==null){
+				searchdata2="";				
+			}
+			if(session.getAttribute("routename")!=null){
+				routename=(String)session.getAttribute("routename");
+			}			
+ */%>
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -68,7 +83,7 @@
 
 					<div id="home" style="float: left; width: 100%; height: auto; text-align:center; margin: 0px 0 140px 0;">
 
-						<select name="hometostation" onchange="hometostation(this.value);">
+						<select name="hometostation">
 							<option value="">교통수단선택
 							<option value="working">도보
 							<option value="bus">버스
@@ -101,7 +116,7 @@
 
 					<div id="home"
 						style="float: left; width: 100%; height: 30px; text-align:center; margin: 0px 0 90px 0; ">
-						<select name="hometostation" onchange="hometostation(this.value);">
+						<select name="stationtoschool" >
 							<option value="">교통수단선택
 							<option value="working">도보
 							<option value="bus">버스
