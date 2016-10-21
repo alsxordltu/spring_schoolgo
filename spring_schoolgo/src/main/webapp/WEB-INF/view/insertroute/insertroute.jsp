@@ -16,10 +16,15 @@
 	</head>
 	<body>
 		<%
-		
+			
 			String searchdata = (String)session.getAttribute("start");
 			String searchdata2 = (String)session.getAttribute("end");
-				
+			if(searchdata==null){
+				searchdata="";				
+			}
+			if(searchdata2==null){
+				searchdata2="";				
+			}
 		%>
 		<!-- Content -->
 			<div id="content">

@@ -342,16 +342,26 @@ function removeAllChildNods(el) {
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
-
 #pacinput {
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 12px;
+  
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 300px;
+}
+@media screen and( min-width: 737px){
+#pacinput {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300; 
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 30%;
+}
 }
 
 #pac-button {
@@ -360,9 +370,10 @@ function removeAllChildNods(el) {
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
+
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 300px;
+  width: 70px;
 }
 
 #pacinput:focus {
@@ -396,11 +407,11 @@ function removeAllChildNods(el) {
   <body>
   	<form id="form1" action="getlocation" method="get">
   	 	<input type="text" id="pacinput" name="pacinput" class="controls" placeholder="Search Box">
-    	<input type="text" id="resultstring2" name="resultstring2" placeholder="Search Box2">
-    	<input id="pac-button" class="controls" type="button" value="확인" onclick="movenextpage()">
-    	<input type="text" id="resultstring" name="resultstring">
-    	<input type="text" id="lat"  name="lat">
-       <input type="text" id="lng"  name="lng">
+  	 	<input id="pac-button" class="controls" type="button" value="확인" onclick="movenextpage()">
+    	<input type="hidden" id="resultstring2" name="resultstring2" placeholder="Search Box2">
+    	<input type="hidden" id="resultstring" name="resultstring">
+    	<input type="hidden" id="lat"  name="lat">
+       <input type="hidden" id="lng"  name="lng">
     </form>
     <div id="map"></div>
     <script src = "http://code.jquery.com/jquery.js"></script>
@@ -418,8 +429,13 @@ function initAutocomplete() {
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById("pacinput");
+  var button = document.getElementById("pac-button");
   var searchBox = new google.maps.places.SearchBox(input);
+  
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(button);
+  
+  
 
   // Bias the SearchBox results towards current map's viewport.
   map.addListener('bounds_changed', function() {
