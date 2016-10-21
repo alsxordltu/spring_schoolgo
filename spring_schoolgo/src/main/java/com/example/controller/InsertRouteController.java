@@ -48,6 +48,9 @@ public class InsertRouteController {
 	public String gotoinsertroute(HttpServletRequest request,
 			@RequestParam(value="resultstring")String resultstring,
 			@RequestParam(value="resultstring2")String resultstring2,
+			@RequestParam(value="lat")Double lat,
+			@RequestParam(value="lng")Double lng,
+			
 			Model model) throws Exception{ 		
 		//값 전달테스트
 		logger.trace("getlocation, {}", resultstring);
@@ -116,6 +119,9 @@ public class InsertRouteController {
 		}
 		
 		logger.trace("start : {}" , session.getAttribute("start"));
+		logger.trace("lat위도 : {}" , lat);
+		logger.trace("lng경도 : {}" , lng);
+		
 		
         return "insertroute/insertroute"; 
 		

@@ -397,10 +397,13 @@ function removeAllChildNods(el) {
   	<form id="form1" action="getlocation" method="get">
   	 	<input type="text" id="pacinput" name="pacinput" class="controls" placeholder="Search Box">
     	<input type="text" id="resultstring2" name="resultstring2" placeholder="Search Box2">
-    	<input id="pac-button" class="controls" type="button" value="확인" onclick="getlocation()">
+    	<input id="pac-button" class="controls" type="button" value="확인" onclick="movenextpage()">
     	<input type="text" id="resultstring" name="resultstring">
+    	<input type="text" id="lat"  name="lat">
+       <input type="text" id="lng"  name="lng">
     </form>
     <div id="map"></div>
+    <script src = "http://code.jquery.com/jquery.js"></script>
     <script>
 // This example adds a search box to a map, using the Google Place Autocomplete
 // feature. People can enter geographical searches. The search box will return a
@@ -414,7 +417,7 @@ function initAutocomplete() {
   });
 
   // Create the search box and link it to the UI element.
-  var input = document.getElementById('pacinput');
+  var input = document.getElementById("pacinput");
   var searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -469,7 +472,7 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
   // [END region_getplaces]
-}
+}/* 
 function getlocation(){
 	
 	var input = document.getElementById('pacinput').value;	
@@ -479,6 +482,42 @@ function getlocation(){
 	document.getElementById('form1').submit();
 	
 }
+
+ */
+
+
+
+function movenextpage(){
+	   
+	   var input = document.getElementById("pacinput").value;
+	   var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + input + "&key=AIzaSyDMyDmCjogn6vLLZcCM-ZMCpNtk2BZoO5Y";
+	   document.getElementById('resultstring').value = url;
+		document.getElementById('resultstring2').value = input;	
+	   getlocation(url);
+	   document.getElementById('form1').submit();
+	}
+
+	function getlocation(input){
+	   var url = input; 
+	   $.ajax({
+	      url:url,
+	      type:"get",
+	        async: false,
+	      success:function(responseTxt){
+	         var items = responseTxt.results;
+	         $.each(items, function(index, item){
+	            var lat = item.geometry.location.lat;
+	            var lng = item.geometry.location.lng;
+	            console.log(lat,lng);
+	            document.getElementById('lat').value = lat;
+	            document.getElementById('lng').value = lng;
+	         });
+	      },
+	      error:function(xhr, status, error){
+	         alert("fail: "+error);
+	      }
+	   });
+	}
 
 
     </script>

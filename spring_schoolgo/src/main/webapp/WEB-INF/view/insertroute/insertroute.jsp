@@ -41,7 +41,7 @@
 						<div style="width: 50%; float: left; padding: 0 50px 0 0;">
 							<h5 align=center>출발지를 입력하세요!</h5>
 							<a href="gotosearch"> <input type="text" name="start"
-								value="${searchdata}" readonly></a>
+								value="<%=searchdata%>" readonly></a>
 								<input type="hidden" name="startlocation" value="${searchdata}">
 						</div>
 
@@ -50,7 +50,7 @@
 						<div style="width: 50%; float: left; padding: 0 0 0 50px;">
 							<h5 align=center>도착지를 입력하세요!</h5>
 							<a href="gotosearch2"> <input type="text" name="end"
-								value="${searchdata2}" readonly></a>
+								value="<%=searchdata2%>" readonly></a>
 								<input type="hidden" name="endlocation" value="${searchdata2}">								
 						</div>
 
@@ -124,6 +124,7 @@
 			<script src="insert_js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="insert_js/main.js"></script>
+			
 
 	</body>
 </html>
