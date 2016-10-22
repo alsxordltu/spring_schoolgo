@@ -104,8 +104,8 @@
 						<input type="hidden" name="resultStationCode"> <a href="#"
 							id="stationName"> <input type="text" name="resultStationName"
 							value="출발역 입력하기" readonly style="margin: 5px 0 5px 0"></a>
-						<input type="hidden" name="resultStationCode"> <a href="#"
-							id="stationName"> <input type="text" name="resultStationName"
+						<input type="hidden" name="resultStationCode2"> <a href="#"
+							id="stationName2"> <input type="text" name="resultStationName2"
 							value="도착역 입력하기" readonly style="margin: 5px 0 5px 0"></a>
 					</div>
 
@@ -195,6 +195,33 @@
 	<script src="insert_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="insert_js/main.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script>
+	$("#stationName")
+	.on(
+			"click",
+			function() {
+				window
+						.open(
+								'gotofindStation',
+								'',
+								'left=200, top=200, width=640, height=480, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=no');
+			});
+	
+	$("#stationName2")
+	.on(
+			"click",
+			function() {
+			
+				window
+						.open(
+								'gotofindStation2',
+								'',
+								'left=200, top=200, width=640, height=480, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=no');
+				
+			});
+	
+	</script>
 
 </body>
 </html>

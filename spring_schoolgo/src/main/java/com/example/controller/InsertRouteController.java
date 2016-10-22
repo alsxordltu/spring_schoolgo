@@ -25,8 +25,13 @@ public class InsertRouteController {
 	private static Logger logger = LoggerFactory.getLogger(InsertRouteController.class);
 
 	@RequestMapping(value="/gotofindStation", method=RequestMethod.GET)
-	public String gotologinForm(){
+	public String gotofindStation(){
 		return "insertroute/findStation";
+	}
+	
+	@RequestMapping(value="/gotofindStation2", method=RequestMethod.GET)
+	public String gotofindStation2(){
+		return "insertroute/findStation2";
 	}
 	
 	@RequestMapping(value="/gotoinsert1", method=RequestMethod.GET)
@@ -38,7 +43,12 @@ public class InsertRouteController {
 	}
 	
 	@RequestMapping(value="/gotoinsert2", method=RequestMethod.GET)
-	public String gotoinsert2(){
+	public String gotoinsert2(HttpServletRequest request){
+		String test = request.getParameter("hometostation");
+		
+		logger.trace("test : {}", test);
+		
+		
 		return "insertroute/insert2";
 	}
 	@RequestMapping(value="/gotosearch", method=RequestMethod.GET) 

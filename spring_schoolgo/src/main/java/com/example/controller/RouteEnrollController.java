@@ -31,5 +31,15 @@ public class RouteEnrollController {
 		
 		return "insertroute/findStation";
 	}
+	
+	@RequestMapping(value="/findstation2", method=RequestMethod.GET)
+	public String findStation2(Model model, @RequestParam String input){
+		
+		List<Station> station = service.findStation(input);
+		logger.trace("컨트롤단, 검색 결과 : {}", station);
+		model.addAttribute("stationSearchResultList", station);
+		
+		return "insertroute/findStation2";
+	}
 
 }
