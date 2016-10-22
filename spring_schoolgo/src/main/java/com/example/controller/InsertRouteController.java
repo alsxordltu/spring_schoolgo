@@ -43,10 +43,19 @@ public class InsertRouteController {
 	}
 	
 	@RequestMapping(value="/gotoinsert2", method=RequestMethod.GET)
-	public String gotoinsert2(HttpServletRequest request){
-		String test = request.getParameter("hometostation");
+	public String gotoinsert2(@RequestParam String hometostation,@RequestParam String stationtoschool,HttpServletRequest request,HttpSession session){
+		session = request.getSession();
+		session.setAttribute("hometostation", hometostation);
+		session.setAttribute("stationtoschool", stationtoschool);
+		logger.trace("hometostation : {}", session.getAttribute("hometostation"));
+		logger.trace("stationtoschool : {}", session.getAttribute("stationtoschool"));
+		int startstationCode = Integer.parseInt(request.getParameter("resultStationCode"));
+		int endstationCode = Integer.parseInt(request.getParameter("resultStationCode2"));
+		session.setAttribute("startstationCode", startstationCode);
+		session.setAttribute("endstationCode", endstationCode);
+		logger.trace("startstationCode : {}", session.getAttribute("startstationCode"));
+		logger.trace("endstationCode : {}", session.getAttribute("endstationCode"));
 		
-		logger.trace("test : {}", test);
 		
 		
 		return "insertroute/insert2";

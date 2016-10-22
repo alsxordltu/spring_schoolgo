@@ -19,20 +19,13 @@
 	String routename = (String)session.getAttribute("routename");
 			
 
-			String hometostation = (String)session.getAttribute("hometostation");
-			String stationtoschool = (String)session.getAttribute("stationtoschool");
-/* 			
-			String routename="";
-			if(searchdata==null){
-				searchdata="";				
-			}
-			if(searchdata2==null){
-				searchdata2="";				
-			}
-			if(session.getAttribute("routename")!=null){
-				routename=(String)session.getAttribute("routename");
-			}			
- */%>
+	String hometostation = (String)session.getAttribute("hometostation");
+	String stationtoschool = (String)session.getAttribute("stationtoschool");
+	
+	String resultStationCode = (String)session.getAttribute("resultStationCode");
+	String resultStationCode2 = (String)session.getAttribute("resultStationCode2");
+ 			
+	%>
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -103,10 +96,10 @@
 					<div id="home" style="float: left; width: 100%; height: 50px; margin-bottom:100px; text-align:center;">
 						<input type="hidden" name="resultStationCode"> <a href="#"
 							id="stationName"> <input type="text" name="resultStationName"
-							value="출발역 입력하기" readonly style="margin: 5px 0 5px 0"></a>
+							value="출발역을 입력하세요" readonly style="margin: 5px 0 5px 0"></a>
 						<input type="hidden" name="resultStationCode2"> <a href="#"
 							id="stationName2"> <input type="text" name="resultStationName2"
-							value="도착역 입력하기" readonly style="margin: 5px 0 5px 0"></a>
+							value="도착역을 입력하세요" readonly style="margin: 5px 0 5px 0"></a>
 					</div>
 
 					<div id="home" style="float: left; width: 100%; height: 30px; margin: 0px 0 30px 0;">
