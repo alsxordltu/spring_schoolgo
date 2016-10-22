@@ -19,6 +19,8 @@ public class LogoutController {
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session){
+		logger.trace("컨트롤러, 로그아웃 되라");
+
 		if(session != null){
 			session.invalidate();
 		}
