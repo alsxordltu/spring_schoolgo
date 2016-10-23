@@ -76,7 +76,7 @@
 
 					<div id="home" style="float: left; width: 100%; height: auto; text-align:center; margin: 0px 0 140px 0;">
 
-						<select name="hometostation">
+						<select name="hometostation" >
 							<option value="">교통수단선택
 							<option value="working">도보
 							<option value="bus">버스

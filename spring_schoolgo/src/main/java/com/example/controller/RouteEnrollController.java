@@ -26,7 +26,6 @@ public class RouteEnrollController {
 	public String findStation(Model model, @RequestParam String input){
 		
 		List<Station> station = service.findStation(input);
-		logger.trace("컨트롤단, 검색 결과 : {}", station);
 		model.addAttribute("stationSearchResultList", station);
 		
 		return "insertroute/findStation";
@@ -36,7 +35,6 @@ public class RouteEnrollController {
 	public String findStation2(Model model, @RequestParam String input){
 		
 		List<Station> station = service.findStation(input);
-		logger.trace("컨트롤단, 검색 결과 : {}", station);
 		model.addAttribute("stationSearchResultList", station);
 		
 		return "insertroute/findStation2";
