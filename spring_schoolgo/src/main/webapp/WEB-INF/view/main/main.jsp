@@ -123,13 +123,10 @@
 	<div id="sidebar">
 
 		<!-- Logo -->
-		<h1 id="logo">
-			<img src="main_img/pic01.jpg" alt="" /></a>
-		</h1>
+		<h1 id="logo"><a href="gotomain"><img src="main_img/gogowhite.png" width="150px" alt="" /></a></h1>
 		<form name="logout" action="logout">
-			<h5>${nickName}님☆환영합니다^-^</h5>
-			<input type="submit" value="로그아웃">
-		</form>
+			<h5 style="text-align:center">${nickName}님  환영합니다</h5>
+		
 
 		<!-- Nav -->
 		<nav id="nav">
@@ -172,6 +169,8 @@
 				<li><a href="gotomyactivity">활동내역</a></li>
 			</ul>
 		</section>
+			<input type="submit" value="로그아웃">
+		</form>
 
 		<!-- Recent Comments -->
 		<!-- 	<section class="box recent-comments">
