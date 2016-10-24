@@ -17,15 +17,8 @@
 <body>
 <%
 	String routename = (String)session.getAttribute("routename");
-			
-
-	String hometostation = (String)session.getAttribute("hometostation");
-	String stationtoschool = (String)session.getAttribute("stationtoschool");
-	
-	String resultStationCode = (String)session.getAttribute("resultStationCode");
-	String resultStationCode2 = (String)session.getAttribute("resultStationCode2");
- 			
-	%>
+ 	String start = (String)session.getAttribute("start");		
+%>
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -98,7 +91,7 @@
 
 					<div id="home" style="float: left; width: 100%; height: 50px; margin-bottom:100px; text-align:center;">
 						<input type="hidden" name="resultStationCode"> <a href="#"
-							id="stationName"> <input type="text" name="resultStationName"
+							id="stationName"> <input type="text" id="resultStationName" name="resultStationName"
 							value="출발역을 입력하세요" readonly style="margin: 5px 0 5px 0"></a>
 						<input type="hidden" name="resultStationCode2"> <a href="#"
 							id="stationName2"> <input type="text" name="resultStationName2"
@@ -124,7 +117,8 @@
 					
 					<div id="home"
 						style="width: 100%; height: 60px; text-align:center; ">
-						<input type="submit" value="입력 완료!">
+						<input type="hidden" id="jsonresult">
+						<input type="button" value="입력 완료!" onclick="movenextpage()">
 					</div>
 
 
@@ -193,6 +187,35 @@
 	<script src="insert_js/main.js"></script>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script>
+	
+	function movenextpage(){
+	
+		   var startPoint = "<%=start %>";
+		   var startStation = document.getElementById("resultStationName").value;
+		   var url = "https://maps.googleapis.com/maps/api/directions/json?origin="+ startPoint +"&destination=" + startStation + "&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
+		   //var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + input + "&key=AIzaSyDMyDmCjogn6vLLZcCM-ZMCpNtk2BZoO5Y";	
+		   getinformation(url);
+		   //document.getElementById('form1').submit(); 
+		}
+
+		function getinformation(input){
+		   var url = input; 
+		   $.ajax({
+		      url:url,
+		      type:"get",
+		        async: false,
+		      success:function(responseTxt){
+		         var result = responseTxt.routes;
+		         console.log(result);
+		         document.all.jsonresult.value = result;
+		         console.log(document.all.jsonresult.value);
+		      },
+		      error:function(xhr, status, error){
+		         alert("fail: "+error);
+		      }
+		   });
+		}
+		
 	$("#stationName")
 	.on(
 			"click",

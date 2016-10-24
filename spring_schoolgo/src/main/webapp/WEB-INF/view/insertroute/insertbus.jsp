@@ -17,9 +17,7 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-	<% double lat = (double)session.getAttribute("lat"); 
-			double lng = (double)session.getAttribute("lng");
-	%>
+
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -137,7 +135,7 @@ $(document).on("click", "#select", function(e){
 	document.all.selcitycode.value = $(this).attr("data-citycode");
 	document.all.selnodeid.value = $(this).attr("data-nodeid");
 	var row = "";
-	$("#info").html(rowt);
+	$("#info").html(row);
 });
 		
 	    //window.onload = showbuslist();

@@ -55,10 +55,22 @@ public class InsertRouteController {
 	}
 	
 	@RequestMapping(value="/gotoinsertbus", method=RequestMethod.GET)
-	public String gotoinsertbus(@RequestParam String hometostation,@RequestParam String stationtoschool,HttpServletRequest request,HttpSession session, HttpServletResponse response, Model model) throws Exception{
+	public String gotoinsertbus(HttpServletRequest request,HttpSession session, HttpServletResponse response, Model model) throws Exception{
 		response.setCharacterEncoding("UTF-8");
 		session = request.getSession();
-		session.setAttribute("hometostation", hometostation);
+		
+/*		//출발지와 도착지 String 변수로 받아옴
+		String start = (String) session.getAttribute("start");
+		String startStation = request.getParameter("resultStationName");
+		
+		String url="https://maps.googleapis.com/maps/api/directions/json?origin=%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%84%9C%EA%B5%AC%20%EA%B0%80%EC%A0%95%20%EB%89%B4%EC%84%9C%EC%9A%B8%EC%95%84%ED%8C%8C%ED%8A%B8&destination=%EB%B6%80%ED%8F%89&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
+		Json wc = new Json(url);
+		String json = wc.json;*/
+		
+		
+		
+		
+/*		session.setAttribute("hometostation", hometostation);
 		session.setAttribute("stationtoschool", stationtoschool);
 		logger.trace("hometostation : {}", session.getAttribute("hometostation"));
 		logger.trace("stationtoschool : {}", session.getAttribute("stationtoschool"));
@@ -95,7 +107,7 @@ public class InsertRouteController {
 			bus.add(busClass);		
 		}
 		logger.trace("buslist : {}", bus);
-		model.addAttribute("buslist", bus);
+		model.addAttribute("buslist", bus);*/
 		
 		return "insertroute/insertbus";
 	}
@@ -106,46 +118,28 @@ public class InsertRouteController {
 	public String gotosearch2(){ return "main/search2"; }	
 
 	@RequestMapping(value="/getlocation", method=RequestMethod.GET) 
-	public String gotoinsertroute(HttpServletRequest request,
-			@RequestParam(value="resultstring2")String resultstring2,
-			@RequestParam(value="lat")Double lat,
-			@RequestParam(value="lng")Double lng,
-			
-			
-			Model model) throws Exception{ 		
-
+	public String gotoinsertroute(HttpServletRequest request, Model model) throws Exception{ 		
+		String start = request.getParameter("resultstring2");
 		HttpSession session = request.getSession();
-		session.setAttribute("start",resultstring2);
-		session.setAttribute("lat",lat);
-		session.setAttribute("lng",lng);		
+		session.setAttribute("start",start);
+		/*session.setAttribute("lat",lat);
+		session.setAttribute("lng",lng); 검색어를 가지고 좌표값 가져오는 코드(구코드)*/		
 		logger.trace("start : {}" , session.getAttribute("start"));
-		logger.trace("lat위도 : {}" , session.getAttribute("lat"));
-		logger.trace("lng경도 : {}" , session.getAttribute("lng"));
-		
-		
+		/*logger.trace("lat위도 : {}" , session.getAttribute("lat"));
+		logger.trace("lng경도 : {}" , session.getAttribute("lng"));*/
         return "insertroute/insertroute"; 
-		
 	}			
 
-
 	@RequestMapping(value="/getlocation2", method=RequestMethod.GET) 
-	public String gotoinsertroute2(HttpServletRequest request,
-			
-			@RequestParam(value="resultstring2")String resultstring2,
-			@RequestParam(value="lat")Double lat,
-			@RequestParam(value="lng")Double lng,
-			
-			
-			Model model) throws Exception{ 		
-
+	public String gotoinsertroute2(HttpServletRequest request, Model model) throws Exception{ 		
+		String start = request.getParameter("resultstring2");
 		HttpSession session = request.getSession();
-		session.setAttribute("end",resultstring2);
-		session.setAttribute("endlat",lat);
-		session.setAttribute("endlng",lng);		
-		logger.trace("end : {}" , session.getAttribute("end"));
-		logger.trace("endlat위도 : {}" , session.getAttribute("endlat"));
-		logger.trace("endlng경도 : {}" , session.getAttribute("endlng"));
-				
-        return "insertroute/insertroute"; 		
-	}	
+		session.setAttribute("start",start);
+		/*session.setAttribute("lat",lat);
+		session.setAttribute("lng",lng); 검색어를 가지고 좌표값 가져오는 코드(구코드)*/		
+		logger.trace("start : {}" , session.getAttribute("start"));
+		/*logger.trace("lat위도 : {}" , session.getAttribute("lat"));
+		logger.trace("lng경도 : {}" , session.getAttribute("lng"));*/
+        return "insertroute/insertroute"; 
+	}		
 }
