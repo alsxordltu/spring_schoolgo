@@ -32,6 +32,8 @@ public class InsertRouteController {
 
 	@RequestMapping(value="/gotoinsertresult", method=RequestMethod.GET)
 	public String gotoinsertresult(){
+		//도시코드/.정류소코드/정류소이름 세션처리
+		
 		return "insertroute/insertresult";
 	}
 		

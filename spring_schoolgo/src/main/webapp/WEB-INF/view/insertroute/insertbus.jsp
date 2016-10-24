@@ -31,7 +31,7 @@
 				</header>
 
 <table id="info">
-		<tr><th>역코드</th><th>역명</th><th>호선</th><th>버튼</th></tr>
+		<tr><th>도시코드</th><th>정류소코드</th><th>정류소이름</th><th>버튼</th></tr>
 		<c:forEach var="result" items="${buslist }" varStatus="status">
 		
 		<tr>

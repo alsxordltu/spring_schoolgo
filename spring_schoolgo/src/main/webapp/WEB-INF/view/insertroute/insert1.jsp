@@ -29,10 +29,10 @@
 				<header>
 					<h2 align="center">루트 등록</h2>
 					<p align="center"><%=routename %></p>
-					<a href="http://map.naver.com/?query=
+<!-- 					<a href="http://map.naver.com/?query=
 					대한민국 인천광역시 남동구 남촌도림동 도림주공1단지 
 " target="_blank" ><img src="/images/common/btn/btn_quick_srch_02.gif" alt="빠른길 찾기" /></a>
-				</header>
+ -->				</header>
 
 				<div id="insert1left">
 
