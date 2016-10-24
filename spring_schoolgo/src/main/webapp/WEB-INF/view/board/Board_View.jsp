@@ -34,16 +34,16 @@ body {
 		<td colspan=2>
 		<table border="1" summary="목록 테이블 구성"> 
     <tr> 
-		<td align=center bgcolor=#dddddd width=20%> 작성자</td>
-		<td bgcolor=#ffffe8 width=40%>닉네임뭐짓지메롱아</td>
-		<td align=center bgcolor=#dddddd width=50%> 작성일</td>
+		<td align=center bgcolor=#dddddd width=20%> 작성자(nickName)</td>
+		<td bgcolor=#ffffe8 width=40%>닉네임</td>
+		<td align=center bgcolor=#dddddd width=50%> 작성일(regdate)</td>
 		<td bgcolor=#ffffe8 width=40%>2015/11/23</td>
 	</tr>
     <tr>
-		<td align=center bgcolor=#dddddd> E-mail </td>
-		<td bgcolor=#ffffe8 >asdfsd@asdfasdf</td> 
-		<td align=center bgcolor=#dddddd> 두둠칫 </td>
+		<td align=center bgcolor=#dddddd> 이름 </td>
 		<td bgcolor=#ffffe8><a href="http://hunit.tistory.com" target="_new">두둠칫</a></td> 
+		<td align=center bgcolor=#dddddd> E-mail(email) </td>
+		<td bgcolor=#ffffe8 >asdfsd@asdfasdf</td> 
 	</tr>
 	<tr> 
 		<td align=center bgcolor=#dddddd> 제 목</td>

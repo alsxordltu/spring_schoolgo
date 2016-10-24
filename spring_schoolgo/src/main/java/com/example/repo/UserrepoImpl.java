@@ -15,9 +15,6 @@ public class UserrepoImpl implements Userrepo {
 	@Autowired
 	SqlSessionTemplate template;
 	
-	@Autowired
-	JdbcTemplate jtemplate;
-
 	private final String NAME_SPACE = "com.example.UserMapper.";
 
 	@Override
