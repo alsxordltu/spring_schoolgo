@@ -48,7 +48,7 @@
 
 
 
-				<form name="routenext" method="get" action="gotoinsertroute">
+				<form name="routenext" method="get" action="gotoinsertresult">
 
 					<div style="width: 100%; float: left; padding: 0 50px 0 0;">
 						<input type="text" id="selcitycode">

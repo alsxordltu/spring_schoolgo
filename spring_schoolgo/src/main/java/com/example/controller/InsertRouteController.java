@@ -30,6 +30,12 @@ public class InsertRouteController {
 
 	private static Logger logger = LoggerFactory.getLogger(InsertRouteController.class);
 
+	@RequestMapping(value="/gotoinsertresult", method=RequestMethod.GET)
+	public String gotoinsertresult(){
+		return "insertroute/insertresult";
+	}
+		
+	
 	@RequestMapping(value="/gotofindStation", method=RequestMethod.GET)
 	public String gotofindStation(){
 		return "insertroute/findStation";
@@ -48,8 +54,8 @@ public class InsertRouteController {
 		return "insertroute/insert1";
 	}
 	
-	@RequestMapping(value="/gotoinsert2", method=RequestMethod.GET)
-	public String gotoinsert2(@RequestParam String hometostation,@RequestParam String stationtoschool,HttpServletRequest request,HttpSession session, HttpServletResponse response, Model model) throws Exception{
+	@RequestMapping(value="/gotoinsertbus", method=RequestMethod.GET)
+	public String gotoinsertbus(@RequestParam String hometostation,@RequestParam String stationtoschool,HttpServletRequest request,HttpSession session, HttpServletResponse response, Model model) throws Exception{
 		response.setCharacterEncoding("UTF-8");
 		session = request.getSession();
 		session.setAttribute("hometostation", hometostation);
@@ -91,7 +97,7 @@ public class InsertRouteController {
 		logger.trace("buslist : {}", bus);
 		model.addAttribute("buslist", bus);
 		
-		return "insertroute/insert2";
+		return "insertroute/insertbus";
 	}
 	@RequestMapping(value="/gotosearch", method=RequestMethod.GET) 
 	public String gotosearch(){ return "main/search"; }	

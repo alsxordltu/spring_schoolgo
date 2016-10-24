@@ -32,9 +32,9 @@
 
 			<!-- Post -->
 			<article class="box post post-excerpt">
-				<form name="route1next" method="get" action="gotoinsertbus">
+				<form name="route1next" method="get" action="gotomain">
 				<header>
-					<h2 align="center">루트 등록</h2>
+					<h2 align="center">루트 등록이 완료되었습니다.</h2>
 					<p align="center"><%=routename %></p>
 				</header>
 
@@ -68,60 +68,46 @@
 				<div id="insert1right">
 
 
-					<div id="home" style="float: left; width: 100%; height: auto;">
-						<h5 style="text-align: center; margin: 100px 0 30px 0;">집에서
-							역까지 어떻게 가세요?</h5>
+					<div id="home" style="float: left; width: 100%; height: auto; margin: 50px 0 200px 0;">
+						<h5 style="text-align: center;">
+						출발지 : </h5>
+						<input type=text>
 					</div>
 
 
-					<div id="home" style="float: left; width: 100%; height: auto; text-align:center; margin: 0px 0 140px 0;">
-
-						<select name="hometostation" >
-							<option value="">교통수단선택
-							<option value="working">도보
-							<option value="bus">버스
-							<option value="taxi">택시
-							<option value="bicycle">자전거
-						</select>
-					</div>
-
-					<div id="home" style="float: left; width: 100%; height: 30px;">
-						<h5 style="text-align: center;">출발역과 도착역을 입력해주세요!</h5>
+					<div id="home" style="float: left; width: 100%; height: 30px; margin: 0px 0 350px 0; text-align:center;">
+						<h5 style="text-align: center;">전철 정보  </h5>
+						<h5>출발역 : </h5>
+						<h5>도착역 : </h5>
+						<h5>지나는 정거장 수 : </h5>
+						
 					</div>
 
 					
 						
-					
 
-					<div id="home" style="float: left; width: 100%; height: 50px; margin-bottom:100px; text-align:center;">
-						<input type="hidden" name="resultStationCode"> <a href="#"
-							id="stationName"> <input type="text" name="resultStationName"
-							value="출발역을 입력하세요" readonly style="margin: 5px 0 5px 0"></a>
-						<input type="hidden" name="resultStationCode2"> <a href="#"
-							id="stationName2"> <input type="text" name="resultStationName2"
-							value="도착역을 입력하세요" readonly style="margin: 5px 0 5px 0"></a>
+					<div id="home" style="float: left; width: 100%; height: 30px; margin: 0px 0 100px 0;">
+						<h5 style="text-align: center;">
+						도착지 : </h5>
+						<input type=text>
+					</div>
+					<div id="home" style="float: left; width: 100%; height: 30px; margin: 0px 0 50px 0;">
+						<h5 style="text-align: center;">
+						총소요시간 :  </h5>
+						<input type=text>
+					</div>
+					<div id="home" style="float: left; width: 100%; height: 30px; margin: 0px 0 50px 0;">
+						<h5 style="text-align: center;">
+						총요금 :  </h5>
+						<input type=text>
 					</div>
 
-					<div id="home" style="float: left; width: 100%; height: 30px; margin: 0px 0 30px 0;">
-						<h5 style="text-align: center;">역에서 학교까지 어떻게 가세요?</h5>
-					</div>
 
-
-					<div id="home"
-						style="float: left; width: 100%; height: 30px; text-align:center; margin: 0px 0 90px 0; ">
-						<select name="stationtoschool" >
-							<option value="">교통수단선택
-							<option value="working">도보
-							<option value="bus">버스
-							<option value="taxi">택시
-							<option value="bicycle">자전거
-						</select>
-					</div>
 					
 					
 					<div id="home"
 						style="width: 100%; height: 60px; text-align:center; ">
-						<input type="submit" value="입력 완료!">
+						<input type="submit" value="메인 화면으로">
 					</div>
 
 
@@ -190,29 +176,7 @@
 	<script src="insert_js/main.js"></script>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script>
-	$("#stationName")
-	.on(
-			"click",
-			function() {
-				window
-						.open(
-								'gotofindStation',
-								'',
-								'left=200, top=200, width=640, height=480, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=no');
-			});
 	
-	$("#stationName2")
-	.on(
-			"click",
-			function() {
-			
-				window
-						.open(
-								'gotofindStation2',
-								'',
-								'left=200, top=200, width=640, height=480, scrollbars=no, status=no, resizable=no, fullscreen=no, channelmode=no');
-				
-			});
 	
 	</script>
 
