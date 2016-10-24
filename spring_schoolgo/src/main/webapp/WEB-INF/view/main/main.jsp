@@ -131,8 +131,8 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li class="current"><a href="gotomain">메인</a></li>
-				<li><a href="#">학교가기</a></li>
+	
+				<li class="current"><a href="gotomain">학교가기</a></li>
 				<li><a href="gotoinsertroute">루트등록</a></li>
 				<li><a href="#">루트공유</a></li>
 				<li><a href="#">Contact Me</a></li>

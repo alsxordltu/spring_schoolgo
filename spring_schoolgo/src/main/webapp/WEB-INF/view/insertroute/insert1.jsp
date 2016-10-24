@@ -36,6 +36,9 @@
 				<header>
 					<h2 align="center">루트 등록</h2>
 					<p align="center"><%=routename %></p>
+					<a href="http://map.naver.com/?query=
+					대한민국 인천광역시 남동구 남촌도림동 도림주공1단지 
+" target="_blank" ><img src="/images/common/btn/btn_quick_srch_02.gif" alt="빠른길 찾기" /></a>
 				</header>
 
 				<div id="insert1left">
@@ -146,8 +149,8 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="gotomain">메인</a></li>
-				<li><a href="#">학교가기</a></li>
+				
+				<li><a href="gotomain">학교가기</a></li>
 				<li class="current"><a href="gotoinsertroute">루트등록</a></li>
 				<li><a href="#">루트공유</a></li>
 				<li><a href="#">Contact Me</a></li>
