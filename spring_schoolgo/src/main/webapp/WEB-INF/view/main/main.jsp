@@ -82,7 +82,7 @@
 			<ul>
 				<li class="current"><a href="gotomain">학교가기</a></li>
 				<li><a href="gotoinsertroute">루트등록</a></li>
-				<li><a href="#">루트공유</a></li>
+				<li><a href="gotoboardmain">루트공유</a></li>
 				<li><a href="#">Contact Me</a></li>
 			</ul>
 		</nav>
