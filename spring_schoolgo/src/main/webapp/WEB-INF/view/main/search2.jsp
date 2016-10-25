@@ -176,14 +176,14 @@ html, body {
 			// [END region_getplaces]
 		}
 		
-		 function movenextpage(){
+/* 		 function movenextpage(){
 			   
 			   var input = document.getElementById("pacinput").value;
 				document.getElementById('resultstring2').value = input;	
 			   document.getElementById('form1').submit();
 			}
-		 
-		/* function movenextpage() {
+		  */
+		 function movenextpage() {
 
 			var input = document.getElementById("pacinput").value;
 			var url = "https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -214,7 +214,7 @@ html, body {
 					alert("fail: " + error);
 				}
 			});
-		} */
+		} 
 	</script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMyDmCjogn6vLLZcCM-ZMCpNtk2BZoO5Y&libraries=places&callback=initAutocomplete"

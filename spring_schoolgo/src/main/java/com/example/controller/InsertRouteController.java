@@ -50,10 +50,29 @@ public class InsertRouteController {
 	}
 	
 	@RequestMapping(value="/gotoinsert1", method=RequestMethod.GET)
-	public String gotoinsert1(@RequestParam String routename, HttpServletRequest request){
+	public String gotoinsert1(HttpServletRequest request){
 		HttpSession session = request.getSession();
-		session.setAttribute("routename", routename);
+		logger.trace("session start : {}" , session.getAttribute("start"));
+		logger.trace("session startlat위도 : {}" , session.getAttribute("startlat"));
+		logger.trace("session startlng경도 : {}" , session.getAttribute("startlng"));
+		logger.trace("session end : {}" , session.getAttribute("end"));
+		logger.trace("session endlat위도 : {}" , session.getAttribute("endlat"));
+		logger.trace("session endlng경도 : {}" , session.getAttribute("endlng"));	
+		
+		//값 변수에 넣고 
+		String start = (String) session.getAttribute("start");
+		String startlat = (String) session.getAttribute("startlat");
+		String startlng = (String) session.getAttribute("startlng");
+		String end = (String) session.getAttribute("end");
+		String endlat = (String) session.getAttribute("endlat");
+		String endlng = (String) session.getAttribute("endlng");	
+		String routename = request.getParameter("routename");
 		logger.trace("routename : {}" , routename);
+		
+		//출발지 위도+경도 url 문자열 띄어쓰기를->%20
+
+						
+		
 		return "insertroute/insert1";
 	}
 	
@@ -122,26 +141,47 @@ public class InsertRouteController {
 	@RequestMapping(value="/getlocation", method=RequestMethod.GET) 
 	public String gotoinsertroute(HttpServletRequest request, Model model) throws Exception{ 		
 		String start = request.getParameter("resultstring2");
-		HttpSession session = request.getSession();
-		session.setAttribute("start",start);
+		String startlat = request.getParameter("lat");
+		String startlng = request.getParameter("lng");
 		/*session.setAttribute("lat",lat);
 		session.setAttribute("lng",lng); 검색어를 가지고 좌표값 가져오는 코드(구코드)*/		
-		logger.trace("start : {}" , session.getAttribute("start"));
-		/*logger.trace("lat위도 : {}" , session.getAttribute("lat"));
-		logger.trace("lng경도 : {}" , session.getAttribute("lng"));*/
-        return "insertroute/insertroute"; 
+		logger.trace("start : {}" , start);
+		logger.trace("startlat위도 : {}" , startlat);
+		logger.trace("startlng경도 : {}" , startlng);
+        
+		HttpSession session = request.getSession();
+		session.setAttribute("start", start);
+		session.setAttribute("startlat", startlat);
+		session.setAttribute("startlng", startlng);
+
+		logger.trace("session start : {}" , session.getAttribute("start"));
+		logger.trace("session startlat위도 : {}" , session.getAttribute("startlat"));
+		logger.trace("session startlng경도 : {}" , session.getAttribute("startlng"));
+		
+		
+		return "insertroute/insertroute"; 
 	}			
 
 	@RequestMapping(value="/getlocation2", method=RequestMethod.GET) 
 	public String gotoinsertroute2(HttpServletRequest request, Model model) throws Exception{ 		
-		String start = request.getParameter("resultstring2");
-		HttpSession session = request.getSession();
-		session.setAttribute("start",start);
+		String end = request.getParameter("resultstring2");
+		String endlat = request.getParameter("lat");
+		String endlng = request.getParameter("lng");
 		/*session.setAttribute("lat",lat);
 		session.setAttribute("lng",lng); 검색어를 가지고 좌표값 가져오는 코드(구코드)*/		
-		logger.trace("start : {}" , session.getAttribute("start"));
-		/*logger.trace("lat위도 : {}" , session.getAttribute("lat"));
-		logger.trace("lng경도 : {}" , session.getAttribute("lng"));*/
-        return "insertroute/insertroute"; 
+		logger.trace("end : {}" , end);
+		logger.trace("endlat위도 : {}" , endlat);
+		logger.trace("endlng경도 : {}" , endlng);
+
+		HttpSession session = request.getSession();
+		session.setAttribute("end", end);
+		session.setAttribute("endlat", endlat);
+		session.setAttribute("endlng", endlng);
+
+		logger.trace("session end : {}" , session.getAttribute("end"));
+		logger.trace("session endlat위도 : {}" , session.getAttribute("endlat"));
+		logger.trace("session endlng경도 : {}" , session.getAttribute("endlng"));	
+		
+		return "insertroute/insertroute"; 
 	}		
 }
