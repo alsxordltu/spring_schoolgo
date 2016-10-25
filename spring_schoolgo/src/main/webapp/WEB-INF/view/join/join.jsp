@@ -149,7 +149,7 @@
             },
             success:function(res){
                if(res==0){
-                  alert("중복 ID입니다.");
+                  alert(res + "중복 ID입니다.");
                }else{
                   alert("사용 가능한 ID입니다.");
                }

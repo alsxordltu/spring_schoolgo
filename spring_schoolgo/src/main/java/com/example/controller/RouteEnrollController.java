@@ -31,6 +31,7 @@ public class RouteEnrollController {
 		return "insertroute/findStation";
 	}
 	
+	
 	@RequestMapping(value="/findstation2", method=RequestMethod.GET)
 	public String findStation2(Model model, @RequestParam String input){
 		
