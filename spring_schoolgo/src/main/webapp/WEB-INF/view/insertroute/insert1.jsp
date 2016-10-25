@@ -117,9 +117,11 @@
 					
 					<div id="home"
 						style="width: 100%; height: 60px; text-align:center; ">
-						<input type="hidden" id="jsonresult">
-						<input type="button" value="입력 완료!" onclick="movenextpage()">
-					</div>
+						
+					<!-- 	<input type="button" value="입력 완료!" onclick="movenextpage()">
+					 -->
+					 <input type="submit" value="입력 완료!">
+					 </div>
 
 
 				</div>

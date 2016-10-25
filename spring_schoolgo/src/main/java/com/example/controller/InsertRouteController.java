@@ -62,18 +62,17 @@ public class InsertRouteController {
 		response.setCharacterEncoding("UTF-8");
 		session = request.getSession();
 		
-/*		//출발지와 도착지 String 변수로 받아옴
+		//출발지와 도착지 String 변수로 받아옴
 		String start = (String) session.getAttribute("start");
 		String startStation = request.getParameter("resultStationName");
 		
-		String url="https://maps.googleapis.com/maps/api/directions/json?origin=%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%84%9C%EA%B5%AC%20%EA%B0%80%EC%A0%95%20%EB%89%B4%EC%84%9C%EC%9A%B8%EC%95%84%ED%8C%8C%ED%8A%B8&destination=%EB%B6%80%ED%8F%89&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
+/*		String url="https://maps.googleapis.com/maps/api/directions/json?origin=%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%84%9C%EA%B5%AC%20%EA%B0%80%EC%A0%95%20%EB%89%B4%EC%84%9C%EC%9A%B8%EC%95%84%ED%8C%8C%ED%8A%B8&destination=%EB%B6%80%ED%8F%89&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
 		Json wc = new Json(url);
-		String json = wc.json;*/
-		
-		
-		
-		
-/*		session.setAttribute("hometostation", hometostation);
+		String json = wc.json;
+*/		
+		String hometostation = request.getParameter("hometostation");
+		String stationtoschool = request.getParameter("stationtoschool");	
+		session.setAttribute("hometostation", hometostation);
 		session.setAttribute("stationtoschool", stationtoschool);
 		logger.trace("hometostation : {}", session.getAttribute("hometostation"));
 		logger.trace("stationtoschool : {}", session.getAttribute("stationtoschool"));
@@ -110,7 +109,7 @@ public class InsertRouteController {
 			bus.add(busClass);		
 		}
 		logger.trace("buslist : {}", bus);
-		model.addAttribute("buslist", bus);*/
+		model.addAttribute("buslist", bus);
 		
 		return "insertroute/insertbus";
 	}
