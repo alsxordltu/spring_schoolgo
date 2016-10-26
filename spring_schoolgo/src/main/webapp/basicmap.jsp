@@ -27,6 +27,11 @@ html, body {
 	<div id="routeButtons"></div>
 	<button id="send">제출</button>
 	
+	<form action="deleteRoute">
+	<input type="text" name="routeid">
+	<input type="submit" value="삭제테스트">
+	</form>
+	
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgoDTqv8wf1KKvxQQfP0IYeAYXfAVhCRs&libraries=drawing,places,visualization,geometry"></script>
 	<c:url value="/insertRoute" var="insertRoute"></c:url>
