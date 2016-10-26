@@ -2,6 +2,7 @@ package com.example.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.dto.Bus;
 import com.example.dto.Route;
 import com.example.dto.Step;
+import com.example.dto.Vehicle;
 import com.example.util.Json;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -52,11 +54,11 @@ public class InsertRouteController {
 	}
 
 	@RequestMapping(value = "/insertRoute", method = RequestMethod.POST)
-	public @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName) throws JsonParseException, JsonMappingException, IOException {
+	public @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session) throws JsonParseException, JsonMappingException, IOException {
 		logger.trace("body : {}", data);
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> dataMap = mapper.readValue(data, Map.class);
-		mapToRoute(dataMap, routeName);
+		mapToRoute(dataMap, routeName, session.getAttribute("userId"));
 		return "insertroute/findStation2";
 	}
 
@@ -217,18 +219,13 @@ public class InsertRouteController {
 		return "insertroute/insertroute";
 	}
 
-	private void mapToRoute(Map map, String routeName) {
+	private void mapToRoute(Map map, String routeName, Object userId) {
 		Route route = new Route();
 		route.setRouteName(routeName);
-		/*
-	private String startLat;
-	private String startLng;
-	private String startAddress;
-	private String arriveLat;
-	private String arriveLng;
-	private String arriveAddress;
-	private Set<Step> stepSet;
-		 * */
+		userId = userId==null? "null":userId;
+		route.setUserId(userId.toString());
+		Set<Step> routeSteps = new HashSet<>();
+		route.setStepSet(routeSteps);
 		List<Map> routes = (List)map.get("routes");
 
 		for (Map routesMap : routes) {
@@ -236,22 +233,42 @@ public class InsertRouteController {
 			List<Map> legs = (List) routesMap.get("legs");
 			
 			for (Map<String, Object> leg : legs) {
-				logger.trace("legs 개수: {}", leg);
 				Map<String, Object> distance = (Map) leg.get("distance");
 				route.setDistance(distance.get("value").toString());
 				Map<String, Object> duration = (Map) leg.get("duration");
 				route.setTime(duration.get("value").toString());
 				Map<String, Object> startLocation = (Map) leg.get("start_location");
-				logger.trace("출발지 : {}", startLocation);
+				route.setStartLat(startLocation.get("lat").toString());
+				route.setStartLng(startLocation.get("lng").toString());
+				
 				String startAddr = leg.get("start_address").toString();
-				logger.trace("출발지 주소: {}", startAddr);
+				route.setStartAddress(startAddr);
 				Map<String, Object> endLocation = (Map) leg.get("end_location");
-				logger.trace("종착지 : {}", endLocation);
+				route.setArriveLat(endLocation.get("lat").toString());
+				route.setArriveLng(endLocation.get("lng").toString());
 				String endAddress = leg.get("end_address").toString();
-				logger.trace("종착지 주소: {}", endAddress);
-
+				route.setArriveAddress(endAddress);
+				logger.trace("route: {}", route);
+				
 				List<Map> steps = (List) leg.get("steps");
 				for (Map<String, Object> step : steps) {
+					Step stepObj = new Step();
+					/*
+	private Integer stepId;
+	private Route route;
+	private String vmode;
+	private String vehicleInfo;
+	private String stepName;
+	private String startLat;
+	private String startLng;
+	private String endLat;
+	private String endLng;
+	private String routeDistance;
+	private String routeTime;
+	private Integer seq;
+	private Set<Vehicle> vehicleSet;
+					 * */
+					logger.trace("step: {}, {}",steps.size(), step);
 					String instruction = step.get("html_instructions").toString();
 					String travelMode = step.get("travel_mode").toString();
 					logger.trace("경유지 정보 : {}, 이동 모드: {}", instruction, travelMode);
