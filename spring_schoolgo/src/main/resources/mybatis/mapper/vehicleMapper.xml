@@ -6,8 +6,11 @@
 <mapper namespace="com.example.VehicleMapper">
 
 	<insert id="insertVehicle" parameterType="vehicle">
+		<selectKey keyProperty="vehicleId" resultType="int" order="AFTER">
+			select vehicle_seq.currval as vehicleId from dual
+		</selectKey>
 		insert into vehicle
-		values(#{vehicleId}, #{stepId},
+		values(vehicle_seq.nextval, #{stepId},
 		#{startName}, #{startLat}, #{startLng}, 
 		#{startLat}, #{endLng}, #{endName}, 
 		#{headsign}, 

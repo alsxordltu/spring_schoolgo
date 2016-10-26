@@ -5,13 +5,18 @@
 
 <mapper namespace="com.example.RouteMapper">
 
+
 	<insert id="insertRoute" parameterType="route">
+		<selectKey keyProperty="routeId" resultType="int" order="AFTER">
+			select route_seq.currval as routeId from dual
+		</selectKey>
 		insert into route
-		values(#{userId}, #{routeId}, #{routeName},
+		values(#{userId}, route_seq.nextval, #{routeName},
 		#{startLat}, #{startLng}, #{startAddress},
 		#{arriveLat}, #{arriveLng}, #{arriveAddress},
 		#{distance}, #{time})
 	</insert>
+	
 
 	<delete id="deleteRoute" parameterType="route">
 		delete from route where

@@ -24,9 +24,6 @@ public class Step implements Serializable {
 	/** VMODE. */
 	private String vmode;
 
-	/** VEHICLE_INFO. */
-	private String vehicleInfo;
-
 	/** STEP_NAME. */
 	private String stepName;
 
@@ -116,25 +113,6 @@ public class Step implements Serializable {
 	 */
 	public String getVmode() {
 		return this.vmode;
-	}
-
-	/**
-	 * VEHICLE_INFO을 설정합니다..
-	 * 
-	 * @param vehicleInfo
-	 *            VEHICLE_INFO
-	 */
-	public void setVehicleInfo(String vehicleInfo) {
-		this.vehicleInfo = vehicleInfo;
-	}
-
-	/**
-	 * VEHICLE_INFO을 가져옵니다..
-	 * 
-	 * @return VEHICLE_INFO
-	 */
-	public String getVehicleInfo() {
-		return this.vehicleInfo;
 	}
 
 	/**

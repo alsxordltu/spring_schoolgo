@@ -6,9 +6,12 @@
 <mapper namespace="com.example.StepMapper">
 
 	<insert id="insertStep" parameterType="step">
-		insert into route
-		values(#{stepId}, #{routeId}, #{vmode},
-		#{vehicleInfo}, #{stepName}, 
+		<selectKey keyProperty="stepId" resultType="int" order="AFTER">
+			select step_seq.currval as stepId from dual
+		</selectKey>
+		insert into step
+		values(step_seq.nextval, #{routeId}, #{vmode},
+		#{stepName}, 
 		#{startLat}, #{startLng}, #{endLat}, #{endLng},
 		#{routeDistance}, #{routeTime}, 
 		#{seq})
@@ -32,7 +35,6 @@
 		<id column="step_id" property="stepId" />
 		<result column="route_id" property="routeId" />
 		<result column="vmode" property="vmode" />
-		<result column="vehicle_info" property="vehicleInfo" />
 		<result column="step_name" property="stepName" />
 		<result column="start_lat" property="startLat" />
 		<result column="start_lng" property="startLng" />
