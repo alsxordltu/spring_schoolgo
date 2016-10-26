@@ -176,8 +176,8 @@
 					        	 var items2 = item.legs;
 					        	 $.each(items2, function(index, item){
 					         	   var string = item.duration.text;
-					         	   
-					         	   row += "<label><input TYPE='radio' class='group' name='group' value='"+string+"' />"+string+"</label><br>";					         	 
+					         	  row += "<label><input TYPE='radio' class='group' name='group' value='"+string+"' />경로"+listindex+" "+string+"</label><br>";	
+					         	   	         	 
 					          	   listindex++;
 					        	 });
 					         });

@@ -225,7 +225,7 @@ public class InsertRouteController {
 		userId = userId==null? "null":userId;
 		route.setUserId(userId.toString());
 		Set<Step> routeSteps = new HashSet<>();
-		route.setStepSet(routeSteps);
+		//route.setStepSet(routeSteps);
 		List<Map> routes = (List)map.get("routes");
 
 		for (Map routesMap : routes) {
@@ -298,7 +298,10 @@ public class InsertRouteController {
 						if (lineObj != null) {
 							Map<String, Object> line = (Map) lineObj;
 							String lineName = line.get("name").toString();
-							String shortName = line.get("short_name").toString();
+							String shortName = null;
+							if(line.get("short_name") != null){
+								shortName = line.get("short_name").toString();
+							}
 
 							Map<String, String> vehicle = (Map) line.get("vehicle");
 							String vehicleName = vehicle.get("name");

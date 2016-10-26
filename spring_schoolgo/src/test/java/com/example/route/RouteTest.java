@@ -34,7 +34,7 @@ public class RouteTest {
 	@Autowired
 	RouteRepo rRepo;
 
-	@Test
+/*	@Test
 	public void insertRouteTest() {
 		Route route = new Route("asdf",3,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",null);
 		int test = rRepo.insertRoute(route);
@@ -43,7 +43,7 @@ public class RouteTest {
 		assertThat(test, is(notNullValue()));
 		
 		
-	}
+	}*/
 
 
 }
