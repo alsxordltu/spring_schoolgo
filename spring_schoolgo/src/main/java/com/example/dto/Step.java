@@ -31,9 +31,6 @@ public class Step implements Serializable {
 	/** VMODE. */
 	private String vmode;
 
-	/** VEHICLE_INFO. */
-	private String vehicleInfo;
-
 	/** STEP_NAME. */
 	private String stepName;
 

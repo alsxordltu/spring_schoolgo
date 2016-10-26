@@ -48,7 +48,6 @@ public class RouteTest {
 		logger.trace("검색결과 : {}",test );
 		assertThat(test, is(notNullValue()));
 		*/
-		
 	}
 
 

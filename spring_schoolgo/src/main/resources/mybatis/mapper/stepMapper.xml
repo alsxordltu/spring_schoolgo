@@ -11,7 +11,7 @@
 		</selectKey>
 		insert into step
 		values(step_seq.nextval, #{routeId}, #{vmode},
-		#{vehicleInfo}, #{stepName}, 
+		#{stepName}, 
 		#{startLat}, #{startLng}, #{endLat}, #{endLng},
 		#{routeDistance}, #{routeTime}, 
 		#{seq})
