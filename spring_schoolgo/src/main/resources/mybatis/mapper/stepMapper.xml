@@ -35,7 +35,6 @@
 		<id column="step_id" property="stepId" />
 		<result column="route_id" property="routeId" />
 		<result column="vmode" property="vmode" />
-		<result column="vehicle_info" property="vehicleInfo" />
 		<result column="step_name" property="stepName" />
 		<result column="start_lat" property="startLat" />
 		<result column="start_lng" property="startLng" />
