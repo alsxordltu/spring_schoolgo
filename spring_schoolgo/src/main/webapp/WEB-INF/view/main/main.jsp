@@ -151,15 +151,16 @@
 			<h5 style="text-align: center">${nickName}님환영합니다</h5>
 
 
-			<!-- Nav -->
-			<nav id="nav">
-				<ul>
-					<li class="current"><a href="gotomain">학교가기</a></li>
-					<li><a href="gotoinsertroute">루트등록</a></li>
-					<li><a href="#">루트공유</a></li>
-					<li><a href="#">Contact Me</a></li>
-				</ul>
-			</nav>
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li class="current"><a href="gotomain">학교가기</a></li>
+				<li><a href="gotoinsertroute">루트등록</a></li>
+				<li><a href="gotoboardmain">루트공유</a></li>
+				<li><a href="#">Contact Me</a></li>
+			</ul>
+		</nav>
+
 
 
 			<!-- Recent Posts -->

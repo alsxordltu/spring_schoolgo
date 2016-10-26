@@ -411,8 +411,8 @@ function removeAllChildNods(el) {
   	 	<input id="pac-button" class="controls" type="button" value="확인" onclick="movenextpage()">
     	<input type="hidden" id="resultstring2" name="resultstring2" placeholder="Search Box2">
     	<input type="hidden" id="resultstring" name="resultstring">
-    	<input type="hidden" id="lat"  name="lat">
-       <input type="hidden" id="lng"  name="lng">
+    	<input type="text" id="lat"  name="lat">
+       <input type="text" id="lng"  name="lng">
     </form>
     <div id="map"></div>
     <script src = "http://code.jquery.com/jquery.js"></script>
@@ -501,10 +501,18 @@ function getlocation(){
 }
 
  */
+ 
+ // 검색어를 다음 페이지로 넘기는 코드 (현코드) 
+/*  function movenextpage(){
+	   
+	   var input = document.getElementById("pacinput").value;
+		document.getElementById('resultstring2').value = input;	
+	   document.getElementById('form1').submit();
+	} */
 
-
-
-function movenextpage(){
+// 검색어를 가지고 좌표값 구해서 다음 페이지에 넘기는 코드 (구코드)
+  
+   function movenextpage(){
 	   
 	   var input = document.getElementById("pacinput").value;
 	   var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + input + "&key=AIzaSyDMyDmCjogn6vLLZcCM-ZMCpNtk2BZoO5Y";
@@ -534,7 +542,7 @@ function movenextpage(){
 	         alert("fail: "+error);
 	      }
 	   });
-	}
+	}  
 
 
     </script>

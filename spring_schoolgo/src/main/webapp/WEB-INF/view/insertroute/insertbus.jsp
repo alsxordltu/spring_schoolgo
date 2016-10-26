@@ -17,9 +17,7 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-	<% double lat = (double)session.getAttribute("lat"); 
-			double lng = (double)session.getAttribute("lng");
-	%>
+
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -33,7 +31,7 @@
 				</header>
 
 <table id="info">
-		<tr><th>역코드</th><th>역명</th><th>호선</th><th>버튼</th></tr>
+		<tr><th>도시코드</th><th>정류소코드</th><th>정류소이름</th><th>버튼</th></tr>
 		<c:forEach var="result" items="${buslist }" varStatus="status">
 		
 		<tr>
@@ -137,7 +135,7 @@ $(document).on("click", "#select", function(e){
 	document.all.selcitycode.value = $(this).attr("data-citycode");
 	document.all.selnodeid.value = $(this).attr("data-nodeid");
 	var row = "";
-	$("#info").html(rowt);
+	$("#info").html(row);
 });
 		
 	    //window.onload = showbuslist();
