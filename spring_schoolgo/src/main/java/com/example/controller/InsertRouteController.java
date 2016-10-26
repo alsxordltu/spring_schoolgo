@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dto.Bus;
 import com.example.dto.Route;
+import com.example.dto.Step;
 import com.example.util.Json;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -213,23 +215,28 @@ public class InsertRouteController {
 
 	private void mapToRoute(Map map, String routeName) {
 		Route route = new Route();
+		route.setRouteName(routeName);
+		/*
+	private String startLat;
+	private String startLng;
+	private String startAddress;
+	private String arriveLat;
+	private String arriveLng;
+	private String arriveAddress;
+	private Set<Step> stepSet;
+		 * */
 		List<Map> routes = (List)map.get("routes");
-		logger.trace("route 개수: {}", routes.size());
+
 		for (Map routesMap : routes) {
-			Map<String, Object> bounds = (Map) routesMap.get("bounds");
-			Map<String, String> northeast = (Map) bounds.get("northeast");
-			Map<String, String> southwest = (Map) bounds.get("southwest");
-			logger.trace("북동: {}, 남서: {}", northeast, southwest);
+			
 			List<Map> legs = (List) routesMap.get("legs");
+			
 			for (Map<String, Object> leg : legs) {
-				Map<String, Object> arrivalTime = (Map) leg.get("arrival_time");
-				logger.trace("도착 예정 시간 : {}", arrivalTime);
-				Map<String, Object> departureTime = (Map) leg.get("departure_time");
-				logger.trace("출발 예정 시간 : {}", departureTime);
+				logger.trace("legs 개수: {}", leg);
 				Map<String, Object> distance = (Map) leg.get("distance");
-				logger.trace("거리 정보 : {}", distance);
+				route.setDistance(distance.get("value").toString());
 				Map<String, Object> duration = (Map) leg.get("duration");
-				logger.trace("시간 정보 : {}", duration);
+				route.setTime(duration.get("value").toString());
 				Map<String, Object> startLocation = (Map) leg.get("start_location");
 				logger.trace("출발지 : {}", startLocation);
 				String startAddr = leg.get("start_address").toString();
