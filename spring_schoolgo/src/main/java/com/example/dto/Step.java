@@ -26,7 +26,7 @@ public class Step implements Serializable {
 	private Integer stepId;
 
 	/** ROUTE. */
-	private Route route;
+	private Integer routeId;
 
 	/** VMODE. */
 	private String vmode;

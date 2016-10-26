@@ -28,7 +28,7 @@ public class RouteRepoImpl implements RouteRepo{
 
 	@Override
 	public Route selectRoute(int routeId) {
-		String stmt = NAME_SPACE + "select";
+		String stmt = NAME_SPACE + "selectRoute";
 		return template.selectOne(stmt,routeId);
 	}
 
