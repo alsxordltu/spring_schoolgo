@@ -11,7 +11,7 @@
 		#{vehicleInfo}, #{stepName}, 
 		#{startLat}, #{startLng}, #{endLat}, #{endLng},
 		#{routeDistance}, #{routeTime}, 
-		#{seq}, #{vehicleSet})
+		#{seq})
 	</insert>
 
 	<delete id="deleteStep" parameterType="step">
