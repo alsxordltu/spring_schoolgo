@@ -225,7 +225,7 @@ public class InsertRouteController {
 		userId = userId==null? "null":userId;
 		route.setUserId(userId.toString());
 		Set<Step> routeSteps = new HashSet<>();
-		//route.setStepSet(routeSteps);
+		route.setStepSet(routeSteps);
 		List<Map> routes = (List)map.get("routes");
 
 		for (Map routesMap : routes) {
