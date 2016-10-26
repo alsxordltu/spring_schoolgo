@@ -10,8 +10,7 @@
 		values(#{userId}, #{routeId}, #{routeName},
 		#{startLat}, #{startLng}, #{startAddress},
 		#{arriveLat}, #{arriveLng}, #{arriveAddress},
-		#{distance}, #{time}, #{stepSet}
-		)
+		#{distance}, #{time}, #{stepSet})
 	</insert>
 
 	<delete id="deleteRoute" parameterType="route">
@@ -20,9 +19,11 @@
 	</delete>
 
 	<select id="selectRoute" resultMap="selectRoute"
-		parameterType="user">
-		select user_id, pass, user_name, nickname, email,
-		phone_num from tuser where user_id = #{userId}
+		parameterType="route">
+		select user_id, route_name, start_lat, start_lng, start_address,
+		arrive_lat, arrive_lng, arrive_address,
+		distance, time
+		from tuser where route_id = #{routeId}
 	</select>
 	
 	<resultMap type="Route" id="selectRoute">
