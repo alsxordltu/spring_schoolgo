@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <!--
 	Striped by HTML5 UP
@@ -72,8 +73,12 @@
 						
 						<!-- 조회 버튼 -->
 						<div id=insertselect>
+							<input type=text  id="selectedstring">
 							<input type=button id=insertselectbtn value=조회하기>
+							<input type=submit  value=등록>
 						</div>
+						
+						
 
 
 
@@ -91,6 +96,10 @@
 						</div> -->
 				</form>
 		</div>
+		<div id="routelist">
+			
+		</div>
+		
 		</article>
 
 	</div>
@@ -149,7 +158,52 @@
 	<script src="insert_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="insert_js/main.js"></script>
+			<script src="http://code.jquery.com/jquery.js"></script>
+			<script>
+			<c:url value="/get" var="find" />
+				$("#insertselectbtn").on("click", function(){
+					$.ajax({
+						
+						url:"${find}",
+						type:"get",
+					
+						success:function(data){
+							alert("성공");
+							var items = data.routes;
+							var row="";
+							var listindex=0;
+					         $.each(items, function(index, item){
+					        	 var items2 = item.legs;
+					        	 $.each(items2, function(index, item){
+					         	   var string = item.duration.text;
+					         	   
+					         	   row += "<label><input TYPE='radio' class='group' name='group' value='"+string+"' />"+string+"</label><br>";					         	 
+					          	   listindex++;
+					        	 });
+					         });
+					       
+					         $("#routelist").html($("#routelist").html()+row);
+					         /* $("input:radio[name='book_type'][value='magazine']").prop('checked', true); */
+						},
+						error : function(xhr, status, error){
+							alert(error);
+						}
+						
+					});
+				});
+				
+		
 
+	$(document).on("change", ".group", function () {
+            //라디오 버튼 값을 가져온다.
+            var selectedvalue =  $("input[name='group']:checked").val();
+            alert(selectedvalue);
+            $( "#selectedstring" ).val(selectedvalue);                
+		});
+
+		
+			</script>
+			
 
 </body>
 </html>
