@@ -12,7 +12,8 @@
 		<typeAlias type="com.example.dto.Station" alias="station"/>
 		<typeAlias type="com.example.dto.BoardDto" alias="boarddto"/>
 		<typeAlias type="com.example.dto.PageDto" alias="pagedto"/>				
-		<typeAlias type="com.example.dto.Route" alias="route"/>				
+		<typeAlias type="com.example.dto.Route" alias="route"/>	
+		<typeAlias type="com.example.dto.Step" alias="step"/>						
 	</typeAliases>
 	
 	<mappers>
@@ -20,5 +21,6 @@
 		<mapper resource="mybatis/mapper/stationMapper.xml"/>
 		<mapper resource="mybatis/mapper/boardMapper.xml"/>
 		<mapper resource="mybatis/mapper/routeMapper.xml"/>		
+		<mapper resource="mybatis/mapper/stepMapper.xml"/>		
 	</mappers>
 </configuration>
