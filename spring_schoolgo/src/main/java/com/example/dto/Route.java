@@ -21,7 +21,7 @@ public class Route implements Serializable {
 
 	/** serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-
+	private String userId;
 	/** ROUTE_ID. */
 	private Integer routeId;
 

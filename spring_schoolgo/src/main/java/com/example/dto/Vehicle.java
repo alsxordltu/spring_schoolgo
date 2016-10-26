@@ -24,7 +24,7 @@ public class Vehicle implements Serializable {
 	private Integer vehicleId;
 
 	/** STEP. */
-	private Step step;
+	private Integer stepId;
 
 	/** START_NAME. */
 	private String startName;
