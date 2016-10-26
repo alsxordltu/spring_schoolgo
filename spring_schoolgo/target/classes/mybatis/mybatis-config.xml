@@ -15,10 +15,10 @@
 		<typeAlias type="com.example.dto.Route" alias="route"/>				
 	</typeAliases>
 	
-	<mappers>
+<!-- 	<mappers>
 		<mapper resource="mybatis/mapper/userMapper.xml"/>
 		<mapper resource="mybatis/mapper/stationMapper.xml"/>
 		<mapper resource="mybatis/mapper/boardMapper.xml"/>
 		<mapper resource="mybatis/mapper/routeMapper.xml"/>		
-	</mappers>
+	</mappers> -->
 </configuration>

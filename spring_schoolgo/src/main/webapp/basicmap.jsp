@@ -55,11 +55,13 @@ html, body {
 		});
 		var res;
 		var selectedId;
+		
 		$(document).on("click", ".routeBtn", function(){
 			//console.log($(this).attr("data-idx"));
 			draw($(this).attr("data-idx"));
 			selectedId = $(this).attr("data-idx");
 		});
+		
 		document.querySelector("#routeNum").addEventListener("change", function(){
 			draw(this.value);
 		});

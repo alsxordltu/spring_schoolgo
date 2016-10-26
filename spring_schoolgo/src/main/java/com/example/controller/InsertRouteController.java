@@ -16,6 +16,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ import com.example.dto.Bus;
 import com.example.dto.Route;
 import com.example.dto.Step;
 import com.example.dto.Vehicle;
+import com.example.service.RouteService;
 import com.example.util.Json;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -34,6 +36,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller // 컨트롤러 선언
 public class InsertRouteController {
+	@Autowired
+	RouteService rService;
 
 	private static Logger logger = LoggerFactory.getLogger(InsertRouteController.class);
 
@@ -58,7 +62,13 @@ public class InsertRouteController {
 		logger.trace("body : {}", data);
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> dataMap = mapper.readValue(data, Map.class);
-		mapToRoute(dataMap, routeName, session.getAttribute("userId"));
+		try {
+			Route route = mapToRoute(dataMap, routeName, session.getAttribute("userId"));
+			logger.trace("변환 결과 route: {}", route);
+			rService.addRoute(route);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "insertroute/findStation2";
 	}
 
@@ -90,13 +100,12 @@ public class InsertRouteController {
 		String endlat = (String) session.getAttribute("endlat");
 		String endlng = (String) session.getAttribute("endlng");
 		String routename = request.getParameter("routename");
-		logger.trace("routename : {}" , routename);
-		
-		//출발지 위도+경도 url 문자열 띄어쓰기를->%20
-		String url= "https://maps.googleapis.com/maps/api/directions/json?"
-				+"origin="+startlat+",%20"+startlng+"&destination="+endlat+",%20"+endlng+"&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
-						
-		
+		logger.trace("routename : {}", routename);
+
+		// 출발지 위도+경도 url 문자열 띄어쓰기를->%20
+		String url = "https://maps.googleapis.com/maps/api/directions/json?" + "origin=" + startlat + ",%20" + startlng + "&destination=" + endlat + ",%20" + endlng
+				+ "&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
+
 		return "insertroute/insert1";
 	}
 
@@ -219,94 +228,109 @@ public class InsertRouteController {
 		return "insertroute/insertroute";
 	}
 
-	private void mapToRoute(Map map, String routeName, Object userId) {
+	private Route mapToRoute(Map map, String routeName, Object userId) {
 		Route route = new Route();
 		route.setRouteName(routeName);
-		userId = userId==null? "null":userId;
+		userId = userId == null ? "null" : userId;
 		route.setUserId(userId.toString());
 		Set<Step> routeSteps = new HashSet<>();
 		route.setStepSet(routeSteps);
-		List<Map> routes = (List)map.get("routes");
-
-		for (Map routesMap : routes) {
+		List<Map> routes = (List) map.get("routes");
+		if(routes!=null){
 			
-			List<Map> legs = (List) routesMap.get("legs");
-			
-			for (Map<String, Object> leg : legs) {
-				Map<String, Object> distance = (Map) leg.get("distance");
-				route.setDistance(distance.get("value").toString());
-				Map<String, Object> duration = (Map) leg.get("duration");
-				route.setTime(duration.get("value").toString());
-				Map<String, Object> startLocation = (Map) leg.get("start_location");
-				route.setStartLat(startLocation.get("lat").toString());
-				route.setStartLng(startLocation.get("lng").toString());
-				
-				String startAddr = leg.get("start_address").toString();
-				route.setStartAddress(startAddr);
-				Map<String, Object> endLocation = (Map) leg.get("end_location");
-				route.setArriveLat(endLocation.get("lat").toString());
-				route.setArriveLng(endLocation.get("lng").toString());
-				String endAddress = leg.get("end_address").toString();
-				route.setArriveAddress(endAddress);
-				logger.trace("route: {}", route);
-				
-				List<Map> steps = (List) leg.get("steps");
-				for (Map<String, Object> step : steps) {
-					Step stepObj = new Step();
-					/*
-	private Integer stepId;
-	private Route route;
-	private String vmode;
-	private String vehicleInfo;
-	private String stepName;
-	private String startLat;
-	private String startLng;
-	private String endLat;
-	private String endLng;
-	private String routeDistance;
-	private String routeTime;
-	private Integer seq;
-	private Set<Vehicle> vehicleSet;
-					 * */
-					logger.trace("step: {}, {}",steps.size(), step);
-					String instruction = step.get("html_instructions").toString();
-					String travelMode = step.get("travel_mode").toString();
-					logger.trace("경유지 정보 : {}, 이동 모드: {}", instruction, travelMode);
-					Map<String, Object> stepDistance = (Map) step.get("distance");
-					logger.trace("     거리 정보 : {}", stepDistance);
-					Map<String, Object> stepDuration = (Map) step.get("duration");
-					logger.trace("     시간 정보 : {}", stepDuration);
-					Map<String, Object> stepStartLocation = (Map) step.get("start_location");
-					logger.trace("     출발지 : {}", stepStartLocation);
-					Map<String, Object> stepEndLocation = (Map) step.get("end_location");
-					logger.trace("     종착지 : {}", stepEndLocation);
-					Object transitObj = step.get("transit_details");
-					if (transitObj != null) {
-						Map<String, Object> transitDetails = (Map) transitObj;
-						Map<String, Object> tDepartureStop = (Map) transitDetails.get("departure_stop");
-						Map<String, Object> tDepartureTime = (Map) transitDetails.get("departure_time");
-						Map<String, Object> tArrivalStop = (Map) transitDetails.get("arrival_stop");
-						Map<String, Object> tArrivalTime = (Map) transitDetails.get("arrival_time");
-						logger.trace("     운송 수단 정보 출발 시간{}, 출발 위치{}, 도착 시간{}, 도착 위치{}", tDepartureTime, tDepartureStop, tArrivalTime, tArrivalStop);
-						String headSign = transitDetails.get("headsign").toString();
-						logger.trace("     headsign은 머야? {}", headSign);
-						Integer headWay = (Integer) transitDetails.get("headway");
-						logger.trace("     headWay은 머야? {}", headWay);
-						Integer numStops = (Integer) transitDetails.get("num_stops");
-						Object lineObj = transitDetails.get("line");
+			for (Map routesMap : routes) {
+				Object legsObj = routesMap.get("legs");
+				if (legsObj != null) {
+					List<Map> legs = (List) legsObj;
 
-						if (lineObj != null) {
-							Map<String, Object> line = (Map) lineObj;
-							String lineName = line.get("name").toString();
-							String shortName = line.get("short_name").toString();
+					for (Map<String, Object> leg : legs) {
+						Map<String, Object> distance = (Map) leg.get("distance");
+						route.setDistance(objToStr(distance.get("value")));
+						Map<String, Object> duration = (Map) leg.get("duration");
+						route.setTime(objToStr(duration.get("value")));
+						Map<String, Object> startLocation = (Map) leg.get("start_location");
+						route.setStartLat(objToStr(startLocation.get("lat")));
+						route.setStartLng(objToStr(startLocation.get("lng")));
 
-							Map<String, String> vehicle = (Map) line.get("vehicle");
-							String vehicleName = vehicle.get("name");
-							logger.trace("     {}{} {}번으로 {}칸 이동", lineName, vehicleName, shortName, numStops);
+						String startAddr = objToStr(leg.get("start_address"));
+						route.setStartAddress(startAddr);
+						Map<String, Object> endLocation = (Map) leg.get("end_location");
+						route.setArriveLat(objToStr(endLocation.get("lat")));
+						route.setArriveLng(objToStr(endLocation.get("lng")));
+						String endAddress = objToStr(leg.get("end_address"));
+						route.setArriveAddress(endAddress);
+						logger.trace("route: {}", route);
+
+						List<Map> steps = (List) leg.get("steps");
+						for (int i = 0; i < steps.size(); i++) {
+
+							Map<String, Object> step = steps.get(i);
+							Step stepObj = new Step();
+							routeSteps.add(stepObj);
+							stepObj.setSeq(i);
+							stepObj.setRouteId(route.getRouteId());
+							Set<Vehicle> vehicles = new HashSet<>();
+							stepObj.setVehicleSet(vehicles);
+
+							stepObj.setStepName(objToStr(step.get("instructions")));
+							String travelMode = objToStr(step.get("travel_mode"));
+							stepObj.setVmode(travelMode);
+
+							Map<String, Object> stepDistance = (Map) step.get("distance");
+							stepObj.setRouteDistance(objToStr(stepDistance.get("value")));
+							Map<String, Object> stepDuration = (Map) step.get("duration");
+							stepObj.setRouteTime(objToStr(stepDuration.get("value")));
+
+							Map<String, Object> stepStartLocation = (Map) step.get("start_location");
+							stepObj.setStartLat(objToStr(stepStartLocation.get("lat")));
+							stepObj.setStartLng(objToStr(stepStartLocation.get("lng")));
+							Map<String, Object> stepEndLocation = (Map) step.get("end_location");
+							stepObj.setEndLat(objToStr(stepEndLocation.get("lat")));
+							stepObj.setEndLng(objToStr(stepEndLocation.get("lng")));
+							logger.trace("step: {}, {}", i, stepObj);
+							Object transitObj = step.get("transit");
+							logger.trace("운송 수단: {}", transitObj);
+							if (transitObj != null) {
+								Vehicle vehicle = new Vehicle();
+								vehicles.add(vehicle);
+								
+								Map<String, Object> transitDetails = (Map) transitObj;
+								Map<String, Object> tDepartureStop = (Map) transitDetails.get("departure_stop");
+								Map<String, Object> tArrivalStop = (Map) transitDetails.get("arrival_stop");
+								vehicle.setStartName(objToStr(tDepartureStop.get("name")));
+								vehicle.setStartLat(objToStr(tDepartureStop.get("lat")));
+								vehicle.setStartLng(objToStr(tDepartureStop.get("lng")));
+								vehicle.setEndName(objToStr(tArrivalStop.get("name")));
+								vehicle.setEndLat(objToStr(tArrivalStop.get("lat")));
+								vehicle.setEndLng(objToStr(tArrivalStop.get("lng")));
+								
+								String headSign = objToStr(transitDetails.get("headsign"));
+								vehicle.setHeadsign(headSign);
+								Integer numStops = (Integer) transitDetails.get("num_stops");
+								vehicle.setVehicleMove(numStops.toString());
+								Object lineObj = transitDetails.get("line");
+								if (lineObj != null) {
+									Map<String, Object> line = (Map) lineObj;
+									String lineName = objToStr(line.get("name"));
+									String shortName = objToStr(line.get("short_name"));
+									vehicle.setVehicleName(lineName);
+									vehicle.setVehicleNum(shortName);
+								}
+								logger.trace("vehicle: {}", vehicle);
+							}
 						}
 					}
 				}
-			}
-		}//
+			} //
+		}
+		
+		return route;
+	}
+	
+	private String objToStr(Object obj){
+		if(obj==null){
+			obj = "";
+		}
+		return obj.toString();
 	}
 }

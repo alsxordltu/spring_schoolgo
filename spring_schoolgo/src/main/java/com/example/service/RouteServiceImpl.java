@@ -2,6 +2,7 @@ package com.example.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dto.Route;
 import com.example.repo.RouteRepo;
@@ -12,6 +13,7 @@ public class RouteServiceImpl implements RouteService{
 	RouteRepo rRepo;
 
 	@Override
+	@Transactional
 	public int addRoute(Route route) {
 		return rRepo.insertRoute(route);
 	}
