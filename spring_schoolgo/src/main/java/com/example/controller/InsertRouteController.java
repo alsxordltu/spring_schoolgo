@@ -88,9 +88,13 @@ public class InsertRouteController {
 		String endlat = (String) session.getAttribute("endlat");
 		String endlng = (String) session.getAttribute("endlng");
 		String routename = request.getParameter("routename");
-		logger.trace("routename : {}", routename);
-
-		// 출발지 위도+경도 url 문자열 띄어쓰기를->%20
+		logger.trace("routename : {}" , routename);
+		
+		//출발지 위도+경도 url 문자열 띄어쓰기를->%20
+		String url= "https://maps.googleapis.com/maps/api/directions/json?"
+				+"origin="+startlat+",%20"+startlng+"&destination="+endlat+",%20"+endlng+"&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
+						
+		
 		return "insertroute/insert1";
 	}
 
