@@ -124,5 +124,9 @@ public class RouteController {
 		}
 		
 		return resEntity.getBody();
-	}	
+	}
+	@RequestMapping(value = "/gotoroutetest", method = RequestMethod.GET)
+	public String gotoroutetest() {
+		return "insertroute/routetest";
+	}
 }

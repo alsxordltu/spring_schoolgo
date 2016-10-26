@@ -10,7 +10,7 @@
 		values(#{userId}, #{routeId}, #{routeName},
 		#{startLat}, #{startLng}, #{startAddress},
 		#{arriveLat}, #{arriveLng}, #{arriveAddress},
-		#{distance}, #{time}, #{stepSet})
+		#{distance}, #{time})
 	</insert>
 
 	<delete id="deleteRoute" parameterType="route">

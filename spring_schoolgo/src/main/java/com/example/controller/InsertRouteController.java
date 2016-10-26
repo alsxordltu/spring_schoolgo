@@ -57,8 +57,14 @@ public class InsertRouteController {
 	public @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session) throws JsonParseException, JsonMappingException, IOException {
 		logger.trace("body : {}", data);
 		ObjectMapper mapper = new ObjectMapper();
-		Map<String, Object> dataMap = mapper.readValue(data, Map.class);
-		mapToRoute(dataMap, routeName, session.getAttribute("userId"));
+		try{
+			Map<String, Object> dataMap = mapper.readValue(data, Map.class);
+			mapToRoute(dataMap, routeName, session.getAttribute("userId"));
+		}catch (Exception e){
+			logger.error("error : ", e);
+		}
+		
+		
 		return "insertroute/findStation2";
 	}
 

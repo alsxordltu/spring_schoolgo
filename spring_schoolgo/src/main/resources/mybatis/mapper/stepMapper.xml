@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.StepMapper">
+
+	<insert id="insertStep" parameterType="step">
+		insert into route
+		values(#{stepId}, #{routeId}, #{vmode},
+		#{vehicleInfo}, #{stepName}, 
+		#{startLat}, #{startLng}, #{endLat}, #{endLng},
+		#{routeDistance}, #{routeTime}, 
+		#{seq})
+	</insert>
+
+	<delete id="deleteStep" parameterType="step">
+		delete from step where
+		step_id=#{routeId}
+	</delete>
+
+	<select id="selectStep" resultMap="selectStep"
+		parameterType="route">
+		select step_id, route_id, vmode, 
+		vehicle_info, step_name,
+		start_lat, start_lng, end_lat, end_lng,
+		route_distance, route_time, seq
+		from step where step_id = #{stepId}
+	</select>
+	
+	<resultMap type="Step" id="selectStep">
+		<id column="step_id" property="stepId" />
+		<result column="route_id" property="routeId" />
+		<result column="vmode" property="vmode" />
+		<result column="vehicle_info" property="vehicleInfo" />
+		<result column="step_name" property="stepName" />
+		<result column="start_lat" property="startLat" />
+		<result column="start_lng" property="startLng" />
+		<result column="end_lat" property="endLat" />
+		<result column="end_lng" property="endLng" />
+		<result column="route_distance" property="routeDistance" />
+		<result column="route_time" property="routeTime" />
+		<result column="seq" property="routeTime" />
+	</resultMap>
+
+</mapper>
