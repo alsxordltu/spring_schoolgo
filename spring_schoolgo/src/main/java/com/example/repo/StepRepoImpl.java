@@ -13,7 +13,7 @@ public class StepRepoImpl implements StepRepo{
 	@Autowired
 	SqlSessionTemplate template;
 	
-	private final String NAME_SPACE = "com.example.RouteMapper.";
+	private final String NAME_SPACE = "com.example.StepMapper.";
 	
 	@Override
 	public int insertStep(Step step) {

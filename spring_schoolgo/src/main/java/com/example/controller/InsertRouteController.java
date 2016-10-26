@@ -63,7 +63,7 @@ public class InsertRouteController {
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> dataMap = mapper.readValue(data, Map.class);
 		try {
-			Route route = mapToRoute(dataMap, routeName, session.getAttribute("userId"));
+			Route route = mapToRoute(dataMap, routeName, "andy");
 			logger.trace("변환 결과 route: {}", route);
 			rService.addRoute(route);
 		} catch (Exception e) {
