@@ -95,7 +95,7 @@
 				<is_open_after_saved>true</is_open_after_saved>
 			</export_image_setting>
 			<export_java_setting>
-				<java_output></java_output>
+				<java_output>src\main\java</java_output>
 				<package_name>com.example.dto</package_name>
 				<class_name_suffix></class_name_suffix>
 				<src_file_encoding>UTF-8</src_file_encoding>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2016-10-12 17:24:13</creation_date>
-			<updated_date>2016-10-26 12:56:00</updated_date>
+			<updated_date>2016-10-26 12:59:06</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dto.Bus;
+import com.example.dto.Route;
 import com.example.util.Json;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -49,11 +50,11 @@ public class InsertRouteController {
 	}
 
 	@RequestMapping(value = "/insertRoute", method = RequestMethod.POST)
-	public @ResponseBody String insertRoute(@RequestParam String data) throws JsonParseException, JsonMappingException, IOException {
+	public @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName) throws JsonParseException, JsonMappingException, IOException {
 		logger.trace("body : {}", data);
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> dataMap = mapper.readValue(data, Map.class);
-		mapToRoute(dataMap);
+		mapToRoute(dataMap, routeName);
 		return "insertroute/findStation2";
 	}
 
@@ -210,10 +211,10 @@ public class InsertRouteController {
 		return "insertroute/insertroute";
 	}
 
-	private void mapToRoute(Map map) {
-		logger.trace("route: {}", map);
-		logger.trace("keys : {}", map.keySet());
+	private void mapToRoute(Map map, String routeName) {
+		Route route = new Route();
 		List<Map> routes = (List)map.get("routes");
+		logger.trace("route 개수: {}", routes.size());
 		for (Map routesMap : routes) {
 			Map<String, Object> bounds = (Map) routesMap.get("bounds");
 			Map<String, String> northeast = (Map) bounds.get("northeast");

@@ -42,7 +42,7 @@ html, body {
 			res.routes = [res.routes[selectedId]];
 			//var url = ${insertRoute};
 			$.ajax({
-				data: {data:JSON.stringify(res)},
+				data: {data:JSON.stringify(res), routeName:"test"},
 				url:"/mvc_project_practice/insertRoute",
 				type:"post",
 				success:function(response){

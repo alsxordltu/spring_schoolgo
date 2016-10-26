@@ -3,6 +3,7 @@ package com.example.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.dto.Route;
 import com.example.repo.RouteRepo;
 
 @Service
@@ -11,20 +12,19 @@ public class RouteServiceImpl implements RouteService{
 	RouteRepo rRepo;
 
 	@Override
-	public void addRoute() {
-		// TODO Auto-generated method stub
-		
+	public int addRoute(Route route) {
+		return rRepo.insertRoute(route);
 	}
 
 	@Override
-	public void getRoute(Integer routeId) {
-		// TODO Auto-generated method stub
-		
+	public Route getRoute(Integer routeId) {
+		return rRepo.selectRoute(routeId);
 	}
 
 	@Override
-	public void deleteRoute() {
-		// TODO Auto-generated method stub
-		
+	public int deleteRoute(Integer routeId) {
+		return rRepo.deleteRoute(routeId);
 	}
+
+
 }
