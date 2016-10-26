@@ -12,11 +12,13 @@
 		<typeAlias type="com.example.dto.Station" alias="station"/>
 		<typeAlias type="com.example.dto.BoardDto" alias="boarddto"/>
 		<typeAlias type="com.example.dto.PageDto" alias="pagedto"/>				
+		<typeAlias type="com.example.dto.Route" alias="route"/>				
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mybatis/mapper/userMapper.xml"/>
 		<mapper resource="mybatis/mapper/stationMapper.xml"/>
 		<mapper resource="mybatis/mapper/boardMapper.xml"/>
+		<mapper resource="mybatis/mapper/routeMapper.xml"/>		
 	</mappers>
 </configuration>

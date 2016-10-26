@@ -3,23 +3,33 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.StationMapper">
+<mapper namespace="com.example.RouteMapper">
 
-	<select id="searchStation" resultMap="searchStationByName" parameterType="String">
-		select STATION_CD, STATION_NM, LINE_NUM, FR_CODE from subway where station_nm like #{input}
-	</select>
-	
-	<resultMap type="Station" id="searchStationByName">
-		<id column="STATION_CD" property="stationCode"/> 
-		<result column="STATION_NM" property="stationName"/>
-		<result column="LINE_NUM" property="lineNum"/>
-		<result column="FR_CODE" property="frCode"/>
-	</resultMap>
-	<!-- <insert id="insert" parameterType="user">
-		insert into tuser
-		values(#{userId}, #{pass}, #{userName}, #{nickName}, #{email},
-		#{phoneNum})
+	<insert id="insertRoute" parameterType="route">
+		insert into route
+		values(#{userId}, #{routeId}, #{routeName},
+		 #{startLat}, #{startLng}, #{startAddress},
+		 #{arriveLat}, #{arriveLng}, #{arriveAddress},
+		 #{distance}, #{time}, #{stepSet} 
+		)
 	</insert>
-	-->
+	
+	<delete id="deleteRoute" parameterType="route">
+		delete from route where route_id=#{routeId} 
+	</delete>
+	
+	<resultMap type="Route" id="selectRoute">
+		<id column="route_id" property="routeId"/> 
+		<result column="user_id" property="userId"/>
+		<result column="route_name" property="routeName"/>
+		<result column="start_lat" property="startLat"/>
+		<result column="start_lng" property="startLng"/>
+		<result column="start_address" property="startAddress"/>						
+		<result column="arrive_lat" property="arriveLat"/>						
+		<result column="arrive_lng" property="arriveLng"/>						
+		<result column="arrive_address" property="arriveAddress"/>						
+		<result column="distance" property="distance"/>						
+		<result column="time" property="time"/>						
+	</resultMap>
 	
 </mapper>
