@@ -15,7 +15,9 @@ public class SessionCheckInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		HttpSession session = request.getSession();
+		// 테스트를 위해 잠시 중지함 - andy
+		return true;
+/*		HttpSession session = request.getSession();
 		logger.trace("session 체크");
 		if(session.getAttribute("userId")!= null){
 			return true;
@@ -24,6 +26,6 @@ public class SessionCheckInterceptor extends HandlerInterceptorAdapter{
 		response.sendRedirect(request.getContextPath()+"/index.jsp");
 		
 		
-		return false;
+		return false;*/
 	}
 }

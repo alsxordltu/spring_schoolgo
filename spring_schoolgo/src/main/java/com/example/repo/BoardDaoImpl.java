@@ -1,6 +1,5 @@
-package com.example.repo;
+/*package com.example.repo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -23,21 +22,21 @@ public class BoardDaoImpl implements BoardDao {
 		String stmt = NAME_SPACE + "boardList";
 		return template.selectList(stmt);
 		
-/*		List<BoardDto> result = new ArrayList<BoardDto>();
+		List<BoardDto> result = new ArrayList<BoardDto>();
 		System.out.println("정상적으로 값이 들어옴");
 		System.out.println(keyfield + "//" + keyword);
 		result = BoardManager.boardList(keyfield, keyword);
 		System.out.println(result.size());
 		return result;
-*/	}
+	}
 	
 	// 본문 미리보기
 	@Override
 	public String preView(int seq) {
 		String stmt = NAME_SPACE + "preView";
 		return template.selectOne(stmt, seq);
-/*		String preContent = BoardManager.preView(seq);
-		return preContent;*/
+		String preContent = BoardManager.preView(seq);
+		return preContent;
 	}
 	
 	// 시퀀스에 의한 리스트 뽑기
@@ -45,8 +44,8 @@ public class BoardDaoImpl implements BoardDao {
 	public BoardDto findBySeq(int seq) {
 		String stmt = NAME_SPACE + "findBySeq";
 		return template.selectOne(stmt, seq);
-/*		BoardDto result = BoardManager.findBySeq(seq);
-		return result;*/
+		BoardDto result = BoardManager.findBySeq(seq);
+		return result;
 	}
 	
 	// 본문 읽기_조회수count도
@@ -56,9 +55,9 @@ public class BoardDaoImpl implements BoardDao {
 		template.update(stmt);
 		String stmt2 = NAME_SPACE + "findBySeq";		
 		return template.selectOne(stmt2, seq);
-/*		BoardManager.readCount(seq); // 글보면 카운트수 증가
+		BoardManager.readCount(seq); // 글보면 카운트수 증가
 		BoardDto result = BoardManager.findBySeq(seq); // 실질적인 글읽기
-		return result;*/
+		return result;
 	}
 	
 	// 글쓰기는  upPos와 insertBoard 두개임
@@ -112,3 +111,4 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 }
+*/
