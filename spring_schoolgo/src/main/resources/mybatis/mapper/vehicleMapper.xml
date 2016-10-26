@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.VehicleMapper">
+
+	<insert id="insertVehicle" parameterType="vehicle">
+		<selectKey keyProperty="vehicleId" resultType="int" order="AFTER">
+			select vehicle_seq.currval as vehicleId from dual
+		</selectKey>
+		insert into vehicle
+		values(vehicle_seq.nextval, #{stepId},
+		#{startName}, #{startLat}, #{startLng}, 
+		#{startLat}, #{endLng}, #{endName}, 
+		#{headsign}, 
+		#{vehicleName}, #{vehicleNum}, #{vehicleMove})
+	</insert>
+
+	<delete id="deleteVehicle" parameterType="vehicle">
+		delete from vehicle where
+		vehicle_id=#{vehicleId}
+	</delete>
+
+	<select id="selectVehicle" resultMap="selectVehicle"
+		parameterType="route">
+		select vehicle_id, step_id,
+		start_name, start_lat, start_lng,
+		end_lat, end_lng, end_name, 
+		headsign,
+		vehicle_name, vehicle_num, vehicle_move
+		from vehicle where vehicle_id = #{vehicleId}
+	</select>
+	
+	<resultMap type="Vehicle" id="selectVehicle">
+		<id column="vehicle_id" property="vehicleId" />
+		<result column="step_id" property="stepId" />
+		<result column="start_name" property="startName" />
+		<result column="start_lat" property="startLat" />
+		<result column="start_lng" property="startLng" />
+		<result column="end_lat" property="endLat" />
+		<result column="end_lng" property="endLng" />
+		<result column="end_name" property="endName" />
+		<result column="headsign" property="headsign" />
+		<result column="vehicle_name" property="vehicleName" />
+		<result column="vehicle_num" property="vehicleNum" />
+		<result column="vehicle_move" property="vehicleMove" />
+	</resultMap>
+
+</mapper>
