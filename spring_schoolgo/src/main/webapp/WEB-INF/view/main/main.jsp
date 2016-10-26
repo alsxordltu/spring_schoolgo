@@ -14,54 +14,125 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="main_css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+<script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=29d53ec8-b46f-3a50-b122-6bf04dea52e0"></script>
+		<script type="text/javascript">
+ 
+            var map;
+            var mapW, mapH;     // 지도의 가로, 세로 크기(Pixel단위) 를 지정 합니다. 
+            var cLonLat, zoom;      //중심 좌표와 지도레벨을 정의 합니다. 
+             
+           
+             
+            function initTmap(){
+                centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
+                map = new Tmap.Map({div:'map_div',
+                                    width:'100%', 
+                                    height:'400px',
+                                    transitionEffect:"resize",
+                                    animation:true
+                                }); 
+                searchRoute();
+            };
+          //경로 정보 로드
+            function searchRoute(){
+                var routeFormat = new Tmap.Format.KML({extractStyles:true, extractAttributes:true});
+                var startX = 14129105.461214;
+                var startY = 4517042.1926406;
+                var endX = 14136027.789587;
+                var endY = 4517572.4745242;
+                var startName = "홍대입구";
+                var endName = "명동";
+                var urlStr = "https://apis.skplanetx.com/tmap/routes/pedestrian?version=1&format=xml";
+                    urlStr += "&startX="+startX;
+                    urlStr += "&startY="+startY;
+                    urlStr += "&endX="+endX;
+                    urlStr += "&endY="+endY;
+                    urlStr += "&startName="+encodeURIComponent(startName);
+                    urlStr += "&endName="+encodeURIComponent(endName);
+                    urlStr += "&appKey=29d53ec8-b46f-3a50-b122-6bf04dea52e0";
+                var prtcl = new Tmap.Protocol.HTTP({
+                                                    url: urlStr,
+                                                    format:routeFormat
+                                                    });
+                var routeLayer = new Tmap.Layer.Vector("route", {protocol:prtcl, strategies:[new Tmap.Strategy.Fixed()]});
+                routeLayer.events.register("featuresadded", routeLayer, onDrawnFeatures);
+                map.addLayer(routeLayer);
+            }
+          
+          //경로 그리기 후 해당영역으로 줌
+            function onDrawnFeatures(e){
+                map.zoomToExtent(this.getDataExtent());
+            }
+
+
+
+        </script>
+
+
 </head>
-<body>
+<body onload="initTmap()">
 
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
 			<!-- Post -->
 			<article class="box post post-excerpt">
-				<header>
 
-					<!-- 아티클 제목 -->
-					<h2>
-						<a href="#">메인페이지 공사중...</a>
-					</h2>
-					<p>빠른 시일내에 완성하겟슴다</p>
-				</header>
-				
-				<a href="#" class="image featured"><img src="main_img/pic01.jpg"
-					alt="" /></a>
-				<p>
-					<strong>Hello!</strong> You're looking at <strong>Striped</strong>,
-					a fully responsive HTML5 site template designed by <a
-						href="http://twitter.com/ajlkn">AJ</a> for <a
-						href="http://html5up.net">HTML5 UP</a> It features a clean,
-					minimalistic design, styling for all basic page elements (including
-					blockquotes, tables and lists), a repositionable sidebar (left or
-					right), and HTML5/CSS3 code designed for quick and easy
-					customization (see code comments for details).
-				</p>
-				<p>
-					Striped is released for free under the <a
-						href="http://html5up.net/license">Creative Commons Attribution
-						license</a> so feel free to use it for personal projects or even
-					commercial ones &ndash; just be sure to credit <a
-						href="http://html5up.net">HTML5 UP</a> for the design. If you like
-					what you see here, be sure to check out <a
-						href="http://html5up.net">HTML5 UP</a> for more cool designs or
-					follow me on <a href="http://twitter.com/ajlkn">Twitter</a> for new
-					releases and updates.
-				</p>
+				<div id=schoolgo>
+					<h1>섭이의 루트 1</h1>
+					<h1>섭이의 루트 2</h1>
+				</div>
+
 			</article>
+
+
+
+			<article id=whether >
+				<div>
+					<h1>오늘의 날씨 정보 출력 : 집 위치</h1>
+
+				</div>
+			</article>
+
+
+
+			<article id=toeic>
+				<div>
+					<h1>오늘의 영단어 : 네이버 오늘의영단어</h1>
+
+				</div>
+			</article>
+
+
+
+			<article>
+				<span class="image"> <img src="main_img/pic04.jpg" alt="" />
+				</span>
+				<header class="major">
+					<h3>
+						<a href="landing.html" class="link">Ipsum</a>
+					</h3>
+					<p>Nisl sed aliquam</p>
+				</header>
+			</article>
+
+
+
+			<article>
+				<div id="map_div">
+        </div>  
+			</article>
+
+
+
+
+
 
 			<!-- Post -->
 			<article class="box post post-excerpt">
-				<header>
-					
-				</header>
-				
+				<header> </header>
+
 			</article>
 
 
@@ -72,10 +143,13 @@
 	<div id="sidebar">
 
 		<!-- Logo -->
-		<h1 id="logo"><a href="gotomain"><img src="main_img/gogowhite.png" width="150px" alt="" /></a></h1>
+		<h1 id="logo">
+			<a href="gotomain"><img src="main_img/gogowhite.png"
+				width="150px" alt="" /></a>
+		</h1>
 		<form name="logout" action="logout">
-			<h5 style="text-align:center">${nickName}님  환영합니다</h5>
-		
+			<h5 style="text-align: center">${nickName}님환영합니다</h5>
+
 
 		<!-- Nav -->
 		<nav id="nav">
@@ -87,36 +161,21 @@
 			</ul>
 		</nav>
 
-		<!-- Search -->
-		<!-- <section class="box search">
-						<form method="post" action="#">
-							<input type="text" class="text" name="search" placeholder="Search" />
-						</form>
-					</section> -->
 
-		<!-- Text -->
-		<!-- <section class="box text-style1">
-						<div class="inner">
-							<p>
-								<strong>Striped:</strong> A free and fully responsive HTML5 site
-								template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>
-							</p>
-						</div>
-					</section> -->
 
-		<!-- Recent Posts -->
-		<section class="box recent-posts">
-			<header>
-				<h2>마이페이지</h2>
-			</header>
-			<ul>
-				<li><a href="gototimetable">시간표 등록</a></li>
-				<li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
-				<li><a href="gotoroutemanager">루트관리</a></li>
-				<li><a href="gotocostcal">교통비 가계부</a></li>
-				<li><a href="gotomyactivity">활동내역</a></li>
-			</ul>
-		</section>
+			<!-- Recent Posts -->
+			<section class="box recent-posts">
+				<header>
+					<h2>마이페이지</h2>
+				</header>
+				<ul>
+					<li><a href="gototimetable">시간표 등록</a></li>
+					<li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
+					<li><a href="gotoroutemanager">루트관리</a></li>
+					<li><a href="gotocostcal">교통비 가계부</a></li>
+					<li><a href="gotomyactivity">활동내역</a></li>
+				</ul>
+			</section>
 			<input type="submit" value="로그아웃">
 		</form>
 
@@ -199,6 +258,9 @@
 			<li>&copy; Untitled.</li>
 			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 		</ul>
+		
+		
+		
 
 	</div>
 
@@ -208,6 +270,39 @@
 	<script src="main_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
+	<script>
+		$(function() {
+			// Geolocation API에 액세스할 수 있는지를 확인
+			if (navigator.geolocation) {
+				//위치 정보를 얻기
+				navigator.geolocation.getCurrentPosition(function(pos) {
+					$('#latitude').html(pos.coords.latitude); // 위도
+					$('#longitude').html(pos.coords.longitude); // 경도
+					console.log(pos.coords.latitude, pos.coords.longitude);
+				});
+			} else {
+				alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+			}
+
+		});
+
+		/*    window.onload = function() {
+		    printTime();
+		  }; */
+	</script>
+
+
+
+
+
+
 
 </body>
+
+
+
+
+
+
+
 </html>
