@@ -32,7 +32,7 @@ public class RouteTest {
 	@Autowired
 	RouteRepo rRepo;
 
-	@Test
+/*	@Test
 	public void insertRouteTest() {
 		//vehicle>step>route
 		Route route = new Route("asdf",100,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",null);	
@@ -46,9 +46,6 @@ public class RouteTest {
 		Route route = new Route("asdf",3,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",stepset);
 		int test = rRepo.insertRoute(route);
 		logger.trace("검색결과 : {}",test );
-		assertThat(test, is(notNullValue()));
-		*/
-	}
-
+		assertThat(test, is(notNullValue()));*/	
 
 }

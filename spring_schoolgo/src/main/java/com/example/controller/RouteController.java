@@ -147,4 +147,8 @@ public class RouteController {
 		logger.trace("삭제완료");
 		return "main/main";
 	}
+	@RequestMapping(value = "/gotoroutetest", method = RequestMethod.GET)
+	public String gotoroutetest() {
+		return "insertroute/routetest";
+	}
 }

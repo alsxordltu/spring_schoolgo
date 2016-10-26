@@ -75,7 +75,7 @@
 						<div id=insertselect>
 							<input type=text  id="selectedstring">
 							<input type=button id=insertselectbtn value=조회하기>
-							<input type=submit  value=등록>
+							<input type=button  id="send" value=등록>
 						</div>
 						
 						
@@ -160,6 +160,8 @@
 	<script src="insert_js/main.js"></script>
 			<script src="http://code.jquery.com/jquery.js"></script>
 			<script>
+			var items;
+			var selectedindex;
 			<c:url value="/get" var="find" />
 				$("#insertselectbtn").on("click", function(){
 					$.ajax({
@@ -169,15 +171,16 @@
 					
 						success:function(data){
 							alert("성공");
-							var items = data.routes;
+							items = data;
+							items2 = data.routes;
 							var row="";
 							var listindex=0;
-					         $.each(items, function(index, item){
-					        	 var items2 = item.legs;
-					        	 $.each(items2, function(index, item){
+					         $.each(items2, function(index, item){
+					        	 var items3 = item.legs;
+					        	 $.each(items3, function(index, item){
 					         	   var string = item.duration.text;
-					         	   
-					         	   row += "<label><input TYPE='radio' class='group' name='group' value='"+string+"' />"+string+"</label><br>";					         	 
+					         	  row += "<label><input TYPE='radio' class='group' name='group' value='"+string+"' data-idx='"+ listindex+ "'/>경로"+listindex+" "+string+"</label><br>";	
+					         	   	         	 
 					          	   listindex++;
 					        	 });
 					         });
@@ -196,11 +199,32 @@
 
 	$(document).on("change", ".group", function () {
             //라디오 버튼 값을 가져온다.
+            
             var selectedvalue =  $("input[name='group']:checked").val();
-            alert(selectedvalue);
-            $( "#selectedstring" ).val(selectedvalue);                
+           
+           selectedindex = ($(this).attr("data-idx"));
+           $( "#selectedstring" ).val(selectedindex);
+            //alert(selectedvalue);
+            //$( "#selectedstring" ).val(selectedvalue);                
 		});
-
+	
+	$("#send").on("click", function(){
+		items.routes = [items.routes[selectedindex]];
+		//var url = ${insertRoute};
+		$.ajax({
+			data: {data:JSON.stringify(items), routeName:"myroute"},
+			url:"/mvc_project_practice/insertRoute",
+			type:"post",
+			success:function(response){
+				console.log("response", response);
+			},
+			error:function(xhr, status, error){
+				console.log("error : ", error);
+			}
+		});
+	});
+	
+	
 		
 			</script>
 			
