@@ -58,18 +58,18 @@ public class InsertRouteController {
 	}
 
 	@RequestMapping(value = "/insertRoute", method = RequestMethod.POST)
-	public @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session) throws JsonParseException, JsonMappingException, IOException {
+	public  String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session) throws JsonParseException, JsonMappingException, IOException {
 		logger.trace("body : {}", data);
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> dataMap = mapper.readValue(data, Map.class);
 		try {
-			Route route = mapToRoute(dataMap, routeName, "andy");
+			Route route = mapToRoute(dataMap, routeName, session.getAttribute("userId"));
 			logger.trace("변환 결과 route: {}", route);
 			rService.addRoute(route);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "insertroute/findStation2";
+		return "main/main";
 	}
 
 	@RequestMapping(value = "/getRoute", method = RequestMethod.GET)
