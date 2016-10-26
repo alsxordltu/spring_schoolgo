@@ -21,6 +21,7 @@
 		<mapper resource="mybatis/mapper/stationMapper.xml"/>
 		<mapper resource="mybatis/mapper/boardMapper.xml"/>
 		<mapper resource="mybatis/mapper/routeMapper.xml"/>		
-		<mapper resource="mybatis/mapper/stepMapper.xml"/>		
+		<mapper resource="mybatis/mapper/stepMapper.xml"/>
+				
 	</mappers>
 </configuration>
