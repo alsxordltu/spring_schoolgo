@@ -81,7 +81,7 @@
 			<article class="box post post-excerpt">
 
 				<div id=schoolgo>
-					<c:forEach var="result" items="${routes }" varStatus="status">
+					<c:forEach var="result" items="${routesName }" varStatus="status">
 						<h1>${result.routeName }</h1>
 					</c:forEach>
 					

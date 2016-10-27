@@ -50,13 +50,10 @@ public class LoginController {
 		List<Route> routes = rservice.getRouteUserId(userId);
 		List<String> routenames = rservice.selectRouteNameListUserId(userId);
 		logger.trace("routeList : {}", routes);
-<<<<<<< Upstream, based on branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 		logger.trace("routeNameList : {}", routenames);
-		
-		model.addAttribute("routes");
-=======
 		model.addAttribute("routes", routes);
->>>>>>> 00e7bc0 ddd
+		model.addAttribute("routesName", routenames);
+
 		return "main/main";
 	}
 	
