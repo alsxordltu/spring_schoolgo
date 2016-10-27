@@ -22,7 +22,12 @@
 	<delete id="deleteRouteRouteId" parameterType="int">
 		delete from route where route_id=#{routeId}
 	</delete>
-	
+	<delete id="deleteRoute" parameterType="int">
+		delete from route where
+		route_id=#{routeId}
+	</delete>
+
+
 	<!-- 루트id로 all select -->
 	<select id="selectRoute" resultMap="selectRoutemap"
 		parameterType="int">
@@ -36,27 +41,59 @@
 	<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
 	<select id="selectRouteUserId" resultMap="selectRoutemap"
 		parameterType="string">
-		select r.route_id, r.user_id, r.route_name, r.start_lat, r.start_lng,
+		select r.route_id, r.user_id, r.route_name, r.start_lat,
+		r.start_lng,
 		r.start_address,
-		r.arrive_lat, r.arrive_lng, r.arrive_address,
+		r.arrive_lat, r.arrive_lng,
+		r.arrive_address,
 		r.distance, r.time,
-		s.step_id, s.route_id, s.vmode, s.step_name, s.start_lat, s.start_lng,
-		s.end_lat, s.end_lng, s.route_distance, s.route_time, s.seq,
-		v.vehicle_id, v.step_id, v.start_lat, v.start_lng, v.start_name,
+		s.step_id, s.route_id, s.vmode,
+		s.step_name, s.start_lat, s.start_lng,
+		s.end_lat, s.end_lng,
+		s.route_distance, s.route_time, s.seq,
+		v.vehicle_id, v.step_id,
+		v.start_lat, v.start_lng, v.start_name,
 		v.end_lat, v.end_lng,
-		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num, v.vehicle_move
+		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num,
+		v.vehicle_move
 		from route r
 		join step s on r.route_id=s.route_id
-		join vehicle v on
+		join
+		vehicle v on
 		s.step_id=v.step_id
 		where user_id = #{userId}
 	</select>
 	
+<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
+	<select id="selectRouteDetail" resultMap="selectRoutemap"
+		parameterType="int">
+		select r.route_id, r.user_id, r.route_name, r.start_lat,
+		r.start_lng,
+		r.start_address,
+		r.arrive_lat, r.arrive_lng,
+		r.arrive_address,
+		r.distance, r.time,
+		s.step_id, s.route_id, s.vmode,
+		s.step_name, s.start_lat, s.start_lng,
+		s.end_lat, s.end_lng,
+		s.route_distance, s.route_time, s.seq,
+		v.vehicle_id, v.step_id,
+		v.start_lat, v.start_lng, v.start_name,
+		v.end_lat, v.end_lng,
+		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num,
+		v.vehicle_move
+		from route r
+		left join step s on r.route_id=s.route_id
+		left join vehicle v on s.step_id=v.step_id
+		where r.route_id= #{routeId}
+	</select>
 	<!-- routename, routeid 를 이용하여 버튼으로 루트 목록하는거 -->
 	<!-- routename클릭시 routeid로 route 띄움 -->
-	<select id="selectRouteNameListUserId" resultMap="selectRoutemap" parameterType="String">
+	<select id="selectRouteNameListUserId" resultMap="selectRoutemap"
+		parameterType="String">
 		select route_name, route_id
-		from route where user_id = #{userId}
+		from route where user_id =
+		#{userId}
 	</select>
 	
 		<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
@@ -94,5 +131,4 @@
 	<resultMap type="Route" id="selectRoutemapComplex" extends="selectRoutemap">
 		<collection property="stepList" ofType="step" resultMap="com.example.StepMapper.selectStepComplex"/>
 	</resultMap>
-
 </mapper>

@@ -19,7 +19,7 @@
 
 	<delete id="deleteStep" parameterType="int">
 		delete from step where
-		step_id=#{routeId}
+		route_id=#{routeId}
 	</delete>
 	
 	<!-- delete 2 -->

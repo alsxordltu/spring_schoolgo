@@ -1,11 +1,5 @@
 package com.example.route;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
-
-import java.util.Set;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -17,7 +11,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.config.ApplicationConfig;
 import com.example.dto.Route;
-import com.example.dto.Step;
 import com.example.repo.RouteRepo;
 import com.example.service.RouteService;
  
@@ -35,6 +28,7 @@ public class RouteTest {
 	
 	@Autowired
 	RouteService rService;
+
 	@Test
 	public void deleteRouteTest(){
 		Route route = rService.getRouteDetail(67);
@@ -43,6 +37,7 @@ public class RouteTest {
 		logger.trace("delete over");
 	}
 	
+
 	@Test
 	public void insertRouteTest() {
 		//vehicle>step>route
@@ -50,8 +45,8 @@ public class RouteTest {
 		//route.setUserId("asdf");
 		//logger.trace("route : {}  ", route);
 		//logger.trace("select : {}",rRepo.selectRoute(17));
-		
-		logger.trace("delete : {}",rRepo.deleteRoute(25));
+		Route route = rRepo.selectRouteDetail(67);
+		rService.deleteRoute(route);
 		logger.trace("삭제성공 " );
 		//logger.trace("delete : {}",rRepo.deleteRoute(13));
 		

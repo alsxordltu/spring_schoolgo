@@ -3,6 +3,8 @@ package com.example.service;
 import java.util.List;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,9 +15,11 @@ import com.example.dto.Vehicle;
 import com.example.repo.RouteRepo;
 import com.example.repo.StepRepo;
 import com.example.repo.VehicleRepo;
+import com.example.route.RouteTest;
 
 @Service
 public class RouteServiceImpl implements RouteService{
+	private static Logger logger = LoggerFactory.getLogger(RouteServiceImpl.class);
 	
 	@Autowired
 	RouteRepo rRepo;
@@ -28,8 +32,7 @@ public class RouteServiceImpl implements RouteService{
 	@Transactional
 	public void addRoute(Route route) {
 		rRepo.insertRoute(route);
-		
-		List<Step> steps = route.getStepList();
+		List<Step> steps = route.getStepList();	
 		for(Step step: steps){
 			step.setRouteId(route.getRouteId());
 			sRepo.insertStep(step);
@@ -60,6 +63,7 @@ public class RouteServiceImpl implements RouteService{
 		System.out.println("step 삭제 완료");
 		rRepo.deleteRoute(routeId);
 		System.out.println("route 삭제 완료");
+
 	}
 
 	@Override

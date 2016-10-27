@@ -29,7 +29,6 @@
 		delete from vehicle 
 		where step_id=#{stepId}
 	</delete>
-	
 
 	<select id="selectVehicle" resultMap="selectVehicle"
 		parameterType="int">
