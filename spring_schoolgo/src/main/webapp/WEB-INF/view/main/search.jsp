@@ -411,8 +411,8 @@ function removeAllChildNods(el) {
   	 	<input id="pac-button" class="controls" type="button" value="확인" onclick="movenextpage()">
     	<input type="hidden" id="resultstring2" name="resultstring2" placeholder="Search Box2">
     	<input type="hidden" id="resultstring" name="resultstring">
-    	<input type="text" id="lat"  name="lat">
-       <input type="text" id="lng"  name="lng">
+    	<input type="hidden" id="lat"  name="lat">
+       <input type="hidden" id="lng"  name="lng">
     </form>
     <div id="map"></div>
     <script src = "http://code.jquery.com/jquery.js"></script>

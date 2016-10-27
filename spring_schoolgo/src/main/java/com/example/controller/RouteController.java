@@ -39,15 +39,28 @@ public class RouteController {
 	@Autowired
 	RouteService rService;
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
-	public @ResponseBody Map mapInfo() {
+	public @ResponseBody Map mapInfo(HttpServletRequest request, HttpSession session) {
+		
+		session = request.getSession();
+		
+	      
+	    String tmpstartlat = (String) session.getAttribute("startlat");
+	    String tmpstartlng = (String) session.getAttribute("startlng");
+	    String tmpendlat = (String) session.getAttribute("endlat");
+	    String tmpendlng = (String) session.getAttribute("endlng");
+	    String startlat = tmpstartlat +"%20"+tmpstartlng;
+	    String startlng = tmpendlat +"%20"+tmpendlng;
 
+	
 		String requestUrl = "https://maps.googleapis.com/maps/api/directions/json";
-		requestUrl += "?origin=37.524673,%20126.678182";
-		requestUrl += "&destination=37.489678,%20126.724595";	
+		requestUrl += "?origin=" + startlat;
+		requestUrl += "&destination=" + startlng;	
 		requestUrl += "&mode=transit";
 		requestUrl += "&alternatives=true";
 		requestUrl += "&language=ko";
 		requestUrl += "&key=AIzaSyDgoDTqv8wf1KKvxQQfP0IYeAYXfAVhCRs";
+		
+		logger.trace("{}",requestUrl);
 
 		RestTemplate template = new RestTemplate();
 		

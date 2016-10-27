@@ -26,9 +26,8 @@
       if (searchdata2 == null) {
          searchdata2 = "";
       }
-      if (session.getAttribute("routename") != null) {
-         routename = (String) session.getAttribute("routename");
-      }
+      
+
    %>
    <!-- Content -->
    <div id="content">
@@ -48,13 +47,17 @@
 
                <div id=insertstartend>
                <form name="routenext" method="get" action="gotoinsert1">
-               
+               		
+                     <!-- 루트명 입력(값넘기기) -->
+                  <div style="margin: 50px 0 100px 0; float: left; width: 100%;">
+                     <h5 align=center>루트 이름을 입력하세요!</h5>
+                     <input type="text" id="routename" >
+                  </div>
                   <!-- 출발지 값 -->
                   <div id=insertstart>
                      <h5 align=center>출발지<span id=endend>를 입력하세요</span></h5>
                      <a href="gotosearch"> <input type="text" name="start"
-                        value="<%=searchdata%>" readonly></a> <input type="hidden"
-                        name="startlocation" value="${searchdata}">
+                        value="<%=searchdata%>" readonly></a>
                   </div>
 
                   <!-- 화살표 -->
@@ -66,14 +69,12 @@
                   <div id=insertend>
                      <h5 align=center>도착지<span id=endend>를 입력하세요</span></h5>
                      <a href="gotosearch2"> <input type="text" name="end"
-                        value="<%=searchdata2%>" readonly></a> <input type="hidden"
-                        name="endlocation" value="${searchdata2}">
+                        value="<%=searchdata2%>" readonly></a>
 
                   </div>
                   
                   <!-- 조회 버튼 -->
                   <div id=insertselect>
-                     <input type=text  id="selectedstring">
                      <input type=button id=insertselectbtn value=조회하기>
                      <input type=button  id="send" value=등록>
                   </div>
@@ -83,11 +84,6 @@
 
 
 
-                  <%--    <!-- 루트명 입력(값넘기기) -->
-                  <div style="margin: 50px 0 100px 0; float: left; width: 100%;">
-                     <h5 align=center>루트 이름을 입력하세요!</h5>
-                     <input type="text" name="routename" value="<%=routename %>">
-                  </div> --%>
 
 
                   <!-- 섭밋 버튼 -->
@@ -170,7 +166,6 @@
                   type:"get",
                
                   success:function(data){
-                     alert("성공");
                      items = data;
                      items2 = data.routes;
                      var row="";
@@ -233,11 +228,11 @@
       items.routes = [items.routes[selectedindex]];
       //var url = ${insertRoute};
       $.ajax({
-         data: {data:JSON.stringify(items), routeName:"myroute"},
+         data: {data:JSON.stringify(items), routeName: $("#routename").val()},
          url:"/mvc_project_practice/insertRoute",
          type:"post",
          success:function(response){
-            location.href=response;
+            location.href='<%=request.getContextPath()%>/gotomain';
          },
          error:function(xhr, status, error){
             console.log("error : ", error);

@@ -66,6 +66,12 @@ public class InsertRouteController {
          Route route = mapToRoute(dataMap, routeName, session.getAttribute("userId"));
          logger.trace("변환 결과 route: {}", route);
          rService.addRoute(route);
+         session.removeAttribute("start");
+         session.removeAttribute("startlat");
+         session.removeAttribute("startlng");
+         session.removeAttribute("end");
+         session.removeAttribute("endlat");
+         session.removeAttribute("endlng");
       } catch (Exception e) {
          e.printStackTrace();
       }
