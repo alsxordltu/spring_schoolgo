@@ -25,10 +25,9 @@
 	</delete>
 	
 	<!-- delete 1 -->
-	<delete id="deleteRouteVehivleId" parameterType="int">
-		delete from vehicle v 
-		where exists(select v from step s where v.step_id=s.step_id)
-		v.vehicle_id=#{vehicleId}
+	<delete id="deleteVehicleByStepId" parameterType="int">
+		delete from vehicle 
+		where step_id=#{stepId}
 	</delete>
 	
 

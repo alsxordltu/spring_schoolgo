@@ -151,15 +151,6 @@ public class RouteController {
 		return resEntity.getBody();
 	}
 	
-	@RequestMapping(value = "/deleteRoute", method = RequestMethod.POST)
-	public  String insertRoute(HttpServletRequest request) {
-		logger.trace("컨트롤러");
-		String routeId = request.getParameter("routeid");
-		logger.trace("routeId : {}", routeId);
-		rService.deleteRoute(Integer.parseInt(routeId));
-		logger.trace("삭제완료");
-		return "main/main";
-	}
 	@RequestMapping(value = "/gotoroutetest", method = RequestMethod.GET)
 	public String gotoroutetest() {
 		return "insertroute/routetest";

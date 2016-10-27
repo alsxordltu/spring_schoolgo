@@ -23,10 +23,8 @@
 	</delete>
 	
 	<!-- delete 2 -->
-	<delete id="deleteRouteStepId" parameterType="int">
-		delete from step s 
-		where exists(select s from vehicle c where s.step_id=v.step_id)
-		s.step_id=#{stepId}
+	<delete id="deleteStepByRouteId" parameterType="int">
+		delete from step where route_id=#{routeId}
 	</delete>
 	
 
@@ -52,5 +50,8 @@
 		<result column="route_time" property="routeTime" />
 		<result column="seq" property="routeTime" />
 	</resultMap>
-
+	
+	<resultMap type="Step" id="selectStepComplex" extends="selectStep">
+		<collection property="vehicleList" ofType="vehicle" resultMap="com.example.VehicleMapper.selectVehicle"/>
+	</resultMap>
 </mapper>

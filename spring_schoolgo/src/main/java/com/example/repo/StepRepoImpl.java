@@ -23,7 +23,7 @@ public class StepRepoImpl implements StepRepo{
 
 	@Override
 	public int deleteStep(int stepId) {
-		String stmt = NAME_SPACE + "deleteRouteStepId";
+		String stmt = NAME_SPACE + "deleteStepByRouteId";
 		return template.update(stmt, stepId);
 	}
 

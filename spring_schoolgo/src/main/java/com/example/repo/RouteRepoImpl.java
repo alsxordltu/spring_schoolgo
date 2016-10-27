@@ -33,6 +33,12 @@ public class RouteRepoImpl implements RouteRepo{
 		String stmt = NAME_SPACE + "selectRoute";
 		return template.selectOne(stmt,routeId);
 	}
+	
+	@Override
+	public Route selectRouteDetail(int routeId) {
+		String stmt = NAME_SPACE + "selectRouteComplex";
+		return template.selectOne(stmt,routeId);
+	}
 
 	@Override
 	public List<Route> selectRouteUserId(String userId) {

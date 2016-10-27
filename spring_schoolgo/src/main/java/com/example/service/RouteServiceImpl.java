@@ -47,10 +47,19 @@ public class RouteServiceImpl implements RouteService{
 	}
 
 	@Override
-	public void deleteRoute(Integer routeId) {
-/*		vRepo.deleteVehicle(vehicleId);
-		sRepo.deleteStep(stepId);
-*/		rRepo.deleteRoute(routeId);
+	@Transactional
+	public void deleteRoute(Route route) {
+		Integer routeId = route.getRouteId();
+		List<Step> steps = route.getStepList();
+		for(Step step: steps){
+			Integer stepId = step.getStepId();
+			vRepo.deleteVehicle(stepId);
+			System.out.println("vehicle 삭제");
+		}
+		sRepo.deleteStep(routeId);
+		System.out.println("step 삭제 완료");
+		rRepo.deleteRoute(routeId);
+		System.out.println("route 삭제 완료");
 	}
 
 	@Override
@@ -63,5 +72,8 @@ public class RouteServiceImpl implements RouteService{
 		return rRepo.selectRouteNameListUserId(userId);
 	}
 
-
+	@Override
+	public Route getRouteDetail(Integer routeId) {
+		return rRepo.selectRouteDetail(routeId);
+	}
 }

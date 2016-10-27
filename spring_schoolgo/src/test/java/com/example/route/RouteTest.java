@@ -19,6 +19,7 @@ import com.example.config.ApplicationConfig;
 import com.example.dto.Route;
 import com.example.dto.Step;
 import com.example.repo.RouteRepo;
+import com.example.service.RouteService;
  
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ApplicationConfig.class})
@@ -31,7 +32,17 @@ public class RouteTest {
 	
 	@Autowired
 	RouteRepo rRepo;
-
+	
+	@Autowired
+	RouteService rService;
+	@Test
+	public void deleteRouteTest(){
+		Route route = rService.getRouteDetail(67);
+		logger.trace("route 조회: {}", route);
+		rService.deleteRoute(route);
+		logger.trace("delete over");
+	}
+	
 	@Test
 	public void insertRouteTest() {
 		//vehicle>step>route
