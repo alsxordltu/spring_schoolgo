@@ -73,7 +73,7 @@
 
 </head>
 <body onload="initTmap()">
-
+${routes}
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -81,9 +81,7 @@
 			<article class="box post post-excerpt">
 
 				<div id=schoolgo>
-					<c:forEach var="result" items="${routesName }" varStatus="status">
-						<h1>${result.routeName }</h1>
-					</c:forEach>
+				
 					
 				</div>
 
@@ -288,6 +286,24 @@
 			}
 
 		});
+		
+		$(document).ready(function(){
+			$.ajax({
+				url:"getroutelist",
+				type:"get",
+				data : {
+	                   "userId" : <%=session.getAttribute("userId")%>
+	            },
+				success:function(data){
+					alert("성공");
+				},
+	            error:function(xhr, statusTxt, errThrown){
+	            	alert("실패", errThrown)	;
+	            }
+			});
+		});
+		
+		
 
 		/*    window.onload = function() {
 		    printTime();

@@ -1,5 +1,7 @@
 package com.example.repo;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,6 +33,12 @@ public class StepRepoImpl implements StepRepo{
 	public Route selectStep(int stepId) {
 		String stmt = NAME_SPACE + "selectStep";
 		return template.selectOne(stmt, stepId);
+	}
+
+	@Override
+	public List<Step> test1() {
+		String stmt = NAME_SPACE + "test1";
+		return template.selectList(stmt);
 	}
 
 }

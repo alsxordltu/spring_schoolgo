@@ -59,6 +59,11 @@
 		select route_name, route_id
 		from route where user_id = #{userId}
 	</select>
+	
+	<select id="test1" resultMap="testmapper" parameterType="String">
+		select user_id, route_id, route_name, start_lat, start_lng, start_address, arrive_lat, arrive_lng, arrive_address, distance, time
+		from route where user_id = #{userId}
+	</select>
 
 
 	<resultMap type="Route" id="selectRoutemap">
@@ -73,6 +78,21 @@
 		<result column="arrive_address" property="arriveAddress" />
 		<result column="distance" property="distance" />
 		<result column="time" property="time" />
+	</resultMap>
+	
+	<resultMap type="Route" id="testmapper">
+		<id column="route_id" property="routeId" />
+		<result column="user_id" property="userId" />
+		<result column="route_name" property="routeName" />
+		<result column="start_lat" property="startLat" />
+		<result column="start_lng" property="startLng" />
+		<result column="start_address" property="startAddress" />
+		<result column="arrive_lat" property="arriveLat" />
+		<result column="arrive_lng" property="arriveLng" />
+		<result column="arrive_address" property="arriveAddress" />
+		<result column="distance" property="distance" />
+		<result column="time" property="time" />
+		
 	</resultMap>
 	
 	

@@ -46,4 +46,10 @@ public class RouteRepoImpl implements RouteRepo{
 		return template.selectList(stmt,userId);
 	}
 
+	@Override
+	public List<Route> test1(String userId) {
+		String stmt = NAME_SPACE + "test1";
+		return template.selectList(stmt, userId);
+	}
+
 }

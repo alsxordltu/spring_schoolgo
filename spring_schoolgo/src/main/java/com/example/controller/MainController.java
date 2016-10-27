@@ -1,15 +1,17 @@
 package com.example.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.dto.User;
+import com.example.service.RouteService;
 
 
 @Controller // 컨트롤러 선언
@@ -50,6 +52,16 @@ public class MainController {
 	 * @RequestMapping(value="/join", method=RequestMethod.POST) public String
 	 * join(User user){ service.join(user); return "tutorial"; }
 	 */
+	
+	@Autowired
+	RouteService service;
+	
+	@RequestMapping(value = "/getroutelist", method = RequestMethod.GET)
+	public @ResponseBody String getroutelist(HttpServletResponse response) {
+		service.test("");
+		//response.getWriter().write();
+		return "gotomain";
+	}
 
 	@RequestMapping(value = "/gotogo", method = RequestMethod.GET)
 	public String gotogo() {
