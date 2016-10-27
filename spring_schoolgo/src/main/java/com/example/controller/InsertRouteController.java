@@ -305,13 +305,16 @@ public class InsertRouteController {
                         
                         Map<String, Object> transitDetails = (Map) transitObj;
                         Map<String, Object> tDepartureStop = (Map) transitDetails.get("departure_stop");
+                        Map<String, Object> tDepartureStopLocation = (Map) tDepartureStop.get("location");
+                        
                         Map<String, Object> tArrivalStop = (Map) transitDetails.get("arrival_stop");
+                        Map<String, Object> tDepartureArrivalLocation = (Map) tArrivalStop.get("location");
                         vehicle.setStartName(objToStr(tDepartureStop.get("name")));
-                        vehicle.setStartLat(objToStr(tDepartureStop.get("lat")));
-                        vehicle.setStartLng(objToStr(tDepartureStop.get("lng")));
+                        vehicle.setStartLat(objToStr(tDepartureStopLocation.get("lat")));
+                        vehicle.setStartLng(objToStr(tDepartureStopLocation.get("lng")));
                         vehicle.setEndName(objToStr(tArrivalStop.get("name")));
-                        vehicle.setEndLat(objToStr(tArrivalStop.get("lat")));
-                        vehicle.setEndLng(objToStr(tArrivalStop.get("lng")));
+                        vehicle.setEndLat(objToStr(tDepartureArrivalLocation.get("lat")));
+                        vehicle.setEndLng(objToStr(tDepartureArrivalLocation.get("lng")));
                         
                         String headSign = objToStr(transitDetails.get("headsign"));
                         vehicle.setHeadsign(headSign);

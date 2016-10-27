@@ -74,5 +74,7 @@
 		<result column="distance" property="distance" />
 		<result column="time" property="time" />
 	</resultMap>
+	
+	
 
 </mapper>
