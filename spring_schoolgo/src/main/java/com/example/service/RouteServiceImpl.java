@@ -39,7 +39,6 @@ public class RouteServiceImpl implements RouteService{
 				vRepo.insertVehicle(vehicle);
 			}
 		}
-		
 	}
 
 	@Override

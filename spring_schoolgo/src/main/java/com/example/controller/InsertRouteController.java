@@ -295,6 +295,9 @@ public class InsertRouteController {
                      stepObj.setEndLng(objToStr(stepEndLocation.get("lng")));
                      logger.trace("step: {}, {}", i, stepObj);
                      Object transitObj = step.get("transit");
+                     if(transitObj==null){
+                    	 transitObj = step.get("transit_details");
+                     }
                      logger.trace("운송 수단: {}", transitObj);
                      if (transitObj != null) {
                         Vehicle vehicle = new Vehicle();
