@@ -58,7 +58,7 @@ public class InsertRouteController {
    }
 
    @RequestMapping(value = "/insertRoute", method = RequestMethod.POST)
-   public  String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session) throws JsonParseException, JsonMappingException, IOException {
+   public  @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session) throws JsonParseException, JsonMappingException, IOException {
       logger.trace("body : {}", data);
       ObjectMapper mapper = new ObjectMapper();
       Map<String, Object> dataMap = mapper.readValue(data, Map.class);
@@ -75,8 +75,10 @@ public class InsertRouteController {
       } catch (Exception e) {
          e.printStackTrace();
       }
-      return "main/main";
+      return "gotomain";
    }
+   
+
 
    @RequestMapping(value = "/getRoute", method = RequestMethod.GET)
    public @ResponseBody String getRoute() {
