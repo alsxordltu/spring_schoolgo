@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +29,16 @@ public class RouteServiceImpl implements RouteService{
 	public void addRoute(Route route) {
 		rRepo.insertRoute(route);
 		
-		Set<Step> steps = route.getStepSet();
+		List<Step> steps = route.getStepSet();
 		for(Step step: steps){
 			step.setRouteId(route.getRouteId());
 			sRepo.insertStep(step);
 			Set<Vehicle> vehicles = step.getVehicleSet();
-			for(Vehicle vehicle: vehicles){
+			for(Vehicle vehicle: vehicles){	
 				vehicle.setStepId(step.getStepId());
 				vRepo.insertVehicle(vehicle);
 			}
 		}
-		
 	}
 
 	@Override
