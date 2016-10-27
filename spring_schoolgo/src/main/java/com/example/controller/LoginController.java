@@ -48,7 +48,10 @@ public class LoginController {
 	public String gotomain(Model model, HttpServletRequest request, HttpSession session){
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = rservice.getRouteUserId(userId);
+		List<String> routenames = rservice.selectRouteNameListUserId(userId);
 		logger.trace("routeList : {}", routes);
+		logger.trace("routeNameList : {}", routenames);
+		
 		model.addAttribute("routes");
 		return "main/main";
 	}

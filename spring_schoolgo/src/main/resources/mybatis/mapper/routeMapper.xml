@@ -52,6 +52,13 @@
 		s.step_id=v.step_id
 		where user_id = #{userId}
 	</select>
+	
+	<!-- routename, routeid 를 이용하여 버튼으로 루트 목록하는거 -->
+	<!-- routename클릭시 routeid로 route 띄움 -->
+	<select id="selectRouteNameListUserId" resultMap="selectRoutemap" parameterType="String">
+		select route_name, route_id
+		from route where user_id = #{userId}
+	</select>
 
 
 	<resultMap type="Route" id="selectRoutemap">

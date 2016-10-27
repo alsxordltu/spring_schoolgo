@@ -56,5 +56,10 @@ public class RouteServiceImpl implements RouteService{
 		return rRepo.selectRouteUserId(userId);
 	}
 
+	@Override
+	public List<String> selectRouteNameListUserId(String userId) {
+		return rRepo.selectRouteNameListUserId(userId);
+	}
+
 
 }
