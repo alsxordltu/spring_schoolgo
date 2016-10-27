@@ -1,5 +1,7 @@
 package com.example.repo;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,6 +32,12 @@ public class RouteRepoImpl implements RouteRepo{
 	public Route selectRoute(int routeId) {
 		String stmt = NAME_SPACE + "selectRoute";
 		return template.selectOne(stmt,routeId);
+	}
+
+	@Override
+	public List<Route> selectRouteUserId(String userId) {
+		String stmt = NAME_SPACE + "selectRouteUserId";
+		return template.selectList(stmt,userId);
 	}
 
 }

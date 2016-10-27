@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.RouteMapper">
 
-
+<!-- 루트id로 insert -->
 	<insert id="insertRoute" parameterType="route">
 		<selectKey keyProperty="routeId" resultType="int" order="AFTER">
 			select route_seq.currval as routeId from dual
@@ -17,21 +17,32 @@
 		#{distance}, #{time})
 	</insert>
 	
-
-	<delete id="deleteRoute" parameterType="route">
+<!-- 루트id로 all delete -->
+	<delete id="deleteRoute" parameterType="int">
 		delete from route where
 		route_id=#{routeId}
 	</delete>
 
-	<select id="selectRoute" resultMap="selectRoute"
-		parameterType="route">
-		select user_id, route_name, start_lat, start_lng, start_address,
+<!-- 루트id로 all select -->
+	<select id="selectRoute" resultMap="selectRoutemap"
+		parameterType="int">
+		select route_id, user_id, route_name, start_lat, start_lng, start_address,
 		arrive_lat, arrive_lng, arrive_address,
 		distance, time
-		from tuser where route_id = #{routeId}
+		from route where route_id = #{routeId}
 	</select>
 	
-	<resultMap type="Route" id="selectRoute">
+<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐-->	
+	<select id="selectRouteUserId" resultMap="selectRoutemap"
+		parameterType="string">
+		select route_id, user_id, route_name, start_lat, start_lng, start_address,
+		arrive_lat, arrive_lng, arrive_address,
+		distance, time
+		from route where user_id = #{userId}
+	</select>
+
+
+	<resultMap type="Route" id="selectRoutemap">
 		<id column="route_id" property="routeId" />
 		<result column="user_id" property="userId" />
 		<result column="route_name" property="routeName" />

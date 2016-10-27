@@ -2,10 +2,8 @@ package com.example.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -241,8 +239,8 @@ public class InsertRouteController {
       route.setRouteName(routeName);
       userId = userId == null ? "null" : userId;
       route.setUserId(userId.toString());
-      Set<Step> routeSteps = new HashSet<>();
-      route.setStepSet(routeSteps);
+      List<Step> routeList = new ArrayList<>();
+      route.setStepList(routeList);
       List<Map> routes = (List) map.get("routes");
       if(routes!=null){
          
@@ -274,11 +272,11 @@ public class InsertRouteController {
 
                      Map<String, Object> step = steps.get(i);
                      Step stepObj = new Step();
-                     routeSteps.add(stepObj);
+                     routeList.add(stepObj);
                      stepObj.setSeq(i);
                      stepObj.setRouteId(route.getRouteId());
-                     Set<Vehicle> vehicles = new HashSet<>();
-                     stepObj.setVehicleSet(vehicles);
+                     List<Vehicle> vehicles = new ArrayList<>();
+                     stepObj.setVehicleList(vehicles);
 
                      stepObj.setStepName(objToStr(step.get("instructions")));
                      String travelMode = objToStr(step.get("travel_mode"));

@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.dto.Login;
+import com.example.dto.Route;
 import com.example.dto.User;
+import com.example.service.RouteService;
 import com.example.service.Userservice;
 
 @Controller // 컨트롤러 선언
@@ -22,7 +26,12 @@ public class LoginController {
 	
 	@Autowired
 	Userservice service;
+
+	@Autowired
+	RouteService rservice;
 	
+/*	@Autowired
+	RouteService rservice;*/
 	/*@RequestMapping(value="/hello", method=RequestMethod.GET) // request 사용 ( 조건 : /hello 경로 , get방식 ) 
 	public String sayHello(Model model){
 		model.addAttribute("message", "Good Morning"); // 전달 데이터 -> 모델로 설정
@@ -34,9 +43,13 @@ public class LoginController {
 	public String gotojoinForm(){
 		return "join/join"; 
 	}*/
-	
+
 	@RequestMapping(value="/gotomain", method=RequestMethod.GET)
-	public String gotomain(){
+	public String gotomain(HttpServletRequest request, HttpSession session){
+		String userId = (String)session.getAttribute("userId");
+		List<Route> routes = rservice.getRouteUserId(userId);
+		
+		logger.trace("routeList : {}", routes);
 		return "main/main";
 	}
 	

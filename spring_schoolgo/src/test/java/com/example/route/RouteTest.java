@@ -32,20 +32,27 @@ public class RouteTest {
 	@Autowired
 	RouteRepo rRepo;
 
-/*	@Test
+	@Test
 	public void insertRouteTest() {
 		//vehicle>step>route
-		Route route = new Route("asdf",100,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",null);	
-		route.setUserId("asdf");
-		logger.trace("route : {}  ", route);
+		//Route route = new Route("asdf",100,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",null);	
+		//route.setUserId("asdf");
+		//logger.trace("route : {}  ", route);
+		//logger.trace("select : {}",rRepo.selectRoute(17));
 		
-		rRepo.insertRoute(route);
+		logger.trace("delete : {}",rRepo.deleteRoute(25));
+		logger.trace("삭제성공 " );
+		//logger.trace("delete : {}",rRepo.deleteRoute(13));
+		
+/*		rRepo.insertRoute(route);
 		logger.trace("insertroute : {} " , route);
-/*		Step step = new Step(2, 3, "asdf", null, null, null, null, null, null, null, null,2, null);
+		Step step = new Step(2, 3, "asdf", null, null, null, null, null, null, null, null,2, null);
 		Set<Step> stepset = 
 		Route route = new Route("asdf",3,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",stepset);
 		int test = rRepo.insertRoute(route);
+		
+		
 		logger.trace("검색결과 : {}",test );
-		assertThat(test, is(notNullValue()));*/	
-
+*/		//assertThat(test, is(notNullValue()));	
+	}
 }

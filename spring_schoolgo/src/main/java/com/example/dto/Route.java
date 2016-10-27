@@ -1,8 +1,7 @@
 package com.example.dto;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -53,6 +52,6 @@ public class Route implements Serializable {
 	private String time;
 
 	/** STEP 목록. */
-	private Set<Step> stepSet;
+	private List<Step> stepList;
 
 }

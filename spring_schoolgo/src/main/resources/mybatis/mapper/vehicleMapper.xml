@@ -17,13 +17,13 @@
 		#{vehicleName}, #{vehicleNum}, #{vehicleMove})
 	</insert>
 
-	<delete id="deleteVehicle" parameterType="vehicle">
+	<delete id="deleteVehicle" parameterType="int">
 		delete from vehicle where
 		vehicle_id=#{vehicleId}
 	</delete>
 
 	<select id="selectVehicle" resultMap="selectVehicle"
-		parameterType="route">
+		parameterType="int">
 		select vehicle_id, step_id,
 		start_name, start_lat, start_lng,
 		end_lat, end_lng, end_name, 
