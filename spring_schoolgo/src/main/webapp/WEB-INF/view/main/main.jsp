@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 
 <!--
@@ -80,8 +81,10 @@
 			<article class="box post post-excerpt">
 
 				<div id=schoolgo>
-					<h1>섭이의 루트 1</h1>
-					<h1>섭이의 루트 2</h1>
+					<c:forEach var="result" items="${routes }" varStatus="status">
+						<h1>${result.routeName }</h1>
+					</c:forEach>
+					
 				</div>
 
 			</article>

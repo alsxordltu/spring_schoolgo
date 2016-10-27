@@ -50,9 +50,13 @@ public class LoginController {
 		List<Route> routes = rservice.getRouteUserId(userId);
 		List<String> routenames = rservice.selectRouteNameListUserId(userId);
 		logger.trace("routeList : {}", routes);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 		logger.trace("routeNameList : {}", routenames);
 		
 		model.addAttribute("routes");
+=======
+		model.addAttribute("routes", routes);
+>>>>>>> 00e7bc0 ddd
 		return "main/main";
 	}
 	
@@ -82,7 +86,7 @@ public class LoginController {
 			model.addAttribute("email",session.getAttribute("email"));
 			model.addAttribute("phoneNum",session.getAttribute("phoneNum"));
 								
-			return "main/main";
+			return "redirect:/gotomain";
 		}
 		logger.trace("컨트롤러, 로그인 실패");
 		return "login/loginfail";
