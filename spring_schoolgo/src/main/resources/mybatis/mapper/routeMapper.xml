@@ -57,8 +57,8 @@
 		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num,
 		v.vehicle_move
 		from route r
-		join step s on r.route_id=s.route_id
-		join
+		left join step s on r.route_id=s.route_id
+		left join
 		vehicle v on
 		s.step_id=v.step_id
 		where user_id = #{userId}
@@ -113,10 +113,7 @@
 		where r.route_id = #{routeId}
 	</select>
 	
-	<select id="test1" resultMap="testmapper" parameterType="String">
-		select user_id, route_id, route_name, start_lat, start_lng, start_address, arrive_lat, arrive_lng, arrive_address, distance, time
-		from route where user_id = #{userId}
-	</select>
+
 
 
 	<resultMap type="Route" id="selectRoutemap">

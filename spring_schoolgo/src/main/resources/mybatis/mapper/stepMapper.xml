@@ -37,10 +37,7 @@
 		from step where step_id = #{stepId}
 	</select>
 	
-	<select id="test1" resultMap="testmapper">
-		select step_id, route_id, vmode, step_name, start_lat, start_lng, end_lat, end_lng, route_distance, route_time, seq
-		from route
-	</select>
+
 	
 	<resultMap type="Step" id="selectStep">
 		<id column="step_id" property="stepId" />
