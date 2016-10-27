@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.config.ApplicationConfig;
+
 import com.example.repo.RouteRepo;
 import com.example.service.RouteService;
  
@@ -28,29 +29,6 @@ public class RouteTest {
 	@Autowired
 	RouteService rService;
 
-	@Test
-	public void insertRouteTest() {
-		//vehicle>step>route
-		//Route route = new Route("asdf",100,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",null);	
-		//route.setUserId("asdf");
-		//logger.trace("route : {}  ", route);
-		//logger.trace("select : {}",rRepo.selectRoute(17));
-		//rService.test("asdf");
-		/*logger.trace("delete : {}",rRepo.deleteRoute(25));
-		logger.trace("삭제성공 " );*/
-		//logger.trace("delete : {}",rRepo.deleteRoute(13));
-		
-/*		rRepo.insertRoute(route);
-		logger.trace("insertroute : {} " , route);
-		Step step = new Step(2, 3, "asdf", null, null, null, null, null, null, null, null,2, null);
-		Set<Step> stepset = 
-		Route route = new Route("asdf",3,"루트이름","232.3","323","출발지주소","232.2","434.3","도착지주소","200km","30",stepset);
-		int test = rRepo.insertRoute(route);
-		
-		
-		logger.trace("검색결과 : {}",test );
-*/		//assertThat(test, is(notNullValue()));	
-	}
 	
 	
 }

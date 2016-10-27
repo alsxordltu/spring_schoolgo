@@ -19,8 +19,14 @@
 
 	<delete id="deleteStep" parameterType="int">
 		delete from step where
-		step_id=#{routeId}
+		route_id=#{routeId}
 	</delete>
+	
+	<!-- delete 2 -->
+	<delete id="deleteStepByRouteId" parameterType="int">
+		delete from step where route_id=#{routeId}
+	</delete>
+	
 
 	<select id="selectStep" resultMap="selectStep"
 		parameterType="route">
@@ -50,18 +56,8 @@
 		<result column="seq" property="routeTime" />
 	</resultMap>
 	
-	<resultMap type="Step" id="testmapper">
-		<id column="step_id" property="stepId" />
-		<result column="route_id" property="routeId" />
-		<result column="vmode" property="vmode" />
-		<result column="step_name" property="stepName" />
-		<result column="start_lat" property="startLat" />
-		<result column="start_lng" property="startLng" />
-		<result column="end_lat" property="endLat" />
-		<result column="end_lng" property="endLng" />
-		<result column="route_distance" property="routeDistance" />
-		<result column="route_time" property="routeTime" />
-		<result column="seq" property="routeTime" />
-	</resultMap>
 
+	<resultMap type="Step" id="selectStepComplex" extends="selectStep">
+		<collection property="vehicleList" ofType="vehicle" resultMap="com.example.VehicleMapper.selectVehicle"/>
+	</resultMap>
 </mapper>

@@ -18,8 +18,16 @@
 	</insert>
 
 	<delete id="deleteVehicle" parameterType="int">
-		delete from vehicle where
+		delete from vehicle using vehicle
+		join vehicle on  
+		where
 		vehicle_id=#{vehicleId}
+	</delete>
+	
+	<!-- delete 1 -->
+	<delete id="deleteVehicleByStepId" parameterType="int">
+		delete from vehicle 
+		where step_id=#{stepId}
 	</delete>
 
 	<select id="selectVehicle" resultMap="selectVehicle"

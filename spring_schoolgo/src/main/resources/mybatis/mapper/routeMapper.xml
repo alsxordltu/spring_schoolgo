@@ -18,11 +18,15 @@
 		#{distance}, #{time})
 	</insert>
 
-	<!-- 루트id로 all delete -->
+	<!-- 루트id로 all delete 3 -->
+	<delete id="deleteRouteRouteId" parameterType="int">
+		delete from route where route_id=#{routeId}
+	</delete>
 	<delete id="deleteRoute" parameterType="int">
 		delete from route where
 		route_id=#{routeId}
 	</delete>
+
 
 	<!-- 루트id로 all select -->
 	<select id="selectRoute" resultMap="selectRoutemap"
@@ -37,6 +41,63 @@
 	<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
 	<select id="selectRouteUserId" resultMap="selectRoutemap"
 		parameterType="string">
+		select r.route_id, r.user_id, r.route_name, r.start_lat,
+		r.start_lng,
+		r.start_address,
+		r.arrive_lat, r.arrive_lng,
+		r.arrive_address,
+		r.distance, r.time,
+		s.step_id, s.route_id, s.vmode,
+		s.step_name, s.start_lat, s.start_lng,
+		s.end_lat, s.end_lng,
+		s.route_distance, s.route_time, s.seq,
+		v.vehicle_id, v.step_id,
+		v.start_lat, v.start_lng, v.start_name,
+		v.end_lat, v.end_lng,
+		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num,
+		v.vehicle_move
+		from route r
+		join step s on r.route_id=s.route_id
+		join
+		vehicle v on
+		s.step_id=v.step_id
+		where user_id = #{userId}
+	</select>
+	
+<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
+	<select id="selectRouteDetail" resultMap="selectRoutemap"
+		parameterType="int">
+		select r.route_id, r.user_id, r.route_name, r.start_lat,
+		r.start_lng,
+		r.start_address,
+		r.arrive_lat, r.arrive_lng,
+		r.arrive_address,
+		r.distance, r.time,
+		s.step_id, s.route_id, s.vmode,
+		s.step_name, s.start_lat, s.start_lng,
+		s.end_lat, s.end_lng,
+		s.route_distance, s.route_time, s.seq,
+		v.vehicle_id, v.step_id,
+		v.start_lat, v.start_lng, v.start_name,
+		v.end_lat, v.end_lng,
+		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num,
+		v.vehicle_move
+		from route r
+		left join step s on r.route_id=s.route_id
+		left join vehicle v on s.step_id=v.step_id
+		where r.route_id= #{routeId}
+	</select>
+	<!-- routename, routeid 를 이용하여 버튼으로 루트 목록하는거 -->
+	<!-- routename클릭시 routeid로 route 띄움 -->
+	<select id="selectRouteNameListUserId" resultMap="selectRoutemap"
+		parameterType="String">
+		select route_name, route_id
+		from route where user_id =
+		#{userId}
+	</select>
+	
+		<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
+	<select id="selectRouteComplex" resultMap="selectRoutemapComplex" parameterType="int">
 		select r.route_id, r.user_id, r.route_name, r.start_lat, r.start_lng,
 		r.start_address,
 		r.arrive_lat, r.arrive_lng, r.arrive_address,
@@ -47,17 +108,9 @@
 		v.end_lat, v.end_lng,
 		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num, v.vehicle_move
 		from route r
-		join step s on r.route_id=s.route_id
-		join vehicle v on
-		s.step_id=v.step_id
-		where user_id = #{userId}
-	</select>
-	
-	<!-- routename, routeid 를 이용하여 버튼으로 루트 목록하는거 -->
-	<!-- routename클릭시 routeid로 route 띄움 -->
-	<select id="selectRouteNameListUserId" resultMap="selectRoutemap" parameterType="String">
-		select route_name, route_id
-		from route where user_id = #{userId}
+		left join step s on r.route_id=s.route_id
+		left join vehicle v on s.step_id=v.step_id
+		where r.route_id = #{routeId}
 	</select>
 	
 	<select id="test1" resultMap="testmapper" parameterType="String">
@@ -80,21 +133,10 @@
 		<result column="time" property="time" />
 	</resultMap>
 	
-	<resultMap type="Route" id="testmapper">
-		<id column="route_id" property="routeId" />
-		<result column="user_id" property="userId" />
-		<result column="route_name" property="routeName" />
-		<result column="start_lat" property="startLat" />
-		<result column="start_lng" property="startLng" />
-		<result column="start_address" property="startAddress" />
-		<result column="arrive_lat" property="arriveLat" />
-		<result column="arrive_lng" property="arriveLng" />
-		<result column="arrive_address" property="arriveAddress" />
-		<result column="distance" property="distance" />
-		<result column="time" property="time" />
-		
-	</resultMap>
-	
+
 	
 
+	<resultMap type="Route" id="selectRoutemapComplex" extends="selectRoutemap">
+		<collection property="stepList" ofType="step" resultMap="com.example.StepMapper.selectStepComplex"/>
+	</resultMap>
 </mapper>

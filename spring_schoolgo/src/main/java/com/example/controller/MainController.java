@@ -58,7 +58,6 @@ public class MainController {
 	
 	@RequestMapping(value = "/getroutelist", method = RequestMethod.GET)
 	public @ResponseBody String getroutelist(HttpServletResponse response) {
-		service.test("");
 		//response.getWriter().write();
 		return "gotomain";
 	}
