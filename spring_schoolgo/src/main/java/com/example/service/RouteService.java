@@ -8,7 +8,7 @@ public interface RouteService {
 	void addRoute(Route route);
 	Route getRoute(Integer routeId);
 	List<Route> getRouteUserId(String userId);	
-	void deleteRoute(Integer routeId);
+	void deleteRoute(Route route);
 	
 	//루트목록(각 유저에 대한 루트이름 리스트 출력)
 	//->루트이름중 하나 클릭시 루트ID로 루트정보 select위함

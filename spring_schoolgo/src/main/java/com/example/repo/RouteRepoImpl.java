@@ -24,7 +24,7 @@ public class RouteRepoImpl implements RouteRepo{
 
 	@Override
 	public int deleteRoute(int routeId) {
-		String stmt = NAME_SPACE + "deleteRouteRouteId";
+		String stmt = NAME_SPACE + "deleteRoute";
 		return template.update(stmt, routeId);
 	}
 
@@ -44,6 +44,12 @@ public class RouteRepoImpl implements RouteRepo{
 	public List<String> selectRouteNameListUserId(String userId) {
 		String stmt = NAME_SPACE + "selectRouteNameListUserId";
 		return template.selectList(stmt,userId);
+	}
+
+	@Override
+	public Route selectRouteDetail(int routeId) {
+		String stmt = NAME_SPACE + "selectRouteDetail";
+		return template.selectOne(stmt,routeId);
 	}
 
 }
