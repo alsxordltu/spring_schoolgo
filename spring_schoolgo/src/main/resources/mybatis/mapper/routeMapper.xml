@@ -18,12 +18,13 @@
 		#{distance}, #{time})
 	</insert>
 
-	<!-- 루트id로 all delete -->
-	<delete id="deleteRoute" parameterType="int">
-		delete from route where
+	<!-- 루트id로 all delete 3 -->
+	<delete id="deleteRouteRouteId" parameterType="int">
+		delete from route r 
+		where exists(select r from step s where r.route_id=s.route_id)
 		route_id=#{routeId}
 	</delete>
-
+	
 	<!-- 루트id로 all select -->
 	<select id="selectRoute" resultMap="selectRoutemap"
 		parameterType="int">

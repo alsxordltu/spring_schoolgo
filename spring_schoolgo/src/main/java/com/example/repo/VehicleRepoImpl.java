@@ -23,7 +23,7 @@ public class VehicleRepoImpl implements VehicleRepo{
 
 	@Override
 	public int deleteVehicle(int vehicleId) {
-		String stmt = NAME_SPACE + "deleteVehicle";
+		String stmt = NAME_SPACE + "deleteRouteVehivleId";
 		return template.update(stmt, vehicleId);
 	}
 

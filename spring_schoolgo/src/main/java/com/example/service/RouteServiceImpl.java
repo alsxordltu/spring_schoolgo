@@ -48,7 +48,9 @@ public class RouteServiceImpl implements RouteService{
 
 	@Override
 	public void deleteRoute(Integer routeId) {
-		 rRepo.deleteRoute(routeId);
+/*		vRepo.deleteVehicle(vehicleId);
+		sRepo.deleteStep(stepId);
+*/		rRepo.deleteRoute(routeId);
 	}
 
 	@Override

@@ -18,9 +18,19 @@
 	</insert>
 
 	<delete id="deleteVehicle" parameterType="int">
-		delete from vehicle where
+		delete from vehicle using vehicle
+		join vehicle on  
+		where
 		vehicle_id=#{vehicleId}
 	</delete>
+	
+	<!-- delete 1 -->
+	<delete id="deleteRouteVehivleId" parameterType="int">
+		delete from vehicle v 
+		where exists(select v from step s where v.step_id=s.step_id)
+		v.vehicle_id=#{vehicleId}
+	</delete>
+	
 
 	<select id="selectVehicle" resultMap="selectVehicle"
 		parameterType="int">
