@@ -45,11 +45,11 @@ public class LoginController {
 	}*/
 
 	@RequestMapping(value="/gotomain", method=RequestMethod.GET)
-	public String gotomain(HttpServletRequest request, HttpSession session){
+	public String gotomain(Model model, HttpServletRequest request, HttpSession session){
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = rservice.getRouteUserId(userId);
-		
 		logger.trace("routeList : {}", routes);
+		model.addAttribute("routes");
 		return "main/main";
 	}
 	

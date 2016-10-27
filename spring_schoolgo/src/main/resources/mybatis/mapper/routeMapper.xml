@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.RouteMapper">
 
-<!-- 루트id로 insert -->
+	<!-- 루트id로 insert -->
 	<insert id="insertRoute" parameterType="route">
 		<selectKey keyProperty="routeId" resultType="int" order="AFTER">
 			select route_seq.currval as routeId from dual
@@ -13,32 +13,44 @@
 		insert into route
 		values(#{userId}, route_seq.nextval, #{routeName},
 		#{startLat}, #{startLng}, #{startAddress},
-		#{arriveLat}, #{arriveLng}, #{arriveAddress},
+		#{arriveLat}, #{arriveLng},
+		#{arriveAddress},
 		#{distance}, #{time})
 	</insert>
-	
-<!-- 루트id로 all delete -->
+
+	<!-- 루트id로 all delete -->
 	<delete id="deleteRoute" parameterType="int">
 		delete from route where
 		route_id=#{routeId}
 	</delete>
 
-<!-- 루트id로 all select -->
+	<!-- 루트id로 all select -->
 	<select id="selectRoute" resultMap="selectRoutemap"
 		parameterType="int">
-		select route_id, user_id, route_name, start_lat, start_lng, start_address,
+		select route_id, user_id, route_name, start_lat,
+		start_lng, start_address,
 		arrive_lat, arrive_lng, arrive_address,
 		distance, time
 		from route where route_id = #{routeId}
 	</select>
-	
-<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐-->	
+
+	<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
 	<select id="selectRouteUserId" resultMap="selectRoutemap"
 		parameterType="string">
-		select route_id, user_id, route_name, start_lat, start_lng, start_address,
-		arrive_lat, arrive_lng, arrive_address,
-		distance, time
-		from route where user_id = #{userId}
+		select r.route_id, r.user_id, r.route_name, r.start_lat, r.start_lng,
+		r.start_address,
+		r.arrive_lat, r.arrive_lng, r.arrive_address,
+		r.distance, r.time,
+		s.step_id, s.route_id, s.vmode, s.step_name, s.start_lat, s.start_lng,
+		s.end_lat, s.end_lng, s.route_distance, s.route_time, s.seq,
+		v.vehicle_id, v.step_id, v.start_lat, v.start_lng, v.start_name,
+		v.end_lat, v.end_lng,
+		v.start_name, v.headsign, v.vehicle_name, v.vehicle_num, v.vehicle_move
+		from route r
+		join step s on r.route_id=s.route_id
+		join vehicle v on
+		s.step_id=v.step_id
+		where user_id = #{userId}
 	</select>
 
 

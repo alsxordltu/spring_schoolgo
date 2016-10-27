@@ -8,5 +8,5 @@ public interface RouteRepo {
 	public int insertRoute(Route route);
 	public int deleteRoute(int routeId);
 	public Route selectRoute(int routeId);
-	public List<Route> selectRouteUserId(String userId);	
+	public List<Route> selectRouteUserId(String userId);
 }
