@@ -15,6 +15,7 @@
 		<typeAlias type="com.example.dto.Route" alias="route" />
 		<typeAlias type="com.example.dto.Step" alias="step" />
 		<typeAlias type="com.example.dto.Vehicle" alias="vehicle" />
+		<typeAlias type="com.example.dto.Timetable" alias="timetable" />
 		
 	</typeAliases>
 
@@ -25,6 +26,8 @@
 		<mapper resource="mybatis/mapper/routeMapper.xml" />
 		<mapper resource="mybatis/mapper/stepMapper.xml" />
 		<mapper resource="mybatis/mapper/vehicleMapper.xml" />
+		<mapper resource="mybatis/mapper/timetableMapper.xml" />
+		
 
 	</mappers>
 

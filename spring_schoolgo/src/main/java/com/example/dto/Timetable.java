@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Timetable {
 	String userId;
-	int mon;
-	int tue;
-	int wed;
-	int thu;
-	int fri;
-		
+	String mon;
+	String tue;
+	String wed;
+	String thu;
+	String fri;
+	String scheduleType;
 }
