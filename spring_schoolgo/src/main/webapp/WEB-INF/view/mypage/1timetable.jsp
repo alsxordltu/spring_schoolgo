@@ -49,8 +49,18 @@
 
 							<td>
 								<input id="mon1" name="mon" type="radio" class="radio">
+									
 									<label for="mon1" class="radio-label">
-										<i class="fa fa-check"></i> <span>1교시</span>
+									<div style="width:100px; height:100px; border:1pt solid black">
+										
+										</div>
+										<i class="fa fa-check"></i>
+										
+										<span>						
+										1교시
+										</span>
+										
+										
 									</label>
 							</td>
 
