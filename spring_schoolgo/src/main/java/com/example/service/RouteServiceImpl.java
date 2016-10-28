@@ -1,7 +1,6 @@
 package com.example.service;
 
 import java.util.List;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,6 @@ import com.example.dto.Vehicle;
 import com.example.repo.RouteRepo;
 import com.example.repo.StepRepo;
 import com.example.repo.VehicleRepo;
-import com.example.route.RouteTest;
 
 @Service
 public class RouteServiceImpl implements RouteService{
@@ -76,7 +74,7 @@ public class RouteServiceImpl implements RouteService{
 		return rRepo.selectRouteNameListUserId(userId);
 	}
 
-	@Override
+	
 	public Route getRouteDetail(Integer routeId) {
 		return rRepo.selectRouteDetail(routeId);
 	}

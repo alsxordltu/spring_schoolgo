@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +25,9 @@ import com.example.dto.Route;
 import com.example.dto.Step;
 import com.example.dto.Vehicle;
 import com.example.service.RouteService;
-import com.example.util.Json;
+
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -73,7 +72,9 @@ public class InsertRouteController {
       } catch (Exception e) {
          e.printStackTrace();
       }
-      return "gotomain";
+      
+      
+      return "redirect:/gotomain";
    }
    
 
@@ -84,8 +85,18 @@ public class InsertRouteController {
    }
 
    @RequestMapping(value = "/deleteRoute", method = RequestMethod.GET)
-   public @ResponseBody String deleteRoute() {
-      return "insertroute/findStation2";
+   public @ResponseBody String deleteRoute(@RequestParam String routeId, HttpSession session, Model model) throws JsonProcessingException {
+	   
+	   logger.trace("routeId : {}", routeId);
+	   Integer myrouteId = Integer.parseInt(routeId);
+	   Route route = rService.getRouteDetail(myrouteId);
+	   rService.deleteRoute(route);
+	   String userId = (String)session.getAttribute("userId");
+		ObjectMapper mapper = new ObjectMapper();
+		List<String> routenames = rService.selectRouteNameListUserId(userId);
+		
+	   
+	   return mapper.writeValueAsString(routenames);
    }
 
    @RequestMapping(value = "/gotoinsert1", method = RequestMethod.GET)
@@ -115,7 +126,7 @@ public class InsertRouteController {
       return "insertroute/insert1";
    }
 
-   @RequestMapping(value = "/gotoinsertbus", method = RequestMethod.GET)
+   /*@RequestMapping(value = "/gotoinsertbus", method = RequestMethod.GET)
    public String gotoinsertbus(HttpServletRequest request, HttpSession session, HttpServletResponse response, Model model) throws Exception {
       response.setCharacterEncoding("UTF-8");
       session = request.getSession();
@@ -124,11 +135,11 @@ public class InsertRouteController {
       String start = (String) session.getAttribute("start");
       String startStation = request.getParameter("resultStationName");
 
-      /*
+      
        * String url=
        * "https://maps.googleapis.com/maps/api/directions/json?origin=%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%84%9C%EA%B5%AC%20%EA%B0%80%EC%A0%95%20%EB%89%B4%EC%84%9C%EC%9A%B8%EC%95%84%ED%8C%8C%ED%8A%B8&destination=%EB%B6%80%ED%8F%89&mode=transit&key=AIzaSyD2AhXMW8KO4eZkRCQ1-6Gg3Fv4YOfYV58";
        * Json wc = new Json(url); String json = wc.json;
-       */
+       
       String hometostation = request.getParameter("hometostation");
       String stationtoschool = request.getParameter("stationtoschool");
       session.setAttribute("hometostation", hometostation);
@@ -172,7 +183,7 @@ public class InsertRouteController {
       model.addAttribute("buslist", bus);
 
       return "insertroute/insertbus";
-   }
+   }*/
 
    @RequestMapping(value = "/gotosearch", method = RequestMethod.GET)
    public String gotosearch() {

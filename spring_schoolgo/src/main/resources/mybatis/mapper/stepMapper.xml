@@ -37,6 +37,8 @@
 		from step where step_id = #{stepId}
 	</select>
 	
+
+	
 	<resultMap type="Step" id="selectStep">
 		<id column="step_id" property="stepId" />
 		<result column="route_id" property="routeId" />
@@ -51,6 +53,7 @@
 		<result column="seq" property="routeTime" />
 	</resultMap>
 	
+
 	<resultMap type="Step" id="selectStepComplex" extends="selectStep">
 		<collection property="vehicleList" ofType="vehicle" resultMap="com.example.VehicleMapper.selectVehicle"/>
 	</resultMap>

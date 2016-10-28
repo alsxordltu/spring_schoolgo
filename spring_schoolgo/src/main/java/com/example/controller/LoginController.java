@@ -18,6 +18,8 @@ import com.example.dto.Route;
 import com.example.dto.User;
 import com.example.service.RouteService;
 import com.example.service.Userservice;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller // 컨트롤러 선언
 public class LoginController {
@@ -45,13 +47,15 @@ public class LoginController {
 	}*/
 
 	@RequestMapping(value="/gotomain", method=RequestMethod.GET)
-	public String gotomain(Model model, HttpServletRequest request, HttpSession session){
+	public String gotomain(Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException{
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = rservice.getRouteUserId(userId);
+		ObjectMapper mapper = new ObjectMapper();
+			//String jsonData =  mapper.writeValueAsString(routes);
 		List<String> routenames = rservice.selectRouteNameListUserId(userId);
-		logger.trace("routeList : {}", routes);
+		logger.trace("routeList : {}", mapper.writeValueAsString(routes));
 		logger.trace("routeNameList : {}", routenames);
-		model.addAttribute("routes", routes);
+		model.addAttribute("routes", mapper.writeValueAsString(routenames));
 		model.addAttribute("routesName", routenames);
 
 		return "main/main";
