@@ -251,36 +251,38 @@
                      
                      row += "<input TYPE='radio' id='radio"+listindex+"' class='radio' name='group' value='"+listindex+"' data-idx='"+ listindex+ "'/>"+
                      "<label for='radio"+listindex+"' class='radio-label'><i class='fa fa-check'></i><span>경로"+listindex+"<span>";
-                     summary+="<div id='summary"+listindex+"'><h5>"+startadd+"</h5>";
+                     summary+="<div id='summary"+listindex+"'><h6><img src='insert_img/circle.png' width='2%'/>"+startadd+"</h6>";
                      
                     
                      $.each(step, function(index, item){
                    	  var travelmode = item.travel_mode;
                  		  
                        if(travelmode=="WALKING"){
-                       	var walking = item.duration.text;
-                   	  row+=" "+"<img src='insert_img/walking.png' width='8%'/>"+walking;
-                   	  summary+=" " +"<h5>도보"+walking+"분</h5>";
-                       }else{
+                       	var walkingtime = item.duration.text;
+                       	var hwansng1 = item.html_instructions;
+                   	  row+=" "+"<img src='insert_img/walking.png' width='8%'/>"+walkingtime;
+                   	  summary+=" " +"<div id='walking'><img id='more' src='insert_img/more.png'/><h6>"+hwansng1+"["+walkingtime+"]</h6></div>";
+                       }
+                       else{
                        	var transtype = item.transit_details.line.vehicle.type;
                        	var shortname = item.transit_details.line.short_name;
                        	var transname = item.transit_details.line.name;
-                       	
+                       	var hwansng2 = item.html_instructions;
                        	
                        	if(transtype=="BUS"){
                        		if(shortname==null){
                        			row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+transname;
-                       			summary+=" "+"<h5>시외버스"+transname+"</h5>";
+                       			summary+=" "+"<h6><img id='circle' src='insert_img/circle.png' width='2%'/>시외버스"+transname+hwansng2+"</h6>";
                        		}else{
                        		row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+shortname+"번 버스";
-                       		summary+=" "+"<h5>시내버스"+shortname+"번버슈</h5>";
+                       		summary+=" "+"<h6><img id='circle' src='insert_img/circle.png' width='2%'/>시내버스"+shortname+hwansng2+"</h6>";
                        		}
                        		}else if(transtype=="SUBWAY"){
                            	row+=" "+"<img src='insert_img/subway.png' width='8%'/>"+shortname;
-                           	summary+=" "+"<h5>전철"+shortname+"어디방면 타고 어디역에서 내린다.</h5>";
+                           	summary+=" "+"<h6>"+shortname+hwansng2+"</h6>";
                            }else if(transtype=="HEAVY_RAIL"){
                            	row+=" "+"<img src='insert_img/train.png' width='8%'/>"+transname;
-                           	summary+=" "+"<h5>기차"+transname+"기차기차 무슨선 어디행?.</h5>";
+                           	summary+=" "+"<h6>"+transname+hwansng2+"</h6>";
                            }else{
                            	row+="음슴.";
                            }
@@ -290,7 +292,7 @@
                      
                     
                      row+=alltime+"</label><br>";           
-                     summary+="<h5>"+endadd+"</h5></div>";
+                     summary+="<h6><img src='insert_img/circle.png' width='2%'/>"+endadd+"</h6></div>";
                      rowsum+=row+summary;
                      
                      row="";

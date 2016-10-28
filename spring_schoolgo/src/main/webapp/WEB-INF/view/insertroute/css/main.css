@@ -11,45 +11,76 @@
 */
 
 
-#summary0{
+#circle{
+	float:left;
+	width:2%
+} 
+
+#walking{
+width:100%; 
+height:auto;
+padding-top:10px;
+padding-bottom:10px;
+
+}
+#more{
+	float:left;
+	width:5%
+}
+
+
+#summary00{
 	display:none;
-	width:100%;
+	width:20%;
 	height:auto;
 	float:left;
+	
+}
+#summary0{
+	display:none;
+	width:80%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
 }
 #summary1{
 	display:none;
-	width:100%;
+	width:80%;
 	height:auto;
 	float:left;
+	border:2pt solid black;
 }
 
 #summary2{
 	display:none;
-	width:100%;
+	width:80%;
 	height:auto;
 	float:left;
+	border:2pt solid black;
 }
 
 #summary3{
 	display:none;
-	width:100%;
+	width:80%;
 	height:auto;
 	float:left;
+	border:2pt solid black;
 }
 
 #summary4{
 	display:none;
-	width:100%;
+	width:80%;
 	height:auto;
 	float:left;
+	border:2pt solid black;
 }
 
 #summary5{
 	display:none;
-	width:100%;
+	width:80%;
 	height:auto;
 	float:left;
+	border:2pt solid black;
 }
 
 
@@ -2399,6 +2430,10 @@ ol.default li {
 
 /* Narrow */
 @media screen and (min-width: 737px) and (max-width: 1200px) {
+	
+	h6{
+	font-size:1em;
+	}
 	#insertstart {
 		width: 35%;
 		height:100%;
@@ -2505,6 +2540,9 @@ ol.default li {
 
 /* Narrower */
 @media screen and (min-width: 737px) and (max-width: 1000px) {
+	h6{
+	font-size:14;
+	}
 	#insertstart {
 		width: 35%;
 		height:100%;
@@ -2580,6 +2618,9 @@ ol.default li {
 
 /* Mobile */
 @media screen and (max-width: 736px) {
+	h6{
+	font-size:0.5em;
+	}
 	#insertstart {
 		width: 40%;
 		height:100%;
