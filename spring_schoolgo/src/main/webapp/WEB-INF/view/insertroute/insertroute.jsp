@@ -78,26 +78,16 @@
 
 						<!-- 조회 버튼 -->
 						<div id=insertselect>
-							<input type=button id=insertselectbtn value=조회하기> <input
-								type=button id="send" value=등록>
+							<input type=button id=insertselectbtn value=조회하기> 
 						</div>
-
-
-
-
-
-
-
-
-						<!-- 섭밋 버튼 -->
-						<!-- <div style="text-align: center">
-                     <input type="submit" value="등록하러 가기">
-                  </div> -->
 					</form>
 				</div>
 				<div id="routelist"></div>
 
 			</article>
+<div>
+<input type=button id="send" value=등록>
+</div>
 
 		</div>
 	</div>
@@ -334,44 +324,44 @@
    
    $(document).on("click","#radio0", function () {
 	   
-      $("#summary0").css("display","block");  
-      $("#summary1").css("display","none"); 
-      $("#summary2").css("display","none"); 
-      $("#summary3").css("display","none"); 
-      $("#summary4").css("display","none"); 
+      $("#summary0").slideDown("slow");  
+      $("#summary1").slideUp("slow"); 
+      $("#summary2").slideUp("slow"); 
+      $("#summary3").slideUp("slow");
+      $("#summary4").slideUp("slow");
 	 });
 
    $(document).on("click","#radio1", function () {
 	   
-	      $("#summary1").css("display","block");
-	      $("#summary0").css("display","none"); 
-	      $("#summary2").css("display","none"); 
-	      $("#summary3").css("display","none"); 
-	      $("#summary4").css("display","none");
+	      $("#summary1").slideDown("slow");
+	      $("#summary0").slideUp("slow"); 
+	      $("#summary2").slideUp("slow");
+	      $("#summary3").slideUp("slow"); 
+	      $("#summary4").slideUp("slow");
 		 });
    $(document).on("click","#radio2", function () {
 	   
-	   $("#summary2").css("display","block");
-	      $("#summary0").css("display","none"); 
-	      $("#summary1").css("display","none"); 
-	      $("#summary3").css("display","none"); 
-	      $("#summary4").css("display","none");               
+	   $("#summary2").slideDown("slow");  
+	      $("#summary0").slideUp("slow");
+	      $("#summary1").slideUp("slow");
+	      $("#summary3").slideUp("slow");
+	      $("#summary4").slideUp("slow");              
 		 });
    $(document).on("click","#radio3", function () {
 	   
-	   $("#summary3").css("display","block");
-	      $("#summary0").css("display","none"); 
-	      $("#summary1").css("display","none"); 
-	      $("#summary2").css("display","none"); 
-	      $("#summary4").css("display","none");                
+	   $("#summary3").slideDown("slow");  
+	      $("#summary0").slideUp("slow");
+	      $("#summary1").slideUp("slow");
+	      $("#summary2").slideUp("slow");
+	      $("#summary4").slideUp("slow");               
 		 });
    $(document).on("click","#radio4", function () {
 	   
-	   $("#summary4").css("display","block");
-	      $("#summary0").css("display","none"); 
-	      $("#summary1").css("display","none"); 
-	      $("#summary2").css("display","none"); 
-	      $("#summary3").css("display","none");                
+	   $("#summary4").slideDown("slow");  
+	      $("#summary0").slideUp("slow");
+	      $("#summary1").slideUp("slow");
+	      $("#summary2").slideUp("slow");
+	      $("#summary3").slideUp("slow");               
 		 });
    
    
