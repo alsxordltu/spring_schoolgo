@@ -227,14 +227,15 @@
                               });
                         });
                       
+<<<<<<< HEAD
                         $("#routelist").html($("#routelist").html()+row+summary);
                         
                          */
                          
                          showlist();
                          
-                        /* $("input:radio[name='book_type'][value='magazine']").prop('checked', true); */
-                  },
+
+   },
                   error : function(xhr, status, error){
                      alert(error);
                   }
@@ -313,7 +314,7 @@
                   
                });
                
-               $("#routelist").html($("#routelist").html()+rowsum);
+               $("#routelist").html(rowsum);
               
                }
             

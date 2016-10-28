@@ -52,11 +52,9 @@ public class LoginController {
 		List<Route> routes = rservice.getRouteUserId(userId);
 		ObjectMapper mapper = new ObjectMapper();
 			//String jsonData =  mapper.writeValueAsString(routes);
-		List<String> routenames = rservice.selectRouteNameListUserId(userId);
 		logger.trace("routeList : {}", mapper.writeValueAsString(routes));
-		logger.trace("routeNameList : {}", routenames);
-		model.addAttribute("routes", mapper.writeValueAsString(routenames));
-		model.addAttribute("routesName", routenames);
+		model.addAttribute("routes", mapper.writeValueAsString(routes));
+		
 
 		return "main/main";
 	}
