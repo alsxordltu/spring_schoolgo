@@ -73,15 +73,15 @@
 
 </head>
 <body onload="initTmap()">
-${routes}
+
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
 			<!-- Post -->
 			<article class="box post post-excerpt">
-
+<input type="text" id="selectedString">
 				<div id=schoolgo>
-				
+					
 					
 				</div>
 
@@ -271,7 +271,64 @@ ${routes}
 	<script src="main_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
+	<script src = "http://code.jquery.com/jquery.js"></script>
 	<script>
+$(document).ready(function() {
+		//var json = ${routes};
+		/* json = '[{"name":"인문사회","select":"A"}';
+		            json += ', {"name":"역사","select":"B"}';
+		            json += ', {"name":"문화유산","select":"C"}';
+		            json += ', {"name":"인물","select":"D"}';
+		            json += ']'; */
+		//var jsonObject =JSON.parse(json);
+		            var json = ${routes};	 
+		            var row="";
+		$.each(json, function(index, item){			
+			row+=json[index].routeName + "<input type='button' id='route"+index + "' class='group' name='group' value='삭제' data-idx='"+ json[index].routeId +"'><br> ";		
+		});		
+		$("#schoolgo").html(row);
+	});
+	
+$(document).on("click", ".group",  function(){
+	
+	var row="";
+	$.ajax({
+		url:"deleteRoute",
+		type:"get",
+		data:{ routeId : ($(this).attr("data-idx")) },
+		success:function(response){
+			var json = JSON.parse(response);
+			console.log(json);
+			var row="";
+			$.each(json, function(index, item){	
+				row+=json[index].routeName + "<input type='button' id='route"+index + "' class='group' name='group' value='삭제' data-idx='"+ json[index].routeId +"'><br> ";			
+			});
+			
+			$("#schoolgo").html(row);
+			 //location.href='<%=request.getContextPath()%>/gotomain';
+		},
+	 	error:function(xhr, status, error){
+         console.log(error);
+      }
+	});
+	
+	
+});
+	
+/* $(document).on("change", ".group", function () {
+    //라디오 버튼 값을 가져온다.
+    
+    
+   
+   var selectedrouteid = ($(this).attr("data-idx"));
+   $( "#selectedString" ).val(selectedrouteid);
+    //alert(selectedvalue);
+    //$( "#selectedstring" ).val(selectedvalue);                
+}); */
+
+
+
+	
 		$(function() {
 			// Geolocation API에 액세스할 수 있는지를 확인
 			if (navigator.geolocation) {
@@ -279,7 +336,7 @@ ${routes}
 				navigator.geolocation.getCurrentPosition(function(pos) {
 					$('#latitude').html(pos.coords.latitude); // 위도
 					$('#longitude').html(pos.coords.longitude); // 경도
-					console.log(pos.coords.latitude, pos.coords.longitude);
+					//console.log(pos.coords.latitude, pos.coords.longitude);
 				});
 			} else {
 				alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
@@ -287,7 +344,7 @@ ${routes}
 
 		});
 		
-		$(document).ready(function(){
+		<%-- $(document).ready(function(){
 			$.ajax({
 				url:"getroutelist",
 				type:"get",
@@ -301,13 +358,11 @@ ${routes}
 	            	alert("실패", errThrown)	;
 	            }
 			});
-		});
+		}); --%>
 		
 		
 
-		/*    window.onload = function() {
-		    printTime();
-		  }; */
+		
 	</script>
 
 

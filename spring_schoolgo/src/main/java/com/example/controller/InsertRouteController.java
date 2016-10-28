@@ -27,6 +27,7 @@ import com.example.dto.Vehicle;
 import com.example.service.RouteService;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -84,8 +85,18 @@ public class InsertRouteController {
    }
 
    @RequestMapping(value = "/deleteRoute", method = RequestMethod.GET)
-   public @ResponseBody String deleteRoute() {
-      return "insertroute/findStation2";
+   public @ResponseBody String deleteRoute(@RequestParam String routeId, HttpSession session, Model model) throws JsonProcessingException {
+	   
+	   logger.trace("routeId : {}", routeId);
+	   Integer myrouteId = Integer.parseInt(routeId);
+	   Route route = rService.getRouteDetail(myrouteId);
+	   rService.deleteRoute(route);
+	   String userId = (String)session.getAttribute("userId");
+		ObjectMapper mapper = new ObjectMapper();
+		List<String> routenames = rService.selectRouteNameListUserId(userId);
+		
+	   
+	   return mapper.writeValueAsString(routenames);
    }
 
    @RequestMapping(value = "/gotoinsert1", method = RequestMethod.GET)
