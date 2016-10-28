@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +9,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.dto.Bus;
 import com.example.dto.Route;
 import com.example.dto.Step;
 import com.example.dto.Vehicle;
 import com.example.service.RouteService;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -84,9 +82,10 @@ public class InsertRouteController {
       return "insertroute/findStation2";
    }
 
-   @RequestMapping(value = "/deleteRoute", method = RequestMethod.GET)
-   public @ResponseBody String deleteRoute(@RequestParam String routeId, HttpSession session, Model model) throws JsonProcessingException {
-	   
+   @RequestMapping(value = "/deleteRoute", method = RequestMethod.GET, produces="application/text; charset=utf8")
+   public @ResponseBody String deleteRoute(@RequestParam String routeId, HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+	   request.setCharacterEncoding("UTF-8");
+	   response.setContentType("text/html;charset=UTF-8");
 	   logger.trace("routeId : {}", routeId);
 	   Integer myrouteId = Integer.parseInt(routeId);
 	   Route route = rService.getRouteDetail(myrouteId);

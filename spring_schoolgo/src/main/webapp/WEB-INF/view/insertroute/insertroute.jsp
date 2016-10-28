@@ -201,7 +201,7 @@
                               });
                         });
                       
-                        $("#routelist").html($("#routelist").html()+row);
+                        $("#routelist").html(row);
                         /* $("input:radio[name='book_type'][value='magazine']").prop('checked', true); */
                   },
                   error : function(xhr, status, error){

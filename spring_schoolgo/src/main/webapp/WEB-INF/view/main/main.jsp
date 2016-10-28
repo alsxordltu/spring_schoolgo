@@ -16,8 +16,9 @@
 <link rel="stylesheet" href="main_css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-<script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=29d53ec8-b46f-3a50-b122-6bf04dea52e0"></script>
-		<script type="text/javascript">
+<script
+	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=29d53ec8-b46f-3a50-b122-6bf04dea52e0"></script>
+<script type="text/javascript">
  
             var map;
             var mapW, mapH;     // 지도의 가로, 세로 크기(Pixel단위) 를 지정 합니다. 
@@ -79,17 +80,14 @@
 		<div class="inner">
 			<!-- Post -->
 			<article class="box post post-excerpt">
-<input type="text" id="selectedString">
-				<div id=schoolgo>
-					
-					
-				</div>
+				<input type="text" id="selectedString">
+				<div id=schoolgo></div>
 
 			</article>
 
 
 
-			<article id=whether >
+			<article id=whether>
 				<div>
 					<h1>오늘의 날씨 정보 출력 : 집 위치</h1>
 
@@ -121,8 +119,7 @@
 
 
 			<article>
-				<div id="map_div">
-        </div>  
+				<div id="map_div"></div>
 			</article>
 
 
@@ -152,15 +149,15 @@
 			<h5 style="text-align: center">${nickName}님환영합니다</h5>
 
 
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li class="current"><a href="gotomain">학교가기</a></li>
-				<li><a href="gotoinsertroute">루트등록</a></li>
-				<li><a href="gotoboardmain">루트공유</a></li>
-				<li><a href="#">Contact Me</a></li>
-			</ul>
-		</nav>
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="current"><a href="gotomain">학교가기</a></li>
+					<li><a href="gotoinsertroute">루트등록</a></li>
+					<li><a href="gotoboardmain">루트공유</a></li>
+					<li><a href="#">Contact Me</a></li>
+				</ul>
+			</nav>
 
 
 
@@ -259,11 +256,8 @@
 			<li>&copy; Untitled.</li>
 			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 		</ul>
-		
-		
-		
-
 	</div>
+	
 
 	<!-- Scripts -->
 	<script src="main_js/jquery.min.js"></script>
@@ -271,23 +265,42 @@
 	<script src="main_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="main_js/main.js"></script>
-	<script src = "http://code.jquery.com/jquery.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
 	<script>
+	var json = ${routes};
+	console.log(json);
+	var length = 1;
+	
+	function showList(){
+		  var row="";
+		  
+			$.each(json, function(index, item){		
+				
+				row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"'><br></div><br> ";
+				
+			});		
+			$("#schoolgo").html(row);
+	}
+	
+
 $(document).ready(function() {
-		//var json = ${routes};
-		/* json = '[{"name":"인문사회","select":"A"}';
-		            json += ', {"name":"역사","select":"B"}';
-		            json += ', {"name":"문화유산","select":"C"}';
-		            json += ', {"name":"인물","select":"D"}';
-		            json += ']'; */
-		//var jsonObject =JSON.parse(json);
-		            var json = ${routes};	 
-		            var row="";
-		$.each(json, function(index, item){			
-			row+=json[index].routeName + "<input type='button' id='route"+index + "' class='group' name='group' value='삭제' data-idx='"+ json[index].routeId +"'><br> ";		
-		});		
-		$("#schoolgo").html(row);
+		
+		showList();
+		
+		
 	});
+	
+$(document).on("click", ".routelist", function(){
+	
+	
+	showList();
+	var index = $(this).attr("data-index");
+	
+	var add ="<input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
+	$("#div"+index).html($("#div"+index).html() + add);
+	
+});
+
 	
 $(document).on("click", ".group",  function(){
 	
@@ -295,16 +308,19 @@ $(document).on("click", ".group",  function(){
 	$.ajax({
 		url:"deleteRoute",
 		type:"get",
-		data:{ routeId : ($(this).attr("data-idx")) },
+		
+		data:{ routeId : ($(this).attr("data-routeId")) },
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
-			var json = JSON.parse(response);
+			json = JSON.parse(response);
 			console.log(json);
-			var row="";
+			/* var row="";
 			$.each(json, function(index, item){	
-				row+=json[index].routeName + "<input type='button' id='route"+index + "' class='group' name='group' value='삭제' data-idx='"+ json[index].routeId +"'><br> ";			
-			});
+				row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "'><input type='button' id='routed"+index + "' class='group' name='group' value='삭제' data-routeId='"+ json[index].routeId +"'></div><br> ";			
+			}); */
+			showList();
 			
-			$("#schoolgo").html(row);
+			
 			 //location.href='<%=request.getContextPath()%>/gotomain';
 		},
 	 	error:function(xhr, status, error){
@@ -314,20 +330,6 @@ $(document).on("click", ".group",  function(){
 	
 	
 });
-	
-/* $(document).on("change", ".group", function () {
-    //라디오 버튼 값을 가져온다.
-    
-    
-   
-   var selectedrouteid = ($(this).attr("data-idx"));
-   $( "#selectedString" ).val(selectedrouteid);
-    //alert(selectedvalue);
-    //$( "#selectedstring" ).val(selectedvalue);                
-}); */
-
-
-
 	
 		$(function() {
 			// Geolocation API에 액세스할 수 있는지를 확인
@@ -344,39 +346,6 @@ $(document).on("click", ".group",  function(){
 
 		});
 		
-		<%-- $(document).ready(function(){
-			$.ajax({
-				url:"getroutelist",
-				type:"get",
-				data : {
-	                   "userId" : <%=session.getAttribute("userId")%>
-	            },
-				success:function(data){
-					alert("성공");
-				},
-	            error:function(xhr, statusTxt, errThrown){
-	            	alert("실패", errThrown)	;
-	            }
-			});
-		}); --%>
-		
-		
-
-		
 	</script>
-
-
-
-
-
-
-
 </body>
-
-
-
-
-
-
-
 </html>
