@@ -167,7 +167,7 @@
 					<h2>마이페이지</h2>
 				</header>
 				<ul>
-					<li><a href="gototimetable">시간표 등록</a></li>
+					<li><a href="gototimetable?id=${userId}">시간표 등록</a></li>
 					<li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
 					<li><a href="gotoroutemanager">루트관리</a></li>
 					<li><a href="gotocostcal">교통비 가계부</a></li>

@@ -22,6 +22,7 @@ public class UserUpdateController {
 	@Autowired
 	Userservice service;
 	
+	//개인정보수정메뉴(GET방식으로 userId랑 User객체 넘어감) 눌렀을때 여기로옴 -> id로 유저정보 select해서 화면에 setting해줌
 	@RequestMapping(value = "/updateUser", method = RequestMethod.GET)
 	public String updateUser(Model model, @RequestParam String id,@ModelAttribute("User") User userinfo ) {
 		userinfo = service.getUserInfo(id);
@@ -31,6 +32,7 @@ public class UserUpdateController {
 
 	}
 
+	//개인정보 수정 후 수정하기(POST방식으로 수정된 User정보 가져옴) -> 수정된 User정보를 그대로 update해줌
 	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
 	public String updateUserPost(Model model, @ModelAttribute("User") User updateinfo) {
 		model.addAttribute("userInfo", updateinfo);

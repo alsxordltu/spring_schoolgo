@@ -33,7 +33,7 @@
 			</article>
 
 
-			<form method="get" action="inserttimetable" id=timetable>
+			<form method="get" action="updatetimetable" id=timetable>
 
 				<h2>월화수목금</h2>
 				<p>
