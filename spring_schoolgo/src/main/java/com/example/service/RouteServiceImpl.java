@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.dto.Allroute;
+
 import com.example.dto.Route;
 import com.example.dto.Step;
 import com.example.dto.Vehicle;
@@ -66,7 +66,7 @@ public class RouteServiceImpl implements RouteService{
 	}
 
 	@Override
-	public List<Allroute> getRouteUserId(String userId) {
+	public List<Route> getRouteUserId(String userId) {
 		return rRepo.selectRouteUserId(userId);
 	}
 

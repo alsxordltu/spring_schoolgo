@@ -39,7 +39,7 @@
 	</select>
 
 	<!-- 유저id로 all select step vehicle 조인해서 다가져와야댐 -->
-	<select id="selectRouteUserId" resultMap="selectRoutemap"
+	<select id="selectRouteUserId" resultMap="selectRoutemapComplex"
 		parameterType="string">
 		select r.route_id, r.user_id, r.route_name, r.start_lat,
 		r.start_lng,
@@ -87,6 +87,7 @@
 		left join vehicle v on s.step_id=v.step_id
 		where r.route_id= #{routeId}
 	</select>
+	
 	<!-- routename, routeid 를 이용하여 버튼으로 루트 목록하는거 -->
 	<!-- routename클릭시 routeid로 route 띄움 -->
 	<select id="selectRouteNameListUserId" resultMap="selectRoutemap"

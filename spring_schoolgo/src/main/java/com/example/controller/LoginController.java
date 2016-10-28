@@ -13,8 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.dto.Allroute;
 import com.example.dto.Login;
+import com.example.dto.Route;
 import com.example.dto.User;
 import com.example.service.RouteService;
 import com.example.service.Userservice;
@@ -49,7 +49,7 @@ public class LoginController {
 	@RequestMapping(value="/gotomain", method=RequestMethod.GET)
 	public String gotomain(Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException{
 		String userId = (String)session.getAttribute("userId");
-		List<Allroute> routes = rservice.getRouteUserId(userId);
+		List<Route> routes = rservice.getRouteUserId(userId);
 		ObjectMapper mapper = new ObjectMapper();
 			//String jsonData =  mapper.writeValueAsString(routes);
 		List<String> routenames = rservice.selectRouteNameListUserId(userId);
