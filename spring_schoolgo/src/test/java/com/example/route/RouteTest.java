@@ -31,7 +31,7 @@ public class RouteTest {
 
 	@Test
 	public void deleteRouteTest(){
-		Route route = rService.getRouteDetail(67);
+		Route route = rService.getRouteDetail(66);
 		logger.trace("route 조회: {}", route);
 		rService.deleteRoute(route);
 		logger.trace("delete over");
