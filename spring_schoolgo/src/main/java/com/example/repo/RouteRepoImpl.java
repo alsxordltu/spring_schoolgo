@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.dto.Allroute;
 import com.example.dto.Route;
 
 @Repository
@@ -41,7 +42,7 @@ public class RouteRepoImpl implements RouteRepo{
 	}
 
 	@Override
-	public List<Route> selectRouteUserId(String userId) {
+	public List<Allroute> selectRouteUserId(String userId) {
 		String stmt = NAME_SPACE + "selectRouteUserId";
 		return template.selectList(stmt,userId);
 	}
