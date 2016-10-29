@@ -78,16 +78,16 @@
 
 						<!-- 조회 버튼 -->
 						<div id=insertselect>
-							<input type=button id=insertselectbtn value=조회하기> 
+							<input type=button id=insertselectbtn value=조회하기>
 						</div>
 					</form>
 				</div>
 				<div id="routelist"></div>
 
 			</article>
-<div>
-<input type=button id="send" value=등록>
-</div>
+			<div>
+				<input type=button id="send" value=등록>
+			</div>
 
 		</div>
 	</div>
@@ -238,6 +238,7 @@
             function showlist(){
             var row="";
             var summary="";
+            
             var rowsum="";
             var endadd;
             var listindex=0;
@@ -251,9 +252,13 @@
                      
                      row += "<input TYPE='radio' id='radio"+listindex+"' class='radio' name='group' value='"+listindex+"' data-idx='"+ listindex+ "'/>"+
                      "<label for='radio"+listindex+"' class='radio-label'><i class='fa fa-check'></i><span>경로"+listindex+"<span>";
-                     summary+="<div id='summary"+listindex+"'><h6><img src='insert_img/circle.png' width='2%'/>"+startadd+"</h6>";
+                     summary+="<div id='summary"+listindex+"'><div id='starta'><h6><img src='insert_img/start.png' width='6%'/>"+startadd+"</h6></div>";
                      
-                    
+                     
+                   
+                     
+                
+                     
                      $.each(step, function(index, item){
                    	  var travelmode = item.travel_mode;
                  		  
@@ -261,28 +266,34 @@
                        	var walkingtime = item.duration.text;
                        	var hwansng1 = item.html_instructions;
                    	  row+=" "+"<img src='insert_img/walking.png' width='8%'/>"+walkingtime;
-                   	  summary+=" " +"<div id='walking'><img id='more' src='insert_img/more.png'/><h6>"+hwansng1+"["+walkingtime+"]</h6></div>";
+                   	  summary+=" " +"<div id='walking'><h6><img src='insert_img/more.png' width='4%'/>"+hwansng1+"["+walkingtime+"]</h6></div>";
+                   	
                        }
                        else{
                        	var transtype = item.transit_details.line.vehicle.type;
                        	var shortname = item.transit_details.line.short_name;
                        	var transname = item.transit_details.line.name;
+                       	var busdep = item.transit_details.departure_stop.name;
+                       	var busarr = item.transit_details.arrival_stop.name;
                        	var hwansng2 = item.html_instructions;
                        	
                        	if(transtype=="BUS"){
                        		if(shortname==null){
                        			row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+transname;
-                       			summary+=" "+"<h6><img id='circle' src='insert_img/circle.png' width='2%'/>시외버스"+transname+hwansng2+"</h6>";
+                       			summary+=" "+"<div id='siwoibus'><h6><img src='insert_img/circle.png' width='2%'/>시외버스"+transname+hwansng2+"</h6>"
+                       			+"<br><h6>[승차]"+busdep+"  [하차]"+busarr+"</h6></div>";
+                       			
                        		}else{
                        		row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+shortname+"번 버스";
-                       		summary+=" "+"<h6><img id='circle' src='insert_img/circle.png' width='2%'/>시내버스"+shortname+hwansng2+"</h6>";
+                       		summary+=" "+"<div id='sinabus'><h6><img src='insert_img/circle.png' width='2%'/>시내버스"+shortname+hwansng2+"</h6>"
+                       		+"<br><h6><img src='insert_img/bus.png' width='4%'/>[승차]"+busdep+"  [하차]"+busarr+"</h6></div>";
                        		}
                        		}else if(transtype=="SUBWAY"){
                            	row+=" "+"<img src='insert_img/subway.png' width='8%'/>"+shortname;
-                           	summary+=" "+"<h6>"+shortname+hwansng2+"</h6>";
+                           	summary+=" "+"<div id='subway'><h6><img src='insert_img/circle.png' width='2%'/>"+shortname+hwansng2+"</h6></div>";
                            }else if(transtype=="HEAVY_RAIL"){
                            	row+=" "+"<img src='insert_img/train.png' width='8%'/>"+transname;
-                           	summary+=" "+"<h6>"+transname+hwansng2+"</h6>";
+                           	summary+=" "+"<div id='train'><h6><img src='insert_img/circle.png' width='2%'/>"+transname+hwansng2+"</h6></div>";
                            }else{
                            	row+="음슴.";
                            }
@@ -292,7 +303,9 @@
                      
                     
                      row+=alltime+"</label><br>";           
-                     summary+="<h6><img src='insert_img/circle.png' width='2%'/>"+endadd+"</h6></div>";
+                     summary+="<div id='enda'><h6>"+endadd+"</h6></div></div>";
+                     
+                     
                      rowsum+=row+summary;
                      
                      row="";
@@ -326,44 +339,70 @@
    
    $(document).on("click","#radio0", function () {
 	   
-      $("#summary0").slideDown("slow");  
+      $("#summary0").slideDown("slow"); 
+      $("#summaryicon0").slideDown("slow"); 
       $("#summary1").slideUp("slow"); 
       $("#summary2").slideUp("slow"); 
       $("#summary3").slideUp("slow");
       $("#summary4").slideUp("slow");
+      $("#summaryicon1").slideUp("slow"); 
+      $("#summaryicon2").slideUp("slow"); 
+      $("#summaryicon3").slideUp("slow");
+      $("#summaryicon4").slideUp("slow");
 	 });
 
    $(document).on("click","#radio1", function () {
 	   
 	      $("#summary1").slideDown("slow");
+	      $("#summaryicon1").slideDown("slow");
 	      $("#summary0").slideUp("slow"); 
 	      $("#summary2").slideUp("slow");
 	      $("#summary3").slideUp("slow"); 
 	      $("#summary4").slideUp("slow");
+	      $("#summaryicon0").slideUp("slow"); 
+	      $("#summaryicon2").slideUp("slow"); 
+	      $("#summaryicon3").slideUp("slow");
+	      $("#summaryicon4").slideUp("slow");
 		 });
    $(document).on("click","#radio2", function () {
 	   
-	   $("#summary2").slideDown("slow");  
+	   $("#summary2").slideDown("slow");
+	   $("#summaryicon2").slideDown("slow");
 	      $("#summary0").slideUp("slow");
 	      $("#summary1").slideUp("slow");
 	      $("#summary3").slideUp("slow");
-	      $("#summary4").slideUp("slow");              
+	      $("#summary4").slideUp("slow"); 
+	      $("#summaryicon0").slideUp("slow"); 
+	      $("#summaryicon1").slideUp("slow"); 
+	      $("#summaryicon3").slideUp("slow");
+	      $("#summaryicon4").slideUp("slow");
+	      
 		 });
    $(document).on("click","#radio3", function () {
 	   
 	   $("#summary3").slideDown("slow");  
-	      $("#summary0").slideUp("slow");
-	      $("#summary1").slideUp("slow");
-	      $("#summary2").slideUp("slow");
-	      $("#summary4").slideUp("slow");               
+	   $("#summaryicon3").slideDown("slow"); 
+	   $("#summary0").slideUp("slow");
+	   $("#summary1").slideUp("slow");
+       $("#summary2").slideUp("slow");
+	   $("#summary4").slideUp("slow"); 
+	   $("#summaryicon0").slideUp("slow"); 
+	   $("#summaryicon1").slideUp("slow"); 
+	   $("#summaryicon2").slideUp("slow");
+	   $("#summaryicon4").slideUp("slow");
 		 });
    $(document).on("click","#radio4", function () {
 	   
-	   $("#summary4").slideDown("slow");  
+	   $("#summary4").slideDown("slow");
+	   $("#summaryicon4").slideDown("slow");
 	      $("#summary0").slideUp("slow");
 	      $("#summary1").slideUp("slow");
 	      $("#summary2").slideUp("slow");
-	      $("#summary3").slideUp("slow");               
+	      $("#summary3").slideUp("slow");   
+	      $("#summaryicon0").slideUp("slow"); 
+		   $("#summaryicon1").slideUp("slow"); 
+		   $("#summaryicon2").slideUp("slow");
+		   $("#summaryicon3").slideUp("slow");
 		 });
    
    

@@ -8,22 +8,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SchoolGoController {
 
 
-
-	@RequestMapping(value="/gotogo2", method=RequestMethod.GET) public
-	String gotogo(){ return "goandcome/go2"; }	
-	
-	@RequestMapping(value="/gotocome2", method=RequestMethod.GET) public
-	String gotocome(){ return "goandcome/come2"; }	
-	
-
-		
-					
-	
-	
-
-					
-	
-	
-	
 	
 }

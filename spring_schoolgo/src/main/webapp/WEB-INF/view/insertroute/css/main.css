@@ -11,41 +11,120 @@
 */
 
 
-#circle{
-	float:left;
-	width:2%
-} 
+
+
 
 #walking{
 width:100%; 
 height:auto;
 padding-top:10px;
 padding-bottom:10px;
-
 }
+
+#siwoibus{
+width:100%; 
+height:auto;
+padding-top:10px;
+padding-bottom:10px;
+}
+
+#sinabus{
+width:100%; 
+height:auto;
+padding-top:10px;
+padding-bottom:10px;
+}
+
+#subway{
+width:100%; 
+height:auto;
+padding-top:10px;
+padding-bottom:10px;
+}
+#train{
+width:100%; 
+height:auto;
+padding-top:10px;
+padding-bottom:10px;
+}
+
+
+
+
+#startendicon{
+	 width:7%; 
+}
+
+#circle{
+	float:left;
+	margin-top:2%;
+} 
+
+
 #more{
 	float:left;
 	width:5%
 }
 
-
-#summary00{
+#summaryicon0{
 	display:none;
-	width:20%;
+	width:5%;
 	height:auto;
-	float:left;
-	
+	float:left;	
+	border:2pt solid black;
 }
+
+#summaryicon1{
+	display:none;
+	width:5%;
+	height:auto;
+	float:left;	
+	border:2pt solid black;
+}
+
+#summaryicon2{
+	display:none;
+	width:5%;
+	height:auto;
+	float:left;	
+	border:2pt solid black;
+}
+
+#summaryicon3{
+	display:none;
+	width:5%;
+	height:auto;
+	float:left;	
+	border:2pt solid black;
+}
+
+#summaryicon4{
+	display:none;
+	width:5%;
+	height:auto;
+	float:left;	
+	border:2pt solid black;
+}
+
+#summaryicon5{
+	display:none;
+	width:5%;
+	height:auto;
+	float:left;	
+	border:2pt solid black;
+}
+
+
 #summary0{
 	display:none;
-	width:80%;
+	width:95%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
 }
 #summary1{
 	display:none;
-	width:80%;
+	width:95%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -53,7 +132,7 @@ padding-bottom:10px;
 
 #summary2{
 	display:none;
-	width:80%;
+	width:95%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -61,7 +140,7 @@ padding-bottom:10px;
 
 #summary3{
 	display:none;
-	width:80%;
+	width:95%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -69,7 +148,7 @@ padding-bottom:10px;
 
 #summary4{
 	display:none;
-	width:80%;
+	width:95%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -77,7 +156,7 @@ padding-bottom:10px;
 
 #summary5{
 	display:none;
-	width:80%;
+	width:95%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -94,7 +173,7 @@ padding-bottom:10px;
   height:auto;
   padding:0 20px;
   border:1px solid rgba(0,0,0,0.08);
-  margin-right:20px;
+/*   margin-right:20px; */
   background:#ddd;
   line-height:30px;
   cursor:pointer;

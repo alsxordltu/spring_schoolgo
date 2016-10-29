@@ -80,8 +80,14 @@
 		<div class="inner">
 			<!-- Post -->
 			<article class="box post post-excerpt">
+			<form name="routenext" method="get" action="gotogo">
+				<input type="submit" value="민택아 여기 등교">
+				</form>
 				<input type="text" id="selectedString">
-				<div id=schoolgo></div>
+				<div id=schoolgo>
+				
+				
+				</div>
 
 			</article>
 
