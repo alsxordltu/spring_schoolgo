@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.TimetableMapper">
-	<insert id="insert" parameterType="timetable">
+<!-- 	<insert id="insert" parameterType="timetable">
 		insert into timetable
 		values(#{userId}, #{mon},
 		#{tue}, #{wed}, #{thu},
 		#{fri},
 		#{scheduleType})
-	</insert>
+	</insert> -->
 
 	<insert id="insertTotal" parameterType="TimetableTotal">
 		insert into
@@ -20,7 +20,7 @@
 	</insert>
 
 
-	<select id="select" resultMap="selectTimetablemap"
+<!-- 	<select id="select" resultMap="selectTimetablemap"
 		parameterType="string">
 		select user_id, mon, tue, wed, thu, fri,
 		schedule_type
@@ -32,7 +32,7 @@
 		select user_id, mon, tue, wed, thu, fri,
 		schedule_type
 		from timetable where user_id = #{userId}
-	</select>
+	</select> -->
 
 	<select id="getTimetableTotalmapbyId" resultMap="getTimetableTotalmap"
 		parameterType="TimetableTotal">
@@ -46,7 +46,7 @@
 		user_id=#{userId}
 	</delete>
 
-	<resultMap type="Timetable" id="selectTimetablemap">
+<!-- 	<resultMap type="Timetable" id="selectTimetablemap">
 		<id column="user_id" property="userId" />
 		<result column="mon" property="mon" />
 		<result column="tue" property="tue" />
@@ -55,18 +55,18 @@
 		<result column="fri" property="fri" />
 		<result column="schedule_type" property="scheduleType" />
 	</resultMap>
-
-	<resultMap type="TimetableTotal" id="getTimetableTotalmap">
+ -->
+	<resultMap type="timetabletotal" id="getTimetableTotalmap">
 		<id column="user_id" property="userId" />
 		<result column="s_mon" property="sMon" />
 		<result column="s_tue" property="sTue" />
 		<result column="s_wed" property="sWed" />
 		<result column="s_thu" property="sThu" />
 		<result column="s_fri" property="sFri" />
-		<result column="a_fri" property="Amon" />
-		<result column="a_fri" property="Atue" />
-		<result column="a_fri" property="Awed" />
-		<result column="a_fri" property="Athu" />
-		<result column="a_fri" property="Afri" />
+		<result column="a_fri" property="aMon" />
+		<result column="a_fri" property="aTue" />
+		<result column="a_fri" property="aWed" />
+		<result column="a_fri" property="aThu" />
+		<result column="a_fri" property="aFri" />
 	</resultMap>
 </mapper>

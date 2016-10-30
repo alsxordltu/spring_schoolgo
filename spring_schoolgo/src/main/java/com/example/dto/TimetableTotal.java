@@ -19,10 +19,10 @@ public class TimetableTotal {
 	String sFri;
 	
 	//알바가기
-	String Amon;
-	String Atue;
-	String Awed;
-	String Athu;
-	String Afri;
+	String aMon;
+	String aTue;
+	String aWed;
+	String aThu;
+	String aFri;
 	
 }

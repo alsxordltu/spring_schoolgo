@@ -27,18 +27,19 @@ public class TimetableController {
 	
 	//개인정보수정메뉴(GET방식으로 userId랑 User객체 넘어감) 눌렀을때 여기로옴 -> id로 유저정보 select해서 화면에 setting해줌	
 	@RequestMapping(value="/updateTimetable", method = RequestMethod.GET)
-	public String selecttimetable(Model model, @RequestParam String id,@ModelAttribute("TimetableTotal") TimetableTotal timeinfo) {
+	public String selecttimetable(Model model, @RequestParam String id, TimetableTotal timeinfo) {
 		logger.trace("컨트롤러get id : {}", id);
+		timeinfo = tService.gettotaltableInfo(id);
 		if(timeinfo==null){//초기화
 		// 전체DTO 만들고
 		// 1. userId 받아와서 기본객체 insert(get) - insertmapper만들기
-		TimetableTotal defaulttime = new TimetableTotal(id,"0","0","0","0","0","0", "0", "0", "0", "0");
-		tService.insert(defaulttime);
+		timeinfo = new TimetableTotal(id,"0","0","0","0","0","0", "0", "0", "0", "0");
+		tService.insert(timeinfo);
 		logger.trace("초기화");
 		}
 
 		// 2. resultmap/mapper 만들고 sform객체 넣어줌
-		timeinfo = tService.gettotaltableInfo(id);
+		
 		model.addAttribute("TimetableTotal",timeinfo);
 		logger.trace("GET!");
 			

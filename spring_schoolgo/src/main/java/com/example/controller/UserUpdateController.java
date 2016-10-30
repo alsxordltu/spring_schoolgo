@@ -24,7 +24,7 @@ public class UserUpdateController {
 	
 	//개인정보수정메뉴(GET방식으로 userId랑 User객체 넘어감) 눌렀을때 여기로옴 -> id로 유저정보 select해서 화면에 setting해줌
 	@RequestMapping(value = "/updateUser", method = RequestMethod.GET)
-	public String updateUser(Model model, @RequestParam String id,@ModelAttribute("User") User userinfo ) {
+	public String updateUser(Model model, @RequestParam String id, User userinfo ) {
 		userinfo = service.getUserInfo(id);
 		model.addAttribute("User", userinfo);
 		logger.trace("컨트롤러, updateUser_GET 호출 : {}", userinfo);

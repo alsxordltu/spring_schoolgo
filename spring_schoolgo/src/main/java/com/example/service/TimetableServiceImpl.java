@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.dto.Timetable;
+
 import com.example.dto.TimetableTotal;
 import com.example.repo.TimetableRepo;
 
@@ -18,25 +18,25 @@ public class TimetableServiceImpl implements TimetableService{
 	@Autowired
 	TimetableRepo tRepo;
 	
-	@Override
+/*	@Override
 	public int insert(Timetable timetable) {
 		return tRepo.insert(timetable);
-	}
+	}*/
 
 	@Override
 	public int delete(String userId) {
 		return tRepo.delete(userId);
 	}
 
-	@Override
+/*	@Override
 	public Timetable select(String userId) {
 		return tRepo.select(userId);
-	}
+	}*/
 
-	@Override
+/*	@Override
 	public List<Timetable> selectTimetableUserId(String userId) {
 		return tRepo.selectTimetableUserId(userId);
-	}
+	}*/
 
 	@Override
 	public int insert(TimetableTotal timetable) {

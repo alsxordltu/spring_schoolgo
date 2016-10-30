@@ -10,7 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.config.ApplicationConfig;
-import com.example.dto.Timetable;
+
+import com.example.dto.TimetableTotal;
 import com.example.repo.TimetableRepo;
 import com.example.service.TimetableService;
  
@@ -29,7 +30,7 @@ public class TimetableTest {
 	@Autowired
 	TimetableService tService;
 	
-	@Test
+/*	@Test
 	public void insertTimetableTest(){
 		Timetable tableobj = new Timetable("3","3","3","3","3","3","3");
 		logger.trace("table insert test : {}", tService.insert(tableobj));
@@ -51,6 +52,12 @@ public class TimetableTest {
 	public void deleteTimetableTest(){
 		Timetable tableobj = new Timetable("3","3","3","3","3","3","3");
 		logger.trace("table insert test : {}", tService.delete("3"));
+	}*/
+	
+	@Test
+	public void insertTimetableTest(){
+		TimetableTotal tableobj = new TimetableTotal("asdf","0","0","0","0","0","0", "0", "0", "0", "0");
+		logger.trace("table insert test : {}", tService.insert(tableobj));
 	}
 	
 	
