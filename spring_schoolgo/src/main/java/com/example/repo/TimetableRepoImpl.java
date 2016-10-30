@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.dto.Route;
 import com.example.dto.Timetable;
+import com.example.dto.TimetableTotal;
 
 @Repository
 public class TimetableRepoImpl implements TimetableRepo{
@@ -40,5 +41,19 @@ public class TimetableRepoImpl implements TimetableRepo{
 		String stmt = NAME_SPACE + "selectTimetableList";
 		return template.selectList(stmt,userId);
 	}
+
+	@Override
+	public int inserttotal(TimetableTotal timetabletotal) {
+		String stmt = NAME_SPACE + "insertTotal";
+		return template.insert(stmt, timetabletotal);
+	}
+
+	@Override
+	public TimetableTotal gettotaltableInfo(String userId) {
+		String stmt = NAME_SPACE + "getTimetableTotalmapbyId";
+		return template.selectOne(stmt,userId);
+	}
+
+
 	
 }

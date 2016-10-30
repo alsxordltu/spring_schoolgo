@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE HTML>
 
 <!--
@@ -32,39 +33,34 @@
             </header>
          </article>
 
-
-<<<<<<< HEAD
-			<form method="get" action="updatetimetable" id=timetable>
-=======
-         <form method="get" action="inserttimetable" id=timetable>
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
+			<sform:form method="post" action="updateTimetable" modelAttribute="TimetableTotal">
 
             <h2>월화수목금</h2>
+            <p>	
+            	<sform:input type="text"  path="userId" placeholder="userId"/> 
+               학교가기 <sform:input id="school_mon"  type="text" path="sMon" placeholder="sMon" />  
+               	<sform:input id="school_tue" type="text"  path="sTue" placeholder="sTue"/> 
+               	<sform:input id="school_wed" type="text"  path="sWed" placeholder="sWed"/> 
+               	<sform:input id="school_thu" type="text"  path="sThu" placeholder="sThu"/> 
+                <sform:input id="school_fri" type="text"  path="sFri" placeholder="sFri"/>
             <p>
-               학교가기 <input id="school_mon" type="text" class="time"
-                  name=school_mon /> <input id="school_tue" type="text"
-                  class="time" name=school_tue /> <input id="school_wed"
-                  type="text" class="time" name=school_wed /> <input
-                  id="school_thu" type="text" class="time" name=school_thu /> <input
-                  id="school_fri" type="text" class="time" name=school_fri />
-            <p>
-               알바가기 <input id="alba_mon" type="text" class="time" name=alba_mon />
-               <input id="alba_tue" type="text" class="time" name=alba_tue /> <input
-                  id="alba_wed" type="text" class="time" name=alba_wed /> <input
-                  id="alba_thu" type="text" class="time" name=alba_thu /> <input
-                  id="alba_fri" type="text" class="time" name=alba_fri />
+               알바가기 <sform:input id="alba_mon" type="text"  path="aMon" placeholder="aMon"/>
+                <sform:input id="alba_tue" type="text"  path="aTue" placeholder="aTue"/> 
+                <sform:input id="alba_wed" type="text"  path="aWed" placeholder="aWed"/> 
+                <sform:input id="alba_thu" type="text"  path="aThu" placeholder="aThu"/> 
+                <sform:input id="alba_fri" type="text"  path="aFri" placeholder="aFri"/>
 
                <!--             <pre class="code" data-language="javascript"></pre>
  -->
             <div style="margin: 0 0 0 200px; float: left;">
-               <input type="submit" value="저장하기">
+               <input type="submit" value="수정하기">
             </div>
 
             <div style="margin: 0 0 0 20px; float: left;">
                <a href='gotomain#mypage'><input type="button" value="돌아가기"></a>
             </div>
 
-         </form>
+         </sform:form>
 
       </div>
    </div>

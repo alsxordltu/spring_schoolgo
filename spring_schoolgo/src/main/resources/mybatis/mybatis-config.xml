@@ -15,6 +15,7 @@
 		<typeAlias type="com.example.dto.Route" alias="route" />
 		<typeAlias type="com.example.dto.Step" alias="step" />
 		<typeAlias type="com.example.dto.Vehicle" alias="vehicle" />
+		<typeAlias type="com.example.dto.Timetable" alias="timetabletotal" />
 		<typeAlias type="com.example.dto.Timetable" alias="timetable" />
 		
 	</typeAliases>

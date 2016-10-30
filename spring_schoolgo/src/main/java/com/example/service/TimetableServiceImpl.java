@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dto.Timetable;
+import com.example.dto.TimetableTotal;
 import com.example.repo.TimetableRepo;
 
 @Service
@@ -36,6 +37,18 @@ public class TimetableServiceImpl implements TimetableService{
 	public List<Timetable> selectTimetableUserId(String userId) {
 		return tRepo.selectTimetableUserId(userId);
 	}
+
+	@Override
+	public int insert(TimetableTotal timetable) {
+		return tRepo.inserttotal(timetable);
+	}
+
+	@Override
+	public TimetableTotal gettotaltableInfo(String userId) {
+		return tRepo.gettotaltableInfo(userId);
+	}
+
+
 	
 
 }

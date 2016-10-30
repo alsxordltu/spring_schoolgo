@@ -11,25 +11,41 @@
 		#{scheduleType})
 	</insert>
 
+	<insert id="insertTotal" parameterType="TimetableTotal">
+		insert into
+		timetabletotal
+		values(#{userId},
+		#{sMon}, #{sTue}, #{sWed}, #{sThu}, #{sFri},
+		#{Amon}, #{Atue}, #{Awed}, #{Athu}, #{Afri})
+	</insert>
+
+
 	<select id="select" resultMap="selectTimetablemap"
 		parameterType="string">
 		select user_id, mon, tue, wed, thu, fri,
 		schedule_type
 		from timetable where user_id = #{userId}
 	</select>
-	
+
 	<select id="selectTimetableList" resultMap="selectTimetablemap"
 		parameterType="String">
 		select user_id, mon, tue, wed, thu, fri,
 		schedule_type
 		from timetable where user_id = #{userId}
 	</select>
-	
+
+	<select id="getTimetableTotalmapbyId" resultMap="getTimetableTotalmap"
+		parameterType="TimetableTotal">
+		select s_mon, s_tue, s_wed, s_thu, s_fri, 
+		a_mon, a_tue, a_wed, a_thu, a_fri 
+		from timetabletotal where user_id = #{userId}
+	</select>
+
 	<delete id="delete" parameterType="int">
 		delete from timetable where
 		user_id=#{userId}
 	</delete>
-	
+
 	<resultMap type="Timetable" id="selectTimetablemap">
 		<id column="user_id" property="userId" />
 		<result column="mon" property="mon" />
@@ -38,5 +54,19 @@
 		<result column="thu" property="thu" />
 		<result column="fri" property="fri" />
 		<result column="schedule_type" property="scheduleType" />
+	</resultMap>
+
+	<resultMap type="TimetableTotal" id="getTimetableTotalmap">
+		<id column="user_id" property="userId" />
+		<result column="s_mon" property="sMon" />
+		<result column="s_tue" property="sTue" />
+		<result column="s_wed" property="sWed" />
+		<result column="s_thu" property="sThu" />
+		<result column="s_fri" property="sFri" />
+		<result column="a_fri" property="Amon" />
+		<result column="a_fri" property="Atue" />
+		<result column="a_fri" property="Awed" />
+		<result column="a_fri" property="Athu" />
+		<result column="a_fri" property="Afri" />
 	</resultMap>
 </mapper>
