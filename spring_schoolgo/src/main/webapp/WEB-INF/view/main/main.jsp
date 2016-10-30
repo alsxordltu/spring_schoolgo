@@ -301,8 +301,22 @@ $(document).on("click", ".routelist", function(){
 	
 	showList();
 	var index = $(this).attr("data-index");
+	var calTime = Math.floor(json[index].time / 60);
+	var calHour ="";
+	var calMin="";
+/* 	if(caltime >= 60){
+		var hour
+	} */
 	
-	var add ="<input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
+	if (calTime >= 60) {
+		calHour = Math.floor(calTime / 60) + '시간 ';
+		
+    }
+	calMin = calTime%60 + '분 ';
+	console.log(calHour);
+	console.log(calMin);
+	
+	var add = calHour + calMin + "소요  <input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
 	$("#div"+index).html($("#div"+index).html() + add);
 	
 });
