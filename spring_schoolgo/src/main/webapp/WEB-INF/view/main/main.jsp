@@ -80,6 +80,14 @@
 		<div class="inner">
 			<!-- Post -->
 			<article class="box post post-excerpt">
+						<article class="box post post-excerpt">
+				<header>
+					<h2 align="center">루트 목록</h2>
+					<p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ 
+					
+					
+				</header>
+			</article>
 			<form name="routenext" method="get" action="gotogo">
 				<input type="submit" value="민택아 여기 등교">
 				</form>

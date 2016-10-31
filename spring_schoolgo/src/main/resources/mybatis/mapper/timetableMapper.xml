@@ -13,7 +13,7 @@
 		values(#{userId},
 		#{sMon}, #{sTue}, #{sWed}, #{sThu},
 		#{sFri},
-		#{Amon}, #{Atue}, #{Awed}, #{Athu}, #{Afri})
+		#{amon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
 	</insert>
 
 
