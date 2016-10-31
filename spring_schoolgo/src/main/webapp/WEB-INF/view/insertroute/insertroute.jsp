@@ -277,8 +277,8 @@
                         totalwalk += walkingtime;
                         
                         
-                   	  row+=" "+"<img src='insert_img/walking.png' width='8%'/>"+walkingtime;
-                   	  summary+=" " +"<div id='walking'><h6><img id='moreimg' src='insert_img/more.png' width='6%'/>"+hwansng1+"["+walkingtime+"]</h6></div>";
+                   	  row+=" "+"<img src='insert_img/walking.png' width='8%'/>"+walkingtime+"분";
+                   	  summary+=" " +"<div id='walking'><h6><img id='moreimg' src='insert_img/more.png' width='6%'/>"+hwansng1+"["+walkingtime+"분]</h6></div>";
                    	   
                    	  
                    	  
