@@ -61,6 +61,7 @@ public class RouteController {
 		ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
 		
 		HashMap<String, Object> map = resEntity.getBody();
+		System.out.println("우헤헤 : " + map);
 		String status = map.get("status").toString();
 		if(status.equals("OK")){
 			List<Map> routes = (List)map.get("routes");

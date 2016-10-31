@@ -30,11 +30,19 @@
 				</header>
 				<div>
 				
-				
-				
-				
-				<!-- 여기에 작업하시오 민택군 -->
-				
+				<table id="info">
+		<tr><th>도시코드</th><th>정류소코드</th><th>정류소이름</th><th>버튼</th></tr>
+		<c:forEach var="result" items="${buslist }" varStatus="status">
+		
+		<tr>
+			<%-- <td><a href="<%=request.getContextPath()%>/EmpRetrieveServlet?empId=${employee.empId }">${employee.empId }</a></td> --%>
+			<td><input type="text" name="citycode${status.count }" value="${result.citycode }" ></td>
+			<td><input type="text" name="nodeid${status.count }" value="${result.nodeid }" ></td>
+			<td><input type="text" name="nodenm${status.count }" value="${result.nodenm }"></td>
+			<td><input type="button"  id="select" value="선택"  <%-- onclick="selectStation(${result.stationCode },${result.stationName })" --%> data-citycode="${result.citycode }"  data-nodeid="${result.nodeid }"></td>
+		</tr>
+	</c:forEach>
+	</table>				
 				
 				
 				
@@ -101,5 +109,18 @@
 
 </body>
 <script>
+$(document).ready(function(){
+	var json = ${bus };
+	console.log(json);
+});
+
+$(document).on("click", "#select", function(e){
+	
+	document.all.selcitycode.value = $(this).attr("data-citycode");
+	document.all.selnodeid.value = $(this).attr("data-nodeid");
+	var row = "";
+	$("#info").html(row);
+});
+
 </script>
 </html>

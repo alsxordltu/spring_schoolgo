@@ -1,4 +1,4 @@
-/*package com.example.util;
+package com.example.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -29,4 +29,3 @@ public class Json {
 	      //System.out.println(json);
 	   }
 }
-*/
