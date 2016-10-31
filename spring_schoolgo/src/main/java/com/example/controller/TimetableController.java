@@ -30,10 +30,11 @@ public class TimetableController {
 	public String selecttimetable(Model model, @RequestParam String id, TimetableTotal timeinfo) {
 		logger.trace("컨트롤러get id : {}", id);
 		timeinfo = tService.gettotaltableInfo(id);
+		logger.trace("아행행 : {}", timeinfo);
 		if(timeinfo==null){//초기화
 		// 전체DTO 만들고
 		// 1. userId 받아와서 기본객체 insert(get) - insertmapper만들기
-		timeinfo = new TimetableTotal(id,"0","0","0","0","0","0", "0", "0", "0", "0");
+		timeinfo = new TimetableTotal(id,"12:00am","12:00am","12:00am","12:00am","12:00am","12:00am", "12:00am", "12:00am", "12:00am", "12:00am");
 		tService.insert(timeinfo);
 		logger.trace("초기화 : {}", timeinfo);
 		}
@@ -59,13 +60,13 @@ public class TimetableController {
 		return "mypage/1timetable";
 	}
 	@RequestMapping(value="/updateTimetable", method = RequestMethod.POST)
-	public String updatetimetable(Model model, @RequestParam String id, @ModelAttribute("TimetableTotal") TimetableTotal timeinfo) {
+	public String updatetimetable(Model model,  @ModelAttribute("TimetableTotal") TimetableTotal timeinfo) {
 		// 전체DTO
 		// 1. userId 받아와서 기본객체 insert(get)
 		// 2. select로 표시
 		// 3. 입력 후
 		// 4. 저장하기-> 각 값을 update(post)
-		model.addAttribute("TimetableTotal", timeinfo);
+		//model.addAttribute("TimetableTotal", timeinfo);
 		tService.update(timeinfo);
 		logger.trace("POST끝 timetableupdate 성공 >< updateinfo : {} ", timeinfo);
 		//sform-> modelAttribute 만들고 그 객체를 컨트롤러에서 받아와서 셋팅 / 업데이트

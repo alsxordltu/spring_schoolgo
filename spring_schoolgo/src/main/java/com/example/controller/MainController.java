@@ -1,17 +1,32 @@
 package com.example.controller;
 
+import java.net.URI;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 
+import com.example.dto.Route;
 import com.example.service.RouteService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Controller // 컨트롤러 선언
@@ -63,7 +78,30 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/gotogo", method = RequestMethod.GET)
-	public String gotogo() {
+	public String gotogo(@RequestParam("lat")String lat, @RequestParam("lng")String lng, Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException {
+		
+		String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
+		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
+		requestUrl += "&gpsLati=" + lat;
+		requestUrl += "&gpsLong=" + lng;
+		requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
+		
+		RestTemplate template = new RestTemplate();
+		
+		URI url = URI.create(requestUrl);
+		RequestEntity<Void> reqEntity
+		= RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8).acceptCharset(Charset.forName("UTF-8")).build();
+
+		ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+		HashMap<String, Object> map = resEntity.getBody();
+		System.out.println(requestUrl);
+		System.out.println("아헤헤 : " + map);
+		ObjectMapper mapper = new ObjectMapper();
+		
+		model.addAttribute("buslist", mapper.writeValueAsString(map));
+		String userId = (String)session.getAttribute("userId");
+		List<Route> routes = service.getRouteUserId(userId);
+		model.addAttribute("routes", mapper.writeValueAsString(routes.get(0)));
 		return "goandcome/go";
 	}
 

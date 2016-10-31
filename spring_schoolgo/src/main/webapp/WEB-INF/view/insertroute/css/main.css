@@ -10,15 +10,72 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+#total0{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+#total1{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+
+#total2{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+
+#total3{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+
+#total4{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+
+#total5{
+	display:none;
+	width:95%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
 
 
 
+#startendimg{
+	vertical-align:middle;
+}
+#sumimg{
+	vertical-align:middle;
+}
+
+#moreimg{
+	vertical-align:middle;
+}
 
 #walking{
 width:100%; 
 height:auto;
 padding-top:10px;
 padding-bottom:10px;
+align:middle;
 }
 
 #siwoibus{
@@ -66,65 +123,17 @@ padding-bottom:10px;
 	width:5%
 }
 
-#summaryicon0{
-	display:none;
-	width:5%;
-	height:auto;
-	float:left;	
-	border:2pt solid black;
-}
-
-#summaryicon1{
-	display:none;
-	width:5%;
-	height:auto;
-	float:left;	
-	border:2pt solid black;
-}
-
-#summaryicon2{
-	display:none;
-	width:5%;
-	height:auto;
-	float:left;	
-	border:2pt solid black;
-}
-
-#summaryicon3{
-	display:none;
-	width:5%;
-	height:auto;
-	float:left;	
-	border:2pt solid black;
-}
-
-#summaryicon4{
-	display:none;
-	width:5%;
-	height:auto;
-	float:left;	
-	border:2pt solid black;
-}
-
-#summaryicon5{
-	display:none;
-	width:5%;
-	height:auto;
-	float:left;	
-	border:2pt solid black;
-}
-
 
 #summary0{
 	display:none;
-	width:95%;
+	width:100%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
 }
 #summary1{
 	display:none;
-	width:95%;
+	width:100%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -132,7 +141,7 @@ padding-bottom:10px;
 
 #summary2{
 	display:none;
-	width:95%;
+	width:100%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -140,7 +149,7 @@ padding-bottom:10px;
 
 #summary3{
 	display:none;
-	width:95%;
+	width:100%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -148,7 +157,7 @@ padding-bottom:10px;
 
 #summary4{
 	display:none;
-	width:95%;
+	width:100%;
 	height:auto;
 	float:left;
 	border:2pt solid black;
@@ -156,7 +165,7 @@ padding-bottom:10px;
 
 #summary5{
 	display:none;
-	width:95%;
+	width:100%;
 	height:auto;
 	float:left;
 	border:2pt solid black;

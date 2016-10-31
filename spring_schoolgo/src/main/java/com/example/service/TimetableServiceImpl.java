@@ -37,11 +37,13 @@ public class TimetableServiceImpl implements TimetableService{
 
 	@Override
 	public int insert(TimetableTotal timetable) {
+		logger.trace("시간표 삽입 성공");
 		return tRepo.inserttotal(timetable);
 	}
 
 	@Override
 	public TimetableTotal gettotaltableInfo(String userId) {
+		logger.trace("시간표 가져오기 성공");
 		return tRepo.gettotaltableInfo(userId);
 	}
 

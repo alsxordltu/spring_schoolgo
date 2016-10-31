@@ -13,7 +13,11 @@
 		values(#{userId},
 		#{sMon}, #{sTue}, #{sWed}, #{sThu},
 		#{sFri},
+<<<<<<< HEAD
 		#{amon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
+=======
+		#{aMon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
+>>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 	</insert>
 
 
@@ -25,7 +29,7 @@
 
 	<select id="getTimetableTotalmapbyId" resultMap="getTimetableTotalmap"
 		parameterType="TimetableTotal">
-		select s_mon, s_tue, s_wed, s_thu, s_fri,
+		select user_id, s_mon, s_tue, s_wed, s_thu, s_fri,
 		a_mon, a_tue, a_wed, a_thu, a_fri
 		from timetabletotal where user_id = #{userId}
 	</select>
@@ -36,7 +40,7 @@
 	</delete>
 
 	<update id="update" parameterType="TimetableTotal">
-		update timetabletotal set
+		update timetabletotal set user_id=#{userId},
 		s_mon=#{sMon},s_tue=#{sTue},s_wed=#{sWed},s_thu=#{sThu},s_fri=#{sFri},
 		a_mon=#{aMon},a_tue=#{aTue},a_wed=#{aWed},a_thu=#{aThu},a_fri=#{aFri}
 		where user_id=#{userId}
