@@ -54,6 +54,12 @@ public class TimetableRepoImpl implements TimetableRepo{
 		return template.selectOne(stmt,userId);
 	}
 
+	@Override
+	public int update(TimetableTotal timetabletotal) {
+		String stmt = NAME_SPACE + "update";
+		return template.update(stmt,timetabletotal);
+	}
+
 
 	
 }

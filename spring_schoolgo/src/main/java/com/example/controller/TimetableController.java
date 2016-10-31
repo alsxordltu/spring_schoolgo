@@ -35,9 +35,9 @@ public class TimetableController {
 		// 1. userId 받아와서 기본객체 insert(get) - insertmapper만들기
 		timeinfo = new TimetableTotal(id,"0","0","0","0","0","0", "0", "0", "0", "0");
 		tService.insert(timeinfo);
-		logger.trace("초기화");
+		logger.trace("초기화 : {}", timeinfo);
 		}
-
+		logger.trace("셀렉 : {}", timeinfo);
 		// 2. resultmap/mapper 만들고 sform객체 넣어줌
 		
 		model.addAttribute("TimetableTotal",timeinfo);
@@ -59,14 +59,15 @@ public class TimetableController {
 		return "mypage/1timetable";
 	}
 	@RequestMapping(value="/updateTimetable", method = RequestMethod.POST)
-	public String updatetimetable(Model model, @ModelAttribute("TimetableTotal") TimetableTotal timeinfo) {
+	public String updatetimetable(Model model, @RequestParam String id, @ModelAttribute("TimetableTotal") TimetableTotal timeinfo) {
 		// 전체DTO
 		// 1. userId 받아와서 기본객체 insert(get)
 		// 2. select로 표시
 		// 3. 입력 후
 		// 4. 저장하기-> 각 값을 update(post)
-		
-		
+		model.addAttribute("TimetableTotal", timeinfo);
+		tService.update(timeinfo);
+		logger.trace("POST끝 timetableupdate 성공 >< updateinfo : {} ", timeinfo);
 		//sform-> modelAttribute 만들고 그 객체를 컨트롤러에서 받아와서 셋팅 / 업데이트
 		//id로 정보(객체) 가져오는 맵퍼랑 객체단위로 업데이트하는 맵퍼 만들어야됨
 		

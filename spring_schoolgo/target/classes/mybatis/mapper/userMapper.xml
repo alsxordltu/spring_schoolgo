@@ -28,6 +28,7 @@
 		update tuser set pass=#{pass},user_name=#{userName},nickname=#{nickName},email=#{email},phone_num=#{phoneNum} 
 		where user_id=#{userId}
 	</update>
+	
 	<delete id="delete" parameterType="user">
 		delete from tuser where user_id=#{userId} 
 	</delete>
