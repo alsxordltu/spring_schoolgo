@@ -98,9 +98,10 @@ public class MainController {
 		System.out.println("아헤헤 : " + map);
 		ObjectMapper mapper = new ObjectMapper();
 		
-		model.addAttribute("bus", mapper.writeValueAsString(map));
+		model.addAttribute("buslist", mapper.writeValueAsString(map));
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
+		model.addAttribute("routes", mapper.writeValueAsString(routes.get(0)));
 		return "goandcome/go";
 	}
 

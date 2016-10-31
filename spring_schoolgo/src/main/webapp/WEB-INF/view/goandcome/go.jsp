@@ -28,21 +28,21 @@
 					<h2 align="center">학교가기 페이지</h2>
 					<p align="center">버스와 전철 위치정보 여기다가</p>
 				</header>
-				<div>
+				<div id="busarrive">
 				
-				<table id="info">
+		<%-- 		<table id="info">
 		<tr><th>도시코드</th><th>정류소코드</th><th>정류소이름</th><th>버튼</th></tr>
 		<c:forEach var="result" items="${buslist }" varStatus="status">
 		
 		<tr>
-			<%-- <td><a href="<%=request.getContextPath()%>/EmpRetrieveServlet?empId=${employee.empId }">${employee.empId }</a></td> --%>
+			<td><a href="<%=request.getContextPath()%>/EmpRetrieveServlet?empId=${employee.empId }">${employee.empId }</a></td>
 			<td><input type="text" name="citycode${status.count }" value="${result.citycode }" ></td>
 			<td><input type="text" name="nodeid${status.count }" value="${result.nodeid }" ></td>
 			<td><input type="text" name="nodenm${status.count }" value="${result.nodenm }"></td>
-			<td><input type="button"  id="select" value="선택"  <%-- onclick="selectStation(${result.stationCode },${result.stationName })" --%> data-citycode="${result.citycode }"  data-nodeid="${result.nodeid }"></td>
+			<td><input type="button"  id="select" value="선택"  onclick="selectStation(${result.stationCode },${result.stationName })" data-citycode="${result.citycode }"  data-nodeid="${result.nodeid }"></td>
 		</tr>
 	</c:forEach>
-	</table>				
+	</table>				 --%>
 				
 				
 				
@@ -109,9 +109,26 @@
 
 </body>
 <script>
+var buslist;
+var routes;
+
 $(document).ready(function(){
-	var json = ${bus };
-	console.log(json);
+	var row = "";	
+	buslist = ${buslist };
+	routes = ${routes };
+	console.log(buslist);
+	console.log(routes);
+	/* var item = buslist.response.body.items;
+	console.log(item); */
+	
+	
+ 	$.each(json, function(index, item){		
+		
+		row+="";
+		
+	});	 
+	$("#busarrive").html(row);
+	
 });
 
 $(document).on("click", "#select", function(e){
