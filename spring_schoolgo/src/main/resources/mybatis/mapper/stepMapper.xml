@@ -19,20 +19,20 @@
 
 	<delete id="deleteStep" parameterType="int">
 		delete from step where
-		route_id=#{routeId}
+		rroute_id=#{routeId}
 	</delete>
 	
 	<!-- delete 2 -->
 	<delete id="deleteStepByRouteId" parameterType="int">
-		delete from step where route_id=#{routeId}
+		delete from step where sroute_id=#{routeId}
 	</delete>
 	
 
 	<select id="selectStep" resultMap="selectStep"
 		parameterType="route">
-		select step_id, route_id, vmode, 
+		select step_id, sroute_id, vmode, 
 		vehicle_info, step_name,
-		start_lat, start_lng, end_lat, end_lng,
+		sstart_lat, sstart_lng, send_lat, send_lng,
 		route_distance, route_time, seq
 		from step where step_id = #{stepId}
 	</select>
@@ -41,13 +41,13 @@
 	
 	<resultMap type="Step" id="selectStep">
 		<id column="step_id" property="stepId" />
-		<result column="route_id" property="routeId" />
+		<result column="sroute_id" property="routeId" />
 		<result column="vmode" property="vmode" />
 		<result column="step_name" property="stepName" />
-		<result column="start_lat" property="startLat" />
-		<result column="start_lng" property="startLng" />
-		<result column="end_lat" property="endLat" />
-		<result column="end_lng" property="endLng" />
+		<result column="sstart_lat" property="startLat" />
+		<result column="sstart_lng" property="startLng" />
+		<result column="send_lat" property="endLat" />
+		<result column="send_lng" property="endLng" />
 		<result column="route_distance" property="routeDistance" />
 		<result column="route_time" property="routeTime" />
 		<result column="seq" property="routeTime" />

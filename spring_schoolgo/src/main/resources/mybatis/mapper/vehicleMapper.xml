@@ -27,14 +27,14 @@
 	<!-- delete 1 -->
 	<delete id="deleteVehicleByStepId" parameterType="int">
 		delete from vehicle 
-		where step_id=#{stepId}
+		where vstep_id=#{stepId}
 	</delete>
 
 	<select id="selectVehicle" resultMap="selectVehicle"
 		parameterType="int">
-		select vehicle_id, step_id,
-		start_name, start_lat, start_lng,
-		end_lat, end_lng, end_name, 
+		select vehicle_id, vstep_id,
+		vstart_name, vstart_lat, vstart_lng,
+		vend_lat, vend_lng, vend_name, 
 		headsign,
 		vehicle_name, vehicle_num, vehicle_move
 		from vehicle where vehicle_id = #{vehicleId}
@@ -42,13 +42,13 @@
 	
 	<resultMap type="Vehicle" id="selectVehicle">
 		<id column="vehicle_id" property="vehicleId" />
-		<result column="step_id" property="stepId" />
-		<result column="start_name" property="startName" />
-		<result column="start_lat" property="startLat" />
-		<result column="start_lng" property="startLng" />
-		<result column="end_lat" property="endLat" />
-		<result column="end_lng" property="endLng" />
-		<result column="end_name" property="endName" />
+		<result column="vstep_id" property="stepId" />
+		<result column="vstart_name" property="startName" />
+		<result column="vstart_lat" property="startLat" />
+		<result column="vstart_lng" property="startLng" />
+		<result column="vend_lat" property="endLat" />
+		<result column="vend_lng" property="endLng" />
+		<result column="vend_name" property="endName" />
 		<result column="headsign" property="headsign" />
 		<result column="vehicle_name" property="vehicleName" />
 		<result column="vehicle_num" property="vehicleNum" />

@@ -84,6 +84,9 @@ public class MainController {
 	@RequestMapping(value = "/gotogo", method = RequestMethod.GET)
 	public String gotogo(@RequestParam("lat")String lat, @RequestParam("lng")String lng, @RequestParam("index")String index, Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException {
 		
+		System.out.println("위도 : " + lat);
+		System.out.println("경도 : " + lng);
+		
 		String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
 		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
 		requestUrl += "&gpsLati=" + lat;

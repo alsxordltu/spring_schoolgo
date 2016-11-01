@@ -118,10 +118,10 @@ $(document).ready(function(){
 	routes = ${routes };
 	var routeStep = routes.stepList;
 	var busStopList = buslist.response.body.items.item;
-	console.log(buslist);
+/* 	console.log(buslist);
 	console.log(routes);
 	console.log(routeStep);
-	console.log(busStopList);
+	console.log(busStopList); */
 	var vehicleListName = "";
 	var cityCode="";
 	var busStopId="";
@@ -138,11 +138,15 @@ $(document).ready(function(){
 		
 		$.each(vehicleList, function(index, item){
 			if(item.startName != null){
+				console.log(item.startName);
 				vehicleListName = item.startName;
 				vehicleNum = item.vehicleNum;
 				return false;
 			}
 		});
+		if(vehicleListName != ""){
+			return false;
+		}
 	});	 
 	
 	$.each(busStopList, function(index, item){

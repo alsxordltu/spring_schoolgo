@@ -51,6 +51,8 @@ public class LoginController {
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = rservice.getRouteUserId(userId);
 		ObjectMapper mapper = new ObjectMapper();
+		logger.trace("17th : {}", routes.get(16) );
+		
 			//String jsonData =  mapper.writeValueAsString(routes);
 		logger.trace("routeList : {}", mapper.writeValueAsString(routes));
 		model.addAttribute("routes", mapper.writeValueAsString(routes));
