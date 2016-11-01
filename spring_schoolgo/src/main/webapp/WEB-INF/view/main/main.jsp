@@ -29,7 +29,8 @@
                   <h2 align="center">루트 목록</h2>
                   <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
                </header>
-            </article>    
+            </article>
+                
             
                  
 			<form name="routenext" method="get" action="gotogo">
@@ -106,6 +107,7 @@
                <li><a href="#">Contact Me</a></li>
             </ul>
          </nav>
+            <input class="schoolgott" id="customtime"  type="text"/>
 
 
 
@@ -139,6 +141,18 @@
    <script src="main_js/main.js"></script>
    <script src="http://code.jquery.com/jquery.js"></script>
    <script>
+   
+	$('#customtime').timepicker({
+		timeFormat : 'HH:mm',
+		interval : 30,
+		minTime : '0',
+		maxTime : '11:30pm',
+		defaultTime : '0',
+		startTime : '0',
+		dynamic : false,
+		dropdown : true,
+		scrollbar : true
+	});
    var json = ${routes};
    console.log(json);
    var length = 1;

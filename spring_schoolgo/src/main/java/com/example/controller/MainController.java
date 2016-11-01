@@ -248,8 +248,11 @@ public class MainController {
 		  String busTime = request.getParameter("bustime");
 		  
 		  System.out.println(walkTime + " " + busTime);
-			
-		   return "success";
+		  int result = tservice.isLate(walkTime, busTime);
+		  //result = 1 이면 지각잼
+		  //지각아니면 result=적어도 출발해야되는시간까지 남은시간
+		  logger.trace("isLate : {}" , result);
+		   return "goandcome/go";
 	   }
 
 }
