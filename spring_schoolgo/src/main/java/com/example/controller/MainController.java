@@ -233,5 +233,17 @@ public class MainController {
 			
 		   return mapper.writeValueAsString(buslist);
 	   }
+	
+	@RequestMapping(value = "/carDepartTime", method = RequestMethod.GET, produces="application/text; charset=utf8")
+	   public @ResponseBody String carDepartTime(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+		   request.setCharacterEncoding("UTF-8");
+		   response.setContentType("text/html;charset=UTF-8");
+		  String walkTime = request.getParameter("walkTime");
+		  String busTime = request.getParameter("bustime");
+		  
+		  System.out.println(walkTime + " " + busTime);
+			
+		   return "success";
+	   }
 
 }

@@ -50,7 +50,7 @@
 		<result column="send_lng" property="endLng" />
 		<result column="route_distance" property="routeDistance" />
 		<result column="route_time" property="routeTime" />
-		<result column="seq" property="routeTime" />
+		<result column="seq" property="seq" />
 	</resultMap>
 	
 

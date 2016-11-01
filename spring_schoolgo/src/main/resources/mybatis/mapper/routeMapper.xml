@@ -76,7 +76,7 @@
 		s.step_id, s.sroute_id, s.vmode,
 		s.step_name, s.sstart_lat, s.sstart_lng,
 		s.send_lat, s.send_lng,
-		s.route_distance, s.route_time, s.seq,
+		s.route_distance, s.route_time, s.route_time,
 		v.vehicle_id, v.vstep_id,
 		v.vstart_lat, v.vstart_lng, v.vstart_name,
 		v.vend_lat, v.vend_lng,

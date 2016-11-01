@@ -126,9 +126,13 @@ $(document).ready(function(){
 	var cityCode="";
 	var busStopId="";
 	var vehicleNum="";
+	var bustime="";
+	
 	
 	/* var item = buslist.response.body.items;
 	console.log(item); */
+	
+	
 	
 	
  	$.each(routeStep, function(index, item){		
@@ -166,6 +170,7 @@ $(document).ready(function(){
 				nodeId : busStopId,
 				vehicleNum : vehicleNum
 		},
+		async:false,
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
 			console.log(response);
@@ -173,24 +178,42 @@ $(document).ready(function(){
 			console.log(json);
 			var row ="";
 			$.each(json, function(index, item){
+				if(item.routeno == vehicleNum){
+					bustime = item.arrtime;
+					console.log(bustime);
+					
+				}
 				row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
 				
 			});
 			$("#busarrive").html(row);	
-			
-			/* var row="";
-			$.each(json, function(index, item){	
-				row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "'><input type='button' id='routed"+index + "' class='group' name='group' value='삭제' data-routeId='"+ json[index].routeId +"'></div><br> ";			
-			}); */
-			//showList();
-			
-			
 			
 		},
 	 	error:function(xhr, status, error){
          console.log(error);
       }
 	});
+	
+	$.ajax({
+		url:"carDepartTime",
+		type:"get",
+		async:false,
+		data:{ walkTime : routeStep[0].routeTime, 
+				
+			bustime : bustime
+		},
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		success:function(response){
+			
+			console.log(routeStep[0].routeTime);
+			console.log("다" + bustime);
+			console.log(response);
+		},
+	 	error:function(xhr, status, error){
+         console.log(error);
+      }
+	});
+	
 
 });
 
