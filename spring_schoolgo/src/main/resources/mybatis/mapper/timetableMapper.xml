@@ -11,7 +11,8 @@
 		insert into
 		timetabletotal
 		values(#{userId},
-		#{sMon}, #{sTue}, #{sWed}, #{sThu}, #{sFri},
+		#{sMon}, #{sTue}, #{sWed}, #{sThu},
+		#{sFri},
 		#{aMon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
 	</insert>
 

@@ -116,19 +116,78 @@ $(document).ready(function(){
 	var row = "";	
 	buslist = ${buslist };
 	routes = ${routes };
+	var routeStep = routes.stepList;
+	var busStopList = buslist.response.body.items.item;
 	console.log(buslist);
 	console.log(routes);
+	console.log(routeStep);
+	console.log(busStopList);
+	var vehicleListName = "";
+	var cityCode="";
+	var busStopId="";
+	var vehicleNum="";
+	
 	/* var item = buslist.response.body.items;
 	console.log(item); */
 	
 	
- 	$.each(json, function(index, item){		
+ 	$.each(routeStep, function(index, item){		
 		
-		row+="";
+		var vehicleList = item.vehicleList;
+		console.log(vehicleList);
 		
+		$.each(vehicleList, function(index, item){
+			if(item.startName != null){
+				vehicleListName = item.startName;
+				vehicleNum = item.vehicleNum;
+				return false;
+			}
+		});
 	});	 
-	$("#busarrive").html(row);
 	
+	$.each(busStopList, function(index, item){
+		if(item.nodenm == vehicleListName){
+			
+			busStopId = item.nodeid;
+			cityCode = item.citycode;
+			return false;
+		}
+	});
+	
+	$.ajax({
+		url:"getRouteId",
+		type:"get",
+		
+		data:{ cityCode : cityCode, 
+				nodeId : busStopId,
+				vehicleNum : vehicleNum
+		},
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		success:function(response){
+			console.log(response);
+			json = JSON.parse(response);
+			console.log(json);
+			var row ="";
+			$.each(json, function(index, item){
+				row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
+				
+			});
+			$("#busarrive").html(row);	
+			
+			/* var row="";
+			$.each(json, function(index, item){	
+				row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "'><input type='button' id='routed"+index + "' class='group' name='group' value='삭제' data-routeId='"+ json[index].routeId +"'></div><br> ";			
+			}); */
+			//showList();
+			
+			
+			
+		},
+	 	error:function(xhr, status, error){
+         console.log(error);
+      }
+	});
+
 });
 
 $(document).on("click", "#select", function(e){
