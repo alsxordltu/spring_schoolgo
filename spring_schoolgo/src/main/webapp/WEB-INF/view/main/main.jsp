@@ -28,9 +28,10 @@
                <header>
                   <h2 align="center">루트 목록</h2>
                   <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
+                  
                </header>
             </article>
-                
+                <input class="schoolgott" id="customtime"  type="text"/>
             
                  
 			<form name="routenext" method="get" action="gotogo">
@@ -107,7 +108,6 @@
                <li><a href="#">Contact Me</a></li>
             </ul>
          </nav>
-            <input class="schoolgott" id="customtime"  type="text"/>
 
 
 
@@ -140,6 +140,8 @@
    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
    <script src="main_js/main.js"></script>
    <script src="http://code.jquery.com/jquery.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+   
    <script>
    
 	$('#customtime').timepicker({
