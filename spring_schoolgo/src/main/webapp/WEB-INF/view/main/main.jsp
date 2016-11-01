@@ -200,11 +200,7 @@ $(document).on("click", ".routelist", function(){
    
    
    $("#div"+index).html($("#div"+index).html() + add);
-<<<<<<< HEAD
-   
 
-=======
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 });
 
    
@@ -256,9 +252,6 @@ $(document).on("click", ".gotoschool", function(){
    location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index");
          });
    </script>
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 </body>
 </html>
