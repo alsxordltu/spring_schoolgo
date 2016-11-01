@@ -16,8 +16,7 @@
 <link rel="stylesheet" href="main_css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-<script
-   src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=29d53ec8-b46f-3a50-b122-6bf04dea52e0"></script>
+
 </head>
 <body>
 
@@ -179,7 +178,7 @@ $(document).on("click", ".routelist", function(){
    calMin = calTime%60 + '분 ';
    console.log(json[index].startLat);
    console.log(json[index].startLng);
-   
+ 
    
 
    var routeStep = json[index].stepList;
@@ -198,15 +197,31 @@ $(document).on("click", ".routelist", function(){
    
    console.log(stepLat);
    console.log(stepLng);
-
-   
-   
-   var add ="<div id='info'><div id='infostartend'><img id='startendimg' src='main_img/start.png' width='10%'/><img id='startendimg' src='main_img/end.png' width='10%'/></div>"
-	       +"<div id='infoalltime'>"+calHour + calMin + "소요</div></div>"
-	   
+   console.log(json[index].startAddress);
+   var startadd =json[index].startAddress;
+   var endadd =json[index].arriveAddress;
    
    
    
+   var add ="<div id='info'>"
+   +"<div id='infostartend'>"
+   +"<div id='infostart'>"
+   +"<img id='startendimg' src='main_img/start.png' width='10%'/><h6>"+startadd+"</h6></div>"
+   +"<div id='infoend'>"
+   +"<img id='startendimg' src='main_img/end.png' width='10%'/><h6>"+endadd+"</h6></div></div>"
+   +"<div id='infoalltime'>"+calHour + calMin + "소요</div></div>"
+   
+   
+   +"<input id='schoolradio' type='radio' name='radio' class='radio'><label for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<span>학교가기</span></label>"
+   +"<input id='albaradio' type='radio' name='radio' class='radio'><label for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<span>알바가기</span></label>"
+   +"<input id='customradio' type='radio' name='radio' class='radio'><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<span>사용자 지정 시간</span></label>"
+   
+   +"<input type='text' name='radio' class='radio'><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<span>사용자 지정 시간</span></label>"
+ 
    
    
    +"<input type='button' class='gotoschool' value='등교'"
@@ -268,6 +283,31 @@ $(document).on("click", ".group",  function(){
 $(document).on("click", ".gotoschool", function(){
    location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index");
          });
+         
+         
+$(document).on("click", ".customradio", function(){
+	   
+	         });
+	                 
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
    </script>
 
 </body>
