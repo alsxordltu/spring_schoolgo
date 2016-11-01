@@ -196,7 +196,20 @@ public class MainController {
 			Map<String, Object> items =  (Map)body.get("items");
 			List<Map> item = (List)items.get("item");
 			System.out.println("ajax로 넘어온 버스 노선번호 : " + vehicleNum);
-     		for(Map<String, Object> busArriveList : item){
+			
+			for(Map<String, Object> busArriveList : item){
+				routeno = busArriveList.get("routeno").toString();
+				
+					arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
+					arrtime = busArriveList.get("arrtime").toString();
+					nodenm = busArriveList.get("nodenm").toString();
+					BusArrive bus = new BusArrive(arrprevstationcnt, arrtime, nodenm, routeno);
+					buslist.add(bus);
+					
+				
+				
+			}
+     		/*for(Map<String, Object> busArriveList : item){
 				routeno = busArriveList.get("routeno").toString();
 				System.out.println("버스 노선번호 : " + routeno);
 				if(routeno.equals(vehicleNum)){
@@ -210,18 +223,8 @@ public class MainController {
 					
 					continue;
 				}
-			}
+			}*/
 			
-			
-			 
-		   /*Integer myrouteId = Integer.parseInt(routeId);
-		   Route route = rService.getRouteDetail(myrouteId);
-		   rService.deleteRoute(route);
-		   String userId = (String)session.getAttribute("userId");
-			ObjectMapper mapper = new ObjectMapper();
-			List<String> routenames = rService.selectRouteNameListUserId(userId);*/
-			
-		   
 		   return mapper.writeValueAsString(buslist);
 	   }
 
