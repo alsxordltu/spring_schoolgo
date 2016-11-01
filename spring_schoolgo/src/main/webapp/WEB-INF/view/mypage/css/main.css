@@ -9,6 +9,48 @@
 
 /* Reset */
 
+/* 학교,알바가기 div */
+
+#schoolgottdiv{
+		width:100%;
+	height:50px;
+}
+
+#leftdiv{
+	width:10%;
+	height:50px;
+	float:left;
+}
+
+#godiv{
+	
+	width:18%;
+	height:50px;
+	float:left;
+}
+
+
+
+#albagottdiv{
+		width:100%;
+	height:50px;
+}
+
+
+
+
+
+
+.schoolgott{
+	float:left;
+	
+}
+
+.albagott{
+	float:left;
+}
+
+
 
 
 #timetable{
