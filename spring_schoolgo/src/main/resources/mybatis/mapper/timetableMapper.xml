@@ -11,13 +11,8 @@
 		insert into
 		timetabletotal
 		values(#{userId},
-		#{sMon}, #{sTue}, #{sWed}, #{sThu},
-		#{sFri},
-<<<<<<< HEAD
-		#{amon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
-=======
+		#{sMon}, #{sTue}, #{sWed}, #{sThu}, #{sFri},
 		#{aMon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 	</insert>
 
 

@@ -96,11 +96,13 @@
 	<div id="sidebar">
 
 		<!-- Logo -->
-		<h1 id="logo">
-			<a href="gotomain"><img src="insert_img/gogo.png" width="150px"
-				alt="" /></a>
-		</h1>
-
+       <h1 id="logo">
+         <a href="gotomain"><img src="main_img/gogowhite.png"
+            width="150px" alt="" /></a>
+      </h1>
+      <form name="logout" action="logout">
+         <h5 style="text-align: center">${nickName}님환영합니다</h5>
+         
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
@@ -128,7 +130,8 @@
 			</ul>
 		</section>
 
-
+	<input type="submit" value="로그아웃">
+ </form>
 
 
 		<!-- Copyright -->

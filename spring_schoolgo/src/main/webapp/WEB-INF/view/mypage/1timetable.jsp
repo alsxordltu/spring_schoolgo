@@ -40,7 +40,7 @@
 
             <h2>월화수목금</h2>
             <p>	
-            	<sform:input type="text"  path="userId" placeholder="userId"/> 
+          userId<sform:input type="text"  path="userId" placeholder="userId"/> 
                학교가기 <sform:input id="school_mon"  type="text" path="sMon" placeholder="sMon" />  
                	<sform:input id="school_tue" type="text"  path="sTue" placeholder="sTue"/> 
                	<sform:input id="school_wed" type="text"  path="sWed" placeholder="sWed"/> 

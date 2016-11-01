@@ -2335,7 +2335,8 @@ ol.default li {
 	#logo a {
 		display: block;
 		background-color: #c94663;
-		/* padding: 0.875em 0.25em; */
+		background-image: url("../main_img/bg01.png");
+		padding: 1em 1em 0.5em 1.5em;
 		border-radius: 0.2em;
 		text-align: center;
 		box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15), 0 0.025em
