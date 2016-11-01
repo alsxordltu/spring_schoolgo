@@ -1,9 +1,12 @@
 package com.example.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.dto.BusArrive;
 import com.example.dto.Route;
 import com.example.service.RouteService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -78,7 +82,7 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/gotogo", method = RequestMethod.GET)
-	public String gotogo(@RequestParam("lat")String lat, @RequestParam("lng")String lng, Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException {
+	public String gotogo(@RequestParam("lat")String lat, @RequestParam("lng")String lng, @RequestParam("index")String index, Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException {
 		
 		String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
 		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
@@ -101,7 +105,7 @@ public class MainController {
 		model.addAttribute("buslist", mapper.writeValueAsString(map));
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
-		model.addAttribute("routes", mapper.writeValueAsString(routes.get(0)));
+		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
 		return "goandcome/go";
 	}
 
@@ -153,5 +157,72 @@ public class MainController {
 	public String gotomyactivity() {
 		return "mypage/5myactivity";
 	}
+	
+	@RequestMapping(value = "/getRouteId", method = RequestMethod.GET, produces="application/text; charset=utf8")
+	   public @ResponseBody String getRouteId(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+		   request.setCharacterEncoding("UTF-8");
+		   response.setContentType("text/html;charset=UTF-8");
+		   ObjectMapper mapper = new ObjectMapper();
+		   String citycode = request.getParameter("cityCode");
+		   String nodeId = request.getParameter("nodeId");
+		   String vehicleNum = request.getParameter("vehicleNum");
+		   
+		   String requestUrl = "http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?";
+			requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
+			requestUrl += "&cityCode=" + citycode;
+			requestUrl += "&nodeId=" + nodeId;
+			requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
+			
+			RestTemplate template = new RestTemplate();
+			
+			URI url = URI.create(requestUrl);
+			RequestEntity<Void> reqEntity
+			= RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8).acceptCharset(Charset.forName("UTF-8")).build();
+
+			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+			HashMap<String, Object> map = resEntity.getBody();
+			System.out.println(requestUrl);
+			System.out.println(map);
+			
+
+			String arrprevstationcnt = "";
+			String arrtime = "";
+			String nodenm = "";
+			String routeno = "";
+			List<BusArrive> buslist = new ArrayList<>();
+			
+			Map<String, Object> responseTxt =  (Map)map.get("response");
+			Map<String, Object> body =  (Map)responseTxt.get("body");
+			Map<String, Object> items =  (Map)body.get("items");
+			List<Map> item = (List)items.get("item");
+			System.out.println("ajax로 넘어온 버스 노선번호 : " + vehicleNum);
+     		for(Map<String, Object> busArriveList : item){
+				routeno = busArriveList.get("routeno").toString();
+				System.out.println("버스 노선번호 : " + routeno);
+				if(routeno.equals(vehicleNum)){
+					
+					System.out.println(routeno + " " + vehicleNum);
+					arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
+					arrtime = busArriveList.get("arrtime").toString();
+					nodenm = busArriveList.get("nodenm").toString();
+					BusArrive bus = new BusArrive(arrprevstationcnt, arrtime, nodenm, routeno);
+					buslist.add(bus);
+					
+					continue;
+				}
+			}
+			
+			
+			 
+		   /*Integer myrouteId = Integer.parseInt(routeId);
+		   Route route = rService.getRouteDetail(myrouteId);
+		   rService.deleteRoute(route);
+		   String userId = (String)session.getAttribute("userId");
+			ObjectMapper mapper = new ObjectMapper();
+			List<String> routenames = rService.selectRouteNameListUserId(userId);*/
+			
+		   
+		   return mapper.writeValueAsString(buslist);
+	   }
 
 }

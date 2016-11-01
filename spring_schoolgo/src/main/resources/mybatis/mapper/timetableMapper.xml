@@ -7,14 +7,14 @@
 		values(#{userId}, #{mon}, #{tue}, #{wed}, #{thu}, #{fri}, #{scheduleType}) 
 		</insert> -->
 
-  <insert id="insertTotal" parameterType="TimetableTotal">
-      insert into
-      timetabletotal
-      values(#{userId},
-      #{sMon}, #{sTue}, #{sWed}, #{sThu},
-      #{sFri},
-      #{aMon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
-   </insert>
+	<insert id="insertTotal" parameterType="TimetableTotal">
+		insert into
+		timetabletotal
+		values(#{userId},
+		#{sMon}, #{sTue}, #{sWed}, #{sThu},
+		#{sFri},
+		#{aMon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
+	</insert>
 
 
 	<!-- <select id="select" resultMap="selectTimetablemap" parameterType="string"> 

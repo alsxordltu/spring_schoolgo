@@ -3,9 +3,9 @@
 <!DOCTYPE HTML>
 
 <!--
-	Striped by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+   Striped by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 <head>
@@ -17,14 +17,13 @@
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
 <script
-	src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=29d53ec8-b46f-3a50-b122-6bf04dea52e0"></script>
+   src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=29d53ec8-b46f-3a50-b122-6bf04dea52e0"></script>
 <script type="text/javascript">
  
             var map;
             var mapW, mapH;     // 지도의 가로, 세로 크기(Pixel단위) 를 지정 합니다. 
             var cLonLat, zoom;      //중심 좌표와 지도레벨을 정의 합니다. 
-             
-           
+                       
              
             function initTmap(){
                 centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
@@ -75,308 +74,309 @@
 </head>
 <body onload="initTmap()">
 
-	<!-- Content -->
-	<div id="content">
-		<div class="inner">
-			<!-- Post -->
-			<article class="box post post-excerpt">
-						<article class="box post post-excerpt">
-				<header>
-					<h2 align="center">루트 목록</h2>
-					<p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ 
-					
-					
-				</header>
-			</article>
-			<form name="routenext" method="get" action="gotogo">
-				<input type="submit" value="민택아 여기 등교">
-				</form>
-				<input type="text" id="selectedString">
-				<div id=schoolgo>
-				
-				
-				</div>
-
-			</article>
+   <!-- Content -->
+   <div id="content">
+      <div class="inner">
+         <!-- Post -->
+<!--          <article class="box post post-excerpt"> -->
+            <article class="box post post-excerpt">
+               <header>
+                  <h2 align="center">루트 목록</h2>
+                  <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
+               </header>
+            </article>         
+<form name="routenext" method="get" action="gotogo">
+            </form>
+            <div id=schoolgo>
+            </div>
 
 
+<!--          <article id=whether>
+            <div>
+               <h1>오늘의 날씨 정보 출력 : 집 위치</h1>
+            </div>
+         </article>-->
+<!--          <article id=toeic>
+            <div>
+               <h1>오늘의 영단어 : 네이버 오늘의영단어</h1>
+            </div>
+         </article>-->
 
-			<article id=whether>
-				<div>
-					<h1>오늘의 날씨 정보 출력 : 집 위치</h1>
-
-				</div>
-			</article>
-
-
-
-			<article id=toeic>
-				<div>
-					<h1>오늘의 영단어 : 네이버 오늘의영단어</h1>
-
-				</div>
-			</article>
+<!-- 
+         <article>
+            <span class="image"> <img src="main_img/pic04.jpg" alt="" />
+            </span>
+            <header class="major">
+               <h3>
+                  <a href="landing.html" class="link">Ipsum</a>
+               </h3>
+               <p>Nisl sed aliquam</p>
+            </header>
+         </article>
 
 
 
-			<article>
-				<span class="image"> <img src="main_img/pic04.jpg" alt="" />
-				</span>
-				<header class="major">
-					<h3>
-						<a href="landing.html" class="link">Ipsum</a>
-					</h3>
-					<p>Nisl sed aliquam</p>
-				</header>
-			</article>
-
-
-
-			<article>
-				<div id="map_div"></div>
-			</article>
+         <article>
+            <div id="map_div"></div>
+         </article> -->
 
 
 
 
 
 
-			<!-- Post -->
-			<article class="box post post-excerpt">
-				<header> </header>
+         <!-- Post -->
+         <article class="box post post-excerpt">
+            <header> </header>
 
-			</article>
-
-
-		</div>
-	</div>
-
-	<!-- Sidebar -->
-	<div id="sidebar">
-
-		<!-- Logo -->
-		<h1 id="logo">
-			<a href="gotomain"><img src="main_img/gogowhite.png"
-				width="150px" alt="" /></a>
-		</h1>
-		<form name="logout" action="logout">
-			<h5 style="text-align: center">${nickName}님환영합니다</h5>
+         </article>
 
 
-			<!-- Nav -->
-			<nav id="nav">
-				<ul>
-					<li class="current"><a href="gotomain">학교가기</a></li>
-					<li><a href="gotoinsertroute">루트등록</a></li>
-					<li><a href="gotoboardmain">루트공유</a></li>
-					<li><a href="#">Contact Me</a></li>
-				</ul>
-			</nav>
+      </div>
+   </div>
+
+   <!-- Sidebar -->
+   <div id="sidebar">
+
+      <!-- Logo -->
+      <h1 id="logo">
+         <a href="gotomain"><img src="main_img/gogowhite.png"
+            width="150px" alt="" /></a>
+      </h1>
+      <form name="logout" action="logout">
+         <h5 style="text-align: center">${nickName}님환영합니다</h5>
+
+
+         <!-- Nav -->
+         <nav id="nav">
+            <ul>
+               <li class="current"><a href="gotomain">학교가기</a></li>
+               <li><a href="gotoinsertroute">루트등록</a></li>
+               <li><a href="gotoboardmain">루트공유</a></li>
+               <li><a href="#">Contact Me</a></li>
+            </ul>
+         </nav>
 
 
 
-			<!-- Recent Posts -->
-			<section class="box recent-posts">
-				<header>
-					<h2>마이페이지</h2>
-				</header>
-				<ul>
-					<li><a href="updateTimetable?id=${userId}">시간표 등록</a></li>
-					<li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
-					<li><a href="gotoroutemanager">루트관리</a></li>
-					<li><a href="gotocostcal">교통비 가계부</a></li>
-					<li><a href="gotomyactivity">활동내역</a></li>
-				</ul>
-			</section>
-			<input type="submit" value="로그아웃">
-		</form>
+         <!-- Recent Posts -->
+         <section class="box recent-posts">
+            <header>
+               <h2>마이페이지</h2>
+            </header>
+            <ul>
+               <li><a href="updateTimetable?id=${userId}">시간표 등록</a></li>
+               <li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
+               <li><a href="gotoroutemanager">루트관리</a></li>
+               <li><a href="gotocostcal">교통비 가계부</a></li>
+               <li><a href="gotomyactivity">활동내역</a></li>
+            </ul>
+         </section>
+         <input type="submit" value="로그아웃">
+      </form>
 
-		<!-- Recent Comments -->
-		<!-- 	<section class="box recent-comments">
-						<header>
-							<h2>Recent Comments</h2>
-						</header>
-						<ul>
-							<li>case on <a href="#">Lorem ipsum dolor</a></li>
-							<li>molly on <a href="#">Sed dolore magna</a></li>
-							<li>case on <a href="#">Sed dolore magna</a></li>
-						</ul>
-					</section> -->
+      <!-- Recent Comments -->
+      <!--    <section class="box recent-comments">
+                  <header>
+                     <h2>Recent Comments</h2>
+                  </header>
+                  <ul>
+                     <li>case on <a href="#">Lorem ipsum dolor</a></li>
+                     <li>molly on <a href="#">Sed dolore magna</a></li>
+                     <li>case on <a href="#">Sed dolore magna</a></li>
+                  </ul>
+               </section> -->
 
-		<!-- Calendar -->
-		<!-- <section class="box calendar">
-						<div class="inner">
-							<table>
-								<caption>July 2014</caption>
-								<thead>
-									<tr>
-										<th scope="col" title="Monday">M</th>
-										<th scope="col" title="Tuesday">T</th>
-										<th scope="col" title="Wednesday">W</th>
-										<th scope="col" title="Thursday">T</th>
-										<th scope="col" title="Friday">F</th>
-										<th scope="col" title="Saturday">S</th>
-										<th scope="col" title="Sunday">S</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td colspan="4" class="pad"><span>&nbsp;</span></td>
-										<td><span>1</span></td>
-										<td><span>2</span></td>
-										<td><span>3</span></td>
-									</tr>
-									<tr>
-										<td><span>4</span></td>
-										<td><span>5</span></td>
-										<td><a href="#">6</a></td>
-										<td><span>7</span></td>
-										<td><span>8</span></td>
-										<td><span>9</span></td>
-										<td><a href="#">10</a></td>
-									</tr>
-									<tr>
-										<td><span>11</span></td>
-										<td><span>12</span></td>
-										<td><span>13</span></td>
-										<td class="today"><a href="#">14</a></td>
-										<td><span>15</span></td>
-										<td><span>16</span></td>
-										<td><span>17</span></td>
-									</tr>
-									<tr>
-										<td><span>18</span></td>
-										<td><span>19</span></td>
-										<td><span>20</span></td>
-										<td><span>21</span></td>
-										<td><span>22</span></td>
-										<td><a href="#">23</a></td>
-										<td><span>24</span></td>
-									</tr>
-									<tr>
-										<td><a href="#">25</a></td>
-										<td><span>26</span></td>
-										<td><span>27</span></td>
-										<td><span>28</span></td>
-										<td class="pad" colspan="3"><span>&nbsp;</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</section> -->
+      <!-- Calendar -->
+      <!-- <section class="box calendar">
+                  <div class="inner">
+                     <table>
+                        <caption>July 2014</caption>
+                        <thead>
+                           <tr>
+                              <th scope="col" title="Monday">M</th>
+                              <th scope="col" title="Tuesday">T</th>
+                              <th scope="col" title="Wednesday">W</th>
+                              <th scope="col" title="Thursday">T</th>
+                              <th scope="col" title="Friday">F</th>
+                              <th scope="col" title="Saturday">S</th>
+                              <th scope="col" title="Sunday">S</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td colspan="4" class="pad"><span>&nbsp;</span></td>
+                              <td><span>1</span></td>
+                              <td><span>2</span></td>
+                              <td><span>3</span></td>
+                           </tr>
+                           <tr>
+                              <td><span>4</span></td>
+                              <td><span>5</span></td>
+                              <td><a href="#">6</a></td>
+                              <td><span>7</span></td>
+                              <td><span>8</span></td>
+                              <td><span>9</span></td>
+                              <td><a href="#">10</a></td>
+                           </tr>
+                           <tr>
+                              <td><span>11</span></td>
+                              <td><span>12</span></td>
+                              <td><span>13</span></td>
+                              <td class="today"><a href="#">14</a></td>
+                              <td><span>15</span></td>
+                              <td><span>16</span></td>
+                              <td><span>17</span></td>
+                           </tr>
+                           <tr>
+                              <td><span>18</span></td>
+                              <td><span>19</span></td>
+                              <td><span>20</span></td>
+                              <td><span>21</span></td>
+                              <td><span>22</span></td>
+                              <td><a href="#">23</a></td>
+                              <td><span>24</span></td>
+                           </tr>
+                           <tr>
+                              <td><a href="#">25</a></td>
+                              <td><span>26</span></td>
+                              <td><span>27</span></td>
+                              <td><span>28</span></td>
+                              <td class="pad" colspan="3"><span>&nbsp;</span></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </section> -->
 
-		<!-- Copyright -->
-		<ul id="copyright">
-			<li>&copy; Untitled.</li>
-			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-		</ul>
-	</div>
-	
+      <!-- Copyright -->
+      <ul id="copyright">
+         <li>&copy; Untitled.</li>
+         <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+   </div>
+   
 
-	<!-- Scripts -->
-	<script src="main_js/jquery.min.js"></script>
-	<script src="main_js/skel.min.js"></script>
-	<script src="main_js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="main_js/main.js"></script>
-	<script src="http://code.jquery.com/jquery.js"></script>
-	<script>
-	var json = ${routes};
-	console.log(json);
-	var length = 1;
-	
-	function showList(){
-		  var row="";
-		  
-			$.each(json, function(index, item){		
-				
-				row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"'><br></div><br> ";
-				
-			});		
-			$("#schoolgo").html(row);
-	}
-	
+   <!-- Scripts -->
+   <script src="main_js/jquery.min.js"></script>
+   <script src="main_js/skel.min.js"></script>
+   <script src="main_js/util.js"></script>
+   <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+   <script src="main_js/main.js"></script>
+   <script src="http://code.jquery.com/jquery.js"></script>
+   <script>
+   var json = ${routes};
+   console.log(json);
+   var length = 1;
+   
+   function showList(){
+        var row="";
+        
+         $.each(json, function(index, item){      
+            
+            row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"'><br></div><br> ";
+            
+         });      
+         $("#schoolgo").html(row);
+   }
+   
 
 $(document).ready(function() {
-		
-		showList();
-		
-		
-	});
-	
+      
+      showList();
+      
+      
+   });
+   
 $(document).on("click", ".routelist", function(){
-	
-	
-	showList();
-	var index = $(this).attr("data-index");
-	var calTime = Math.floor(json[index].time / 60);
-	var calHour ="";
-	var calMin="";
-/* 	if(caltime >= 60){
-		var hour
-	} */
-	
-	if (calTime >= 60) {
-		calHour = Math.floor(calTime / 60) + '시간 ';
-		
+   
+   
+   showList();
+   var index = $(this).attr("data-index");
+   var calTime = Math.floor(json[index].time / 60);
+   var calHour ="";
+   var calMin="";
+/*    if(caltime >= 60){
+      var hour
+   } */
+   
+   if (calTime >= 60) {
+      calHour = Math.floor(calTime / 60) + '시간 ';
+      
     }
+<<<<<<< HEAD
+   calMin = calTime%60 + '분 ';
+   console.log(json[index].startLat);
+   console.log(json[index].startLng);
+   
+   var add = calHour + calMin + "소요  <input type='button' class='gotoschool' value='등교' data-lat='"+ json[index].startLat+"' data-lng='"+ json[index].startLng +"' data-index='"+index+"'><input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
+   $("#div"+index).html($("#div"+index).html() + add);
+   
+=======
 	calMin = calTime%60 + '분 ';
 	console.log(json[index].startLat);
 	console.log(json[index].startLng);
 	
-	var add = calHour + calMin + "소요  <input type='button' class='gotoschool' value='등교' data-lat='"+ json[index].startLat+"' data-lng='"+ json[index].startLng +"'><input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
+	var add = calHour + calMin + "소요  <input type='button' class='gotoschool' value='등교' data-lat='"+ json[index].startLat+"' data-lng='"+ json[index].startLng +"' data-index='"+index+"'><input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
 	$("#div"+index).html($("#div"+index).html() + add);
 	
+>>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 });
 
-	
+   
 $(document).on("click", ".group",  function(){
-	
-	var row="";
-	$.ajax({
-		url:"deleteRoute",
-		type:"get",
-		
-		data:{ routeId : ($(this).attr("data-routeId")) },
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		success:function(response){
-			json = JSON.parse(response);
-			console.log(json);
-			/* var row="";
-			$.each(json, function(index, item){	
-				row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "'><input type='button' id='routed"+index + "' class='group' name='group' value='삭제' data-routeId='"+ json[index].routeId +"'></div><br> ";			
-			}); */
-			showList();
-			
-			
-			 //location.href='<%=request.getContextPath()%>/gotomain';
-		},
-	 	error:function(xhr, status, error){
+   
+   var row="";
+   $.ajax({
+      url:"deleteRoute",
+      type:"get",
+      
+      data:{ routeId : ($(this).attr("data-routeId")) },
+      contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+      success:function(response){
+         json = JSON.parse(response);
+         console.log(json);
+         /* var row="";
+         $.each(json, function(index, item){   
+            row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "'><input type='button' id='routed"+index + "' class='group' name='group' value='삭제' data-routeId='"+ json[index].routeId +"'></div><br> ";         
+         }); */
+         showList();
+         
+         
+          //location.href='<%=request.getContextPath()%>/gotomain';
+      },
+       error:function(xhr, status, error){
          console.log(error);
       }
-	});
-	
-	
+   });
+   
+   
 });
-	
-		$(function() {
-			// Geolocation API에 액세스할 수 있는지를 확인
-			if (navigator.geolocation) {
-				//위치 정보를 얻기
-				navigator.geolocation.getCurrentPosition(function(pos) {
-					$('#latitude').html(pos.coords.latitude); // 위도
-					$('#longitude').html(pos.coords.longitude); // 경도
-					//console.log(pos.coords.latitude, pos.coords.longitude);
-				});
-			} else {
-				alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-			}
+   
+      $(function() {
+         // Geolocation API에 액세스할 수 있는지를 확인
+         if (navigator.geolocation) {
+            //위치 정보를 얻기
+            navigator.geolocation.getCurrentPosition(function(pos) {
+               $('#latitude').html(pos.coords.latitude); // 위도
+               $('#longitude').html(pos.coords.longitude); // 경도
+               //console.log(pos.coords.latitude, pos.coords.longitude);
+            });
+         } else {
+            alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+         }
 
-		});
-		
+      });
+      
 $(document).on("click", ".gotoschool", function(){
-	location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng");
-});
+<<<<<<< HEAD
+   location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index");
+         });
+   </script>
+=======
+	location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index");
+			});
 	</script>
+>>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 </body>
 </html>
