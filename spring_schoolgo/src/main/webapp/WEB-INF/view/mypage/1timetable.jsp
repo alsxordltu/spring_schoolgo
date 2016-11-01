@@ -14,8 +14,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="my_css/main.css" />
-<link rel="stylesheet"
-	href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <%
@@ -37,53 +35,227 @@
 					</h2>
 				</header>
 			</article>
-
-			<sform:form method="post" action="updateTimetable"
-				modelAttribute="TimetableTotal">
-
-				<h2>월화수목금</h2>
-				<p>
-					userId
+			<div id=timetable>
+				<sform:form method="post" action="updateTimetable"
+					modelAttribute="TimetableTotal">
+					<p>userId
 					<sform:input type="text" path="userId" placeholder="userId" />
-					학교가기
-					<sform:input id="school_mon" type="text" path="sMon"
-						placeholder="sMon" />
-					<sform:input id="school_tue" type="text" path="sTue"
-						placeholder="sTue" />
-					<sform:input id="school_wed" type="text" path="sWed"
-						placeholder="sWed" />
-					<sform:input id="school_thu" type="text" path="sThu"
-						placeholder="sThu" />
-					<sform:input id="school_fri" type="text" path="sFri"
-						placeholder="sFri" />
-				<p>
-					알바가기
-					<sform:input id="alba_mon" type="text" path="aMon"
-						placeholder="aMon" />
-					<sform:input id="alba_tue" type="text" path="aTue"
-						placeholder="aTue" />
-					<sform:input id="alba_wed" type="text" path="aWed"
-						placeholder="aWed" />
-					<sform:input id="alba_thu" type="text" path="aThu"
-						placeholder="aThu" />
-					<sform:input id="alba_fri" type="text" path="aFri"
-						placeholder="aFri" />
+						
+						
+						
+						<div id="schoolgottdiv">
+						
+						<div id="leftdiv">
+						
+						</div>
+						
+						<div id="godiv">
+						<h6>월</h6>
+						</div>
+						
+						<div id="godiv">
+						<h6>화</h6>
+						</div>
+						
+						<div id="godiv">
+						<h6>수</h6>
+						</div>
+						
+						<div id="godiv">
+						<h6>목</h6>
+						</div>
+						
+						<div id="godiv">
+						<h6>금</h6>
+						</div>
+						
+						</div>
+						
+						
+						<div id="schoolgottdiv">
+						
+						<div id="leftdiv">
+						<h6>학교가기</h6>
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="schoolgott" id="school_mon"  type="text" path="sMon" placeholder="sMon"/>
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="schoolgott" id="school_tue" type="text"  path="sTue" placeholder="sTue"/>
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="schoolgott" id="school_wed" type="text"  path="sWed" placeholder="sWed"/> 
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="schoolgott" id="school_thu" type="text"  path="sThu" placeholder="sThu"/> 
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="schoolgott" id="school_fri" type="text"  path="sFri" placeholder="sFri"/>
+						</div>
+						
+						</div>
+						  
+               	 
+               	
+               	
+                
+            
+						
+						
+						<div id="albagottdiv">
+						
+						<div id="leftdiv">
+						<h6>알바가기</h6>
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="albagott" id="alba_mon" type="text"  path="aMon" placeholder="aMon"/>
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="albagott" id="alba_tue" type="text"  path="aTue" placeholder="aTue"/> 
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="albagott" id="alba_wed" type="text"  path="aWed" placeholder="aWed"/> 
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="albagott" id="alba_thu" type="text"  path="aThu" placeholder="aThu"/> 
+						</div>
+						
+						<div id="godiv">
+						<sform:input class="albagott" id="alba_fri" type="text"  path="aFri" placeholder="aFri"/>
+						</div>
+						
+						</div>
+						
+						
+						
+                
+                
+                
+                
+            
+						
+						
+						
+						
+						
+						
+					<%-- <table border="1">
+						<tr>
+							<th style="padding: 0 35px 15px 0;"><h6>월</h6></th>
+							<th style="padding: 0 35px 15px 0;"><h6>화</h6></th>
+							<th style="padding: 0 35px 15px 0;"><h6>수</h6></th>
+							<th style="padding: 0 35px 15px 0;"><h6>목</h6></th>
+							<th style="padding: 0 35px 15px 0;"><h6>금</h6></th>
 
-					<!--             <pre class="code" data-language="javascript"></pre>
- -->
-				<div style="margin: 0 0 0 200px; float: left;">
-					<input type="submit" value="수정하기">
-				</div>
+						</tr>
 
-				<div style="margin: 0 0 0 20px; float: left;">
-					<a href='gotomain#mypage'><input type="button" value="돌아가기"></a>
-				</div>
+						<tr>
 
-			</sform:form>
+							<td><input id="mon1" name="mon" type="radio" class="radio">
+								<label for="mon1">
+							<sform:input class="schoolgott" id="school_mon"  type="text" path="sMon" placeholder="sMon" />
+							</label></td>
 
+							<td><input id="tue1" name="tue" type="radio" class="radio">
+								<label for="tue1"> 
+							<sform:input class="schoolgott" id="school_tue" type="text"  path="sTue" placeholder="sTue"/>
+							</label></td>
+
+							<td><input id="wed1" name="wed" type="radio" class="radio">
+								<label for="wed1" class="radio-label"> <i
+									class="fa fa-check"></i> <span>1교시</span>
+							</label></td>
+
+							<td><input id="thu1" name="thu" type="radio" class="radio">
+								<label for="thu1" class="radio-label"> <i
+									class="fa fa-check"></i> <span>1교시</span>
+							</label></td>
+
+							<td><input id="fri1" name="fri" type="radio" class="radio">
+								<label for="fri1" class="radio-label"> <i
+									class="fa fa-check"></i> <span>1교시</span>
+							</label></td>
+						</tr>
+
+						<tr>
+
+							<td><input id="mon2" name="mon" type="radio" class="radio">
+								<label for="mon2" class="radio-label"> <i
+									class="fa fa-check"></i> <span>2교시</span>
+							</label></td>
+
+							<td><input id="tue2" name="tue" type="radio" class="radio">
+								<label for="tue2" class="radio-label"> <i
+									class="fa fa-check"></i> <span>2교시</span>
+							</label></td>
+
+							<td><input id="wed2" name="wed" type="radio" class="radio">
+								<label for="wed2" class="radio-label"> <i
+									class="fa fa-check"></i> <span>2교시</span>
+							</label></td>
+
+							<td><input id="thu2" name="thu" type="radio" class="radio">
+								<label for="thu2" class="radio-label"> <i
+									class="fa fa-check"></i> <span>2교시</span>
+							</label></td>
+
+							<td><input id="fri2" name="fri" type="radio" class="radio">
+								<label for="fri2" class="radio-label"> <i
+									class="fa fa-check"></i> <span>2교시</span>
+							</label></td>
+						</tr>
+
+						
+					</table> --%>
+
+
+
+					<%--   <div id="schoolgottdiv">
+          <h6 style="float:left;">학교가기</h6>
+                <sform:input class="schoolgott" id="school_mon"  type="text" path="sMon" placeholder="sMon" />  
+               	<sform:input class="schoolgott" id="school_tue" type="text"  path="sTue" placeholder="sTue"/> 
+               	<sform:input class="schoolgott" id="school_wed" type="text"  path="sWed" placeholder="sWed"/> 
+               	<sform:input class="schoolgott" id="school_thu" type="text"  path="sThu" placeholder="sThu"/> 
+                <sform:input class="schoolgott" id="school_fri" type="text"  path="sFri" placeholder="sFri"/>
+            <p>
+            </div>
+          
+            
+            <div id="albagottdiv">
+            <h6 style="float:left;">알바가기</h6>
+                <sform:input class="albagott" id="alba_mon" type="text"  path="aMon" placeholder="aMon"/>
+                <sform:input class="albagott" id="alba_tue" type="text"  path="aTue" placeholder="aTue"/> 
+                <sform:input class="albagott" id="alba_wed" type="text"  path="aWed" placeholder="aWed"/> 
+                <sform:input class="albagott" id="alba_thu" type="text"  path="aThu" placeholder="aThu"/> 
+                <sform:input class="albagott" id="alba_fri" type="text"  path="aFri" placeholder="aFri"/>
+            </div> --%>
+
+
+
+					<div style="margin: 0 0 0 200px;">
+						<input type="submit" value="수정하기"> <a
+							href='gotomain#mypage'><input type="button" value="돌아가기"></a>
+					</div>
+
+				</sform:form>
+			</div>
+			
+			
+			
+			
+			
+			
 		</div>
 	</div>
-
 	<!-- Sidebar -->
 	<div id="sidebar">
 
