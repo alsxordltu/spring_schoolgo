@@ -292,12 +292,13 @@
                        	var headsign = item.transit_details.headsign;
                        	var hwansng2 = item.html_instructions;
                        	
+                       	var stop = item.transit_details.num_stops;
                         /* 버스 이용시  */
                        	if(transtype=="BUS"){
                        		if(shortname==null){ /* 시외버스 이용시  */
                        			row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+transname;
                        			summary+=" "+"<div id='siwoibus'><h6><img src='insert_img/circle.png' width='2%'/>시외버스"+transname+hwansng2+"</h6>"
-                       			+"<br><h6>[승차]"+depname+"  [하차]"+arrname+"</h6></div>";
+                       			+"<br><h6>[승차]"+depname+"[하차]"+arrname+"</h6></div>";
                        			
                        			/* 요금계산을 위한 이동거리 더하기 */
                        			var busdistance=item.distance.text;
@@ -307,35 +308,33 @@
                        			/* 요금 계산..(계산할 수 없어서 임의 계산.....) */
                        			/* 거리당 110원 하면 거의 비슷하지만 편차가 큼 */
                       			totalcost += (Math.round(busdistance)*110);
-     	
                       
                        			
                        		}else{    /* 시내버스 이용시  */
                        			
                        		row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+shortname+"번 버스";
                        		summary+=" "+"<div id='sinabus'>"
-                       		+"<h6><img id='sumimg' src='insert_img/bus.png' width='4%'/>[승차] "+depname+"</h6><br>"
-                       		+"<h6><img id='moreimg' src='insert_img/more.png' width='6%'/>"
-                       		+shortname+"번 버스 ["+headsign+"행] </h6><br>"
-                       		+"<h6><img id='sumimg' src='insert_img/bus.png' width='4%'/>[하차] "+arrname+"</h6>"
+                       		+"<h6><img id='busimg' src='insert_img/bus.png' width='5%'/>"
+                       		+shortname+"번 버스 ["+headsign+"행] </h6>"
+                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
+                       		+"<h6><img id='moreimg' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
+                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
                        		+"</div>";
                        		
                        		/* 요금계산을 위한 이동거리 더하기*/
                    			var busdistance=item.distance.text;
                    			busdistance = parseFloat(busdistance.replace(/\km/g,''));
                    			totaldistance += busdistance;
-                   			
                    			if(busdistance<=10){
                    				/* 10km이하 거리 갈때 요금=기본요금 */
                     			totalcost += 0;
-                   				
                     		}else if(busdistance>10&&busdistance<=45){
                     			/* 10km초과 거리 갈때 요금 = 10km이후부터 5km당 100원이고 최대요금 700원*/
-                    			totalcost += (Math.round((subwaydistance-10)/5)*100);
- 	
+                    			totalcost += ((((Math.round(busdistance))-10)/5)*100);
                     		}else{
                     			/* 최대요금 */
                     			totalcost += 700;
+                    			
                     		}
                        		
                        		
@@ -344,10 +343,11 @@
                        		}else if(transtype=="SUBWAY"){ /* 전철 이용시  */
                            	row+=" "+"<img src='insert_img/subway.png' width='8%'/>"+shortname;
                            	summary+=" "+"<div id='subway'>"
-                           	+"<h6><img id='sumimg' src='insert_img/subway.png' width='4%'/>[승차] "+depname+"</h6><br>"
-                           	+"<h6><img id='moreimg' src='insert_img/more.png' width='6%'/>"
-                           	+shortname+"["+hwansng2+"]</h6><br>"
-                           	+"<h6><img id='sumimg' src='insert_img/subway.png' width='4%'/>[하차] "+arrname+"</h6>"
+                        	+"<h6><img id='moreimg' src='insert_img/subway.png' width='6%'/>"
+                           	+shortname+"["+hwansng2+"]</h6>"
+                           	+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
+                       		+"<h6><img id='moreimg' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
+                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
                            	+"</div>";
                            	
                            	/* 요금계산을 위한 이동거리 더하기*/
@@ -373,10 +373,11 @@
                            }else if(transtype=="HEAVY_RAIL"){ /* 기차 이용시  */
                            	row+=" "+"<img src='insert_img/train.png' width='8%'/>"+transname;
                            	summary+=" "+"<div id='train'>"
-                           	+"<h6><img id='sumimg' src='insert_img/train.png' width='4%'/>[승차] "+depname+"</h6><br>"
-                           	+"<h6><img id='moreimg' src='insert_img/more.png' width='6%'/>"
-                           	+shortname+"["+hwansng2+"]</h6><br>"
-                           	+"<h6><img id='sumimg' src='insert_img/train.png' width='4%'/>[하차] "+arrname+"</h6>"
+                           	+"<h6><img id='moreimg' src='insert_img/train.png' width='6%'/>"
+                           	+transname+"["+hwansng2+"]</h6>"
+                           	+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
+                       		+"<h6><img id='moreimg' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
+                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
                            	+"</div>";
                            	
                            	/* 요금계산을 위한 이동거리 더하기*/
@@ -388,8 +389,7 @@
                    			/* 요금 계산..(계산할 수 없어서 임의 계산.....) */
                    			if(traindistance<=50){
                    				/* 50km이하 거리 갈때 요금*/
-                    			totalcost += (Math.round(traindistance-10)*110);
-                   				
+                   				totalcost += ((Math.round(traindistance)-10)*110);
                     		}else{
                     			/* 50km초과 거리 갈때 요금  */
                     			totalcost += 4400+(Math.round((subwaydistance-50)*100));
@@ -405,7 +405,6 @@
                      });
                      
                      
-                     /* 여기에 alltime 쓰면 됨 */
                      
                      
                      
@@ -514,6 +513,15 @@
 		   $("#summary1").slideUp("slow");
 	       $("#summary2").slideUp("slow");
 		   $("#summary4").slideUp("slow"); 
+		   
+		   $("#total3").slideDown("slow"); 
+		      $("#total0").slideUp("slow"); 
+		      $("#total1").slideUp("slow"); 
+		      $("#total2").slideUp("slow");
+		      $("#total4").slideUp("slow");
+		      
+		      
+		      
 			 });
 	   $(document).on("click","#radio4", function () {
 		   
