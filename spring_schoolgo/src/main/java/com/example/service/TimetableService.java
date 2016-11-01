@@ -10,4 +10,9 @@ public interface TimetableService {
 	public int update(TimetableTotal timetable);
 	//public Timetable select(String userId);
 	//public List<Timetable> selectTimetableUserId(String userId);
+	
+	
+	public int isLate(String curtime, String working,  String arrivemin);
+	//루트명 클릭했을때 지각인지 아닌지 판단하게 해줌.
+	//현재시간, 최초도보시간, 최초교통수단몇분전인지
 }

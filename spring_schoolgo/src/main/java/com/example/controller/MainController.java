@@ -109,9 +109,6 @@ public class MainController {
 		List<Route> routes = service.getRouteUserId(userId);
 		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
 
-		
-		String inTime = new java.text.SimpleDateFormat("HH:mm").format(new java.util.Date());
-		logger.trace("현재 시간 : {}", inTime);
 		return "goandcome/go";
 	}
 
