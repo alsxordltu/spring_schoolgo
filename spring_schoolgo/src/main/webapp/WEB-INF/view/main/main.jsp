@@ -304,23 +304,12 @@ $(document).on("click", ".routelist", function(){
       calHour = Math.floor(calTime / 60) + '시간 ';
       
     }
-<<<<<<< HEAD
    calMin = calTime%60 + '분 ';
    console.log(json[index].startLat);
    console.log(json[index].startLng);
    
    var add = calHour + calMin + "소요  <input type='button' class='gotoschool' value='등교' data-lat='"+ json[index].startLat+"' data-lng='"+ json[index].startLng +"' data-index='"+index+"'><input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
    $("#div"+index).html($("#div"+index).html() + add);
-   
-=======
-	calMin = calTime%60 + '분 ';
-	console.log(json[index].startLat);
-	console.log(json[index].startLng);
-	
-	var add = calHour + calMin + "소요  <input type='button' class='gotoschool' value='등교' data-lat='"+ json[index].startLat+"' data-lng='"+ json[index].startLng +"' data-index='"+index+"'><input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group' value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
-	$("#div"+index).html($("#div"+index).html() + add);
-	
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 });
 
    
@@ -369,14 +358,8 @@ $(document).on("click", ".group",  function(){
       });
       
 $(document).on("click", ".gotoschool", function(){
-<<<<<<< HEAD
    location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index");
          });
    </script>
-=======
-	location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index");
-			});
-	</script>
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 </body>
 </html>

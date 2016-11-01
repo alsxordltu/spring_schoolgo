@@ -106,6 +106,8 @@ public class MainController {
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
 		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
+		
+		
 		return "goandcome/go";
 	}
 
