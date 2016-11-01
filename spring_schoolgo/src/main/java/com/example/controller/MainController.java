@@ -3,9 +3,7 @@ package com.example.controller;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +29,7 @@ import org.springframework.web.client.RestTemplate;
 import com.example.dto.BusArrive;
 import com.example.dto.Route;
 import com.example.service.RouteService;
+import com.example.service.TimetableService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -77,6 +76,9 @@ public class MainController {
 	@Autowired
 	RouteService service;
 	
+	@Autowired
+	TimetableService tservice;
+	
 	@RequestMapping(value = "/getroutelist", method = RequestMethod.GET)
 	public @ResponseBody String getroutelist(HttpServletResponse response) {
 		//response.getWriter().write();
@@ -111,7 +113,11 @@ public class MainController {
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
 		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
-
+		
+		//멍........................
+		
+		//tservice.isLate(working, arrivemin);
+		
 		return "goandcome/go";
 	}
 
