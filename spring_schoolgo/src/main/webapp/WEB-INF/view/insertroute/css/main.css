@@ -10,65 +10,25 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-#total0{
-	display:none;
-	width:100%;
-	height:auto;
-	float:left;
-	border:2pt solid black;
-}
-#total1{
-	display:none;
-	width:100%;
-	height:auto;
-	float:left;
-	border:2pt solid black;
-}
 
-#total2{
-	display:none;
-	width:100%;
-	height:auto;
-	float:left;
-	border:2pt solid black;
-}
-
-#total3{
-	display:none;
-	width:100%;
-	height:auto;
-	float:left;
-	border:2pt solid black;
-}
-
-#total4{
-	display:none;
-	width:100%;
-	height:auto;
-	float:left;
-	border:2pt solid black;
-}
-
-#total5{
-	display:none;
-	width:95%;
-	height:auto;
-	float:left;
-	border:2pt solid black;
-}
-
-
+/* 이미지들 css */
 
 #startendimg{
 	vertical-align:middle;
 }
 #sumimg{
 	vertical-align:middle;
+	margin-left:13px;
+}
+#busimg{
+	vertical-align:middle;
+		margin-left:3px;
 }
 
 #moreimg{
 	vertical-align:middle;
 }
+
 
 #walking{
 width:100%; 
@@ -124,6 +84,8 @@ padding-bottom:10px;
 }
 
 
+
+/* summary들 css */
 #summary0{
 	display:none;
 	width:100%;
@@ -171,8 +133,52 @@ padding-bottom:10px;
 	border:2pt solid black;
 }
 
+#total0{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+#total1{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
 
+#total2{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
 
+#total3{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+
+#total4{
+	display:none;
+	width:100%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
+
+#total5{
+	display:none;
+	width:95%;
+	height:auto;
+	float:left;
+	border:2pt solid black;
+}
 
 
  input[type=radio] {display:none;}
@@ -2335,7 +2341,8 @@ ol.default li {
 	#logo a {
 		display: block;
 		background-color: #c94663;
-		/* padding: 0.875em 0.25em; */
+		background-image: url("../main_img/bg01.png");
+		padding: 1em 1em 0.5em 1.5em;
 		border-radius: 0.2em;
 		text-align: center;
 		box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.15), 0 0.025em
@@ -2759,7 +2766,7 @@ ol.default li {
 	/* Basic */
 	body, input, textarea, select {
 		line-height: 1.75em;
-		font-size: 11pt;
+		font-size: 3pt;
 		letter-spacing: 0;
 	}
 	h2, h3, h4, h6 {

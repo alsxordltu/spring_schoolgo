@@ -13,9 +13,7 @@
 		values(#{userId},
 		#{sMon}, #{sTue}, #{sWed}, #{sThu},
 		#{sFri},
-
 		#{aMon}, #{aTue}, #{aWed}, #{aThu}, #{aFri})
-
 	</insert>
 
 
