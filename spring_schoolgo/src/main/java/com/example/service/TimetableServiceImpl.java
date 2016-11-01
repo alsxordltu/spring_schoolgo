@@ -56,7 +56,7 @@ public class TimetableServiceImpl implements TimetableService{
 	
 	@Override	//현재시간, 최초도보시간, 최초교통수단몇분전인지
 
-	public int isLate(String curtime, String working, String arrivemin) {
+	public int isLate(String walking, String arrivemin) {
 		
 		//1. 첫 교통수단 도착시간(ex-15분전(현재시간+15)) - 첫 교통수단까지의도보시간(ex-10분)
 		//   ==> 나가야 하는시간까지 (15-10) 5분남음.
@@ -77,7 +77,7 @@ public class TimetableServiceImpl implements TimetableService{
 		int persemin = Integer.parseInt(Timemin);
 		
 		int curtimemin = persehour+persemin; //현재시간(분)
-		int parsworking=Integer.parseInt(working);
+		int parsworking=Integer.parseInt(walking);
 		int parsarrivemin=Integer.parseInt(arrivemin);
 		
 		int result = (curtimemin+parsarrivemin)-parsworking-curtimemin;
