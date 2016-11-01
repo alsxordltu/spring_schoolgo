@@ -3,7 +3,9 @@ package com.example.controller;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,8 +108,10 @@ public class MainController {
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
 		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
+
 		
-		
+		String inTime = new java.text.SimpleDateFormat("HH:mm").format(new java.util.Date());
+		logger.trace("현재 시간 : {}", inTime);
 		return "goandcome/go";
 	}
 

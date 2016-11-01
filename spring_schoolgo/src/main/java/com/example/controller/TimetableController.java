@@ -34,7 +34,7 @@ public class TimetableController {
 		if(timeinfo==null){//초기화
 		// 전체DTO 만들고
 		// 1. userId 받아와서 기본객체 insert(get) - insertmapper만들기
-		timeinfo = new TimetableTotal(id,"12:00am","12:00am","12:00am","12:00am","12:00am","12:00am", "12:00am", "12:00am", "12:00am", "12:00am");
+		timeinfo = new TimetableTotal(id,"","","","","","","","","","");
 		tService.insert(timeinfo);
 		logger.trace("초기화 : {}", timeinfo);
 		}
