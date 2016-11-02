@@ -192,8 +192,12 @@ $(document).on("click", ".routelist", function(){
 		   if(item.startName != null){
 			   stepLat = item.startLat;
 			   stepLng = item.startLng;
+			   return false;
 		   }
 	   });
+	   if(stepLat != "" && stepLng !=""){
+		   return false;
+	   }
    });
    
    console.log(stepLat);
@@ -210,8 +214,8 @@ $(document).on("click", ".routelist", function(){
    
    
    +"<input type='button' class='gotoschool' value='등교'"
-   +"data-lat='"+ json[index].startLat+"'" 
-   +"data-lng='"+ json[index].startLng +"' data-index='"+index+"'>"
+   +"data-lat='"+ stepLat+"'" 
+   +"data-lng='"+stepLng +"' data-index='"+index+"'>"
    +"<input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group'"
    +"value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
    
