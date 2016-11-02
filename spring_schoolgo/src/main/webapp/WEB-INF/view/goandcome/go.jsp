@@ -145,10 +145,12 @@ $(document).ready(function(){
 				console.log(item.startName);
 				vehicleListName = item.startName;
 				vehicleNum = item.vehicleNum;
+				
 				return false;
 			}
 		});
 		if(vehicleListName != ""){
+			
 			return false;
 		}
 	});	 

@@ -1,6 +1,4 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> 
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,6 +23,7 @@
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
 #pacinput {
   background-color: #fff;
   font-family: Roboto;
