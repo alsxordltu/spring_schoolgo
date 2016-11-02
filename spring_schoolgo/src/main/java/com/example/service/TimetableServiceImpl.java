@@ -71,14 +71,19 @@ public class TimetableServiceImpl implements TimetableService{
 		String Timehour = inTime.substring(0,1);//앞2개만자름 (시)
 		int persehour = Integer.parseInt(Timehour);//정수형으로바꿈
 		persehour*=60;//분으로바꿈
+		persehour*=60;//초로바꿈
 		
 		//분으로 바꾸기-분(문자열)
 		String Timemin = inTime.substring(3,4);
 		int persemin = Integer.parseInt(Timemin);
+		persemin*=60;
 		
-		int curtimemin = persehour+persemin; //현재시간(분)
-		int parsworking=Integer.parseInt(walking);
+		int curtimemin = persehour+persemin; //현재시간(초)
+		
+		int parsworking=Integer.parseInt(walking); // 두개다 초로바꿈
+		parsworking*=60;
 		int parsarrivemin=Integer.parseInt(arrivemin);
+		parsarrivemin*=60;
 		
 		int result = (curtimemin+parsarrivemin)-parsworking-curtimemin;
 		//result=출발전까지남은시간
