@@ -97,7 +97,7 @@ public class TimetableServiceImpl implements TimetableService {
 	@Override
 	public School getTime(String userId, int idx) {
 		TimetableTotal table = tRepo.gettotaltableInfo(userId);
-		logger.trace("Table : {} ", table);
+		
 		School school = null;
 		switch (idx) {
 		case 2: {

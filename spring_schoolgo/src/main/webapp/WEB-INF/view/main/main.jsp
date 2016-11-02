@@ -158,8 +158,10 @@
 	
 	
    var json = ${routes};
+   var getTime = ${getTime};
    console.log(json);
    var length = 1;
+   var time = "";
    
    function showList(){
         var row="";
@@ -167,7 +169,7 @@
          $.each(json, function(index, item){      
             
             row+="<div id='div"+ index + "'>"
-            +"<input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"' style='width:100%;'>"
+            +"<input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"' data-totaltime='"+ json[index].time +"' style='width:100%;'>"
             +"<br></div><br> ";
             
          });      
@@ -216,14 +218,12 @@ $(document).on("click", ".routelist", function(){
 		   return false;
 	   }
    });
-   
-   console.log(stepLat);
-   console.log(stepLng);
-   console.log(json[index].startAddress);
+
    var startadd =json[index].startAddress;
    var endadd =json[index].arriveAddress;
    
    
+ 
    
    var add ="<div id='info'>"
    +"<div id='infostartend'>"
@@ -234,9 +234,9 @@ $(document).on("click", ".routelist", function(){
    +"<div id='infoalltime'>"+calHour + calMin + "소요</div></div>"
    
    
-   +"<input id='schoolradio' type='radio' name='radio' class='radio'><label for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<input id='schoolradio' type='radio' name='radio' class='radio' data-time='"+getTime.school+"'><label for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>학교가기</span></label>"
-   +"<input id='albaradio' type='radio' name='radio' class='radio'><label for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<input id='albaradio' type='radio' name='radio' class='radio' data-time='"+getTime.alba+"'><label for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>알바가기</span></label>"
    +"<input id='customradio' type='radio' name='radio' class='radio'><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>사용자 지정 시간</span></label>"
@@ -247,7 +247,7 @@ $(document).on("click", ".routelist", function(){
    
    +"<input type='button' class='gotoschool' value='등교'"
    +"data-lat='"+ stepLat+"'" 
-   +"data-lng='"+stepLng +"' data-index='"+index+"'>"
+   +"data-lng='"+stepLng +"' data-index='"+index+"' data-totaltime='"+$(this).attr("data-totaltime")+"'>"
    +"<input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group'"
    +"value='삭제' data-routeId='"+$(this).attr("data-routeId")+"'>";
    
@@ -302,32 +302,16 @@ $(document).on("click", ".group",  function(){
       });
       
 $(document).on("click", ".gotoschool", function(){
-   location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index");
+   location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index") + "&time="+time + "&totaltime="+$(this).attr("data-totaltime");
          });
          
          
-$(document).on("click", ".customradio", function(){
+$(document).on("change", ".radio", function(){
+	time = $(this).attr("data-time");
+	   console.log("seleted time : " + time);
 	   
 	         });
 	                 
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
          
    </script>
 

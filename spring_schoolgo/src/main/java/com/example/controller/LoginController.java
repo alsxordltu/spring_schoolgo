@@ -57,18 +57,14 @@ public class LoginController {
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = rservice.getRouteUserId(userId);
 		ObjectMapper mapper = new ObjectMapper();
-		logger.trace("17th : {}", routes.get(16) );
-		
 			//String jsonData =  mapper.writeValueAsString(routes);
-		logger.trace("routeList : {}", mapper.writeValueAsString(routes));
 		model.addAttribute("routes", mapper.writeValueAsString(routes));
 		
 		Calendar cal = Calendar.getInstance();
 		int idx = cal.get(Calendar.DAY_OF_WEEK);
-		
 		School school = tservice.getTime(userId, idx);
-		
-		logger.trace("school : {} ", school);
+		model.addAttribute("getTime", mapper.writeValueAsString(school));
+			
 		return "main/main";
 	}
 	
