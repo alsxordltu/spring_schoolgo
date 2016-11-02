@@ -54,7 +54,7 @@ public class TimetableServiceImpl implements TimetableService {
 	}
 
 	@Override // 현재시간, 최초도보시간, 최초교통수단몇분전인지
-
+	
 	public int isLate(String walking, String arrivemin) {
 		// 도착시간-총소요시간 <0 지각이고
 
@@ -76,7 +76,7 @@ public class TimetableServiceImpl implements TimetableService {
 		// 분으로 바꾸기-분(문자열)
 		String Timemin = inTime.substring(3, 4);
 		int persemin = Integer.parseInt(Timemin);
-		persemin *= 60;
+		persemin *= 60;//초로바꿈
 
 		int curtimemin = persehour + persemin; // 현재시간(초)
 
@@ -123,5 +123,38 @@ public class TimetableServiceImpl implements TimetableService {
 		}
 		}
 		return school;
+	}
+
+	@Override //도착시간(DB) , 총소요시간
+	public int simpleisLate(String arrivetime, String totaltime) {
+		
+		String arriveTimehour = arrivetime.substring(0, 1);// 앞2개만자름 (시)
+		int persehour = Integer.parseInt(arriveTimehour);// 정수형으로바꿈
+		persehour *= 60;// 분으로바꿈
+		persehour *= 60;// 초로바꿈
+		
+		String arriveTimemin = arrivetime.substring(3, 4);
+		int persemin = Integer.parseInt(arriveTimemin);
+		persemin *= 60;//초로바꿈
+		
+		int arrivepersesec = persehour + persemin; 
+		
+		String totalTimehour = totaltime.substring(0, 1);// 앞2개만자름 (시)
+		int persehour2 = Integer.parseInt(arriveTimehour);// 정수형으로바꿈
+		persehour2 *= 60;// 분으로바꿈
+		persehour2 *= 60;// 초로바꿈
+		
+		String totalTimemin = totaltime.substring(3, 4);
+		int persemin2 = Integer.parseInt(arriveTimemin);
+		persemin2 *= 60;//초로바꿈
+		
+		int totalpersesec = persehour + persemin; 
+		
+		if(arrivepersesec-totalpersesec<0){
+			return 1; //지각잼
+		}else{
+			return 0; //지각아님잼 
+		}
+
 	}
 }
