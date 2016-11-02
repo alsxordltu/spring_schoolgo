@@ -155,6 +155,8 @@
 		dropdown : true,
 		scrollbar : true
 	});
+	
+	
    var json = ${routes};
    console.log(json);
    var length = 1;
@@ -235,8 +237,7 @@ $(document).on("click", ".routelist", function(){
    +"<input id='customradio' type='radio' name='radio' class='radio'><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>사용자 지정 시간</span></label>"
    
-   +"<input type='text' name='radio' class='radio'><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
-   +"<span>사용자 지정 시간</span></label>"
+ 
  
    
    
@@ -244,7 +245,7 @@ $(document).on("click", ".routelist", function(){
    +"data-lat='"+ json[index].startLat+"'" 
    +"data-lng='"+ json[index].startLng +"' data-index='"+index+"'>"
    +"<input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group'"
-   +"value='삭제' data-routeId='"+$(this).attr("data-routeId")+"' >";
+   +"value='삭제' data-routeId='"+$(this).attr("data-routeId")+"'>";
    
    
    $("#div"+index).html($("#div"+index).html() + add);
