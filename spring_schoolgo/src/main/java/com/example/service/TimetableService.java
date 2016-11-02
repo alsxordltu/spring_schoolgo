@@ -20,6 +20,8 @@ public interface TimetableService {
 	//현재시간, 최초도보시간, 최초교통수단몇분전인지
 	
 	
+	//도착시간,총소요시간
+	public int simpleisLate(String arrivetime, String totaltime);
 	//현재 날짜->요일->시간표
 	public School getTime(String userId, int idx);
 }
