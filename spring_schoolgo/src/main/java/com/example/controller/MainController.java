@@ -252,6 +252,15 @@ public class MainController {
 		  //result = 1 이면 지각잼
 		  //지각아니면 result=적어도 출발해야되는시간까지 남은시간
 		  logger.trace("isLate : {}" , result);
+		  String lateAlert="";
+		  //session에 결과 String 넣음
+		  if(result==1){
+			  lateAlert="지각.....택시추천/땡땡이추천합니다";
+		  }else{
+			  lateAlert="나가야 하는 시간까지 " + result + "분 남음";
+		  }
+		  session.setAttribute("Alert",lateAlert );
+		  
 		   return "goandcome/go";
 	   }
 

@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dto.School;
 import com.example.dto.TimetableTotal;
 
 public interface TimetableService {
@@ -17,4 +18,8 @@ public interface TimetableService {
 	public int isLate(String working,  String arrivemin);
 	//루트명 클릭했을때 지각인지 아닌지 판단하게 해줌.
 	//현재시간, 최초도보시간, 최초교통수단몇분전인지
+	
+	
+	//현재 날짜->요일->시간표
+	public School getTime(String userId, int idx);
 }

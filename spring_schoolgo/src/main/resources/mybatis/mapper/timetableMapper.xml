@@ -54,10 +54,10 @@
 		<result column="s_wed" property="sWed" />
 		<result column="s_thu" property="sThu" />
 		<result column="s_fri" property="sFri" />
-		<result column="a_fri" property="aMon" />
-		<result column="a_fri" property="aTue" />
-		<result column="a_fri" property="aWed" />
-		<result column="a_fri" property="aThu" />
+		<result column="a_mon" property="aMon" />
+		<result column="a_tue" property="aTue" />
+		<result column="a_wed" property="aWed" />
+		<result column="a_thu" property="aThu" />
 		<result column="a_fri" property="aFri" />
 	</resultMap>
 </mapper>

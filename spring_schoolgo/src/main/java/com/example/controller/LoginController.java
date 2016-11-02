@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.dto.Login;
 import com.example.dto.Route;
+import com.example.dto.School;
 import com.example.dto.User;
 import com.example.service.RouteService;
+import com.example.service.TimetableService;
 import com.example.service.Userservice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,6 +34,9 @@ public class LoginController {
 
 	@Autowired
 	RouteService rservice;
+	
+	@Autowired
+	TimetableService tservice;
 	
 /*	@Autowired
 	RouteService rservice;*/
@@ -57,7 +63,12 @@ public class LoginController {
 		logger.trace("routeList : {}", mapper.writeValueAsString(routes));
 		model.addAttribute("routes", mapper.writeValueAsString(routes));
 		
-
+		Calendar cal = Calendar.getInstance();
+		int idx = cal.get(Calendar.DAY_OF_WEEK);
+		
+		School school = tservice.getTime(userId, idx);
+		
+		logger.trace("school : {} ", school);
 		return "main/main";
 	}
 	
