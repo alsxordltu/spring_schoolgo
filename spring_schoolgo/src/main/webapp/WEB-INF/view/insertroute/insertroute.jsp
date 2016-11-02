@@ -14,6 +14,10 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="insert_css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+
+<script src="http://files.codepedia.info/uploads/iScripts/html2canvas.js"></script>
+
 </head>
 <body>
 	<%
@@ -162,73 +166,8 @@
                   success:function(data){
                      items = data;
                      items2 = data.routes;
-                    /*  var row="";
-                     var summary="";
-                     var listindex=0;
-                        $.each(items2, function(index, item){
-                           var items3 = item.legs;
-                           $.each(items3, function(index, item){
-                			  var alltime= item.duration.text;
-                              var step = item.steps;
-                              var startadd= item.start_address;
-                              var endadd= item.end_address;
-                              
-                              row += "<input TYPE='radio' id='radio"+listindex+"' class='radio' name='group' value='"+listindex+"' data-idx='"+ listindex+ "'/>"+
-                              "<label for='radio"+listindex+"' class='radio-label'><i class='fa fa-check'></i><span>경로"+listindex+"<span>";
-                              summary+="<div id='summary"+listindex+"'><h5>"+startadd+"</h5>";
-                              
-                             
-                              $.each(step, function(index, item){
-                            	  var travelmode = item.travel_mode;
-                          		  
-                                if(travelmode=="WALKING"){
-                                	var walking = item.duration.text;
-                            	  row+=" "+"<img src='insert_img/walking.png' width='8%'/>"+walking;
-                            	  summary+=" " +"<h5>도보"+walking+"분</h5>";
-                                }else{
-                                	var transtype = item.transit_details.line.vehicle.type;
-                                	var shortname = item.transit_details.line.short_name;
-                                	var transname = item.transit_details.line.name;
-                                	
-                                	
-                                	if(transtype=="BUS"){
-                                		if(shortname==null){
-                                			row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+transname;
-                                			summary+=" "+"<h5>시외버스"+transname+"</h5>";
-                                		}else{
-                                		row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+shortname+"번 버스";
-                                		summary+=" "+"<h5>시내버스"+shortname+"번버슈</h5>";
-                                		}
-                                		}else if(transtype=="SUBWAY"){
-                                    	row+=" "+"<img src='insert_img/subway.png' width='8%'/>"+shortname;
-                                    	summary+=" "+"<h5>전철"+shortname+"어디방면 타고 어디역에서 내린다.</h5>";
-                                    }else if(transtype=="HEAVY_RAIL"){
-                                    	row+=" "+"<img src='insert_img/train.png' width='8%'/>"+transname;
-                                    	summary+=" "+"<h5>기차"+transname+"기차기차 무슨선 어디행?.</h5>";
-                                    }else{
-                                    	row+="음슴.";
-                                    }
-                                }
-                                
-                              });
-                              
-                              summary+="<h5>"+endadd+"</h5></div>";
-                              row+=alltime+"</label><br>";
-                              listindex++;
-                              
-                              
-                              });
-                        });
-                      
-<<<<<<< HEAD
-                        $("#routelist").html($("#routelist").html()+row+summary);
-                        
-                         */
-                         
                          showlist();
-                         
-
-   },
+   					},
                   error : function(xhr, status, error){
                      alert(error);
                   }
@@ -319,9 +258,9 @@
                        		summary+=" "+"<div id='sinabus'>"
                        		+"<h6><img id='busimg' src='insert_img/bus.png' width='5%'/>"
                        		+shortname+"번 버스 ["+headsign+"행] </h6>"
-                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
+                       		+"<h6><img id='sumimg'  src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
                        		+"<h6><img id='moreimg' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
-                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
+                       		+"<h6><img id='sumimg'  src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
                        		+"</div>";
                        		
                        		/* 요금계산을 위한 이동거리 더하기*/
@@ -563,6 +502,50 @@
 				}
 			});
 		});
+   
+   
+   
+   
+ /*   $(document).ready(function(){
+
+		
+	   var element = $("#html-content-holder"); // global variable
+	   var getCanvas; // global variable
+	    
+	       $("#btn-Preview-Image").on('click', function () {
+	            html2canvas(element, {
+	            onrendered: function (canvas) {
+	                   $("#previewImage").append(canvas);
+	                   getCanvas = canvas;
+	                   console.log(typeof getCanvas);
+	                   console.log(getCanvas);
+	                }
+	            });
+	       }); 
+	   
+	   
+
+	   	$("#btn-Convert-Html2Image").on('click', function () {
+	       var imgageData = getCanvas.toDataURL("image/png");
+	       // Now browser starts downloading it instead of just showing it
+	       var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream;charset=utf-16le;base64");
+	       $("#btn-Convert-Html2Image").attr("download", "ccs.png").attr("href", newData);
+	   	});
+
+	   }); */
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 	</script>
 
 
