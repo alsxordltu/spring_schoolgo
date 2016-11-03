@@ -31,7 +31,7 @@
 
 				<div id="clock"></div> 
 				<div id="clock2"></div> 
-				<div id="clock3"></div>
+				<div id="clock3" ></div>
 				<br>
 				<br>
 				<br>
@@ -210,6 +210,7 @@ $(document).ready(function(){
          console.log(error);
       }
 	});
+	var remaintime;
 	
 	$.ajax({
 	
@@ -228,12 +229,14 @@ $(document).ready(function(){
 		
 			console.log(response);
 			$("#clock3").html(response);
+			remaintime=response;
 		},
 		
 	 	error:function(xhr, status, error){
          console.log(error);
       }
 	});
+	console.log(remaintime);
 	
 
 });
@@ -265,7 +268,7 @@ $(document).on("click", "#select", function(e){
 	});
 	
 ///////////실시간출력
- var remainmin = 50;
+ remaintime*=1;
 function go_time(){
  
 	
@@ -284,8 +287,8 @@ function go_time(){
  
 
   document.getElementById("clock2").innerHTML 
- = "B(출발까지 남은 시간) : " + remainmin; 
- remainmin-=1;
+ = "B(출발까지 남은 시간) : " + remaintime; 
+ remaintime-=1;
  
  setTimeout("go_time()", 1000);
  //1초마다 해당 펑션을 실행함.
