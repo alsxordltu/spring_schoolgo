@@ -217,7 +217,7 @@ public class MainController {
 					arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
 					arrtime = busArriveList.get("arrtime").toString();
 					tmparrtime = Math.floor(Double.parseDouble(arrtime) / 60);
-					System.out.println("임시 시간 : " + tmparrtime);
+					
 					arrtime = tmparrtime.toString();
 					//System.out.println("임시 시간 : " + arrtime);
 					
@@ -244,8 +244,8 @@ public class MainController {
 		   return mapper.writeValueAsString(buslist);
 	   }
 	
-	@RequestMapping(value = "/carDepartTime", method = RequestMethod.GET, produces = "application/text; charset=utf8")
-	public @ResponseBody String carDepartTime(HttpSession session, Model model, HttpServletRequest request,
+	@RequestMapping(value = "/calDepartTime", method = RequestMethod.GET, produces = "application/text; charset=utf8")
+	public @ResponseBody String calDepartTime(HttpSession session, Model model, HttpServletRequest request,
 			HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
