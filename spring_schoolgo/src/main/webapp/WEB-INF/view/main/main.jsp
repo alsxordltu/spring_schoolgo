@@ -31,8 +31,7 @@
                   
                </header>
             </article>
-                <input class="schoolgott" id="customtime"  type="text"/>
-            
+                       
                  
 			<form name="routenext" method="get" action="gotogo">
             </form>
@@ -116,13 +115,14 @@
             <header>
                <h2>마이페이지</h2>
             </header>
-            <ul>
-               <li><a href="updateTimetable?id=${userId}">시간표 등록</a></li>
-               <li><a href="updateUser?id=${userId}">개인정보 수정</a></li>
-               <li><a href="gotoroutemanager">루트관리</a></li>
-               <li><a href="gotocostcal">교통비 가계부</a></li>
-               <li><a href="gotomyactivity">활동내역</a></li>
-            </ul>
+           <ul id="mypageside">
+            <li><a href="gototimetable">시간표 등록</a></li>
+            <li><a href="gotoupdateprofile">개인정보 수정</a></li>
+            <li><a href="gotoroutemanager">루트관리</a></li>
+            <li><a href="gotocostcal">교통비 가계부</a></li>
+            <li><a href="gotomyactivity">활동내역</a></li>
+         </ul>
+         
          </section>
          <input type="submit" value="로그아웃">
       </form>

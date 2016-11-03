@@ -13,11 +13,11 @@
 <link rel="stylesheet" href="my_css/main.css" />
 <link rel="stylesheet" href="my_css/form.css" />
 	<head>
-		<title>Striped by HTML5 UP</title>
+		<title>Striped by HTML5 UP</title> 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="main_css/main.css" />
+		<link rel="stylesheet" href="my_css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
@@ -151,47 +151,35 @@
 
 				<!-- Logo -->
 					<h1 id="logo"><a href="#">STRIPED</a></h1>
-
+ <form name="logout" action="logout">
+         <h5 style="text-align: center">${nickName}님환영합니다</h5>
+         <input type="submit" value="로그아웃">
+ </form>
 				<!-- Nav -->
 					<nav id="nav">
-						<ul>
-							<li class="current"><a href="gotomain">메인</a></li>
-							<li><a href="#">학교가기</a></li>
-							<li><a href="gotoinsertroute">루트등록</a></li>
-							<li><a href="#">루트공유</a></li>
-							<li><a href="#">Contact Me</a></li>
-						</ul>
-					</nav>
+            <ul>
+               <li class="current"><a href="gotomain">학교가기</a></li>
+               <li><a href="gotoinsertroute">루트등록</a></li>
+               <li><a href="gotoboardmain">루트공유</a></li>
+               <li><a href="#">Contact Me</a></li>
+            </ul>
+         </nav>
 
-				<!-- Search -->
-					<!-- <section class="box search">
-						<form method="post" action="#">
-							<input type="text" class="text" name="search" placeholder="Search" />
-						</form>
-					</section> -->
 
-				<!-- Text -->
-					<!-- <section class="box text-style1">
-						<div class="inner">
-							<p>
-								<strong>Striped:</strong> A free and fully responsive HTML5 site
-								template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>
-							</p>
-						</div>
-					</section> -->
 
-				<!-- Recent Posts -->
-					<section class="box recent-posts">
-						<header>
-							<h2>마이페이지</h2>
-						</header>
-						<ul>
-							<li><a href="gototimetable">시간표 등록</a></li>
-							<li><a href="gotoupdateprofile">개인정보 수정</a></li>
-							<li><a href="gotoroutemanager">루트관리</a></li>
-							<li><a href="gotocostcal">교통비 가계부</a></li>
-							<li><a href="gotomyactivity">활동내역</a></li>
-						</ul>
+         <!-- Recent Posts -->
+         <section class="box recent-posts">
+            <header>
+               <h2>마이페이지</h2>
+            </header>
+           <ul id="mypageside">
+            <li><a href="gototimetable">시간표 등록</a></li>
+            <li class="current"><a href="gotoupdateprofile">개인정보 수정</a></li>
+            <li><a href="gotoroutemanager">루트관리</a></li>
+            <li><a href="gotocostcal">교통비 가계부</a></li>
+            <li><a href="gotomyactivity">활동내역</a></li>
+         </ul>
+         
 					</section>
 
 				<!-- Recent Comments -->
