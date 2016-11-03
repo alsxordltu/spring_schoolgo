@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +28,14 @@ public class TimetableController {
 	
 	//개인정보수정메뉴(GET방식으로 userId랑 User객체 넘어감) 눌렀을때 여기로옴 -> id로 유저정보 select해서 화면에 setting해줌	
 	@RequestMapping(value="/updateTimetable", method = RequestMethod.GET)
-	public String selecttimetable(Model model, @RequestParam String id, TimetableTotal timeinfo) {
-		logger.trace("컨트롤러get id : {}", id);
+	public String selecttimetable(Model model, HttpServletRequest request, HttpSession session, TimetableTotal timeinfo) {
+		
+		session = request.getSession();
+		String id = (String)session.getAttribute("userId");
+		
+		
 		timeinfo = tService.gettotaltableInfo(id);
-		logger.trace("아행행 : {}", timeinfo);
+		
 		if(timeinfo==null){//초기화
 		// 전체DTO 만들고
 		// 1. userId 받아와서 기본객체 insert(get) - insertmapper만들기
