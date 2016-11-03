@@ -106,6 +106,12 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="gocome_js/main.js"></script>
 	<script src="http://code.jquery.com/jquery.js"></script>
+	
+   <button id="start">시작</button>
+   <button id="stop">종료</button>
+   <audio id="audio" src=""></audio>
+
+
 
 </body>
 <script>
@@ -228,6 +234,25 @@ $(document).on("click", "#select", function(e){
 	var row = "";
 	$("#info").html(row);
 });
+
+//////////////////////////////////////////////////////////////////////
+   var alarmset = ["pororiya.mp3", "pororiya.mp3"];
+   var current=0;
+   var intervalId;
+   $("#start").on("click", function(){
+      
+      intervalId = setInterval(function(){
+         var filename = alarmset[current %2];
+         $("#audio").attr("src", "<%=request.getContextPath()%>/sound/"+filename);
+         console.log("<%=request.getContextPath()%>/sound/"+filename);
+         document.querySelector("#audio").play();
+         current++;
+      }, 1000 * 5);
+   });
+   
+   $("#stop").on("click", function(){
+      clearInterval(intervalId);
+   });
 
 </script>
 </html>
