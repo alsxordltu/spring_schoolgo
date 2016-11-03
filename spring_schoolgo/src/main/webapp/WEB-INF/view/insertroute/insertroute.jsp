@@ -88,7 +88,7 @@
 				
 				
 				<div id="routelist"></div>
-				<div id="addroutebtn"><input id="addroutebtnbtn" type=button id="send" value=등록></div>
+				<div id="addroutebtn"><input id="addroutebtnbtn" type=button  value=등록></div>
 			</article>
 			
 
@@ -497,7 +497,7 @@
    
    
    
-   $("#send").on("click", function(){
+   $("#addroutebtnbtn").on("click", function(){
       items.routes = [items.routes[selectedindex]];
       //var url = ${insertRoute};
       $.ajax({
