@@ -210,8 +210,9 @@ $(document).ready(function(){
          console.log(error);
       }
 	});
-	var remaintime;
+
 	
+
 	$.ajax({
 	
 		
@@ -240,7 +241,7 @@ $(document).ready(function(){
 	
 
 });
-
+var remaintime;
 $(document).on("click", "#select", function(e){
 	
 	document.all.selcitycode.value = $(this).attr("data-citycode");
@@ -268,7 +269,6 @@ $(document).on("click", "#select", function(e){
 	});
 	
 ///////////실시간출력
- remaintime*=1;
 function go_time(){
  
 	
