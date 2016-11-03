@@ -91,7 +91,7 @@ public class TimetableServiceImpl implements TimetableService {
 		if (result < 0) { // 지각잼. 택시추천 or 떙떙이 추천 ㄱㄱ
 			return 1;
 		} else
-			return result; // 출발전까지 남은시간 분으로 리턴
+			return result; // 출발전까지 남은시간 초로 리턴
 	}
 
 	@Override

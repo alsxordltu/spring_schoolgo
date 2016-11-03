@@ -105,6 +105,7 @@
                <li><a href="gotoinsertroute">루트등록</a></li>
                <li><a href="gotoboardmain">루트공유</a></li>
                <li><a href="#">Contact Me</a></li>
+               <li><a href="gotoadmin">admin</a></li>
             </ul>
          </nav>
 
