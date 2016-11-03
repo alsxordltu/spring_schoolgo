@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="insert_css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 <script src="http://files.codepedia.info/uploads/iScripts/html2canvas.js"></script>
-
 </head>
 <body>
 	<%
@@ -29,6 +28,8 @@
 			searchdata2 = "";
 		}
 	%>
+	
+	
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
@@ -37,9 +38,9 @@
 			<article class="box post post-excerpt">
 
 				<!-- 헤더부분 -->
-				<header>
-					<h2 align="center">루트 등록</h2>
-					<p align="center">당신의 루트를 등록할 수 있습니다.</p>
+				<header >
+				<h2 align="center"><img src="insert_img/routeadd.png" width="70%"></h2>
+					<p align="center">나만의 루트를 등록해보세요!</p>
 				</header>
 
 
@@ -49,9 +50,9 @@
 					<form name="routenext" method="get" action="gotoinsert1">
 
 						<!-- 루트명 입력(값넘기기) -->
-						<div style="margin: 50px 0 100px 0; float: left; width: 100%;">
+						<div id="routenametext">
 							<h5 align=center>루트 이름을 입력하세요!</h5>
-							<input type="text" id="routename">
+							<input type="text" id="routename" style="width:50%; text-align:center;">
 						</div>
 						<!-- 출발지 값 -->
 						<div id=insertstart>
@@ -65,7 +66,7 @@
 						<!-- 화살표 -->
 						<div id=insertarrow>
 							<img id=insertarrowimg src="insert_img/arrowwide.png"
-								width="100%">
+								width="80%">
 						</div>
 
 						<!-- 도착지 값 -->
@@ -84,12 +85,12 @@
 						</div>
 					</form>
 				</div>
+				
+				
 				<div id="routelist"></div>
-
+				<div id="addroutebtn"><input id="addroutebtnbtn" type=button id="send" value=등록></div>
 			</article>
-			<div>
-				<input type=button id="send" value=등록>
-			</div>
+			
 
 		</div>
 	</div>
@@ -154,6 +155,12 @@
 	<script>
          var items;
          var selectedindex;
+         
+         $("#insertselectbtn").on("click", function(){
+  		   $("#routelist").css("display","block"); 
+  		 $("#addroutebtn").css("display","block");
+         });
+         
          <c:url value="/get" var="find" />
             $("#insertselectbtn").on("click", function(){
                $.ajax({
@@ -196,8 +203,9 @@
                      endadd= item.end_address;
                      
                      row += "<input TYPE='radio' id='radio"+listindex+"' class='radio' name='group' value='"+listindex+"' data-idx='"+ listindex+ "'/>"+
-                     "<label for='radio"+listindex+"' class='radio-label'><i class='fa fa-check'></i><span>경로"+listindex+"<span>";
-                     summary+="<div id='summary"+listindex+"'><div id='starta'><h6><img id='startendimg' src='insert_img/start.png' width='6%'/>"+startadd+"</h6></div>";
+                     "<label for='radio"+listindex+"' class='radio-label'><i style='float:right;' class='fa fa-check fa-2x'></i>";
+                     
+                     summary+="<div id='summary"+listindex+"'><div id='starta'><h6><img id='startendimg' src='insert_img/start.png' width='8%'/>"+startadd+"</h6></div>";
                      
                      total+="<div id='total"+listindex+"'>";
                      
@@ -217,7 +225,7 @@
                         totalwalk += walkingtime;
                         
                         
-                   	  row+=" "+"<img src='insert_img/walking.png' width='8%'/>"+walkingtime+"분";
+                   	  row+=" "+"<div id='walkicon'><div id='icon'><img src='insert_img/walking.png' width='80%'/></div><div id='icontime'>"+walkingtime+"분</div></div>";
                    	  summary+=" " +"<div id='walking'><h6><img id='moreimg' src='insert_img/more.png' width='6%'/>"+hwansng1+"["+walkingtime+"분]</h6></div>";
                    	   
                    	  
@@ -236,9 +244,14 @@
                         /* 버스 이용시  */
                        	if(transtype=="BUS"){
                        		if(shortname==null){ /* 시외버스 이용시  */
-                       			row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+transname;
-                       			summary+=" "+"<div id='siwoibus'><h6><img src='insert_img/circle.png' width='2%'/>시외버스"+transname+hwansng2+"</h6>"
-                       			+"<br><h6>[승차]"+depname+"[하차]"+arrname+"</h6></div>";
+                       			row+=" "+"<div id='busicon'><div id='icon'><img src='insert_img/bus.png' width='80%'/></div><div id='icontime'>"+transname+"</div></div>";
+                       			summary+=" "+"<div id='siwoibus'>"
+                       			+"<h6><img id='transimg' src='insert_img/bus.png'/>"
+                       			+transname+hwansng2+"</h6>"
+                       			+"<h6><img id='sumimg'  src='insert_img/circle2.png'/>[승차]"+depname+"</h6>"
+                           		+"<h6><img id='more2img' src='insert_img/more2.png' width='6%'/></h6>"
+                           		+"<h6><img id='sumimg'  src='insert_img/circle2.png'/>[하차]"+arrname+"</h6>"
+                           		+"</div>";
                        			
                        			/* 요금계산을 위한 이동거리 더하기 */
                        			var busdistance=item.distance.text;
@@ -252,13 +265,13 @@
                        			
                        		}else{    /* 시내버스 이용시  */
                        			
-                       		row+=" "+"<img src='insert_img/bus.png' width='8%'/>"+shortname+"번 버스";
+                       		row+=" "+"<div id='busicon'><div id='icon'><img src='insert_img/bus.png' width='80%'/></div><div id='icontime'>"+shortname+"번 버스</div></div>";
                        		summary+=" "+"<div id='sinabus'>"
-                       		+"<h6><img id='busimg' src='insert_img/bus.png' width='5%'/>"
+                       		+"<h6><img id='transimg' src='insert_img/bus.png'/>"
                        		+shortname+"번 버스 ["+headsign+"행] </h6>"
-                       		+"<h6><img id='sumimg'  src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
-                       		+"<h6><img id='moreimg' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
-                       		+"<h6><img id='sumimg'  src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
+                       		+"<h6><img id='sumimg'  src='insert_img/circle2.png'/>[승차]"+depname+"</h6>"
+                       		+"<h6><img id='more2img' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
+                       		+"<h6><img id='sumimg'  src='insert_img/circle2.png'/>[하차]"+arrname+"</h6>"
                        		+"</div>";
                        		
                        		/* 요금계산을 위한 이동거리 더하기*/
@@ -281,13 +294,13 @@
                        		
                        		}
                        		}else if(transtype=="SUBWAY"){ /* 전철 이용시  */
-                           	row+=" "+"<img src='insert_img/subway.png' width='8%'/>"+shortname;
+                           	row+=" "+"<div id='subwayicon'><div id='icon'><img src='insert_img/subway.png' width='80%'/></div><div id='icontime'>"+shortname+"</div></div>";
                            	summary+=" "+"<div id='subway'>"
-                        	+"<h6><img id='moreimg' src='insert_img/subway.png' width='6%'/>"
+                        	+"<h6><img id='transimg' src='insert_img/subway.png'/>"
                            	+shortname+"["+hwansng2+"]</h6>"
-                           	+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
-                       		+"<h6><img id='moreimg' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
-                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
+                           	+"<h6><img id='sumimg' src='insert_img/circle2.png'/>[승차]"+depname+"</h6>"
+                       		+"<h6><img id='more2img' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
+                       		+"<h6><img id='sumimg' src='insert_img/circle2.png'/>[하차]"+arrname+"</h6>"
                            	+"</div>";
                            	
                            	/* 요금계산을 위한 이동거리 더하기*/
@@ -311,13 +324,13 @@
                            	
                            	
                            }else if(transtype=="HEAVY_RAIL"){ /* 기차 이용시  */
-                           	row+=" "+"<img src='insert_img/train.png' width='8%'/>"+transname;
+                           	row+=" "+"<div id='trainicon'><div id='icon'><img src='insert_img/train.png' width='80%'/></div><div id='icontime'>"+transname+"</div></div>";
                            	summary+=" "+"<div id='train'>"
-                           	+"<h6><img id='moreimg' src='insert_img/train.png' width='6%'/>"
+                           	+"<h6><img id='transimg' src='insert_img/train.png'/>"
                            	+transname+"["+hwansng2+"]</h6>"
-                           	+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[승차]"+depname+"</h6>"
-                       		+"<h6><img id='moreimg' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
-                       		+"<h6><img id='sumimg' src='insert_img/circle2.png' width='3%'/>[하차]"+arrname+"</h6>"
+                           	+"<h6><img id='sumimg' src='insert_img/circle2.png'/>[승차]"+depname+"</h6>"
+                       		+"<h6><img id='more2img' src='insert_img/more2.png' width='6%'/>"+stop+"개 정류장 이동</h6>"
+                       		+"<h6><img id='sumimg' src='insert_img/circle2.png'/>[하차]"+arrname+"</h6>"
                            	+"</div>";
                            	
                            	/* 요금계산을 위한 이동거리 더하기*/
@@ -329,13 +342,12 @@
                    			/* 요금 계산..(계산할 수 없어서 임의 계산.....) */
                    			if(traindistance<=50){
                    				/* 50km이하 거리 갈때 요금*/
-                   				totalcost += ((Math.round(traindistance)-10)*110);
+                   				totalcost += (((Math.round(traindistance))-10)*110);
                     		}else{
                     			/* 50km초과 거리 갈때 요금  */
-                    			totalcost += 4400+(Math.round((subwaydistance-50)*100));
-                    			
+                    			totalcost += 4400+(((Math.round(traindistance))-50)*100);
                     		}
-                   			
+                   			console.log(totalcost);
                            	
                            }else{
                            	row+="음슴.";
@@ -358,17 +370,17 @@
                      
                     
                      row+="</label><br>";           
-                     summary+="<div id='enda'><h6><img id='startendimg' src='insert_img/end.png' width='6%'/>"+endadd+"</h6></div></div>";
-                     total+="<div id='totalwalk'><h6>총 도보 시간은 : "+totalwalk+"분</h6></div>"
-                    	 +"<div id='totalcost'><h6>총 요금은 : "+totalcost+"원</h6></div>"
-                     	 +"<div id='alltime'><h6>총 소요시간은 : "+alltime+"</h6></div></div>";
+                     summary+="<div id='enda'><h6><img id='startendimg' src='insert_img/end.png' width='8%'/>"+endadd+"</h6></div></div>";
+                     total+="<div id='totalwalk'><h6><img style='float:left; vertical-align:middle;' src='insert_img/walking.png' width='20%'/> : "+totalwalk+"분</h6></div>"
+                    	 +"<div id='totalcost'><h6><img style='float:left; vertical-align:middle;' src='insert_img/money.png' width='20%'/> &nbsp: "+totalcost+"원</h6></div>"
+                     	 +"<div id='alltime'><h6><img style='float:left; vertical-align:middle;' src='insert_img/hourglass.png' width='18%'/> &nbsp: "+alltime+"</h6></div></div>";
                      
                      rowsum+=row+summary+total;
                      
                      row="";
                      summary="";
                      total="";
-                     
+                     totalcost=0;
                      listindex++;
                      
                      
