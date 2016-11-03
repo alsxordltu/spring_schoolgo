@@ -55,7 +55,7 @@
 		v.vstart_lat, v.vstart_lng, v.vstart_name,
 		v.vend_lat, v.vend_lng,
 		v.vend_name, v.headsign, v.vehicle_name, v.vehicle_num,
-		v.vehicle_move
+		v.vehicle_move, v.vehicle_type
 		from route r
 		left join step s on r.route_id=s.sroute_id
 		left join
@@ -81,7 +81,7 @@
 		v.vstart_lat, v.vstart_lng, v.vstart_name,
 		v.vend_lat, v.vend_lng,
 		v.vend_name, v.headsign, v.vehicle_name, v.vehicle_num,
-		v.vehicle_move
+		v.vehicle_move, v.vehicle_type
 		from route r
 		left join step s on r.route_id=s.sroute_id
 		left join vehicle v on s.step_id=v.vstep_id
@@ -111,7 +111,7 @@
 		s.send_lat, s.send_lng, s.route_distance, s.route_time, s.seq,
 		v.vehicle_id, v.vstep_id, v.vstart_lat, v.vstart_lng, v.vstart_name,
 		v.vend_lat, v.vend_lng,
-		v.vend_name, v.headsign, v.vehicle_name, v.vehicle_num, v.vehicle_move
+		v.vend_name, v.headsign, v.vehicle_name, v.vehicle_num, v.vehicle_move, v.vehicle_type
 		from route r
 		left join step s on r.route_id=s.sroute_id
 		left join vehicle v on s.step_id=v.vstep_id

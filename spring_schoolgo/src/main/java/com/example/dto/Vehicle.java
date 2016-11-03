@@ -55,4 +55,6 @@ public class Vehicle implements Serializable {
 
 	/** VEHICLE_MOVE. */
 	private String vehicleMove;
+	
+	private String vehicleType;
 }

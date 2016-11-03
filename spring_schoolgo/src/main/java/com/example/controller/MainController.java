@@ -179,6 +179,7 @@ public class MainController {
 		   String nodeId = request.getParameter("nodeId");
 		   String vehicleNum = request.getParameter("vehicleNum");
 		   
+		   
 		   String requestUrl = "http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?";
 			requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
 			requestUrl += "&cityCode=" + citycode;
@@ -198,6 +199,7 @@ public class MainController {
 			
 
 			String arrprevstationcnt = "";
+			Double tmparrtime=(double) 0;
 			String arrtime = "";
 			String nodenm = "";
 			String routeno = "";
@@ -214,12 +216,14 @@ public class MainController {
 				
 					arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
 					arrtime = busArriveList.get("arrtime").toString();
+					tmparrtime = Math.floor(Double.parseDouble(arrtime) / 60);
+					System.out.println("임시 시간 : " + tmparrtime);
+					arrtime = tmparrtime.toString();
+					//System.out.println("임시 시간 : " + arrtime);
+					
 					nodenm = busArriveList.get("nodenm").toString();
 					BusArrive bus = new BusArrive(arrprevstationcnt, arrtime, nodenm, routeno);
 					buslist.add(bus);
-					
-				
-				
 			}
      		/*for(Map<String, Object> busArriveList : item){
 				routeno = busArriveList.get("routeno").toString();
@@ -261,7 +265,7 @@ public class MainController {
 		  }
 		  session.setAttribute("Alert",lateAlert );
 		  
-		   return "goandcome/go";
+		   return lateAlert;
 	   }
 
 }

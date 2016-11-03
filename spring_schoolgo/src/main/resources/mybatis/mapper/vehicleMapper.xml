@@ -14,7 +14,7 @@
 		#{startName}, #{startLat}, #{startLng}, 
 		#{startLat}, #{endLng}, #{endName}, 
 		#{headsign}, 
-		#{vehicleName}, #{vehicleNum}, #{vehicleMove})
+		#{vehicleName}, #{vehicleNum}, #{vehicleMove}, #{vehicleType})
 	</insert>
 
 	<delete id="deleteVehicle" parameterType="int">
@@ -36,7 +36,7 @@
 		vstart_name, vstart_lat, vstart_lng,
 		vend_lat, vend_lng, vend_name, 
 		headsign,
-		vehicle_name, vehicle_num, vehicle_move
+		vehicle_name, vehicle_num, vehicle_move, vehicle_type
 		from vehicle where vehicle_id = #{vehicleId}
 	</select>
 	
@@ -53,6 +53,7 @@
 		<result column="vehicle_name" property="vehicleName" />
 		<result column="vehicle_num" property="vehicleNum" />
 		<result column="vehicle_move" property="vehicleMove" />
+		<result column="vehicle_type" property="vehicleType" />
 	</resultMap>
 
 </mapper>

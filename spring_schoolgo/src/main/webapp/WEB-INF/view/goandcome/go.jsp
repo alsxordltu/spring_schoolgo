@@ -202,7 +202,9 @@ $(document).ready(function(){
 		async:false,
 		data:{ walkTime : routeStep[0].routeTime, 
 				
-			bustime : bustime
+			bustime : bustime,
+			timetabletime : "<%=request.getParameter("time") %>",
+			timetotaltime : "<%=request.getParameter("totaltime") %>"
 		},
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
