@@ -28,7 +28,11 @@
 					<h2 align="center">학교가기 페이지</h2>
 					<p align="center">버스와 전철 위치정보 여기다가</p>
 				</header>
-				<div id="busarrive">
+				<button id="start">시작</button>
+   			<button id="stop">종료</button>
+  			 <audio id="audio" src=""></audio>
+			<div id="busarrive">
+
 				
 		<%-- 		<table id="info">
 		<tr><th>도시코드</th><th>정류소코드</th><th>정류소이름</th><th>버튼</th></tr>
@@ -107,9 +111,7 @@
 	<script src="gocome_js/main.js"></script>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	
-   <button id="start">시작</button>
-   <button id="stop">종료</button>
-   <audio id="audio" src=""></audio>
+
 
 
 
@@ -243,7 +245,7 @@ $(document).on("click", "#select", function(e){
       
       intervalId = setInterval(function(){
          var filename = alarmset[current %2];
-         $("#audio").attr("src", "<%=request.getContextPath()%>/sound/"+filename);
+         $("#audio").attr("src", "gocome_voice/"+filename);
          console.log("<%=request.getContextPath()%>/sound/"+filename);
          document.querySelector("#audio").play();
          current++;
