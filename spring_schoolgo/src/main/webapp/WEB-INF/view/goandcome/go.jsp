@@ -28,10 +28,20 @@
 					<h2 align="center">학교가기 페이지</h2>
 					<p align="center">버스와 전철 위치정보 여기다가</p>
 				</header>
-
-				<div id="clock"></div> 
-				<div id="clock2"></div> 
-				<div id="clock3"></div>
+				(현재 시간)
+				<div id="curtime"></div>
+				현재 시간(초로 변환)
+				<div id="curtimesec"></div>
+				<br>
+				 
+				(출발해야하는 시간(계산된시간))
+				
+ 				<div id="starttime" ></div> 
+				
+				출발 전까지 남은 시간 계산(초)
+				<div id="remaintimemove"></div>
+				
+				
 				<br>
 				<br>
 				<br>
@@ -210,6 +220,7 @@ $(document).ready(function(){
          console.log(error);
       }
 	});
+
 	
 
 	$.ajax({
@@ -228,19 +239,20 @@ $(document).ready(function(){
 		success:function(response){
 		
 			console.log(response);
-			$("#clock3").html(response);
+			$("#starttime").html(response);
 			remaintime=response;
+			starttime=response;
 		},
 		
 	 	error:function(xhr, status, error){
          console.log(error);
       }
 	});
-	console.log(remaintime);
 	
 
 });
 var remaintime;
+var starttime;
 $(document).on("click", "#select", function(e){
 	
 	document.all.selcitycode.value = $(this).attr("data-citycode");
@@ -278,16 +290,23 @@ function go_time(){
  var nowmin = now.getMinutes();  //현재 분
  var nowsec = now.getSeconds();  //현재 초
  
- document.getElementById("clock").innerHTML 
- = "A(현재 시간) :  "+nowhour+":"+nowmin+":"+nowsec
+ document.getElementById("curtime").innerHTML 
+ = nowhour+":"+nowmin+":"+nowsec
  //id가 clock인 html에 현재시각을 넣음
  
-  /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
+ var hourpersec = nowhour*3600; //현재 시->초 변환
+ var minpersec = nowhour*60; //현재 분->초 변환
+ var nowtotalsec = hourpersec + minpersec + nowsec;
  
-
-  document.getElementById("clock2").innerHTML 
- = "B(출발까지 남은 시간) : " + remaintime; 
- remaintime-=1;
+ document.getElementById("curtimesec").innerHTML 
+ = nowtotalsec
+ 
+  /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
+ var remaintime = starttime-nowtotalsec;
+  document.getElementById("remaintimemove").innerHTML 
+ = remaintime; 
+ 
+ ///////////////////////////////////출발 몇초 전인지 계산(B-A)
  
  setTimeout("go_time()", 1000);
  //1초마다 해당 펑션을 실행함.
