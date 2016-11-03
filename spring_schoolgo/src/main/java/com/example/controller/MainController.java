@@ -244,28 +244,36 @@ public class MainController {
 		   return mapper.writeValueAsString(buslist);
 	   }
 	
-	@RequestMapping(value = "/carDepartTime", method = RequestMethod.GET, produces="application/text; charset=utf8")
-	   public @ResponseBody String carDepartTime(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
-		   request.setCharacterEncoding("UTF-8");
-		   response.setContentType("text/html;charset=UTF-8");
-		  String walkTime = request.getParameter("walkTime");
-		  String busTime = request.getParameter("bustime");
-		  
-		  System.out.println(walkTime + " " + busTime);
-		  int result = tservice.isLate(walkTime, busTime);
-		  //result = 1 이면 지각잼
-		  //지각아니면 result=적어도 출발해야되는시간까지 남은시간
-		  logger.trace("isLate : {}" , result);
-		  String lateAlert="";
-		  //session에 결과 String 넣음
-		  if(result==1){
-			  lateAlert="지각.....택시추천/땡땡이추천합니다";
-		  }else{
-			  lateAlert="나가야 하는 시간까지 " + result + "분 남음";
-		  }
-		  session.setAttribute("Alert",lateAlert );
-		  
-		   return lateAlert;
-	   }
-
+	@RequestMapping(value = "/carDepartTime", method = RequestMethod.GET, produces = "application/text; charset=utf8")
+	public @ResponseBody String carDepartTime(HttpSession session, Model model, HttpServletRequest request,
+			HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		String walkTime = request.getParameter("walkTime");
+		String busTime = request.getParameter("bustime");
+		String timetabletime = request.getParameter("timetabletime");
+		String timetotaltime = request.getParameter("timetotaltime");
+		logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
+		logger.trace("timetabletime : {} , timetotaltime : {} " , timetabletime, timetotaltime);
+		
+		
+		//도착시간, 총소요시간
+		int result = tservice.simpleisLate(timetabletime, timetotaltime);
+		logger.trace("result : {} " , result);
+		
+		String alert = "";
+		if (result == 1) {
+			alert = "지각. 택시나 땡땡이 추천합니다^.^";
+			logger.trace("alert : {}", alert);
+		} else {
+			logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
+			int remaintime = tservice.isLate(walkTime, busTime); //남은시간
+			int remaintimemin = remaintime/60;
+			alert = "나가야 하는 시간까지 " + remaintimemin + "분 남음";
+			logger.trace("alert : {}", alert);		
+		}
+		logger.trace("resultalert : {}", alert);
+		return alert;
+	}
+	   
 }
