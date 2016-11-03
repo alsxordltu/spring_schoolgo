@@ -277,11 +277,16 @@ padding-bottom:10px;
 	float: left;
 }
 
-h5 {
+h6 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
 	
+	vertical-align: baseline;
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
 	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
 	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
@@ -1563,7 +1568,7 @@ strong, b {
 	color: #232323;
 }
 
-h2, h3, h4, h5, h6 {
+h2, h3, h4, h5 {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 700;
 	color: #232323;
@@ -2083,6 +2088,18 @@ ol.default li {
 	font-weight: 700;
 	color: #fff;
 }
+
+#mypageside li.current a {
+		text-decoration: underline;
+			font-weight: 700;
+			color: #fff;
+		}
+		
+		#mypageside a {
+			font-weight: 700;
+			color: #fff;
+			text-decoration: none;
+		}
 
 #nav li:hover a {
 	background-color: rgba(255, 255, 255, 0.1);
@@ -2715,6 +2732,11 @@ ol.default li {
 @media screen and (max-width: 736px) {
 	h6{
 	font-size:0.5em;
+	/* font-family: "Nanum Gothic"; */
+	font-family: "Jeju Hallsan";
+	/* font-family: "Jeju Gothic";
+	font-family: "Nanum Pen Script";
+	font-family: "Nanum Brush Scirpt"; */
 	}
 	#insertstart {
 		width: 40%;
@@ -2766,11 +2788,11 @@ ol.default li {
 	/* Basic */
 	body, input, textarea, select {
 		line-height: 1.75em;
-		font-size: 3pt;
+		font-size: 11pt;
 		letter-spacing: 0;
 	}
-	h2, h3, h4, h6 {
-		font-size: 3em;
+	h2, h3, h4 {
+		font-size: 1.5em;
 	}
 	h5 {
 		font-size: 1.0em;

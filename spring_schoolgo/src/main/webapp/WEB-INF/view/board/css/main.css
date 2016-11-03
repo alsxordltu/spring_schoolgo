@@ -2195,6 +2195,17 @@ h5
 			font-weight: 700;
 			color: #fff;
 		}
+		#mypageside li.current a {
+		text-decoration: underline;
+			font-weight: 700;
+			color: #fff;
+		}
+		
+		#mypageside a {
+			font-weight: 700;
+			color: #fff;
+			text-decoration: none;
+		}
 
 		#nav li:hover a {
 			background-color: rgba(255, 255, 255, 0.1);

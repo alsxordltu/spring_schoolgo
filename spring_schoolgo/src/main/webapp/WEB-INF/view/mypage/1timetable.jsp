@@ -29,14 +29,13 @@
 
          <!-- Post -->
          <article class="box post post-excerpt">
+         
             <header>
-
                <!-- 아티클 제목 -->
-               <h2>
-                  <a href="#">시간표 등록하자</a>
-               </h2>
+               <h2 style="text-align:center;">시간표 등록하자</h2>
             </header>
          </article>
+         
          <div id=timetable>
             <sform:form method="post" action="updateTimetable"
                modelAttribute="TimetableTotal">
@@ -264,14 +263,18 @@
 
       <!-- Logo -->
       <h1 id="logo">
-         <a href="#">STRIPED</a>
+          <a href="gotomain"><img src="my_img/gogowhite.png"
+            width="150px" alt="" /></a>
       </h1>
+       <form name="logout" action="logout">
+         <h5 style="text-align: center">${nickName}님환영합니다</h5>
+         <input type="submit" value="로그아웃">
+ </form>
 
       <!-- Nav -->
       <nav id="nav">
          <ul>
-            <li class="current"><a href="gotomain">메인</a></li>
-            <li><a href="#">학교가기</a></li>
+            <li><a href="gotomain">학교가기</a></li>
             <li><a href="gotoinsertroute">루트등록</a></li>
             <li><a href="#">루트공유</a></li>
             <li><a href="#">Contact Me</a></li>
@@ -283,13 +286,15 @@
          <header>
             <h2>마이페이지</h2>
          </header>
-         <ul>
-            <li><a href="gototimetable">시간표 등록</a></li>
+         
+         <ul id="mypageside">
+            <li class="current"><a href="gototimetable">시간표 등록</a></li>
             <li><a href="gotoupdateprofile">개인정보 수정</a></li>
             <li><a href="gotoroutemanager">루트관리</a></li>
             <li><a href="gotocostcal">교통비 가계부</a></li>
             <li><a href="gotomyactivity">활동내역</a></li>
          </ul>
+         
       </section>
 
 

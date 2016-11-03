@@ -48,33 +48,35 @@
 			<a href="gotomain"><img src="insert_img/gogo.png" width="150px"
 				alt="" /></a>
 		</h1>
+		 <form name="logout" action="logout">
+         <h5 style="text-align: center">${nickName}님환영합니다</h5>
+         <input type="submit" value="로그아웃">
+ </form>
 
 		<!-- Nav -->
 		<nav id="nav">
-			<ul>
-				
-				<li><a href="gotomain">학교가기</a></li>
-				<li class="current"><a href="gotoinsertroute">루트등록</a></li>
-				<li><a href="gotoboardmain">루트공유</a></li>
-				<li><a href="#">Contact Me</a></li>
-			</ul>
-		</nav>
+            <ul>
+               <li><a href="gotomain">학교가기</a></li>
+               <li><a href="gotoinsertroute">루트등록</a></li>
+               <li class="current"><a href="gotoboardmain">루트공유</a></li>
+               <li><a href="#">Contact Me</a></li>
+            </ul>
+         </nav>
 
 
 
-
-		<!-- Recent Posts -->
-		<section class="box recent-posts">
-			<header>
-				<h2>마이페이지</h2>
-			</header>
-			<ul>
-				<li><a href="gototimetable">시간표 등록</a></li>
-				<li><a href="#">개인정보 수정</a></li>
-				<li><a href="#">루트관리</a></li>
-				<li><a href="#">교통비 가계부</a></li>
-				<li><a href="#">활동내역</a></li>
-			</ul>
+         <!-- Recent Posts -->
+         <section class="box recent-posts">
+            <header>
+               <h2>마이페이지</h2>
+            </header>
+           <ul id="mypageside">
+            <li><a href="gototimetable">시간표 등록</a></li>
+            <li><a href="gotoupdateprofile">개인정보 수정</a></li>
+            <li><a href="gotoroutemanager">루트관리</a></li>
+            <li><a href="gotocostcal">교통비 가계부</a></li>
+            <li><a href="gotomyactivity">활동내역</a></li>
+         </ul>
 		</section>
 
 
