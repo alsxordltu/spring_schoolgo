@@ -259,22 +259,21 @@ public class MainController {
 		
 		//도착시간, 총소요시간
 		int result = tservice.simpleisLate(timetabletime, timetotaltime);
-		
+		int remaintime = 0;
+		String returnString = null;
 		String alert = "";
+		
 		if (result == 1) {
 			alert = "지각. 택시나 땡땡이 추천합니다^.^";
 			logger.trace("alert : {}", alert);
 		} else {
 			logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
-			int remaintime = tservice.isLate(walkTime, busTime); //남은시간
-			logger.trace("remaintime : {}", remaintime);		
-			int remaintimemin = remaintime/60;
-			logger.trace("remaintimemin : {}", remaintimemin);		
-			alert = "나가야 하는 시간까지 " + remaintimemin + "분 남음";
-			logger.trace("alert : {}", alert);		
+			remaintime = tservice.isLate(walkTime, busTime); //남은시간
+			returnString = String.valueOf(remaintime);
+			logger.trace("remaintime : {}", remaintime);			
 		}
 		logger.trace("resultalert : {}", alert);
-		return alert;
+		return returnString;
 	}
 	   
 }

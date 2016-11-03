@@ -31,7 +31,7 @@
 
 				<div id="clock"></div> 
 				<div id="clock2"></div> 
-				
+				<div id="clock3"></div>
 				<br>
 				<br>
 				<br>
@@ -212,6 +212,8 @@ $(document).ready(function(){
 	});
 	
 	$.ajax({
+	
+		
 		url:"calDepartTime",
 		type:"get",
 		async:false,
@@ -223,10 +225,9 @@ $(document).ready(function(){
 		},
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
-			var row = response;
-	
+		
 			console.log(response);
-			$("#clock2").html($("clock").html()+row);
+			$("#clock3").html(response);
 		},
 		
 	 	error:function(xhr, status, error){
