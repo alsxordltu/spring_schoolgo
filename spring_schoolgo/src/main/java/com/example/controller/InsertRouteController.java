@@ -92,10 +92,10 @@ public class InsertRouteController {
 	   rService.deleteRoute(route);
 	   String userId = (String)session.getAttribute("userId");
 		ObjectMapper mapper = new ObjectMapper();
-		List<String> routenames = rService.selectRouteNameListUserId(userId);
+		List<Route> routes = rService.getRouteUserId(userId);
 		
 	   
-	   return mapper.writeValueAsString(routenames);
+	   return mapper.writeValueAsString(routes);
    }
 
    @RequestMapping(value = "/gotoinsert1", method = RequestMethod.GET)

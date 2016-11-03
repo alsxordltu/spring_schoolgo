@@ -132,6 +132,8 @@ $(document).ready(function(){
 	var row = "";	
 	buslist = ${buslist };
 	routes = ${routes };
+	console.log(routes);
+	console.log(buslist);
 	var routeStep = routes.stepList;
 	var busStopList = buslist.response.body.items.item;
 /* 	console.log(buslist);
@@ -152,19 +154,19 @@ $(document).ready(function(){
 	
 	
  	$.each(routeStep, function(index, item){		
+		if(item.vmode == "TRANSIT"){
+			var vehicleList = item.vehicleList;
+			$.each(vehicleList, function(index, item){
+				if(item.startName != null){
+					
+					vehicleListName = item.startName;
+					vehicleNum = item.vehicleNum;
+					
+					return false;
+				}
+			});
+		}
 		
-		var vehicleList = item.vehicleList;
-		console.log(vehicleList);
-		
-		$.each(vehicleList, function(index, item){
-			if(item.startName != null){
-				console.log(item.startName);
-				vehicleListName = item.startName;
-				vehicleNum = item.vehicleNum;
-				
-				return false;
-			}
-		});
 		if(vehicleListName != ""){
 			
 			return false;
@@ -191,14 +193,11 @@ $(document).ready(function(){
 		async:false,
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
-			console.log(response);
 			json = JSON.parse(response);
-			console.log(json);
 			var row ="";
 			$.each(json, function(index, item){
 				if(item.routeno == vehicleNum){
 					bustime = item.arrtime;
-					console.log(bustime);
 					
 				}
 				row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
@@ -213,19 +212,18 @@ $(document).ready(function(){
 	});
 	
 	$.ajax({
-		url:"carDepartTime",
+		url:"calDepartTime",
 		type:"get",
 		async:false,
 		data:{ walkTime : routeStep[0].routeTime, 
-				
 			bustime : bustime,
-			timetabletime : "<%=request.getParameter("time")%>",
 
-			timetotaltime : "<%=request.getParameter("totaltime")%>"
-
+			timetabletime : "<%=request.getParameter("time") %>",
+			timetotaltime : "<%=request.getParameter("totaltime") %>"
 		},
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
+			
 			
 			console.log(routeStep[0].routeTime);
 			console.log("다" + bustime);

@@ -166,7 +166,6 @@
    
    function showList(){
         var row="";
-        
          $.each(json, function(index, item){      
             
             row+="<div id='div"+ index + "'>"
@@ -197,24 +196,27 @@ $(document).on("click", ".routelist", function(){
     }
 
    calMin = calTime%60 + '분 ';
-   console.log(json[index].startLat);
-   console.log(json[index].startLng);
- 
-   
 
    var routeStep = json[index].stepList;
    var stepLat = "";
    var stepLng = "";
    
    $.each(routeStep, function(index, item){
-	   var vehicleList = item.vehicleList;
-	   $.each(vehicleList, function(index, item){
-		   if(item.startName != null){
-			   stepLat = item.startLat;
-			   stepLng = item.startLng;
-			   return false;
-		   }
-	   });
+	   
+	   
+	   if(item.vmode == "TRANSIT"){
+		   var vehicleList = item.vehicleList;
+		   
+		   $.each(vehicleList, function(index, item){
+			   if(item.vehicleType == "BUS"){
+				   stepLat = item.startLat;
+				   stepLng = item.startLng;
+				  
+				   return false;
+			   }
+		   });
+	   }
+	   
 	   if(stepLat != "" && stepLng !=""){
 		   return false;
 	   }
@@ -269,15 +271,11 @@ $(document).on("click", ".group",  function(){
       contentType: "application/x-www-form-urlencoded; charset=UTF-8",
       success:function(response){
          json = JSON.parse(response);
-         console.log(json);
          /* var row="";
          $.each(json, function(index, item){   
             row+="<div id='div"+ index + "'><input type='button' class='routelist' value='"+ json[index].routeName + "'><input type='button' id='routed"+index + "' class='group' name='group' value='삭제' data-routeId='"+ json[index].routeId +"'></div><br> ";         
          }); */
          showList();
-         
-         
-          //location.href='<%=request.getContextPath()%>/gotomain';
       },
        error:function(xhr, status, error){
          console.log(error);
@@ -309,7 +307,7 @@ $(document).on("click", ".gotoschool", function(){
          
 $(document).on("change", ".radio", function(){
 	time = $(this).attr("data-time");
-	   console.log("seleted time : " + time);
+	   
 	   
 	         });
 	                 
