@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="gocome_css/main.css" />
 <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
-<body>
+<body onload="go_time()">
 
 	<!-- Content -->
 	<div id="content">
@@ -28,13 +28,21 @@
 					<h2 align="center">학교가기 페이지</h2>
 					<p align="center">버스와 전철 위치정보 여기다가</p>
 				</header>
-				<button id="start">시작</button>
-   			<button id="stop">종료</button>
-  			 <audio id="audio" src=""></audio>
-			<div id="busarrive">
 
+				<div id="clock"></div> 
+				<div id="clock2"></div> 
 				
-		<%-- 		<table id="info">
+				<br>
+				<br>
+				<br>
+				
+				<button id="start">시작</button>
+				<button id="stop">종료</button>
+				<audio id="audio" src=""></audio>
+				<div id="busarrive">
+
+
+					<%-- 		<table id="info">
 		<tr><th>도시코드</th><th>정류소코드</th><th>정류소이름</th><th>버튼</th></tr>
 		<c:forEach var="result" items="${buslist }" varStatus="status">
 		
@@ -47,10 +55,10 @@
 		</tr>
 	</c:forEach>
 	</table>				 --%>
-				
-				
-				
-				
+
+
+
+
 				</div>
 			</article>
 		</div>
@@ -110,7 +118,7 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="gocome_js/main.js"></script>
 	<script src="http://code.jquery.com/jquery.js"></script>
-	
+
 
 
 
@@ -211,9 +219,9 @@ $(document).ready(function(){
 		data:{ walkTime : routeStep[0].routeTime, 
 				
 			bustime : bustime,
-			timetabletime : "<%=request.getParameter("time") %>",
+			timetabletime : "<%=request.getParameter("time")%>",
 
-			timetotaltime : "<%=request.getParameter("totaltime") %>"
+			timetotaltime : "<%=request.getParameter("totaltime")%>"
 
 		},
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
@@ -239,7 +247,7 @@ $(document).on("click", "#select", function(e){
 	$("#info").html(row);
 });
 
-//////////////////////////////////////////////////////////////////////
+////////////////////////음성출력테스트/////////////////////////////////////////
    var alarmset = ["pororiya.mp3", "pororiya.mp3"];
    var current=0;
    var intervalId;
@@ -248,15 +256,40 @@ $(document).on("click", "#select", function(e){
       intervalId = setInterval(function(){
          var filename = alarmset[current %2];
          $("#audio").attr("src", "gocome_voice/"+filename);
-         console.log("<%=request.getContextPath()%>/sound/"+filename);
-         document.querySelector("#audio").play();
-         current++;
-      }, 1000 * 5);
-   });
-   
-   $("#stop").on("click", function(){
-      clearInterval(intervalId);
-   });
+			document.querySelector("#audio").play();
+			current++;
+		}, 1000 * 5);
+	});
 
+	$("#stop").on("click", function() {
+		clearInterval(intervalId);
+	});
+	
+///////////실시간출력
+ var remainmin = 50;
+function go_time(){
+ 
+	
+	//////////////////현재시간
+ var now = new Date();
+
+ var nowhour = now.getHours();  //현재 시
+ var nowmin = now.getMinutes();  //현재 분
+ var nowsec = now.getSeconds();  //현재 초
+ 
+ document.getElementById("clock").innerHTML 
+ = "A(현재 시간) :  "+nowhour+":"+nowmin+":"+nowsec
+ //id가 clock인 html에 현재시각을 넣음
+ 
+  /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
+ 
+
+  document.getElementById("clock2").innerHTML 
+ = "B(출발까지 남은 시간) : " + remainmin; 
+ remainmin-=1;
+ 
+ setTimeout("go_time()", 1000);
+ //1초마다 해당 펑션을 실행함.
+}
 </script>
 </html>
