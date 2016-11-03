@@ -335,8 +335,13 @@ public class InsertRouteController {
                            Map<String, Object> line = (Map) lineObj;
                            String lineName = objToStr(line.get("name"));
                            String shortName = objToStr(line.get("short_name"));
+               
                            vehicle.setVehicleName(lineName);
                            vehicle.setVehicleNum(shortName);
+                           Object vehicleObj = line.get("vehicle");
+                           Map<String, Object> vehicleInfo = (Map) vehicleObj;
+                           String vehicleType = objToStr(vehicleInfo.get("type"));
+                           vehicle.setVehicleType(vehicleType);
                         }
                         logger.trace("vehicle: {}", vehicle);
                      }

@@ -33,6 +33,7 @@ import com.example.service.TimetableService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 @Controller // 컨트롤러 선언
 public class MainController {
 	private static Logger logger = LoggerFactory.getLogger(MainController.class);
@@ -71,52 +72,52 @@ public class MainController {
 	 * @RequestMapping(value="/join", method=RequestMethod.POST) public String
 	 * join(User user){ service.join(user); return "tutorial"; }
 	 */
-
+	
 	@Autowired
 	RouteService service;
-
+	
 	@Autowired
 	TimetableService tservice;
-
+	
 	@RequestMapping(value = "/getroutelist", method = RequestMethod.GET)
 	public @ResponseBody String getroutelist(HttpServletResponse response) {
-		// response.getWriter().write();
+		//response.getWriter().write();
 		return "gotomain";
 	}
 
 	@RequestMapping(value = "/gotogo", method = RequestMethod.GET)
-	public String gotogo(@RequestParam("lat") String lat, @RequestParam("lng") String lng,
-			@RequestParam("index") String index, Model model, HttpServletRequest request, HttpSession session)
-			throws JsonProcessingException {
-
+	public String gotogo(@RequestParam("lat")String lat, @RequestParam("lng")String lng, @RequestParam("index")String index, Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException {
+		
 		System.out.println("위도 : " + lat);
 		System.out.println("경도 : " + lng);
-
+		
 		String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
 		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
 		requestUrl += "&gpsLati=" + lat;
 		requestUrl += "&gpsLong=" + lng;
 		requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
-
+		
 		RestTemplate template = new RestTemplate();
-
+		
 		URI url = URI.create(requestUrl);
-		RequestEntity<Void> reqEntity = RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8)
-				.acceptCharset(Charset.forName("UTF-8")).build();
+		RequestEntity<Void> reqEntity
+		= RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8).acceptCharset(Charset.forName("UTF-8")).build();
 
 		ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
 		HashMap<String, Object> map = resEntity.getBody();
 		System.out.println(requestUrl);
 		System.out.println("아헤헤 : " + map);
 		ObjectMapper mapper = new ObjectMapper();
-
+		
 		model.addAttribute("buslist", mapper.writeValueAsString(map));
-		String userId = (String) session.getAttribute("userId");
+		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
 		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
-
-		// 멍........................
-
+		
+		//멍........................
+		
+		//tservice.isLate(working, arrivemin);
+		
 		return "goandcome/go";
 	}
 
@@ -168,75 +169,81 @@ public class MainController {
 	public String gotomyactivity() {
 		return "mypage/5myactivity";
 	}
+	
+	@RequestMapping(value = "/getRouteId", method = RequestMethod.GET, produces="application/text; charset=utf8")
+	   public @ResponseBody String getRouteId(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+		   request.setCharacterEncoding("UTF-8");
+		   response.setContentType("text/html;charset=UTF-8");
+		   ObjectMapper mapper = new ObjectMapper();
+		   String citycode = request.getParameter("cityCode");
+		   String nodeId = request.getParameter("nodeId");
+		   String vehicleNum = request.getParameter("vehicleNum");
+		   
+		   
+		   String requestUrl = "http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?";
+			requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
+			requestUrl += "&cityCode=" + citycode;
+			requestUrl += "&nodeId=" + nodeId;
+			requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
+			
+			RestTemplate template = new RestTemplate();
+			
+			URI url = URI.create(requestUrl);
+			RequestEntity<Void> reqEntity
+			= RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8).acceptCharset(Charset.forName("UTF-8")).build();
 
-	@RequestMapping(value = "/getRouteId", method = RequestMethod.GET, produces = "application/text; charset=utf8")
-	public @ResponseBody String getRouteId(HttpSession session, Model model, HttpServletRequest request,
-			HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		ObjectMapper mapper = new ObjectMapper();
-		String citycode = request.getParameter("cityCode");
-		String nodeId = request.getParameter("nodeId");
-		String vehicleNum = request.getParameter("vehicleNum");
+			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+			HashMap<String, Object> map = resEntity.getBody();
+			System.out.println(requestUrl);
+			System.out.println(map);
+			
 
-		String requestUrl = "http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?";
-		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
-		requestUrl += "&cityCode=" + citycode;
-		requestUrl += "&nodeId=" + nodeId;
-		requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
-
-		RestTemplate template = new RestTemplate();
-
-		URI url = URI.create(requestUrl);
-		RequestEntity<Void> reqEntity = RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8)
-				.acceptCharset(Charset.forName("UTF-8")).build();
-
-		ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
-		HashMap<String, Object> map = resEntity.getBody();
-		System.out.println(requestUrl);
-		System.out.println(map);
-
-		String arrprevstationcnt = "";
-		String arrtime = "";
-		String nodenm = "";
-		String routeno = "";
-		List<BusArrive> buslist = new ArrayList<>();
-
-		Map<String, Object> responseTxt = (Map) map.get("response");
-		Map<String, Object> body = (Map) responseTxt.get("body");
-		Map<String, Object> items = (Map) body.get("items");
-		List<Map> item = (List) items.get("item");
-		System.out.println("ajax로 넘어온 버스 노선번호 : " + vehicleNum);
-
-		for (Map<String, Object> busArriveList : item) {
-			routeno = busArriveList.get("routeno").toString();
-
-			arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
-			arrtime = busArriveList.get("arrtime").toString();
-			nodenm = busArriveList.get("nodenm").toString();
-			BusArrive bus = new BusArrive(arrprevstationcnt, arrtime, nodenm, routeno);
-			buslist.add(bus);
-
-		}
-		/*
-		 * for(Map<String, Object> busArriveList : item){ routeno =
-		 * busArriveList.get("routeno").toString();
-		 * System.out.println("버스 노선번호 : " + routeno);
-		 * if(routeno.equals(vehicleNum)){
-		 * 
-		 * System.out.println(routeno + " " + vehicleNum); arrprevstationcnt =
-		 * busArriveList.get("arrprevstationcnt").toString(); arrtime =
-		 * busArriveList.get("arrtime").toString(); nodenm =
-		 * busArriveList.get("nodenm").toString(); BusArrive bus = new
-		 * BusArrive(arrprevstationcnt, arrtime, nodenm, routeno);
-		 * buslist.add(bus);
-		 * 
-		 * continue; } }
-		 */
-
-		return mapper.writeValueAsString(buslist);
-	}
-
+			String arrprevstationcnt = "";
+			Double tmparrtime=(double) 0;
+			String arrtime = "";
+			String nodenm = "";
+			String routeno = "";
+			List<BusArrive> buslist = new ArrayList<>();
+			
+			Map<String, Object> responseTxt =  (Map)map.get("response");
+			Map<String, Object> body =  (Map)responseTxt.get("body");
+			Map<String, Object> items =  (Map)body.get("items");
+			List<Map> item = (List)items.get("item");
+			System.out.println("ajax로 넘어온 버스 노선번호 : " + vehicleNum);
+			
+			for(Map<String, Object> busArriveList : item){
+				routeno = busArriveList.get("routeno").toString();
+				
+					arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
+					arrtime = busArriveList.get("arrtime").toString();
+					tmparrtime = Math.floor(Double.parseDouble(arrtime) / 60);
+					System.out.println("임시 시간 : " + tmparrtime);
+					arrtime = tmparrtime.toString();
+					//System.out.println("임시 시간 : " + arrtime);
+					
+					nodenm = busArriveList.get("nodenm").toString();
+					BusArrive bus = new BusArrive(arrprevstationcnt, arrtime, nodenm, routeno);
+					buslist.add(bus);
+			}
+     		/*for(Map<String, Object> busArriveList : item){
+				routeno = busArriveList.get("routeno").toString();
+				System.out.println("버스 노선번호 : " + routeno);
+				if(routeno.equals(vehicleNum)){
+					
+					System.out.println(routeno + " " + vehicleNum);
+					arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
+					arrtime = busArriveList.get("arrtime").toString();
+					nodenm = busArriveList.get("nodenm").toString();
+					BusArrive bus = new BusArrive(arrprevstationcnt, arrtime, nodenm, routeno);
+					buslist.add(bus);
+					
+					continue;
+				}
+			}*/
+			
+		   return mapper.writeValueAsString(buslist);
+	   }
+	
 	@RequestMapping(value = "/carDepartTime", method = RequestMethod.GET, produces = "application/text; charset=utf8")
 	public @ResponseBody String carDepartTime(HttpSession session, Model model, HttpServletRequest request,
 			HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
@@ -268,5 +275,5 @@ public class MainController {
 		logger.trace("resultalert : {}", alert);
 		return alert;
 	}
-
+	   
 }

@@ -41,7 +41,7 @@
 				<div style="height: 1000px;">
 
 					개인정보수정
-					<sform:form method="post" action="updateUser" modelAttribute="User">
+					<sform:form method="post" action="updateUser" modelAttribute="user">
 						<div class="field">
 						userId(변경불가)
 							<sform:input path="userId" placeholder="Id" readonly="true" />

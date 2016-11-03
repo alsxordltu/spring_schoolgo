@@ -212,7 +212,9 @@ $(document).ready(function(){
 				
 			bustime : bustime,
 			timetabletime : "<%=request.getParameter("time") %>",
-	         timetotaltime : "<%=request.getParameter("totaltime") %>"
+
+			timetotaltime : "<%=request.getParameter("totaltime") %>"
+
 		},
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
