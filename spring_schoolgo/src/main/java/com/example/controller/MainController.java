@@ -209,16 +209,16 @@ public class MainController {
 			Map<String, Object> body =  (Map)responseTxt.get("body");
 			Map<String, Object> items =  (Map)body.get("items");
 			List<Map> item = (List)items.get("item");
-			System.out.println("ajax로 넘어온 버스 노선번호 : " + vehicleNum);
+			
 			
 			for(Map<String, Object> busArriveList : item){
 				routeno = busArriveList.get("routeno").toString();
 				
 					arrprevstationcnt = busArriveList.get("arrprevstationcnt").toString();
 					arrtime = busArriveList.get("arrtime").toString();
-					tmparrtime = Math.floor(Double.parseDouble(arrtime) / 60);
+					/*tmparrtime = Math.floor(Double.parseDouble(arrtime) / 60);
 					
-					arrtime = tmparrtime.toString();
+					arrtime = tmparrtime.toString();*/
 					//System.out.println("임시 시간 : " + arrtime);
 					
 					nodenm = busArriveList.get("nodenm").toString();
@@ -259,7 +259,6 @@ public class MainController {
 		
 		//도착시간, 총소요시간
 		int result = tservice.simpleisLate(timetabletime, timetotaltime);
-		logger.trace("result : {} " , result);
 		
 		String alert = "";
 		if (result == 1) {
@@ -268,7 +267,9 @@ public class MainController {
 		} else {
 			logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
 			int remaintime = tservice.isLate(walkTime, busTime); //남은시간
+			logger.trace("remaintime : {}", remaintime);		
 			int remaintimemin = remaintime/60;
+			logger.trace("remaintimemin : {}", remaintimemin);		
 			alert = "나가야 하는 시간까지 " + remaintimemin + "분 남음";
 			logger.trace("alert : {}", alert);		
 		}

@@ -1,5 +1,8 @@
 package com.example.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +68,7 @@ public class TimetableServiceImpl implements TimetableService {
 		// 이거놓치면 택시타든 알아서 하는걸로. 표시문구는 뭐로할까.
 
 		// 현재시간 13:07 형식의 String
-		String inTime = new java.text.SimpleDateFormat("HH:mm").format(new java.util.Date());
+		String inTime = new SimpleDateFormat("HH:mm").format(new Date());
 
 		// 분으로 바꾸기-시간(문자열잘라서바꾸기)
 		String Timehour = inTime.substring(0, 1);// 앞2개만자름 (시)

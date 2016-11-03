@@ -214,12 +214,12 @@ $(document).ready(function(){
 		},
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		success:function(response){
-			
-			
-			console.log(routeStep[0].routeTime);
-			console.log("다" + bustime);
+			var row = response;
+	
 			console.log(response);
+			$("#clock2").html($("clock").html()+row);
 		},
+		
 	 	error:function(xhr, status, error){
          console.log(error);
       }
