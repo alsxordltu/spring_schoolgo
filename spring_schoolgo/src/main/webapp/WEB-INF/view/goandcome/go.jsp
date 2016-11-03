@@ -211,6 +211,7 @@ $(document).ready(function(){
       }
 	});
 	
+
 	$.ajax({
 	
 		
@@ -228,16 +229,18 @@ $(document).ready(function(){
 		
 			console.log(response);
 			$("#clock3").html(response);
+			remaintime=response;
 		},
 		
 	 	error:function(xhr, status, error){
          console.log(error);
       }
 	});
+	console.log(remaintime);
 	
 
 });
-
+var remaintime;
 $(document).on("click", "#select", function(e){
 	
 	document.all.selcitycode.value = $(this).attr("data-citycode");
@@ -265,7 +268,6 @@ $(document).on("click", "#select", function(e){
 	});
 	
 ///////////실시간출력
- var remainmin = 50;
 function go_time(){
  
 	
@@ -284,8 +286,8 @@ function go_time(){
  
 
   document.getElementById("clock2").innerHTML 
- = "B(출발까지 남은 시간) : " + remainmin; 
- remainmin-=1;
+ = "B(출발까지 남은 시간) : " + remaintime; 
+ remaintime-=1;
  
  setTimeout("go_time()", 1000);
  //1초마다 해당 펑션을 실행함.
