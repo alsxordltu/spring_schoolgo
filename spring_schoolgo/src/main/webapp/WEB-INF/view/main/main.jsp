@@ -187,6 +187,7 @@ $(document).on("click", ".routelist", function(){
    var index = $(this).attr("data-index");
    var info ="";
    var count=1;
+   
  //총 소요시간 시분초로 변환/////////////////////////////////
    var calTime = Math.floor(json[index].time / 60);
    var calHour ="";
@@ -194,9 +195,9 @@ $(document).on("click", ".routelist", function(){
    if (calTime >= 60) {
       calHour = Math.floor(calTime / 60) + '시간 ';
     }
-
    calMin = calTime%60 + '분 ';
 ////////////////////////////////////////////////////////////
+
    var routeStep = json[index].stepList;
    var stepLat = "";
    var stepLng = "";
