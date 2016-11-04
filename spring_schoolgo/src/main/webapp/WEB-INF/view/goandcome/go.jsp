@@ -28,18 +28,18 @@
 					<h2 align="center">학교가기 페이지</h2>
 					<p align="center">버스와 전철 위치정보 여기다가</p>
 				</header>
-				(현재 시간)
 				<div id="curtime"></div>
 				현재 시간(초로 변환)
 				<div id="curtimesec"></div>
 				<br>
-				 
-				(출발해야하는 시간(계산된시간))
+ 				<div id="islate" ></div> 
+  				<div id="remaintime" ></div> 				
 				
- 				<div id="starttime" ></div> 
-				
-				출발 전까지 남은 시간 계산(초)
+<!-- 				출발 전까지 남은 시간 계산(초)
 				<div id="remaintimemove"></div>
+				
+				출발 전까지 남은 시간 계산(시분초) - 클
+				<div id="stringremaintime"></div> -->
 				
 				
 				<br>
@@ -137,6 +137,7 @@
 <script>
 var buslist;
 var routes;
+var islate;
 
 $(document).ready(function(){
 	var row = "";	
@@ -207,7 +208,8 @@ $(document).ready(function(){
 			var row ="";
 			$.each(json, function(index, item){
 				if(item.routeno == vehicleNum){
-					bustime = item.arrtime;
+					bustime =
+						item.arrtime;
 					
 				}
 				row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
@@ -221,7 +223,7 @@ $(document).ready(function(){
       }
 	});
 
-	
+	var matchtime=36000;
 
 	$.ajax({
 	
@@ -239,20 +241,16 @@ $(document).ready(function(){
 		success:function(response){
 		
 			console.log(response);
-			$("#starttime").html(response);
-			remaintime=response;
-			starttime=response;
+			$("#islate").html(response);
+			islate=response;
 		},
 		
 	 	error:function(xhr, status, error){
          console.log(error);
       }
 	});
-	
-
 });
-var remaintime;
-var starttime;
+console.log(islate);
 $(document).on("click", "#select", function(e){
 	
 	document.all.selcitycode.value = $(this).attr("data-citycode");
@@ -281,31 +279,86 @@ $(document).on("click", "#select", function(e){
 	
 ///////////실시간출력
 function go_time(){
- 
-	
 	//////////////////현재시간
  var now = new Date();
 
  var nowhour = now.getHours();  //현재 시
  var nowmin = now.getMinutes();  //현재 분
  var nowsec = now.getSeconds();  //현재 초
- 
- document.getElementById("curtime").innerHTML 
+  document.getElementById("curtime").innerHTML 
  = nowhour+":"+nowmin+":"+nowsec
- //id가 clock인 html에 현재시각을 넣음
- 
  var hourpersec = nowhour*3600; //현재 시->초 변환
  var minpersec = nowhour*60; //현재 분->초 변환
  var nowtotalsec = hourpersec + minpersec + nowsec;
- 
  document.getElementById("curtimesec").innerHTML 
  = nowtotalsec
  
-  /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
- var remaintime = starttime-nowtotalsec;
-  document.getElementById("remaintimemove").innerHTML 
- = remaintime; 
+ //지각아니면 다시계산하는 서비스 ㄱㄱ
  
+ if(islate=="지각이 아님. 추후 null로 수정"){
+		//               ---------D 총소요시간----
+		//  현재시간(18:17) 출발전시간 소요시간(4367)  도착시간(23:30)
+		//       A                   E                B               C   
+		// A+B>C -> A+B-C>0 지각
+		// C-A=D(총소요시간)
+		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림
+	var tabletime = "<%=request.getParameter("time") %>";
+	var duringtime = "<%=request.getParameter("totaltime") %>";
+	
+	var tableTimeslice = tabletime.substring(0, 1);//"23"
+	tableTimeslice*=1;
+	var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
+	//분->초
+	var tableTimeslice2 = tabletime.substring(3, 4);//"30"
+	tableTimeslice2*=1;
+	var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
+	 
+	var tableTimesec3 = tableTimesec+tableTimesec2;	
+	
+	var remaintime = tableTimesec3-nowtotalsec-duringtime;
+	 document.getElementById("remaintime").innerHTML 
+	 = tableTimesec3
+
+	var remaintime = tableTimesec3-nowtotalsec-duringtime;
+	 document.getElementById("remaintime").innerHTML 
+	 = tableTimesec3
+	 
+	 
+	
+ }
+
+ 
+ 
+  /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
+/*  if(starttime==1){
+	 document.getElementById("starttime").innerHTML 
+	 = starttime;
+	 var remaintime = "지각입니다.";
+	
+	 document.getElementById("remaintimemove").innerHTML 
+	 = remaintime;
+ }else{
+	 var remaintime = starttime-nowtotalsec;
+	 document.getElementById("remaintimemove").innerHTML 
+	 = remaintime;
+ }
+  */
+ 
+/* 
+  remainhours = remaintime / 3600;//시 
+  remainminute = remaintime % 3600 / 60;//분
+  remainsecond = remaintime % 3600 % 60;//마지막 남은 시간에서 분을 뺀 나머지 시간을 초로 계산함 
+
+	  stringremaintime = "지각입니다.";
+	  document.getElementById("stringremaintime").innerHTML 
+	  = stringremaintime;
+  }else{
+	  var stringremaintime = remainhours + ":" + remainminute + ":" + remainsecond;
+	  document.getElementById("stringremaintime").innerHTML 
+	  = stringremaintime;
+  }
+    */
+  
  ///////////////////////////////////출발 몇초 전인지 계산(B-A)
  
  setTimeout("go_time()", 1000);

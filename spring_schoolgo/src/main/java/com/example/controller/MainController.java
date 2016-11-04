@@ -249,31 +249,21 @@ public class MainController {
 			HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		String walkTime = request.getParameter("walkTime");
+/*		String walkTime = request.getParameter("walkTime");
 		String busTime = request.getParameter("bustime");
-		String timetabletime = request.getParameter("timetabletime");
+*/		String timetabletime = request.getParameter("timetabletime");
 		String timetotaltime = request.getParameter("timetotaltime");
-		logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
+//		logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
 		logger.trace("timetabletime : {} , timetotaltime : {} " , timetabletime, timetotaltime);
-		
-		
-		//도착시간, 총소요시간
-		int result = tservice.simpleisLate(timetabletime, timetotaltime);
-		int remaintime = 0;
-		String returnString = null;
-		String alert = "";
-		
+				
+		//도착시간(DB) , 소요시간 ("23:30", "4367"(초)) : return 1 or 0
+		int result = tservice.simpleisLate(timetabletime, timetotaltime);		
 		if (result == 1) {
-			alert = "지각. 택시나 땡땡이 추천합니다^.^";
-			logger.trace("alert : {}", alert);
+			String returnString = "지각이에요 ㅠㅅㅜ 택시를 추천합니다";
+			return returnString;
 		} else {
-			logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
-			remaintime = tservice.isLate(walkTime, busTime); //남은시간
-			returnString = String.valueOf(remaintime);
-			logger.trace("remaintime : {}", remaintime);			
+			return "지각이 아님. 추후 null로 수정";
 		}
-		logger.trace("resultalert : {}", alert);
-		return returnString;
 	}
 	   
 }
