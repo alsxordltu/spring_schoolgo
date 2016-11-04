@@ -170,7 +170,7 @@
             
             row+="<div id='div"+ index + "'>"
             +"<input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"' data-totaltime='"+ json[index].time +"' style='width:100%;'>"
-            +"<br></div><br> ";
+            +"<br></div><div id='info"+index+"'></div><br> ";
             
          });      
          $("#schoolgo").html(row);
@@ -185,18 +185,18 @@ $(document).ready(function() {
 $(document).on("click", ".routelist", function(){
    showList();
    var index = $(this).attr("data-index");
+   var info ="";
+   
+ //총 소요시간 시분초로 변환/////////////////////////////////
    var calTime = Math.floor(json[index].time / 60);
    var calHour ="";
    var calMin="";
-   var info ="";
-   
-   
    if (calTime >= 60) {
       calHour = Math.floor(calTime / 60) + '시간 ';
     }
 
    calMin = calTime%60 + '분 ';
-
+////////////////////////////////////////////////////////////
    var routeStep = json[index].stepList;
    var stepLat = "";
    var stepLng = "";
@@ -221,10 +221,10 @@ $(document).on("click", ".routelist", function(){
 		   return false;
 	   }
    });
-
+//루트 버튼 눌렀을때 해당 루트의 출발지 도착지 표시를 위한 변수
    var startadd =json[index].startAddress;
    var endadd =json[index].arriveAddress;
-   
+////////////////////////////////////////////////////////////////////////////
    
  
    
@@ -255,7 +255,7 @@ $(document).on("click", ".routelist", function(){
    +"value='삭제' data-routeId='"+$(this).attr("data-routeId")+"'>";
    
    
-   $("#div"+index).html($("#div"+index).html() + add);
+   $("#info" + index).html(add);
 
 });
 

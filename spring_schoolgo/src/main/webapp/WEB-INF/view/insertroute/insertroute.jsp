@@ -155,7 +155,16 @@
 	<script>
          var items;
          var selectedindex;
-         
+         var seletedRouteCost1;
+         var seletedRouteCost2;
+         var seletedRouteCost3;
+         var seletedRouteCost4;
+         var seletedRouteCost5;
+         var seletedRouteWalk1;
+         var seletedRouteWalk2;
+         var seletedRouteWalk3;
+         var seletedRouteWalk4;
+         var seletedRouteWalk5;
          $("#insertselectbtn").on("click", function(){
   		   $("#routelist").css("display","block"); 
   		 $("#addroutebtn").css("display","block");
@@ -374,7 +383,29 @@
                      total+="<div id='totalwalk'><h6><img style='float:left; vertical-align:middle;' src='insert_img/walking.png' width='20%'/> : "+totalwalk+"분</h6></div>"
                     	 +"<div id='totalcost'><h6><img style='float:left; vertical-align:middle;' src='insert_img/money.png' width='20%'/> &nbsp: "+totalcost+"원</h6></div>"
                      	 +"<div id='alltime'><h6><img style='float:left; vertical-align:middle;' src='insert_img/hourglass.png' width='18%'/> &nbsp: "+alltime+"</h6></div></div>";
-                     
+                     if(listindex == 0){
+                    	 seletedRouteCost1 = totalcost;
+                    	 seletedRouteWalk1  = totalwalk;
+                     }else if(listindex == 1){
+                    	 seletedRouteCost2 = totalcost;
+                    	 seletedRouteWalk2  = totalwalk;
+                     }
+						else if(listindex == 2){
+							seletedRouteCost3 = totalcost;
+							seletedRouteWalk3  = totalwalk;
+                     }
+						else if(listindex == 3){
+							seletedRouteCost4 = totalcost;
+							seletedRouteWalk4  = totalwalk;
+					}
+						else if(listindex == 4){
+							seletedRouteCost5 = totalcost;
+							seletedRouteWalk5  = totalwalk;
+					}
+
+                     	
+               
+
                      rowsum+=row+summary+total;
                      
                      row="";
@@ -498,10 +529,35 @@
    
    
    $("#addroutebtnbtn").on("click", function(){
+	   var sendcost;
+	   var sendwalk;
       items.routes = [items.routes[selectedindex]];
+      if(selectedindex == 0){
+    	  sendcost = seletedRouteCost1;
+    	  sendwalk = seletedRouteWalk1;
+      }else if(selectedindex == 1){
+    	  sendcost = seletedRouteCost2;
+    	  sendwalk = seletedRouteWalk2;
+      }
+			else if(selectedindex == 2){
+				sendcost = seletedRouteCost3;
+				sendwalk = seletedRouteWalk3;
+      }
+			else if(selectedindex == 3){
+				sendcost = seletedRouteCost4;
+				sendwalk = seletedRouteWalk4;
+		}
+			else if(selectedindex == 4){
+				sendcost = seletedRouteCost5;
+				sendwalk = seletedRouteWalk5;
+		}
       //var url = ${insertRoute};
       $.ajax({
-         data: {data:JSON.stringify(items), routeName: $("#routename").val()},
+         data: {data:JSON.stringify(items), routeName: $("#routename").val(),
+        	 routeTotalCost : sendcost,
+         	routeTotalWalk : sendwalk
+        	 },
+         
          url:"/mvc_project_practice/insertRoute",
          type:"post",
          success:function(response){
