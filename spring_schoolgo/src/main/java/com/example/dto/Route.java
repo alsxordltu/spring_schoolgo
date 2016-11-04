@@ -53,5 +53,9 @@ public class Route implements Serializable {
 
 	/** STEP 목록. */
 	private List<Step> stepList;
+	
+	private String totalCost;
+	
+	private String totalWalk;
 
 }

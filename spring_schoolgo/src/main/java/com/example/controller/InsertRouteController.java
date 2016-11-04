@@ -248,6 +248,8 @@ public class InsertRouteController {
 
    private Route mapToRoute(Map map, String routeName, Object userId, String totalCost, String totalWalk) {
       Route route = new Route();
+      route.setTotalCost(totalCost);
+      route.setTotalWalk(totalWalk);
       route.setRouteName(routeName);
       userId = userId == null ? "null" : userId;
       route.setUserId(userId.toString());

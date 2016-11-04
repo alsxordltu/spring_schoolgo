@@ -412,6 +412,7 @@
                      summary="";
                      total="";
                      totalcost=0;
+                     totalwalk=0;
                      listindex++;
                      
                      
