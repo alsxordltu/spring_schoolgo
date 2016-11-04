@@ -28,7 +28,6 @@
                <header>
                   <h2 align="center">루트 목록</h2>
                   <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
-                  
                </header>
             </article>
                        
@@ -187,6 +186,7 @@ $(document).on("click", ".routelist", function(){
    var index = $(this).attr("data-index");
    var info ="";
    var count=1;
+
    
  //총 소요시간 시분초로 변환/////////////////////////////////
    var calTime = Math.floor(json[index].time / 60);
@@ -197,6 +197,7 @@ $(document).on("click", ".routelist", function(){
     }
    calMin = calTime%60 + '분 ';
 ////////////////////////////////////////////////////////////
+
 
    var routeStep = json[index].stepList;
    var stepLat = "";
@@ -222,6 +223,7 @@ $(document).on("click", ".routelist", function(){
          return false;
       }
    });
+   
 //루트 버튼 눌렀을때 해당 루트의 출발지 도착지 표시를 위한 변수
    var startadd =json[index].startAddress;
    var endadd =json[index].arriveAddress;
@@ -263,6 +265,8 @@ $(document).on("click", ".routelist", function(){
    
     
    +"<div id='typeselectdiv1'>"
+   
+   +"<div id='typeselectdiv3'>"
    +"<input id='schoolradio' type='radio' name='radio' class='radio' data-index='1'  data-time='"+getTime.school+"'><label for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>학교가기</span></label>"
    +"<input id='albaradio' type='radio' name='radio' class='radio' data-index='2'  data-time='"+getTime.alba+"'><label for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
@@ -271,11 +275,18 @@ $(document).on("click", ".routelist", function(){
    +"<span>사용자 지정 시간</span></label>"
    +"</div>"
    
-   console.log(count);
+   +"<div id='typeselectdiv4'>"
+   +"<input type='text'>시<input type='text'>분"
+   +"</div>"
+   
+   
+   +"</div>"
+
+   
    
    
    +"<div id='typeselectdiv2'>"
-   +"<input type='button' class='gotoschool' value='등교'"
+   +"<input type='button' class='gotoschool' value='Go!'"
    +"data-lat='"+ stepLat+"'" 
    +"data-lng='"+stepLng +"' data-index='"+index+"' data-totaltime='"+$(this).attr("data-totaltime")+"'>"
    +"<input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group'"
@@ -341,27 +352,19 @@ $(document).on("click", ".gotoschool", function(){
          
 $(document).on("change", ".radio", function(){
    time = $(this).attr("data-time");
-      
+   
+   if($(this).attr("data-index")==3){
+	   $("#typeselectdiv4").slideDown("slow");
+   }else{
+	   $("#typeselectdiv4").slideUp("slow");
+   }
+     
       
             });
             
             
             
-/* $(document).on("click", ".radio1", function(){
-	      
-	            });
-          
-          
-$(document).on("click", ".radio2", function(){
-	      
-	            });
-	            
-	            
-$(document).on("click", ".radio3", function(){
-	      
-	            });
-        */
-            
+
             
             
             
