@@ -281,5 +281,34 @@ public class MainController {
 		logger.trace("resultalert : {}", alert);
 		return returnString;
 	}
+	
+/*	@RequestMapping(value = "/getSubwayTime", method = RequestMethod.GET, produces="application/text; charset=utf8")
+	   public @ResponseBody String getSubwayTime(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+		   request.setCharacterEncoding("UTF-8");
+		   response.setContentType("text/html;charset=UTF-8");
+		   ObjectMapper mapper = new ObjectMapper();
+		   String requestUrl = "http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?";
+			requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
+			//requestUrl += "serviceKey=ROEBX9gDjySLI9VWdC6Mc1Rsb%2FZSPP8RGZ6%2FFK65rEmL4zN1Oi2oVZ51%2FO730gQw6DPWf2sPfUolvrn9RbhILA%3D%3D";
+			//requestUrl += "serviceKey=mvKAQ0WW93EhDti3jLGt6p8xMApnUxDurvRUoe48r5nV0nugbDDtafNmfQcRncOzklKFLtkDQZke8hwLndvWcg%3D%3D";
+			
+			requestUrl += "&cityCode=" + citycode;
+			requestUrl += "&nodeId=" + nodeId;
+			requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
+			
+			RestTemplate template = new RestTemplate();
+			
+			URI url = URI.create(requestUrl);
+			RequestEntity<Void> reqEntity
+			= RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8).acceptCharset(Charset.forName("UTF-8")).build();
+
+			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+			HashMap<String, Object> map = resEntity.getBody();
+			System.out.println(requestUrl);
+			System.out.println(map);
+			
+
+			 return mapper.writeValueAsString(buslist);
+	   }*/
 	   
 }
