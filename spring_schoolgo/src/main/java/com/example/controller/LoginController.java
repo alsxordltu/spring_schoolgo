@@ -87,12 +87,12 @@ public class LoginController {
 			session.setAttribute("phoneNum", user.getPhoneNum());
 			logger.trace("유저 정보 : {}, {}, {}, {}, {}, {}",session.getAttribute("userId"),session.getAttribute("pass"),session.getAttribute("userName"),session.getAttribute("nickName"),session.getAttribute("email"),session.getAttribute("phoneNum"));
 			
-			model.addAttribute("userId",session.getAttribute("userId"));
+/*			model.addAttribute("userId",session.getAttribute("userId"));
 			model.addAttribute("pass",session.getAttribute("pass"));
 			model.addAttribute("userName",session.getAttribute("userName"));
 			model.addAttribute("nickName",session.getAttribute("nickName"));
 			model.addAttribute("email",session.getAttribute("email"));
-			model.addAttribute("phoneNum",session.getAttribute("phoneNum"));
+			model.addAttribute("phoneNum",session.getAttribute("phoneNum"));*/
 								
 			return "redirect:/gotomain";
 		}

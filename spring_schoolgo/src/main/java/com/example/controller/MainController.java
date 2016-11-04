@@ -173,8 +173,8 @@ public class MainController {
 		return "mypage/5myactivity";
 	}
 	
-	@RequestMapping(value = "/getRouteId", method = RequestMethod.GET, produces="application/text; charset=utf8")
-	   public @ResponseBody String getRouteId(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+	@RequestMapping(value = "/getBusList", method = RequestMethod.GET, produces="application/text; charset=utf8")
+	   public @ResponseBody String getBusList(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
 		   request.setCharacterEncoding("UTF-8");
 		   response.setContentType("text/html;charset=UTF-8");
 		   ObjectMapper mapper = new ObjectMapper();

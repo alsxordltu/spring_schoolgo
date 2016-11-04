@@ -135,33 +135,24 @@
 
 </body>
 <script>
-var buslist;
-var routes;
+var routes;				//선택된 루트의 정보
+var busList;				//ajax로 가져오는 버스정류소 리스트
+var busArrive;			//ajax로 가져오는 해당 버스정류소의 도착시간 리스트
+var subwayArrive;	//ajax로 가져오는 해당역의 지하철 도착 리스트
+
 
 $(document).ready(function(){
-	var row = "";	
-	buslist = ${buslist };
+	var row = "";
 	routes = ${routes };
 	console.log(routes);
-	console.log(buslist);
 	var routeStep = routes.stepList;
-	var busStopList = buslist.response.body.items.item;
-/* 	console.log(buslist);
-	console.log(routes);
-	console.log(routeStep);
-	console.log(busStopList); */
+	//var busStopList = buslist.response.body.items.item;
+
 	var vehicleListName = "";
 	var cityCode="";
 	var busStopId="";
 	var vehicleNum="";
 	var bustime="";
-	
-	
-	/* var item = buslist.response.body.items;
-	console.log(item); */
-	
-	
-	
 	
  	$.each(routeStep, function(index, item){		
 		if(item.vmode == "TRANSIT"){
@@ -193,7 +184,7 @@ $(document).ready(function(){
 	});
 	
 	$.ajax({
-		url:"getRouteId",
+		url:"getBusList",
 		type:"get",
 		
 		data:{ cityCode : cityCode, 
