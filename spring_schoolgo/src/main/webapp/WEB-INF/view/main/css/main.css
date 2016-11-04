@@ -18,6 +18,7 @@
 	height:4em;
 	border:1pt solid black;
 	float:left;
+	vertical-align:middle;
 	 
 }
 #typeselectdiv2{
@@ -26,6 +27,26 @@
 	border:1pt solid black; 
 	float:left;	
 	text-align:center;
+	vertical-align:middle;
+}
+
+#typeselectdiv3{
+	width:70%;
+	height:100%;
+	border:1pt solid black; 
+	float:left;	
+	text-align:center;
+	vertical-align:middle;
+}
+
+#typeselectdiv4{
+	width:30%;
+	height:100%;
+	border:1pt solid black; 
+	float:left;	
+	text-align:center;
+	display:none;
+	vertical-align:middle;
 }
 
 
