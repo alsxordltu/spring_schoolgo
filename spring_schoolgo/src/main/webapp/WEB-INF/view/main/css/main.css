@@ -12,33 +12,34 @@
 
 /* Reset */
 
+	
 
+#custime{
+	width:3em;
+	height:2em;
+	}
+	
+	
+/* 라디오버튼과 커슽컴시간들있는 div */
 #typeselectdiv1{
 	width:100%;
-	height:4em;
-	border:1pt solid black;
+	height:20%;
 	float:left;
-	vertical-align:middle;
-	 
-}
-#typeselectdiv2{
-	width:100%;
-	height:4em;
-	border:1pt solid black; 
-	float:left;	
-	text-align:center;
 	vertical-align:middle;
 }
 
+
+/* 라디오버튼있는 div */
 #typeselectdiv3{
 	width:70%;
 	height:100%;
-	border:1pt solid black; 
 	float:left;	
 	text-align:center;
 	vertical-align:middle;
+	padding-top:0.5%;
 }
 
+/* 커슽컴시간나오는 */
 #typeselectdiv4{
 	width:30%;
 	height:100%;
@@ -50,10 +51,23 @@
 }
 
 
+/* 버튼들 div */
+#typeselectdiv2{
+	width:100%;
+	height:30%;
+	
+	float:left;	
+	text-align:center;
+	vertical-align:middle;
+}
+
+
+
+
 #startendimg{
 	vertical-align:middle;
 	float:left;
-	width:7%;
+	width:10%;
 }
 
 #totali{
@@ -62,20 +76,35 @@
 }
 
 
-
+#summaryimg1{
+	width:16%;
+	vertical-align:center;
+}
+#summaryimg2{
+	width:15%;
+	vertical-align:center;
+}
+#summaryimg3{
+	width:14%;
+	vertical-align:center;
+}
 
 /* 버튼클릭하면 나오는 출발지, 도착지, 소요시간 정보 div */
 #info{
 	width:100%;
-	height:auto;
+	height:14em;
 	
 }
 
+
+ /* 출도착지 */
 #infostartendtime{
+	padding:1% 0 0 2%;
 	width:70%;
-	height:40%;
+	height:50%;
 	float:left;
-	border:1pt solid black;
+	border-bottom:1pt solid black;
+	
 }
 
 #infostart{
@@ -91,14 +120,14 @@
 	float:left;
 }
 
-
+ /* 걸음 요금 시간 */
 #infoalltime{
 	width:30%;
-	height:40%;
+	height:50%;
 	float:right;
-	text-align:center;
-	border:1pt solid black;
 	vertical-align:bottom;
+	padding:1% 0 0 4%;
+	border-bottom:1pt solid black;
 	
 }
 #timespan{
@@ -145,7 +174,7 @@ input[type=radio] {
 	padding: 0 20px;
 	border: 1px solid rgba(0, 0, 0, 0.08);
 	margin-right: 20px;
-	background: #ddd;
+	background: #c64561;
 	line-height: 30px;
 	cursor: pointer;
 	-webkit-transition: all 0.3s ease-out;
@@ -166,7 +195,7 @@ input[type=radio] {
 }
 
 .radio:checked+.radio-label {
-	background: rgba(4, 120, 193, 0.1);
+	background: #ef7791;
 }
 
 .radio:checked+.radio-label i {
@@ -174,8 +203,9 @@ input[type=radio] {
 }
 
 .radio+.radio-label span {
-	display: inline-block;
-	font-size: 13px;
+/* 	display: inline-block; */
+	font-size: 15px;
+	color:white;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
 	-ms-transition: all 0.3s ease-out;
@@ -2190,6 +2220,30 @@ ol.default li {
 /* Desktop */
 @media screen and (min-width: 737px) {
 	/* Basic */
+	/* 버튼들 div */
+#typeselectdiv2{
+	text-align:center;
+	
+}
+	
+	
+	.gotoschool{
+	width:30%;
+	height:3em;
+
+	display:none;
+	
+	}
+	
+	.group{
+	width:30%;
+	height:3em;
+	
+	display:none;
+	
+	}
+	
+	
 	body {
 		height: 100%;
 		line-height: 1.75em;
@@ -2207,7 +2261,7 @@ ol.default li {
 	/* Button */
 	input[type="button"], input[type="submit"], input[type="reset"], .button,
 		button {
-		display: inline-block;
+/* 		display: inline-block; */
 		padding: 0.5em 2em 0.5em 2em;
 	}
 	input[type="button"].small, input[type="submit"].small, input[type="reset"].small,
@@ -2515,13 +2569,247 @@ ol.default li {
 
 /* Mobile */
 @media screen and (max-width: 736px) {
+	
+	
+	
+	.gotoschool{
+	width:49%;
+	height:3em;
+	float:left;
+	display:none;
+	
+	}
+	
+	.group{
+	width:49%;
+	height:3em;
+	float:left;
+	display:none;
+	
+	}
+	
+	
+	
+	#custime{
+	width:3em;
+	height:1em;
+	}
+	
+	
+	#cut{
+	display:none;}
+	
+
+	#albaradio{
+	width: 28%;
+	
+	padding:0;
+	
+	}
+	#schoolradio{
+	width: 28%;
+	
+	padding:0;
+	}
+	
+	
+	#customradio{
+	width: 40%;
+		padding:0;
+	}
+	
+		#typeselectdiv2{
+	width:100%;
+	height:20%;
+	
+	float:left;
+	text-align:center;
+	margin:0 auto;
+	
+}
+
+	#typeselectdiv4{
+	width:100%;
+	height:50%;
+	float:left;	
+	text-align:center;
+	vertical-align:middle;
+	margin-top:-1em;
+}
+
+
+	/* 라디오버튼있는 div */
+#typeselectdiv3{
+	width:100%;
+	height:80%;
+	float:left;	
+	text-align:center;
+	vertical-align:middle;
+	
+}
+	
+	#typeselectdiv1{
+	width:100%;
+	height:20%;
+	float:left;
+	
+}
+	
+	
+	
+input[type=radio] {
+	display: none;
+}
+
+.radio-label {
+	display: inline-block;
+	width: 25%;
+	height: 30px;
+	/* padding: 0 20px; */
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	/* margin-right: 20px; */
+	margin-right: 1%;
+	background: #c64561;
+	line-height: 30px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	float:left;
+	
+}
+
+.radio-label i {
+	margin-right: 10px;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease-out;
+	-moz-transition: opacity 0.3s ease-out;
+	-ms-transition: opacity 0.3s ease-out;
+	-o-transition: opacity 0.3s ease-out;
+	transition: opacity 0.3s ease-out;
+}
+
+.radio:checked+.radio-label {
+	background: #ef7791;
+}
+
+.radio:checked+.radio-label i {
+	opacity: 1;
+}
+
+.radio+.radio-label span {
+	
+	display: inline-block;
+	font-size: 15px;
+	color:white;
+	
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	-webkit-transform: translateX(-13px);
+	-moz-transform: translateX(-13px);
+	-ms-transform: translateX(-13px);
+	-o-transform: translateX(-13px);
+	transform: translateX(-13px);
+}
+
+.radio:checked+.radio-label span {
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+	transform: translateX(0);
+}
+
+
+
+	
+	
+	
+	
+	
+	
+	#schoolgo{
+	padding:10px 20px 0 20px;
+	}
+	
+	
+		#info{
+	width:100%;
+	height:20em;
+	margin-bottom:-2em;
+	
+}
+	 h6{
+	font-size:0.9em;
+	} 
+	 h5{
+	font-size:0.8em;
+	
+	} 
+	
+	
+	
+	#infostartendtime{
+	padding:1% 0 0 2%;
+	width:100%;
+	height:25%;
+	float:left;
+	border-bottom:1pt solid black;
+	
+}
+	
+	
+	/* 걸음 요금 시간 */
+#infoalltime{
+	width:100%;
+	height:15%;
+	padding:0 0 0 4%;
+	vertical-align:center;
+	margin-top: -0.5em;
+	
+}
+	#summaryimg1{
+	width:31%;
+	float:left;
+	
+}
+#summaryimg2{
+	width:30%;
+	float:left;
+}
+#summaryimg3{
+	width:28%;
+	float:left;
+	margin-left:20%;
+}
+	
+	#totali{
+	width:30%;
+	height:33.333333%;
+	margin-top:5%;
+	float:left;
+}
+	
+	
+	
+
+	
+	
+	
+	
+	
 	/* Basic */
 	body, input, textarea, select {
 		line-height: 1.75em;
 		font-size: 11pt;
 		letter-spacing: 0;
 	}
-	h2, h3, h4, h5, h6 {
+	h2, h3, h4 {
 		font-size: 1.5em;
 	}
 
@@ -2533,8 +2821,9 @@ ol.default li {
 	/* Button */
 	input[type="button"], input[type="submit"], input[type="reset"], button,
 		.button {
-		display: block;
-		width: 100%;
+		
+		/* display: block; */
+		/* width: 100%; */
 		font-size: 1.25em;
 		padding: 0.75em 0 0.75em 0;
 		margin: 0.5em 0 0.5em 0;
@@ -2547,8 +2836,8 @@ ol.default li {
 
 	/* Box */
 	.box.post {
-		padding-bottom: 5em;
-		margin-bottom: 6em;
+		 padding-bottom: 3em;
+		/*margin-bottom: 6em; */
 	}
 	.box.post header>p {
 		font-size: 1em;
@@ -2697,4 +2986,5 @@ ol.default li {
 		-ms-transform: translateX(0);
 		transform: translateX(0);
 	}
+
 }

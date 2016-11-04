@@ -26,7 +26,7 @@
 
             <article class="box post post-excerpt">
                <header>
-                  <h2 align="center">루트 목록</h2>
+                  <h2 align="center"><img src="main_img/routelist.png" width="70%"></h2>
                   <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
                </header>
             </article>
@@ -227,6 +227,8 @@ $(document).on("click", ".routelist", function(){
 //루트 버튼 눌렀을때 해당 루트의 출발지 도착지 표시를 위한 변수
    var startadd =json[index].startAddress;
    var endadd =json[index].arriveAddress;
+   var ttcost = json[index].totalCost;
+   var ttwalk = json[index].totalWalk;
 ////////////////////////////////////////////////////////////////////////////
    
  
@@ -249,15 +251,15 @@ $(document).on("click", ".routelist", function(){
    +"<div id='infoalltime'>"
    
    +"<div id='totali'>"
-   +"<span id='timespan'><h5>"+calHour + calMin + "소요</h5></span>"
+   +"<span id='timespan'><h5><img id='summaryimg1' src='main_img/walking.png'/>:"+ttwalk+"분</h5></span>"
    +"</div>"
    
    +"<div id='totali'>"
-   +"<span id='timespan'><h5>"+calHour + calMin + "소요</h5></span>"
+   +"<span id='timespan'><h5><img id='summaryimg2' src='main_img/money.png'/>&nbsp&nbsp:&nbsp&nbsp"+ttcost+"원</h5></span>"
    +"</div>"
    
    +"<div id='totali'>"
-   +"<span id='timespan'><h5>"+calHour + calMin + "소요</h5></span>"
+   +"<span id='timespan'><h5><img id='summaryimg3' src='main_img/hourglass.png'/>&nbsp:&nbsp&nbsp"+calHour + calMin + "</h5></span>"
    +"</div>"
    
    +"</div>"
@@ -267,16 +269,16 @@ $(document).on("click", ".routelist", function(){
    +"<div id='typeselectdiv1'>"
    
    +"<div id='typeselectdiv3'>"
-   +"<input id='schoolradio' type='radio' name='radio' class='radio' data-index='1'  data-time='"+getTime.school+"'><label for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
-   +"<span>학교가기</span></label>"
-   +"<input id='albaradio' type='radio' name='radio' class='radio' data-index='2'  data-time='"+getTime.alba+"'><label for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
-   +"<span>알바가기</span></label>"
-   +"<input id='customradio' type='radio' name='radio' class='radio' data-index='3' ><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
-   +"<span>사용자 지정 시간</span></label>"
+   +"<input id='schoolradio' type='radio' name='radio' class='radio' data-index='1'  data-time='"+getTime.school+"'><label id='schoolradio' for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<span>학교<span id='cut'>가기</span></span></label>"
+   +"<input id='albaradio' type='radio' name='radio' class='radio' data-index='2'  data-time='"+getTime.alba+"'><label id='albaradio' for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<span>알바<span id='cut'>가기</span></span></label>"
+   +"<input id='customradio' type='radio' name='radio' class='radio' data-index='3' ><label id='customradio' for='customradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<span>사용자 <span id='cut'>지정 시간</span></span></label>"
    +"</div>"
    
    +"<div id='typeselectdiv4'>"
-   +"<input type='text'>시<input type='text'>분"
+   +"<input id='custime' type='text'>시<input id='custime' type='text'>분"
    +"</div>"
    
    
@@ -330,20 +332,20 @@ $(document).on("click", ".group",  function(){
    
 });
    
-      $(function() {
-         // Geolocation API에 액세스할 수 있는지를 확인
-         if (navigator.geolocation) {
-            //위치 정보를 얻기
-            navigator.geolocation.getCurrentPosition(function(pos) {
-               $('#latitude').html(pos.coords.latitude); // 위도
-               $('#longitude').html(pos.coords.longitude); // 경도
-               //console.log(pos.coords.latitude, pos.coords.longitude);
-            });
-         } else {
-            alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-         }
 
-      });
+
+
+
+ $(document).on("click", ".radio", function(){
+	$(".group").slideDown("slow")
+	$(".gotoschool").slideDown("slow")
+	            });
+
+
+
+
+
+
       
 $(document).on("click", ".gotoschool", function(){
    location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index") + "&time="+time + "&totaltime="+$(this).attr("data-totaltime");
@@ -361,7 +363,6 @@ $(document).on("change", ".radio", function(){
      
       
             });
-            
             
             
 
