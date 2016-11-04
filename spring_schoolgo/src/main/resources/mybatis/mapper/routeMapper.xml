@@ -15,7 +15,7 @@
 		#{startLat}, #{startLng}, #{startAddress},
 		#{arriveLat}, #{arriveLng},
 		#{arriveAddress},
-		#{distance}, #{time})
+		#{distance}, #{time}, #{totalCost}, #{totalWalk})
 	</insert>
 
 	<!-- 루트id로 all delete 3 -->
@@ -46,7 +46,7 @@
 		r.start_address,
 		r.arrive_lat, r.arrive_lng,
 		r.arrive_address,
-		r.distance, r.time,
+		r.distance, r.time, r.total_cost, r.total_walk,
 		s.step_id, s.sroute_id, s.vmode,
 		s.step_name, s.sstart_lat, s.sstart_lng,
 		s.send_lat, s.send_lng,
@@ -136,6 +136,8 @@
 		<result column="arrive_address" property="arriveAddress" />
 		<result column="distance" property="distance" />
 		<result column="time" property="time" />
+		<result column="total_cost" property="totalCost" />
+		<result column="total_walk" property="totalWalk" />
 	</resultMap>
 	
 

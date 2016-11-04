@@ -13,26 +13,69 @@
 /* Reset */
 
 
+#typeselectdiv1{
+	width:100%;
+	height:4em;
+	border:1pt solid black;
+	float:left;
+	vertical-align:middle;
+	 
+}
+#typeselectdiv2{
+	width:100%;
+	height:4em;
+	border:1pt solid black; 
+	float:left;	
+	text-align:center;
+	vertical-align:middle;
+}
 
+#typeselectdiv3{
+	width:70%;
+	height:100%;
+	border:1pt solid black; 
+	float:left;	
+	text-align:center;
+	vertical-align:middle;
+}
 
+#typeselectdiv4{
+	width:30%;
+	height:100%;
+	border:1pt solid black; 
+	float:left;	
+	text-align:center;
+	display:none;
+	vertical-align:middle;
+}
 
 
 #startendimg{
 	vertical-align:middle;
 	float:left;
+	width:7%;
 }
+
+#totali{
+	width:100%;
+	height:33.333333%;
+}
+
+
+
 
 /* 버튼클릭하면 나오는 출발지, 도착지, 소요시간 정보 div */
 #info{
 	width:100%;
-	height:80px;
+	height:auto;
 	
 }
 
-#infostartend{
-	width:66.66666666%;
-	height:100%;
+#infostartendtime{
+	width:70%;
+	height:40%;
 	float:left;
+	border:1pt solid black;
 }
 
 #infostart{
@@ -50,12 +93,17 @@
 
 
 #infoalltime{
-	width:33.3333333%;
-	height:100%;
+	width:30%;
+	height:40%;
 	float:right;
+	text-align:center;
+	border:1pt solid black;
+	vertical-align:bottom;
 	
 }
-
+#timespan{
+	
+}
 
 
 

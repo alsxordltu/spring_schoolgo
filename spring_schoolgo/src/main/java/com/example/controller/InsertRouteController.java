@@ -53,13 +53,15 @@ public class InsertRouteController {
    }
 
    @RequestMapping(value = "/insertRoute", method = RequestMethod.POST)
-   public  @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session) throws JsonParseException, JsonMappingException, IOException {
-      logger.trace("body : {}", data);
+   public  @ResponseBody String insertRoute(@RequestParam String data, @RequestParam String routeName, HttpSession session, HttpServletRequest request) throws JsonParseException, JsonMappingException, IOException {      
+	   //logger.trace("body : {}", data);
+      String totalCost = request.getParameter("routeTotalCost");
+      String totalWalk = request.getParameter("routeTotalWalk");
       ObjectMapper mapper = new ObjectMapper();
       Map<String, Object> dataMap = mapper.readValue(data, Map.class);
       try {
-         Route route = mapToRoute(dataMap, routeName, session.getAttribute("userId"));
-         logger.trace("변환 결과 route: {}", route);
+         Route route = mapToRoute(dataMap, routeName, session.getAttribute("userId"), totalCost, totalWalk);
+         //logger.trace("변환 결과 route: {}", route);
          rService.addRoute(route);
          session.removeAttribute("start");
          session.removeAttribute("startlat");
@@ -244,8 +246,10 @@ public class InsertRouteController {
       return "insertroute/insertroute";
    }
 
-   private Route mapToRoute(Map map, String routeName, Object userId) {
+   private Route mapToRoute(Map map, String routeName, Object userId, String totalCost, String totalWalk) {
       Route route = new Route();
+      route.setTotalCost(totalCost);
+      route.setTotalWalk(totalWalk);
       route.setRouteName(routeName);
       userId = userId == null ? "null" : userId;
       route.setUserId(userId.toString());

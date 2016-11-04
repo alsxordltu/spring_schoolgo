@@ -28,12 +28,11 @@
                <header>
                   <h2 align="center">루트 목록</h2>
                   <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
-                  
                </header>
             </article>
                        
                  
-			<form name="routenext" method="get" action="gotogo">
+         <form name="routenext" method="get" action="gotogo">
             </form>
             
             <div id=schoolgo>
@@ -145,32 +144,32 @@
    
    <script>
    
-	$('#customtime').timepicker({
-		timeFormat : 'HH:mm',
-		interval : 30,
-		minTime : '0',
-		maxTime : '11:30pm',
-		defaultTime : '0',
-		startTime : '0',
-		dynamic : false,
-		dropdown : true,
-		scrollbar : true
-	});
-	
-	
+   $('#customtime').timepicker({
+      timeFormat : 'HH:mm',
+      interval : 30,
+      minTime : '0',
+      maxTime : '11:30pm',
+      defaultTime : '0',
+      startTime : '0',
+      dynamic : false,
+      dropdown : true,
+      scrollbar : true
+   });
+   
+   
    var json = ${routes};
    var getTime = ${getTime};
    console.log(json);
    var length = 1;
    var time = "";
-   
+  
    function showList(){
         var row="";
          $.each(json, function(index, item){      
             
             row+="<div id='div"+ index + "'>"
             +"<input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"' data-totaltime='"+ json[index].time +"' style='width:100%;'>"
-            +"<br></div><br> ";
+            +"<br></div><div id='info"+index+"'></div><br> ";
             
          });      
          $("#schoolgo").html(row);
@@ -185,78 +184,124 @@ $(document).ready(function() {
 $(document).on("click", ".routelist", function(){
    showList();
    var index = $(this).attr("data-index");
+   var info ="";
+   var count=1;
+
+   
+ //총 소요시간 시분초로 변환/////////////////////////////////
    var calTime = Math.floor(json[index].time / 60);
    var calHour ="";
    var calMin="";
-   var info ="";
-   
-   
    if (calTime >= 60) {
       calHour = Math.floor(calTime / 60) + '시간 ';
     }
-
    calMin = calTime%60 + '분 ';
+////////////////////////////////////////////////////////////
+
 
    var routeStep = json[index].stepList;
    var stepLat = "";
    var stepLng = "";
    
    $.each(routeStep, function(index, item){
-	   
-	   
-	   if(item.vmode == "TRANSIT"){
-		   var vehicleList = item.vehicleList;
-		   
-		   $.each(vehicleList, function(index, item){
-			   if(item.vehicleType == "BUS"){
-				   stepLat = item.startLat;
-				   stepLng = item.startLng;
-				  
-				   return false;
-			   }
-		   });
-	   }
-	   
-	   if(stepLat != "" && stepLng !=""){
-		   return false;
-	   }
+      
+      
+      if(item.vmode == "TRANSIT"){
+         var vehicleList = item.vehicleList;
+         
+         $.each(vehicleList, function(index, item){
+            if(item.vehicleType == "BUS"){
+               stepLat = item.startLat;
+               stepLng = item.startLng;
+              
+               return false;
+            }
+         });
+      }
+      
+      if(stepLat != "" && stepLng !=""){
+         return false;
+      }
    });
-
+   
+//루트 버튼 눌렀을때 해당 루트의 출발지 도착지 표시를 위한 변수
    var startadd =json[index].startAddress;
    var endadd =json[index].arriveAddress;
-   
+////////////////////////////////////////////////////////////////////////////
    
  
    
    var add ="<div id='info'>"
-   +"<div id='infostartend'>"
+   
+   
+   
+   +"<div id='infostartendtime'>"
+   
    +"<div id='infostart'>"
-   +"<img id='startendimg' src='main_img/start.png' width='10%'/><h6>"+startadd+"</h6></div>"
+   +"<img id='startendimg' src='main_img/start.png'/><h6>"+startadd+"</h6></div>"
    +"<div id='infoend'>"
-   +"<img id='startendimg' src='main_img/end.png' width='10%'/><h6>"+endadd+"</h6></div></div>"
-   +"<div id='infoalltime'>"+calHour + calMin + "소요</div></div>"
+   +"<img id='startendimg' src='main_img/end.png'/><h6>"+endadd+"</h6></div>"
    
    
-   +"<input id='schoolradio' type='radio' name='radio' class='radio' data-time='"+getTime.school+"'><label for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"</div>"
+   
+   
+   +"<div id='infoalltime'>"
+   
+   +"<div id='totali'>"
+   +"<span id='timespan'><h5>"+calHour + calMin + "소요</h5></span>"
+   +"</div>"
+   
+   +"<div id='totali'>"
+   +"<span id='timespan'><h5>"+calHour + calMin + "소요</h5></span>"
+   +"</div>"
+   
+   +"<div id='totali'>"
+   +"<span id='timespan'><h5>"+calHour + calMin + "소요</h5></span>"
+   +"</div>"
+   
+   +"</div>"
+   
+   
+    
+   +"<div id='typeselectdiv1'>"
+   
+   +"<div id='typeselectdiv3'>"
+   +"<input id='schoolradio' type='radio' name='radio' class='radio' data-index='1'  data-time='"+getTime.school+"'><label for='schoolradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>학교가기</span></label>"
-   +"<input id='albaradio' type='radio' name='radio' class='radio' data-time='"+getTime.alba+"'><label for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<input id='albaradio' type='radio' name='radio' class='radio' data-index='2'  data-time='"+getTime.alba+"'><label for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>알바가기</span></label>"
-   +"<input id='customradio' type='radio' name='radio' class='radio'><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<input id='customradio' type='radio' name='radio' class='radio' data-index='3' ><label for='customradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>사용자 지정 시간</span></label>"
+   +"</div>"
    
- 
- 
+   +"<div id='typeselectdiv4'>"
+   +"<input type='text'>시<input type='text'>분"
+   +"</div>"
    
    
-   +"<input type='button' class='gotoschool' value='등교'"
+   +"</div>"
+
+   
+   
+   
+   +"<div id='typeselectdiv2'>"
+   +"<input type='button' class='gotoschool' value='Go!'"
    +"data-lat='"+ stepLat+"'" 
    +"data-lng='"+stepLng +"' data-index='"+index+"' data-totaltime='"+$(this).attr("data-totaltime")+"'>"
    +"<input type='button' id='route"+$(this).attr("data-index") + "' class='group' name='group'"
    +"value='삭제' data-routeId='"+$(this).attr("data-routeId")+"'>";
+   +"</div>"
    
    
-   $("#div"+index).html($("#div"+index).html() + add);
-
+   +"</div>";
+   
+   
+   
+   
+   
+   $("#info" + index).html(add);
+	count++;
 });
 
    
@@ -306,11 +351,26 @@ $(document).on("click", ".gotoschool", function(){
          
          
 $(document).on("change", ".radio", function(){
-	time = $(this).attr("data-time");
-	   
-	   
-	         });
-	                 
+   time = $(this).attr("data-time");
+   
+   if($(this).attr("data-index")==3){
+	   $("#typeselectdiv4").slideDown("slow");
+   }else{
+	   $("#typeselectdiv4").slideUp("slow");
+   }
+     
+      
+            });
+            
+            
+            
+
+            
+            
+            
+            
+            
+                    
          
    </script>
 
