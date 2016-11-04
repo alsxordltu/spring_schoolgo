@@ -34,7 +34,7 @@
 				<br>
  				<div id="islate" ></div> 
   				<div id="remaintime" ></div> 				
-				
+  				<div id="curremaintime" ></div> 								
 <!-- 				출발 전까지 남은 시간 계산(초)
 				<div id="remaintimemove"></div>
 				
@@ -138,7 +138,7 @@
 var buslist;
 var routes;
 var islate;
-
+var curremaintime;
 $(document).ready(function(){
 	var row = "";	
 	buslist = ${buslist };
@@ -160,7 +160,30 @@ $(document).ready(function(){
 	
 	/* var item = buslist.response.body.items;
 	console.log(item); */
+	$.ajax({
 	
+		
+		url:"calDepartTime",
+		type:"get",
+		async:false,
+		data:{ /* walkTime : routeStep[0].routeTime, 
+			bustime : bustime,
+ */
+			timetabletime : "<%=request.getParameter("time") %>",
+			timetotaltime : "<%=request.getParameter("totaltime") %>"
+		},
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		success:function(response){
+		
+			console.log(response);
+			$("#islate").html(response);
+			islate=response;
+		},
+		
+	 	error:function(xhr, status, error){
+         console.log(error);
+      }
+	});
 	
 	
 	
@@ -223,32 +246,8 @@ $(document).ready(function(){
       }
 	});
 
-	var matchtime=36000;
 
-	$.ajax({
-	
-		
-		url:"calDepartTime",
-		type:"get",
-		async:false,
-		data:{ walkTime : routeStep[0].routeTime, 
-			bustime : bustime,
 
-			timetabletime : "<%=request.getParameter("time") %>",
-			timetotaltime : "<%=request.getParameter("totaltime") %>"
-		},
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		success:function(response){
-		
-			console.log(response);
-			$("#islate").html(response);
-			islate=response;
-		},
-		
-	 	error:function(xhr, status, error){
-         console.log(error);
-      }
-	});
 });
 console.log(islate);
 $(document).on("click", "#select", function(e){
@@ -293,7 +292,6 @@ function go_time(){
  document.getElementById("curtimesec").innerHTML 
  = nowtotalsec
  
- //지각아니면 다시계산하는 서비스 ㄱㄱ
  
  if(islate=="지각이 아님. 추후 null로 수정"){
 		//               ---------D 총소요시간----
@@ -315,17 +313,16 @@ function go_time(){
 	 
 	var tableTimesec3 = tableTimesec+tableTimesec2;	
 	
-	var remaintime = tableTimesec3-nowtotalsec-duringtime;
-	 document.getElementById("remaintime").innerHTML 
+	tableTimesec3-nowtotalsec-duringtime;
+	curremaintime=tableTimesec3;
+	setTimeout("secdec(curremaintime)", 1000);
+	document.getElementById("remaintime").innerHTML 
 	 = tableTimesec3
-
-	var remaintime = tableTimesec3-nowtotalsec-duringtime;
-	 document.getElementById("remaintime").innerHTML 
-	 = tableTimesec3
-	 
-	 
 	
- }
+	document.getElementById("curremaintime").innerHTML 
+	= curremaintime
+
+ } 
 
  
  
@@ -364,5 +361,9 @@ function go_time(){
  setTimeout("go_time()", 1000);
  //1초마다 해당 펑션을 실행함.
 }
+ function secdec(vari){
+	 vari-=1;
+	 return vari;
+ }
 </script>
 </html>
