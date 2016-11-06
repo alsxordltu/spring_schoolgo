@@ -25,6 +25,7 @@
 			<!-- Post -->
 			<article class="box post post-excerpt">
 				<header>
+				
 					<h2 align="center">학교가기 페이지</h2>
 					<p align="center">버스와 전철 위치정보 여기다가</p>
 				</header>
@@ -162,7 +163,7 @@ $(document).ready(function(){
 	
 	/* var item = buslist.response.body.items;
 	console.log(item); */
-	$.ajax({
+	<%-- $.ajax({
 	
 		
 		url:"calDepartTime",
@@ -178,14 +179,13 @@ $(document).ready(function(){
 		success:function(response){
 		
 			console.log(response);
-			$("#islate").html(response);
-			islate=response;
+			
 		},
 		
 	 	error:function(xhr, status, error){
          console.log(error);
       }
-	});
+	}); --%>
 
 	
  	$.each(routeStep, function(index, item){		
@@ -280,6 +280,8 @@ $(document).on("click", "#select", function(e){
 ///////////실시간출력
 function go_time(){
 	//////////////////현재시간
+	$("#islate").html("${calTimeResultMessage}");
+			islate="${calTimeResultMessage}";
  var now = new Date();
 
  var nowhour = now.getHours();  //현재 시

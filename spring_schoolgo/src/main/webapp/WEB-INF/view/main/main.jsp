@@ -160,6 +160,7 @@
    var json = ${routes};
    var getTime = ${getTime};
    console.log(json);
+   console.log(getTime);
    var length = 1;
    var time = "";
   
@@ -346,7 +347,7 @@ $(document).on("click", ".group",  function(){
       });
       
 $(document).on("click", ".gotoschool", function(){
-   location.href = "gotogo?lat="+ $(this).attr("data-lat") +"&lng="+$(this).attr("data-lng") + "&index="+$(this).attr("data-index") + "&time="+time + "&totaltime="+$(this).attr("data-totaltime");
+   location.href = "gotogo?index="+$(this).attr("data-index") + "&time="+time + "&totaltime="+$(this).attr("data-totaltime");
          });
          
          

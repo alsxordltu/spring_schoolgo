@@ -86,12 +86,11 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/gotogo", method = RequestMethod.GET)
-	public String gotogo(@RequestParam("lat")String lat, @RequestParam("lng")String lng, @RequestParam("index")String index, Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException {
+	public String gotogo(@RequestParam("index")String index, Model model, HttpServletRequest request, HttpSession session) throws JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+
 		
-		System.out.println("위도 : " + lat);
-		System.out.println("경도 : " + lng);
-		
-		String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
+		/*String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
 		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
 //		requestUrl += "serviceKey=ROEBX9gDjySLI9VWdC6Mc1Rsb%2FZSPP8RGZ6%2FFK65rEmL4zN1Oi2oVZ51%2FO730gQw6DPWf2sPfUolvrn9RbhILA%3D%3D";
 		//requestUrl += "serviceKey=mvKAQ0WW93EhDti3jLGt6p8xMApnUxDurvRUoe48r5nV0nugbDDtafNmfQcRncOzklKFLtkDQZke8hwLndvWcg%3D%3D";
@@ -112,16 +111,26 @@ public class MainController {
 		System.out.println("아헤헤 : " + map);
 		ObjectMapper mapper = new ObjectMapper();
 		
-		model.addAttribute("buslist", mapper.writeValueAsString(map));
+		model.addAttribute("buslist", mapper.writeValueAsString(map));*/
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
 		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
 		
-		//멍........................
+		String timetabletime = request.getParameter("time");
+		String timetotaltime = request.getParameter("totaltime");
+		String returnString = "";
+		int result = tservice.simpleisLate(timetabletime, timetotaltime);		
+		if (result == 1) {
+			returnString = "지각이에요 ㅠㅅㅜ 택시를 추천합니다";
+			model.addAttribute("calTimeResultMessage", returnString);
+			return "goandcome/go";
+		} else {
+			returnString =  "지각이 아님. 추후 null로 수정";
+			model.addAttribute("calTimeResultMessage", returnString);
+			return "goandcome/go";
+		}
 		
-		//tservice.isLate(working, arrivemin);
 		
-		return "goandcome/go";
 	}
 
 	@RequestMapping(value = "/gotocome", method = RequestMethod.GET)
