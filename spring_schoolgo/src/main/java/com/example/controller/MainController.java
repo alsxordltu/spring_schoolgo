@@ -90,28 +90,7 @@ public class MainController {
 		ObjectMapper mapper = new ObjectMapper();
 
 		
-		/*String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
-		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
-//		requestUrl += "serviceKey=ROEBX9gDjySLI9VWdC6Mc1Rsb%2FZSPP8RGZ6%2FFK65rEmL4zN1Oi2oVZ51%2FO730gQw6DPWf2sPfUolvrn9RbhILA%3D%3D";
-		//requestUrl += "serviceKey=mvKAQ0WW93EhDti3jLGt6p8xMApnUxDurvRUoe48r5nV0nugbDDtafNmfQcRncOzklKFLtkDQZke8hwLndvWcg%3D%3D";
 		
-		requestUrl += "&gpsLati=" + lat;
-		requestUrl += "&gpsLong=" + lng;
-		requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
-		
-		RestTemplate template = new RestTemplate();
-		
-		URI url = URI.create(requestUrl);
-		RequestEntity<Void> reqEntity
-		= RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8).acceptCharset(Charset.forName("UTF-8")).build();
-
-		ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
-		HashMap<String, Object> map = resEntity.getBody();
-		System.out.println(requestUrl);
-		System.out.println("아헤헤 : " + map);
-		ObjectMapper mapper = new ObjectMapper();
-		
-		model.addAttribute("buslist", mapper.writeValueAsString(map));*/
 		String userId = (String)session.getAttribute("userId");
 		List<Route> routes = service.getRouteUserId(userId);
 		model.addAttribute("routes", mapper.writeValueAsString(routes.get(Integer.parseInt(index))));
@@ -181,6 +160,36 @@ public class MainController {
 	public String gotomyactivity() {
 		return "mypage/5myactivity";
 	}
+	
+	@RequestMapping(value = "/getStationList", method = RequestMethod.GET, produces="application/text; charset=utf8")
+	   public @ResponseBody String getStationList(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+		   request.setCharacterEncoding("UTF-8");
+		   response.setContentType("text/html;charset=UTF-8");
+		   String lat = request.getParameter("lat");
+		   String lng = request.getParameter("lng");
+		   ObjectMapper mapper = new ObjectMapper();
+		   String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
+			requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
+//			requestUrl += "serviceKey=ROEBX9gDjySLI9VWdC6Mc1Rsb%2FZSPP8RGZ6%2FFK65rEmL4zN1Oi2oVZ51%2FO730gQw6DPWf2sPfUolvrn9RbhILA%3D%3D";
+			//requestUrl += "serviceKey=mvKAQ0WW93EhDti3jLGt6p8xMApnUxDurvRUoe48r5nV0nugbDDtafNmfQcRncOzklKFLtkDQZke8hwLndvWcg%3D%3D";
+			
+			requestUrl += "&gpsLati=" + lat;
+			requestUrl += "&gpsLong=" + lng;
+			requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
+			
+			RestTemplate template = new RestTemplate();
+			
+			URI url = URI.create(requestUrl);
+			RequestEntity<Void> reqEntity
+			= RequestEntity.get(url).accept(MediaType.APPLICATION_JSON_UTF8).acceptCharset(Charset.forName("UTF-8")).build();
+
+			ResponseEntity<HashMap> resEntity = template.exchange(reqEntity, HashMap.class);
+			HashMap<String, Object> map = resEntity.getBody();
+			System.out.println(requestUrl);
+			System.out.println("아헤헤 : " + map);
+
+		   return mapper.writeValueAsString(map);
+	   }
 	
 	@RequestMapping(value = "/getBusList", method = RequestMethod.GET, produces="application/text; charset=utf8")
 	   public @ResponseBody String getBusList(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
@@ -258,28 +267,6 @@ public class MainController {
 			
 		   return mapper.writeValueAsString(buslist);
 	   }
-	
-	@RequestMapping(value = "/calDepartTime", method = RequestMethod.GET, produces = "application/text; charset=utf8")
-	public @ResponseBody String calDepartTime(HttpSession session, Model model, HttpServletRequest request,
-			HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-/*		String walkTime = request.getParameter("walkTime");
-		String busTime = request.getParameter("bustime");
-*/		String timetabletime = request.getParameter("timetabletime");
-		String timetotaltime = request.getParameter("timetotaltime");
-//		logger.trace("walkTime : {} , busTime : {} " , walkTime, busTime);
-		logger.trace("timetabletime : {} , timetotaltime : {} " , timetabletime, timetotaltime);
-				
-		//도착시간(DB) , 소요시간 ("23:30", "4367"(초)) : return 1 or 0
-		int result = tservice.simpleisLate(timetabletime, timetotaltime);		
-		if (result == 1) {
-			String returnString = "지각이에요 ㅠㅅㅜ 택시를 추천합니다";
-			return returnString;
-		} else {
-			return "지각이 아님. 추후 null로 수정";
-		}
-	}
 	
 /*	@RequestMapping(value = "/getSubwayTime", method = RequestMethod.GET, produces="application/text; charset=utf8")
 	   public @ResponseBody String getSubwayTime(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {

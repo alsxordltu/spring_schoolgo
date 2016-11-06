@@ -144,15 +144,15 @@ var subwayArrive;	//ajax로 가져오는 해당역의 지하철 도착 리스트
 
 
 
-var buslist;
-var routes;
+
 var islate;
 var curremaintime;
 $(document).ready(function(){
 	var row = "";
-	routes = ${routes };
+	var routes = ${routes };
 	console.log(routes);
 	var routeStep = routes.stepList;
+	
 	//var busStopList = buslist.response.body.items.item;
 
 	var vehicleListName = "";
@@ -161,43 +161,78 @@ $(document).ready(function(){
 	var vehicleNum="";
 	var bustime="";
 	
-	/* var item = buslist.response.body.items;
-	console.log(item); */
-	<%-- $.ajax({
-	
-		
-		url:"calDepartTime",
-		type:"get",
-		async:false,
-		data:{ /* walkTime : routeStep[0].routeTime, 
-			bustime : bustime,
- */
-			timetabletime : "<%=request.getParameter("time") %>",
-			timetotaltime : "<%=request.getParameter("totaltime") %>"
-		},
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		success:function(response){
-		
-			console.log(response);
-			
-		},
-		
-	 	error:function(xhr, status, error){
-         console.log(error);
-      }
-	}); --%>
-
-	
  	$.each(routeStep, function(index, item){		
 		if(item.vmode == "TRANSIT"){
 			var vehicleList = item.vehicleList;
+			
 			$.each(vehicleList, function(index, item){
-				if(item.startName != null){
+				if(item.vehicleType == "BUS"){
 					
 					vehicleListName = item.startName;
 					vehicleNum = item.vehicleNum;
+					var buslist;
+					$.ajax({
+						url:"getStationList",
+						type:"get",
+						
+						data:{ lat : item.startLat,
+							lng : item.startLng
+						},
+						async:false,
+						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+						success:function(response){
+							buslist = JSON.parse(response);
+						},
+						error:function(xhr, status, error){
+					         console.log(error);
+						}
+					});
+					console.log(buslist);
+					var busStopList = buslist.response.body.items.item;
+					$.each(busStopList, function(index, item){
+						if(item.nodenm == vehicleListName){
+							
+							busStopId = item.nodeid;
+							cityCode = item.citycode;
+							return false;
+						}
+					});
+					
+					$.ajax({
+						url:"getBusList",
+						type:"get",
+						
+						data:{ cityCode : cityCode, 
+								nodeId : busStopId,
+								vehicleNum : vehicleNum
+						},
+						async:false,
+						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+						success:function(response){
+							json = JSON.parse(response);
+							var row ="";
+							$.each(json, function(index, item){
+								if(item.routeno == vehicleNum){
+									bustime =
+										item.arrtime;
+									
+								}
+								row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
+								
+							});
+							$("#busarrive").html(row);	
+							
+						},
+					 	error:function(xhr, status, error){
+				         console.log(error);
+				      }
+					});
 					
 					return false;
+				}
+				
+				if(item.vehicleType == "SUBWAY"){
+					
 				}
 			});
 		}
@@ -208,44 +243,7 @@ $(document).ready(function(){
 		}
 	});	 
 	
-	$.each(busStopList, function(index, item){
-		if(item.nodenm == vehicleListName){
-			
-			busStopId = item.nodeid;
-			cityCode = item.citycode;
-			return false;
-		}
-	});
 	
-	$.ajax({
-		url:"getBusList",
-		type:"get",
-		
-		data:{ cityCode : cityCode, 
-				nodeId : busStopId,
-				vehicleNum : vehicleNum
-		},
-		async:false,
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		success:function(response){
-			json = JSON.parse(response);
-			var row ="";
-			$.each(json, function(index, item){
-				if(item.routeno == vehicleNum){
-					bustime =
-						item.arrtime;
-					
-				}
-				row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
-				
-			});
-			$("#busarrive").html(row);	
-			
-		},
-	 	error:function(xhr, status, error){
-         console.log(error);
-      }
-	});
 
 
 
