@@ -305,12 +305,14 @@ function go_time(){
 	var tabletime = "${time}";
 	var duringtime = "${totaltime}";
 	
-	var tableTimeslice = tabletime.substring(0, 1);//"23"
-	tableTimeslice*=1;
+	var tableTimeslice = tabletime.substring(0, 2);//"23"
 	console.log(tableTimeslice);
+	tableTimeslice*=1;
+	
 	var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
 	//분->초
-	var tableTimeslice2 = tabletime.substring(3, 4);//"30"
+	var tableTimeslice2 = tabletime.substring(3, 5);//"30"
+	
 	tableTimeslice2*=1;
 	var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
 	 
