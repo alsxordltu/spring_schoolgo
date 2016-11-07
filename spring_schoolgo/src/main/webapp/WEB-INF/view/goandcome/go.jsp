@@ -275,7 +275,9 @@ $(document).on("click", "#select", function(e){
 		clearInterval(intervalId);
 	});
 	
-	
+	var alarmset = ["pororiya.mp3", "pororiya.mp3"];
+	var current=0;
+	var intervalId;	
 ///////////실시간출력
 function go_time(){
 	//////////////////현재시간
@@ -306,7 +308,7 @@ function go_time(){
 	var duringtime = "${totaltime}";
 	
 	var tableTimeslice = tabletime.substring(0, 2);//"23"
-	console.log(tableTimeslice);
+	
 	tableTimeslice*=1;
 	
 	var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
@@ -331,8 +333,18 @@ function go_time(){
 	document.getElementById("curremaintime").innerHTML 
 	= curremaintime
 	
-	if(curremaintime==5400){
-		alert("뀨");
+	
+	
+	if(curremaintime==4000){
+		
+		 intervalId = setInterval(function(){
+	         var filename = alarmset[current %2];
+	         $("#audio").attr("src", "gocome_voice/"+filename);
+				document.querySelector("#audio").play();
+				current++;
+			}, 1000 * 5);
+
+			
 	}
 	if(curremaintime==5300){
 		alert("뀨");
@@ -344,7 +356,9 @@ function go_time(){
  } 
 
  
- 
+ $("#stop").on("click", function() {
+		clearInterval(intervalId);
+	});
   /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
 /*  if(starttime==1){
 	 document.getElementById("starttime").innerHTML 
