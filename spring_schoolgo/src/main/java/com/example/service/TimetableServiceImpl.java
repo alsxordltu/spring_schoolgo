@@ -133,14 +133,19 @@ public class TimetableServiceImpl implements TimetableService {
 	public int simpleisLate(String arrivetime, String totaltime) {
 		//도착시간
 		//시->초
+		logger.trace("arrivetime: {} ", arrivetime);	
 		String arriveTimeslice = arrivetime.substring(0, 1);//"23"
+		logger.trace("arriveTimeslice: {} ", arriveTimeslice);	
+
 		int persearriveTime = Integer.parseInt(arriveTimeslice);//23
 		persearriveTime *= 3600;
 		int arriveTimesec = persearriveTime; // 초로바꿈
 		//분->초
 		String arriveTimeslice2 = arrivetime.substring(3, 4);//"30"
 		int persearriveTime2 = Integer.parseInt(arriveTimeslice2);//30
-		int arriveTimesec2 = persearriveTime2 *= 60;// 초로바꿈
+		persearriveTime2*=60;
+		logger.trace("persearriveTime2: {} ", persearriveTime2);	
+		int arriveTimesec2 = persearriveTime2;// 초로바꿈
 		logger.trace("arriveTimesec 2: {} ", arriveTimesec2);		
 		//도착시간 초 
 		int arriveTimesec3 = arriveTimesec+arriveTimesec2;		
@@ -165,9 +170,14 @@ public class TimetableServiceImpl implements TimetableService {
 		
 		// C-A=D(총소요시간)
 		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림 : E 출발전시간(준비시간)-> 5분전,10분전...알림
+		logger.trace("현재시간 timenowsec: {} ", Timenowsec3);
+		
+		logger.trace("Timenowsec3: {} ", Timenowsec3);
+		logger.trace("parsetotalTime: {} ", parsetotalTime);
+		logger.trace("arriveTimesec3: {} ", arriveTimesec3);
 
 		if((Timenowsec3+parsetotalTime-arriveTimesec3)>0){
-			return 0;
+			return 1;
 		}
 		else{
 			return 0;
