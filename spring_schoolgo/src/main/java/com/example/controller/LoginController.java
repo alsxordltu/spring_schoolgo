@@ -62,7 +62,7 @@ public class LoginController {
 		
 		Calendar cal = Calendar.getInstance();
 		int idx = cal.get(Calendar.DAY_OF_WEEK);
-		School school = tservice.getTime(userId, 4);
+		School school = tservice.getTime(userId, idx);
 		model.addAttribute("getTime", mapper.writeValueAsString(school));
 			
 		return "main/main";

@@ -275,6 +275,7 @@ $(document).on("click", "#select", function(e){
 		clearInterval(intervalId);
 	});
 	
+	
 ///////////실시간출력
 function go_time(){
 	//////////////////현재시간
@@ -314,14 +315,17 @@ function go_time(){
 	 
 	var tableTimesec3 = tableTimesec+tableTimesec2;	
 	
-	tableTimesec3-nowtotalsec-duringtime;
+	tableTimesec3=tableTimesec3-nowtotalsec-duringtime;
 	curremaintime=tableTimesec3;
-	setTimeout("secdec(curremaintime)", 1000);
+	
+	//setTimeout("secdec(curremaintime)", 1000);
+	
 	document.getElementById("remaintime").innerHTML 
 	 = tableTimesec3
 	
 	document.getElementById("curremaintime").innerHTML 
 	= curremaintime
+
 
  } 
 
