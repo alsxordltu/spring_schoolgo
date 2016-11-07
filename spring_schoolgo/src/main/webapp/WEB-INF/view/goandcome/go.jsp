@@ -289,7 +289,7 @@ function go_time(){
   document.getElementById("curtime").innerHTML 
  = nowhour+":"+nowmin+":"+nowsec
  var hourpersec = nowhour*3600; //현재 시->초 변환
- var minpersec = nowhour*60; //현재 분->초 변환
+ var minpersec = nowmin*60; //현재 분->초 변환
  var nowtotalsec = hourpersec + minpersec + nowsec;
  document.getElementById("curtimesec").innerHTML 
  = nowtotalsec
