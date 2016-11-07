@@ -163,7 +163,7 @@ public class TimetableServiceImpl implements TimetableService {
 		
 		// C-A=D(총소요시간)
 		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림 : E 출발전시간(준비시간)-> 5분전,10분전...알림
-		if((Timenowsec3+parsetotalTime-arriveTimesec3)>0){
+		if((arriveTimesec3-parsetotalTime-Timenowsec3)>0){
 			return 1;
 		}
 		else{

@@ -302,11 +302,12 @@ function go_time(){
 		// A+B>C -> A+B-C>0 지각
 		// C-A=D(총소요시간)
 		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림
-	var tabletime = "<%=request.getParameter("time") %>";
-	var duringtime = "<%=request.getParameter("totaltime") %>";
+	var tabletime = "${time}";
+	var duringtime = "${totaltime}";
 	
 	var tableTimeslice = tabletime.substring(0, 1);//"23"
 	tableTimeslice*=1;
+	console.log(tableTimeslice);
 	var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
 	//분->초
 	var tableTimeslice2 = tabletime.substring(3, 4);//"30"
@@ -314,8 +315,10 @@ function go_time(){
 	var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
 	 
 	var tableTimesec3 = tableTimesec+tableTimesec2;	
-	
-	tableTimesec3=tableTimesec3-nowtotalsec-duringtime;
+	/* console.log(tableTimesec);
+	console.log(tableTimesec2);
+	console.log(tableTimesec3); */
+ 	tableTimesec3=tableTimesec3-nowtotalsec-duringtime;
 	curremaintime=tableTimesec3;
 	
 	//setTimeout("secdec(curremaintime)", 1000);
