@@ -330,7 +330,16 @@ function go_time(){
 	
 	document.getElementById("curremaintime").innerHTML 
 	= curremaintime
-
+	
+	if(curremaintime==5400){
+		alert("뀨");
+	}
+	if(curremaintime==5300){
+		alert("뀨");
+	}
+	if(curremaintime==5250){
+		alert("뀨");
+	}
 
  } 
 
