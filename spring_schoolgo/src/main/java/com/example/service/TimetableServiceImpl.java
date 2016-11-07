@@ -137,7 +137,6 @@ public class TimetableServiceImpl implements TimetableService {
 		int persearriveTime = Integer.parseInt(arriveTimeslice);//23
 		persearriveTime *= 3600;
 		int arriveTimesec = persearriveTime; // 초로바꿈
-		logger.trace("arriveTimesec : {} ", arriveTimesec);
 		//분->초
 		String arriveTimeslice2 = arrivetime.substring(3, 4);//"30"
 		int persearriveTime2 = Integer.parseInt(arriveTimeslice2);//30
@@ -166,6 +165,7 @@ public class TimetableServiceImpl implements TimetableService {
 		
 		// C-A=D(총소요시간)
 		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림 : E 출발전시간(준비시간)-> 5분전,10분전...알림
+
 		if((Timenowsec3+parsetotalTime-arriveTimesec3)>0){
 			return 0;
 		}
