@@ -160,14 +160,15 @@ $(document).ready(function(){
 	var busStopId="";
 	var vehicleNum="";
 	var bustime="";
+	var stationName="";
 	
  	$.each(routeStep, function(index, item){		
 		if(item.vmode == "TRANSIT"){
 			var vehicleList = item.vehicleList;
 			
 			$.each(vehicleList, function(index, item){
-				if(item.vehicleType == "BUS"){
-					
+				if(item.vehicleType == "BUS" && vehicleNum == ""){
+					console.log("버스로 들어옴");
 					vehicleListName = item.startName;
 					vehicleNum = item.vehicleNum;
 					var buslist;
@@ -228,19 +229,39 @@ $(document).ready(function(){
 				      }
 					});
 					
-					return false;
+					
 				}
 				
-				if(item.vehicleType == "SUBWAY"){
+				if(item.vehicleType == "SUBWAY" && stationName == ""){
+					console.log("지하철로 들어옴");
+					stationName = item.startName;
+					$.ajax({
+						url:"getSubwayArrive",
+						type:"get",
+						
+						data:{	
+							stationName : stationName
+						},
+						async:false,
+						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+						success:function(response){
+							console.log(response);
+							
+						},
+					 	error:function(xhr, status, error){
+				         console.log(error);
+				      }
+					});
 					
 				}
 			});
 		}
 		
-		if(vehicleListName != ""){
+		if(vehicleListName != "" && stationName != ""){
 			
 			return false;
 		}
+		
 	});	 
 	
 	
@@ -248,7 +269,7 @@ $(document).ready(function(){
 
 
 });
-console.log(islate);
+
 $(document).on("click", "#select", function(e){
 	
 	document.all.selcitycode.value = $(this).attr("data-citycode");
@@ -262,11 +283,8 @@ $(document).on("click", "#select", function(e){
    var current=0;
    var intervalId;
    
-/*    var audio = document.querySelector("#audio");
-   console.log(audio);
-   audio.loop = false;
-   audio.play(); */
-   $("#start").on("click", function(){
+
+   /* $("#start").on("click", function(){
       
       intervalId = setInterval(function(){
           var filename = alarmset[current %2];
@@ -279,13 +297,37 @@ $(document).on("click", "#select", function(e){
 
 	$("#stop").on("click", function() {
 		clearInterval(intervalId);
-	}); 
+	});  */
 	
 	
 	/* var current=0;
 	var intervalId;	 */
 	
-	function startAlarm(){
+	var timeoutId;
+	   $("#start").on("click", function(){
+	      timeout();
+	   });
+	
+	function timeout(){
+	      timeoutId = setTimeout(function(){
+	    	  var filename = "pororiya.mp3";
+	         $("#audio").attr("src", "gocome_voice/"+filename);
+	         console.log(current, "gocome_voice/"+filename);
+	         var audio = document.querySelector("#audio");
+	         console.log(audio);
+	         audio.loop = false;
+	         audio.play();
+	         current++;
+	         timeout();
+	      }, 1000 * 5);
+	   }
+
+	$("#stop").on("click", function() {
+		clearTimeout(timeoutId);
+		alert("알람 종료됨.");
+	});
+	
+	/* function startAlarm(){
 		intervalId = setInterval(function(){
 	         var filename = "pororiya.mp3";                     
 	         $("#audio").attr("src", "gocome_voice/"+filename);
@@ -299,7 +341,7 @@ $(document).on("click", "#select", function(e){
 		$("#stop").on("click", function() {
 			clearInterval(intervalId);
 		});
-	}
+	} */
 ///////////실시간출력
 function go_time(){
 	//////////////////현재시간
@@ -361,14 +403,14 @@ function go_time(){
 
  } 
 
-if(curremaintime==42880){	
-	startAlarm();	
+if(curremaintime==39340){	
+	timeout();
 }
 if(curremaintime==5300){
-	startAlarm();
+	timeout();
 }
 if(curremaintime==5250){
-	startAlarm();
+	timeout();
 }
  
  

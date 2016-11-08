@@ -37,41 +37,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller // 컨트롤러 선언
 public class MainController {
 	private static Logger logger = LoggerFactory.getLogger(MainController.class);
-
-	/*
-	 * @Autowired Userservice service;
-	 */
-
-	/*
-	 * @RequestMapping(value="/hello", method=RequestMethod.GET) // request 사용 (
-	 * 조건 : /hello 경로 , get방식 ) public String sayHello(Model model){
-	 * model.addAttribute("message", "Good Morning"); // 전달 데이터 -> 모델로 설정
-	 * model.addAttribute("message2", "Hello"); return "showMessage"; // 사용할 뷰의
-	 * 이름 리턴 }
-	 * 
-	 * @RequestMapping(value="/gotojoin", method=RequestMethod.GET) public
-	 * String gotojoinForm(){ return "join/join"; }
-	 */
-
-	/*
-	 * @RequestMapping(value="/gotologin", method=RequestMethod.GET) public
-	 * String gotologinForm(){ return "login/login"; }
-	 * 
-	 * 
-	 * @RequestMapping(value="/gotojoin", method=RequestMethod.GET) public
-	 * String gotojoinForm(User user){ return "join/join"; }
-	 */
-
-	/*
-	 * @RequestMapping(value="/gototutorial", method=RequestMethod.GET) public
-	 * String gototutorial(){ return "tutorial"; }
-	 * 
-	 * @RequestMapping(value="/gotoindex", method=RequestMethod.GET) public
-	 * String gotoindex(){ return "main"; }
-	 * 
-	 * @RequestMapping(value="/join", method=RequestMethod.POST) public String
-	 * join(User user){ service.join(user); return "tutorial"; }
-	 */
 	
 	@Autowired
 	RouteService service;
@@ -270,19 +235,18 @@ public class MainController {
 		   return mapper.writeValueAsString(buslist);
 	   }
 	
-/*	@RequestMapping(value = "/getSubwayTime", method = RequestMethod.GET, produces="application/text; charset=utf8")
-	   public @ResponseBody String getSubwayTime(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
+	@RequestMapping(value = "/getSubwayArrive", method = RequestMethod.GET, produces="application/text; charset=utf8")
+	   public @ResponseBody String getSubwayArrive(HttpSession session, Model model, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException, UnsupportedEncodingException {
 		   request.setCharacterEncoding("UTF-8");
 		   response.setContentType("text/html;charset=UTF-8");
 		   ObjectMapper mapper = new ObjectMapper();
-		   String requestUrl = "http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?";
-			requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
-			//requestUrl += "serviceKey=ROEBX9gDjySLI9VWdC6Mc1Rsb%2FZSPP8RGZ6%2FFK65rEmL4zN1Oi2oVZ51%2FO730gQw6DPWf2sPfUolvrn9RbhILA%3D%3D";
-			//requestUrl += "serviceKey=mvKAQ0WW93EhDti3jLGt6p8xMApnUxDurvRUoe48r5nV0nugbDDtafNmfQcRncOzklKFLtkDQZke8hwLndvWcg%3D%3D";
-			
-			requestUrl += "&cityCode=" + citycode;
-			requestUrl += "&nodeId=" + nodeId;
-			requestUrl += "&numOfRows=999&pageSize=999&pageNo=1&startPage=1&_type=json";
+		   String stationName = request.getParameter("stationName");
+		   
+		   String inputStationName = stationName.substring(0, stationName.length()-1);
+		   
+		   		   
+		   String requestUrl = "http://swopenapi.seoul.go.kr/api/subway/7a4e5a597063637336396646595563/json/realtimeStationArrival/0/99/";
+			requestUrl += "%EB%B6%80%ED%8F%89";
 			
 			RestTemplate template = new RestTemplate();
 			
@@ -295,8 +259,8 @@ public class MainController {
 			System.out.println(requestUrl);
 			System.out.println(map);
 			
-
-			 return mapper.writeValueAsString(buslist);
-	   }*/
+		   return mapper.writeValueAsString(map);
+	   }
+	
 	   
 }
