@@ -133,28 +133,29 @@
 		</form>
 		<!-- Nav -->
 		<nav id="nav">
-			<ul>
-				<li><a href="gotomain">학교가기</a></li>
-				<li><a href="gotoinsertroute">루트등록</a></li>
-				<li><a href="gotoboardmain">루트공유</a></li>
-				<li><a href="#">Contact Me</a></li>
-			</ul>
-		</nav>
+            <ul>
+               <li class="current"><a href="gotomain">학교가기</a></li>
+               <li><a href="gotoinsertroute">루트등록</a></li>
+               <li><a href="gotoboardmain">루트공유</a></li>
+               <li><a href="#">Contact Me</a></li>
+               <li><a href="gotoadmin">Admin page</a></li>
+            </ul>
+         </nav>
 
 
 
-		<!-- Recent Posts -->
-		<section class="box recent-posts">
-			<header>
-				<h2>마이페이지</h2>
-			</header>
-			<ul id="mypageside">
-				<li><a href="gototimetable">시간표 등록</a></li>
-				<li><a href="gotoupdateprofile">개인정보 수정</a></li>
-				<li><a href="gotoroutemanager">루트관리</a></li>
-				<li><a href="gotocostcal">교통비 가계부</a></li>
-				<li class="current"><a href="gotomyactivity">활동내역</a></li>
-			</ul>
+         <!-- Recent Posts -->
+         <section class="box recent-posts">
+            <header>
+               <h2>마이페이지</h2>
+            </header>
+           <ul id="mypageside">
+            <li><a href="updateTimetable">시간표 등록</a></li>
+            <li><a href="updateUser">개인정보 수정</a></li>
+            <li><a href="gotoroutemanager">루트관리</a></li>
+            <li><a href="gotocostcal">교통비 가계부</a></li>
+            <li><a href="gotomyactivity">활동내역</a></li>
+         </ul>
 
 		</section>
 
