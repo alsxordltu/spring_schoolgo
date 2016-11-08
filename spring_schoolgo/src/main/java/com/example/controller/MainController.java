@@ -299,4 +299,10 @@ public class MainController {
 			 return mapper.writeValueAsString(buslist);
 	   }*/
 	   
+	@RequestMapping(value = "/gotocontact", method = RequestMethod.GET)
+	public String gotocontact() {
+		return "main/contactus";
+	}
+	
+	
 }
