@@ -11,7 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="my_css/main.css" />
-<link rel="stylesheet" href="my_css/form.css" />
 	<head>
 		<title>Striped by HTML5 UP</title> 
 		<meta charset="utf-8" />
@@ -31,37 +30,30 @@
             <!-- 헤더부분 -->
 				<header >
 				<h2 align="center"><img src="my_img/update.png" width="80%"></h2>
-					<p align="center">시간표를 등록해주세요!</p>
+					<p align="center">갠정보수정!</p>
 				</header>
             
             
          </article>
             
+				<div id="updateprofile">
 
-		<!-- Main -->
-		<div id="main">
-
-			<!-- Me -->
-			<article id="me" class="panel"
-				style="padding: 50px 100px 50px 100px;">
-
-				<div style="height: 1000px;">
-
-					개인정보수정
 					<sform:form method="post" action="updateUser" modelAttribute="user">
+					
 						<div class="field">
 						userId(변경불가)
 							<sform:input path="userId" placeholder="Id" readonly="true" />
 							<sform:errors element="span" path="userId"></sform:errors>
-				
 						</div>
+						
+						
 						<div class="field">
 							pass
 							<sform:input type="password" path="pass" placeholder="Pass" />
 							<sform:errors element="span" path="pass"></sform:errors>
-							<!-- 	<input type="text" name="pass" id="pass" placeholder="Pass" />
-							 -->
+							
 						</div>
+						
 						<div class="field">
 							userName
 							<sform:input path="userName" placeholder="Name" />
@@ -98,58 +90,7 @@
 					</sform:form>
 
 				</div>
-				<br>
-
-			</article>
-
-
-		</div>
-
-		<!-- Footer -->
-		<div id="footer">
-			<ul class="copyright">
-				<li>&copy; Untitled.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-
-
-	<!-- Scripts -->
-	<script src="my_js/jquery.min.js"></script>
-	<script src="my_js/skel.min.js"></script>
-	<script src="my_js/skel-viewport.min.js"></script>
-	<script src="my_js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="my_js/main.js"></script>
-	<script>
-		$("document").ready(function() {
-			$("#animate").animate({
-				left : 145
-			/* top:-140 */
-			});
-		});
-	</script>
-					
-					
-					
-					
-					
-					
-
-					<!-- Pagination -->
-						<div class="pagination">
-							<!--<a href="#" class="button previous">Previous Page</a>-->
-							<div class="pages">
-								<a href="#" class="active">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<span>&hellip;</span>
-								<a href="#">20</a>
-							</div>
-							<a href="#" class="button next">Next Page</a>
-						</div>
-
+				<br>	
 				</div>
 			</div>
 

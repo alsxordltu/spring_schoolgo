@@ -191,7 +191,7 @@ $(document).ready(function(){
                      return false;
                   }
                });
-               
+               var busArrList;
                $.ajax({
                   url:"getBusList",
                   type:"get",
@@ -203,9 +203,9 @@ $(document).ready(function(){
                   async:false,
                   contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                   success:function(response){
-                     json = JSON.parse(response);
+                	  busArrList = JSON.parse(response);
                      var row ="";
-                     $.each(json, function(index, item){
+                     $.each(busArrList, function(index, item){
                         if(item.routeno == vehicleNum){
                            bustime =
                               item.arrtime;
@@ -221,7 +221,7 @@ $(document).ready(function(){
                      console.log(error);
                   }
                });
-               
+               console.log(busArrList);
                
             }
             
