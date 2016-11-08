@@ -17,6 +17,7 @@
 <script src="http://files.codepedia.info/uploads/iScripts/html2canvas.js"></script>
 </head>
 <body>
+
 	<%
 		String searchdata = (String) session.getAttribute("start");
 		String searchdata2 = (String) session.getAttribute("end");
@@ -109,8 +110,8 @@
 		<!-- Nav -->
 		<nav id="nav">
             <ul>
-               <li class="current"><a href="gotomain">학교가기</a></li>
-               <li><a href="gotoinsertroute">루트등록</a></li>
+               <li><a href="gotomain">학교가기</a></li>
+               <li class="current"><a href="gotoinsertroute">루트등록</a></li>
                <li><a href="gotoboardmain">루트공유</a></li>
                <li><a href="#">Contact Me</a></li>
                <li><a href="gotoadmin">Admin page</a></li>
