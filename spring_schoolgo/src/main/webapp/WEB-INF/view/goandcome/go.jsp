@@ -186,6 +186,7 @@ $(document).ready(function(){
                });
                console.log(buslist);
                var busStopList = buslist.response.body.items.item;
+               
                $.each(busStopList, function(index, item){
                   if(item.nodenm == vehicleListName){
                      
@@ -283,56 +284,30 @@ $(document).on("click", "#select", function(e){
 });
 
 ////////////////////////음성출력테스트/////////////////////////////////////////
-<<<<<<< HEAD
 
-	var current=0;
-	var timeoutId=0;
-	   $("#start").on("click", function(){
-	      timeout();
-	   });
-	
-	function timeout(){
-		console.log(timeoutId);
-		if(timeoutId == 0){
-			
-		      timeoutId = setTimeout(function(){
-		    	  var filename = "pororiya.mp3";
-		         $("#audio").attr("src", "gocome_voice/"+filename);
-		         console.log(current, "gocome_voice/"+filename);
-		         var audio = document.querySelector("#audio");
-		         console.log(audio);
-		         audio.loop = false;
-		         audio.play();
-		         current++;
-		         timeout();
-		      }, 1000 * 5);			
-		}
-=======
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 
-   var current=0;
-   var timeoutId=0;
-      $("#start").on("click", function(){
-         timeout();
-      });
-   
-   function timeout(){
-      console.log(timeoutId);
-      if(timeoutId == 0){
-         
-            timeoutId = setTimeout(function(){
-               var filename = "pororiya.mp3";
-               $("#audio").attr("src", "gocome_voice/"+filename);
-               console.log(current, "gocome_voice/"+filename);
-               var audio = document.querySelector("#audio");
-               console.log(audio);
-               audio.loop = false;
-               audio.play();
-               current++;
-               timeout();
-            }, 1000 * 5);         
-      }
+var current=0;
+var timeoutId=0;
+   $("#start").on("click", function(){
+      timeout();
+   });
 
+function timeout(){
+   console.log(timeoutId);
+   if(timeoutId == 0){
+      
+         timeoutId = setTimeout(function(){
+            var filename = "pororiya.mp3";
+            $("#audio").attr("src", "gocome_voice/"+filename);
+            console.log(current, "gocome_voice/"+filename);
+            var audio = document.querySelector("#audio");
+            console.log(audio);
+            audio.loop = false;
+            audio.play();
+            current++;
+            timeout();
+         }, 1000 * 5);         
+   }
       }
 
    $("#stop").on("click", function() {
@@ -363,7 +338,6 @@ function go_time(){
  
  
  if(islate=="지각이 아님. 추후 null로 수정"){
-<<<<<<< HEAD
 		//               ---------D 총소요시간----
 		//  현재시간(18:17) 출발전시간 소요시간(4367)  도착시간(23:30)
 		//       A                   E                B               C   
@@ -402,46 +376,7 @@ function go_time(){
 	
 	
 
-=======
-      //               ---------D 총소요시간----
-      //  현재시간(18:17) 출발전시간 소요시간(4367)  도착시간(23:30)
-      //       A                   E                B               C   
-      // A+B>C -> A+B-C>0 지각
-      // C-A=D(총소요시간)
-      // C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림
-   var tabletime = "${time}";
-   var duringtime = "${totaltime}";
-   
-   var tableTimeslice = tabletime.substring(0, 2);//"23"
-   
-   tableTimeslice*=1;
-   
-   var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
-   //분->초
-   var tableTimeslice2 = tabletime.substring(3, 5);//"30"
-   
-   tableTimeslice2*=1;
-   var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
-    
-   var tableTimesec3 = tableTimesec+tableTimesec2;   
-   /* console.log(tableTimesec);
-   console.log(tableTimesec2);
-   console.log(tableTimesec3); */
-    tableTimesec3=tableTimesec3-nowtotalsec-duringtime;
-   curremaintime=tableTimesec3;
-   
-   //setTimeout("secdec(curremaintime)", 1000);
-   
-   document.getElementById("remaintime").innerHTML 
-    = tableTimesec3
-   
-   document.getElementById("curremaintime").innerHTML 
-   = curremaintime
-   
-   
-   
 
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 
  } 
 
