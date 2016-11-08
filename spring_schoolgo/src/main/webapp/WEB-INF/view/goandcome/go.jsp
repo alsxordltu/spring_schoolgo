@@ -274,7 +274,7 @@ $(document).on("click", "#select", function(e){
 });
 
 ////////////////////////음성출력테스트/////////////////////////////////////////
-<<<<<<< HEAD
+
 	var current=0;
 	var timeoutId=0;
 	   $("#start").on("click", function(){
@@ -363,24 +363,6 @@ function go_time(){
 	document.getElementById("curremaintime").innerHTML 
 	= curremaintime
 	
-	
-	
-<<<<<<< HEAD
-	
-=======
-	if(curremaintime==11150){
-		alert("뀨");
-	}
-	if(curremaintime==41220){
-		alerm();
-	}
-	if(curremaintime==51400){
-		alert("뀨");
-	}
->>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
-
- } 
-
 if(curremaintime==900){	
 	timeout();
 }
