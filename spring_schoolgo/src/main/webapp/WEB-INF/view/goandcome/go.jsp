@@ -72,6 +72,8 @@
 
 
             </div>
+            <div id="subwayArrive">
+            </div>
          </article>
       </div>
    </div>
@@ -154,6 +156,7 @@ $(document).ready(function(){
    var vehicleNum="";
    var bustime="";
    var stationName="";
+   var temp="";
    
     $.each(routeStep, function(index, item){      
       if(item.vmode == "TRANSIT"){
@@ -206,12 +209,11 @@ $(document).ready(function(){
                 	  busArrList = JSON.parse(response);
                      var row ="";
                      $.each(busArrList, function(index, item){
-                        if(item.routeno == vehicleNum){
-                           bustime =
-                              item.arrtime;
-                           
+                        if(temp != item.routeno){
+                        	row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
+                       		temp = item.routeno;
                         }
-                        row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
+                        
                         
                      });
                      $("#busarrive").html(row);   
@@ -228,6 +230,8 @@ $(document).ready(function(){
             if(item.vehicleType == "SUBWAY" && stationName == ""){
                console.log("지하철로 들어옴");
                stationName = item.startName;
+               var subwayList;
+               var subwayArrList;
                $.ajax({
                   url:"getSubwayArrive",
                   type:"get",
@@ -238,8 +242,14 @@ $(document).ready(function(){
                   async:false,
                   contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                   success:function(response){
-                     json = JSON.parse(response);
-                     console.log(json);
+                	  subwayList = JSON.parse(response);
+                	  subwayArrList = subwayList.realtimeArrivalList;
+                     console.log(subwayArrList);
+                     var row ="";
+                     $.each(subwayArrList, function(index, item){
+                 		  row += item.trainLineNm + item.arvlMsg2 + "<br>";
+                     });
+                     $("#subwayArrive").html(row);   
                      
                   },
                    error:function(xhr, status, error){
