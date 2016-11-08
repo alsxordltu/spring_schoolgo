@@ -41,44 +41,32 @@
 					<sform:form method="post" action="updateUser" modelAttribute="user">
 					
 						<div class="field">
+						
 						userId(변경불가)
 							<sform:input path="userId" placeholder="Id" readonly="true" />
-							<sform:errors element="span" path="userId"></sform:errors>
 						</div>
 						
 						
 						<div class="field">
 							pass
 							<sform:input type="password" path="pass" placeholder="Pass" />
-							<sform:errors element="span" path="pass"></sform:errors>
-							
 						</div>
 						
 						<div class="field">
 							userName
 							<sform:input path="userName" placeholder="Name" />
-							<sform:errors element="span" path="userName"></sform:errors>
-							<!-- 								<input type="text" name="userName" id="userNane" placeholder="Name" />
- -->
 						</div>
 						<div class="field">
 							nickName
 							<sform:input path="nickName" placeholder="Nickname" />
-							<sform:errors element="span" path="nickName"></sform:errors>
-							<!-- 								<input type="text" name="nickName" id="nickName" placeholder="Nickname" />
- -->
 						</div>
 						<div class="field">
 							email
 							<sform:input type="email" path="email" placeholder="Email" />
-							<sform:errors element="span" path="email"></sform:errors>
-							<!-- 								<input type="email" name="email" id="email" placeholder="Email" />
- -->
 						</div>
 						<div class="field">
 							phoneNum
 							<sform:input type="text" path="phoneNum" placeholder="Phone" />
-							<sform:errors element="span" path="phoneNum"></sform:errors>
 						</div>
 						<div>
 							<input type="submit" value="수정하기" >

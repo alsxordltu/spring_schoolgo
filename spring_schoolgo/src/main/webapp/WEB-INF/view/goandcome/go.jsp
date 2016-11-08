@@ -186,6 +186,7 @@ $(document).ready(function(){
                });
                console.log(buslist);
                var busStopList = buslist.response.body.items.item;
+               
                $.each(busStopList, function(index, item){
                   if(item.nodenm == vehicleListName){
                      
