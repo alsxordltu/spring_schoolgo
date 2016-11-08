@@ -22,7 +22,13 @@
 	<!-- Content -->
 	<div id="content">
 		<div class="inner">
-
+		
+			<!-- 헤더부분 -->
+				<header >
+				<h2 align="center"><img src="board_img/board.png" width="70%"></h2>
+					<p align="center">나만의 루트를 공유해보세요!</p>
+				</header>
+				
 			<!-- Post -->
 			<article class="box post post-excerpt">
 					<h2 align="center">boardmain</h2>
@@ -55,9 +61,9 @@
 
 		<nav id="nav">
             <ul>
-               <li class="current"><a href="gotomain">학교가기</a></li>
+               <li><a href="gotomain">학교가기</a></li>
                <li><a href="gotoinsertroute">루트등록</a></li>
-               <li><a href="gotoboardmain">루트공유</a></li>
+               <li class="current"><a href="gotoboardmain">루트공유</a></li>
                <li><a href="#">Contact Me</a></li>
                <li><a href="gotoadmin">Admin page</a></li>
             </ul>

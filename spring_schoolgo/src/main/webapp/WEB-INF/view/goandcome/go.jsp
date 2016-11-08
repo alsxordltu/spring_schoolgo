@@ -1,5 +1,6 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE HTML>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--
@@ -128,22 +129,15 @@
 	<script src="gocome_js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="gocome_js/main.js"></script>
-	<script src="http://code.jquery.com/jquery.js"></script>
+	
 
 
 
 
 
 </body>
+<script src="http://code.jquery.com/jquery.js"></script>
 <script>
-
-/* var routes;				//선택된 루트의 정보
-var busList;				//ajax로 가져오는 버스정류소 리스트
-var busArrive;			//ajax로 가져오는 해당 버스정류소의 도착시간 리스트
-var subwayArrive;	//ajax로 가져오는 해당역의 지하철 도착 리스트 */
-
-
-
 
 var islate;
 var curremaintime;
@@ -245,7 +239,8 @@ $(document).ready(function(){
 						async:false,
 						contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 						success:function(response){
-							console.log(response);
+							json = JSON.parse(response);
+							console.log(json);
 							
 						},
 					 	error:function(xhr, status, error){
@@ -279,69 +274,39 @@ $(document).on("click", "#select", function(e){
 });
 
 ////////////////////////음성출력테스트/////////////////////////////////////////
-   var alarmset = ["pororiya.mp3", "pororiya.mp3"];
-   var current=0;
-   var intervalId;
-   
-
-   /* $("#start").on("click", function(){
-      
-      intervalId = setInterval(function(){
-          var filename = alarmset[current %2];
-         $("#audio").attr("src", "gocome_voice/"+filename);
-			document.querySelector("#audio").play(); 
-			current++;
-			console.log(current);
-		}, 1000 * 5);
-	});
-
-	$("#stop").on("click", function() {
-		clearInterval(intervalId);
-	});  */
-	
-	
-	/* var current=0;
-	var intervalId;	 */
-	
-	var timeoutId;
+	var current=0;
+	var timeoutId=0;
 	   $("#start").on("click", function(){
 	      timeout();
 	   });
 	
 	function timeout(){
-	      timeoutId = setTimeout(function(){
-	    	  var filename = "pororiya.mp3";
-	         $("#audio").attr("src", "gocome_voice/"+filename);
-	         console.log(current, "gocome_voice/"+filename);
-	         var audio = document.querySelector("#audio");
-	         console.log(audio);
-	         audio.loop = false;
-	         audio.play();
-	         current++;
-	         timeout();
-	      }, 1000 * 5);
+		console.log(timeoutId);
+		if(timeoutId == 0){
+			
+		      timeoutId = setTimeout(function(){
+		    	  var filename = "pororiya.mp3";
+		         $("#audio").attr("src", "gocome_voice/"+filename);
+		         console.log(current, "gocome_voice/"+filename);
+		         var audio = document.querySelector("#audio");
+		         console.log(audio);
+		         audio.loop = false;
+		         audio.play();
+		         current++;
+		         timeout();
+		      }, 1000 * 5);			
+		}
+
 	   }
 
 	$("#stop").on("click", function() {
 		clearTimeout(timeoutId);
+		timeoutId = 0;
+		console.log(timeoutId);
 		alert("알람 종료됨.");
+		
 	});
-	
-	/* function startAlarm(){
-		intervalId = setInterval(function(){
-	         var filename = "pororiya.mp3";                     
-	         $("#audio").attr("src", "gocome_voice/"+filename);
-				document.querySelector("#audio").play();
-				current++;
-				console.log(current);
-			}, 1000 * 5);
-	}
-	
-	function stopAlarm(){
-		$("#stop").on("click", function() {
-			clearInterval(intervalId);
-		});
-	} */
+
 ///////////실시간출력
 function go_time(){
 	//////////////////현재시간
@@ -403,13 +368,13 @@ function go_time(){
 
  } 
 
-if(curremaintime==39340){	
+if(curremaintime==900){	
 	timeout();
 }
-if(curremaintime==5300){
+if(curremaintime==600){
 	timeout();
 }
-if(curremaintime==5250){
+if(curremaintime==300){
 	timeout();
 }
  

@@ -2,6 +2,8 @@ package com.example.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -243,10 +245,9 @@ public class MainController {
 		   String stationName = request.getParameter("stationName");
 		   
 		   String inputStationName = stationName.substring(0, stationName.length()-1);
-		   
 		   		   
 		   String requestUrl = "http://swopenapi.seoul.go.kr/api/subway/7a4e5a597063637336396646595563/json/realtimeStationArrival/0/99/";
-			requestUrl += "%EB%B6%80%ED%8F%89";
+			requestUrl += URLEncoder.encode(inputStationName, "UTF-8");
 			
 			RestTemplate template = new RestTemplate();
 			
@@ -263,4 +264,10 @@ public class MainController {
 	   }
 	
 	   
+	@RequestMapping(value = "/gotocontact", method = RequestMethod.GET)
+	public String gotocontact() {
+		return "main/contactus";
+	}
+	
+	
 }
