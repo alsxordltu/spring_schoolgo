@@ -24,11 +24,12 @@
 
 			<!-- Post -->
 			<article class="box post post-excerpt">
-				<header>
-				
-					<h2 align="center">학교가기 페이지</h2>
-					<p align="center">버스와 전철 위치정보 여기다가</p>
+				<!-- 헤더부분 -->
+				<header >
+				<h2 align="center"><img src="gocome_img/go1go1.png" width="70%"></h2>
+					<p align="center">학교가기 페이지입니다.</p>
 				</header>
+
 				<div id="curtime"></div>
 				현재 시간(초로 변환)
 				<div id="curtimesec"></div>
@@ -84,31 +85,30 @@
 				alt="" /></a>
 		</h1>
 
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li class="current"><a href="gotomain">학교가기</a></li>
-				<li><a href="gotoinsertroute">루트등록</a></li>
-				<li><a href="#">루트공유</a></li>
-				<li><a href="#">Contact Me</a></li>
-			</ul>
-		</nav>
+	<nav id="nav">
+            <ul>
+               <li class="current"><a href="gotomain">학교가기</a></li>
+               <li><a href="gotoinsertroute">루트등록</a></li>
+               <li><a href="gotoboardmain">루트공유</a></li>
+               <li><a href="#">Contact Me</a></li>
+               <li><a href="gotoadmin">Admin page</a></li>
+            </ul>
+         </nav>
 
 
 
-
-		<!-- Recent Posts -->
-		<section class="box recent-posts">
-			<header>
-				<h2>마이페이지</h2>
-			</header>
-			<ul>
-				<li><a href="gototimetable">시간표 등록</a></li>
-				<li><a href="#">개인정보 수정</a></li>
-				<li><a href="#">루트관리</a></li>
-				<li><a href="#">교통비 가계부</a></li>
-				<li><a href="#">활동내역</a></li>
-			</ul>
+         <!-- Recent Posts -->
+         <section class="box recent-posts">
+            <header>
+               <h2>마이페이지</h2>
+            </header>
+           <ul id="mypageside">
+            <li><a href="updateTimetable">시간표 등록</a></li>
+            <li><a href="updateUser">개인정보 수정</a></li>
+            <li><a href="gotoroutemanager">루트관리</a></li>
+            <li><a href="gotocostcal">교통비 가계부</a></li>
+            <li><a href="gotomyactivity">활동내역</a></li>
+         </ul>
 		</section>
 
 
