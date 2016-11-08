@@ -276,6 +276,9 @@ $(document).on("click", "#select", function(e){
 		clearInterval(intervalId);
 	});
 	
+	var alarmset = ["pororiya.mp3", "pororiya.mp3"];
+	var current=0;
+	var intervalId;	
 ///////////실시간출력
 function go_time(){
 	//////////////////현재시간
@@ -289,7 +292,7 @@ function go_time(){
   document.getElementById("curtime").innerHTML 
  = nowhour+":"+nowmin+":"+nowsec
  var hourpersec = nowhour*3600; //현재 시->초 변환
- var minpersec = nowhour*60; //현재 분->초 변환
+ var minpersec = nowmin*60; //현재 분->초 변환
  var nowtotalsec = hourpersec + minpersec + nowsec;
  document.getElementById("curtimesec").innerHTML 
  = nowtotalsec
@@ -302,32 +305,61 @@ function go_time(){
 		// A+B>C -> A+B-C>0 지각
 		// C-A=D(총소요시간)
 		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림
-	var tabletime = "<%=request.getParameter("time") %>";
-	var duringtime = "<%=request.getParameter("totaltime") %>";
+	var tabletime = "${time}";
+	var duringtime = "${totaltime}";
 	
-	var tableTimeslice = tabletime.substring(0, 1);//"23"
+	var tableTimeslice = tabletime.substring(0, 2);//"23"
+	
 	tableTimeslice*=1;
+	
 	var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
 	//분->초
-	var tableTimeslice2 = tabletime.substring(3, 4);//"30"
+	var tableTimeslice2 = tabletime.substring(3, 5);//"30"
+	
 	tableTimeslice2*=1;
 	var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
 	 
 	var tableTimesec3 = tableTimesec+tableTimesec2;	
-	
-	tableTimesec3-nowtotalsec-duringtime;
+	/* console.log(tableTimesec);
+	console.log(tableTimesec2);
+	console.log(tableTimesec3); */
+ 	tableTimesec3=tableTimesec3-nowtotalsec-duringtime;
 	curremaintime=tableTimesec3;
-	setTimeout("secdec(curremaintime)", 1000);
+	
+	//setTimeout("secdec(curremaintime)", 1000);
+	
 	document.getElementById("remaintime").innerHTML 
 	 = tableTimesec3
 	
 	document.getElementById("curremaintime").innerHTML 
 	= curremaintime
+	
+	
+	
+	if(curremaintime==4000){
+		
+		 intervalId = setInterval(function(){
+	         var filename = alarmset[current %2];
+	         $("#audio").attr("src", "gocome_voice/"+filename);
+				document.querySelector("#audio").play();
+				current++;
+			}, 1000 * 5);
+
+			
+	}
+	if(curremaintime==5300){
+		alert("뀨");
+	}
+	if(curremaintime==5250){
+		alert("뀨");
+	}
 
  } 
 
  
- 
+ $("#stop").on("click", function() {
+		clearInterval(intervalId);
+	});
   /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
 /*  if(starttime==1){
 	 document.getElementById("starttime").innerHTML 

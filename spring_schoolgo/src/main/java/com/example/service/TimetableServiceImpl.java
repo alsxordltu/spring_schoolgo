@@ -133,13 +133,22 @@ public class TimetableServiceImpl implements TimetableService {
 	public int simpleisLate(String arrivetime, String totaltime) {
 		//도착시간
 		//시->초
-		String arriveTimeslice = arrivetime.substring(0, 1);//"23"
+
+		logger.trace("arrivetime: {} ", arrivetime);	
+
+
+		String arriveTimeslice = arrivetime.substring(0, 2);//"23"
+		logger.trace("arriveTimeslice: {} ", arriveTimeslice);	
 		int persearriveTime = Integer.parseInt(arriveTimeslice);//23
-		int arriveTimesec = persearriveTime *= 3600; // 초로바꿈
+		persearriveTime *= 3600;
+		int arriveTimesec = persearriveTime; // 초로바꿈
 		//분->초
-		String arriveTimeslice2 = arrivetime.substring(3, 4);//"30"
+		String arriveTimeslice2 = arrivetime.substring(3, 5);//"30"
 		int persearriveTime2 = Integer.parseInt(arriveTimeslice2);//30
-		int arriveTimesec2 = persearriveTime2 *= 60;// 초로바꿈
+		persearriveTime2*=60;
+		logger.trace("persearriveTime2: {} ", persearriveTime2);	
+		int arriveTimesec2 = persearriveTime2;// 초로바꿈
+		logger.trace("arriveTimesec 2: {} ", arriveTimesec2);		
 		//도착시간 초 
 		int arriveTimesec3 = arriveTimesec+arriveTimesec2;		
 		//소요시간 초
@@ -147,11 +156,11 @@ public class TimetableServiceImpl implements TimetableService {
 		//현재시간("18:17")
 		String Timenow = new SimpleDateFormat("HH:mm").format(new Date());
 		//시->초
-		String Timeslice = Timenow.substring(0, 1);//"18"
+		String Timeslice = Timenow.substring(0, 2);//"18"
 		int parseTime = Integer.parseInt(Timeslice);//18
 		int Timenowsec = parseTime *= 3600; //초로바꿈
 		//분->초
-		String Timeslice2 = Timenow.substring(3, 4);//"17"
+		String Timeslice2 = Timenow.substring(3, 5);//"17"
 		int parseTime2 = Integer.parseInt(Timeslice2);//17
 		int Timenowsec2 = parseTime2 * 60; //초로바꿈
 		//현재시간 초
@@ -160,9 +169,19 @@ public class TimetableServiceImpl implements TimetableService {
 		//  현재시간(18:17) 출발전시간 소요시간(4367)  도착시간(23:30)
 		//       A            E          B               C   
 		// A+B>C -> A+B-C>0 지각
-		
+		System.out.println(Timenowsec3);
+		System.out.println(parsetotalTime);
+		System.out.println(arriveTimesec3);
+		System.out.println(Timenowsec3+parsetotalTime-arriveTimesec3);
 		// C-A=D(총소요시간)
 		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림 : E 출발전시간(준비시간)-> 5분전,10분전...알림
+
+		logger.trace("현재시간 timenowsec: {} ", Timenowsec3);
+		
+		logger.trace("Timenowsec3: {} ", Timenowsec3);
+		logger.trace("parsetotalTime: {} ", parsetotalTime);
+		logger.trace("arriveTimesec3: {} ", arriveTimesec3);
+
 		if((Timenowsec3+parsetotalTime-arriveTimesec3)>0){
 			return 1;
 		}

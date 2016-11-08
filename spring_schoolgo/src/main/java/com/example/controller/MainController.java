@@ -97,6 +97,8 @@ public class MainController {
 		
 		String timetabletime = request.getParameter("time");
 		String timetotaltime = request.getParameter("totaltime");
+		model.addAttribute("time", timetabletime);
+		model.addAttribute("totaltime", timetotaltime);
 		String returnString = "";
 		int result = tservice.simpleisLate(timetabletime, timetotaltime);		
 		if (result == 1) {
