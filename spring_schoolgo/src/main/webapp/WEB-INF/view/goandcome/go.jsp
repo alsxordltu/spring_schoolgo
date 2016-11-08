@@ -261,7 +261,7 @@ $(document).on("click", "#select", function(e){
    var alarmset = ["pororiya.mp3", "pororiya.mp3"];
    var current=0;
    var intervalId;
-   $("#start").on("click", function(){
+/*    $("#start").on("click", function(){
       
       intervalId = setInterval(function(){
          var filename = alarmset[current %2];
@@ -270,7 +270,7 @@ $(document).on("click", "#select", function(e){
 			current++;
 		}, 1000 * 5);
 	});
-
+ */
 	$("#stop").on("click", function() {
 		clearInterval(intervalId);
 	});
@@ -335,21 +335,19 @@ function go_time(){
 	
 	
 	
-	if(curremaintime==4000){
-		
+	if(curremaintime==11150){
+		alert("뀨");
+			
+	}
+	if(curremaintime==42050){
 		 intervalId = setInterval(function(){
 	         var filename = alarmset[current %2];
 	         $("#audio").attr("src", "gocome_voice/"+filename);
 				document.querySelector("#audio").play();
 				current++;
-			}, 1000 * 5);
-
-			
+			},1000);
 	}
-	if(curremaintime==5300){
-		alert("뀨");
-	}
-	if(curremaintime==5250){
+	if(curremaintime==51400){
 		alert("뀨");
 	}
 
