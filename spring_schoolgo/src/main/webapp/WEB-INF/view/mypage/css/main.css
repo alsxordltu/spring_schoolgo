@@ -8,12 +8,36 @@
 */
 
 /* Reset */
+#updatebtn{
+	text-align:center;
+	margin-top:5em;
+}
+
+
+#updatett h5{
+	font-size:1.2em;
+	
+}
+
+#updatetext input{
+	width:50%;
+	margin: 0 auto;
+}
+
 
 #updatett{
+	width:30%;
+	float:left;
+	text-align:center;
+	margin: 1em 0;
 }
 
 
 #updatetext{
+	width:70%;
+	float:left;
+	text-align:center;
+	margin: 1em 0;
 }
 
 
@@ -21,7 +45,7 @@
 #updateprofile{
 	padding:0 3em;
 	width:100%;
-	height:auto;
+	height:26em;
 }
 
 #submitbtns{

@@ -35,49 +35,79 @@
             
             
          </article>
-            
+         
+            <sform:form method="post" action="updateUser" modelAttribute="user">
 				<div id="updateprofile">
-
-					<sform:form method="post" action="updateUser" modelAttribute="user">
-					
 						<div class="field">
-						
-						userId(변경불가)
+						<div id="updatett">
+						<h5>아이디</h5>
+						</div>
+						<div id="updatetext">
 							<sform:input path="userId" placeholder="Id" readonly="true" />
+							</div>
 						</div>
 						
 						
 						<div class="field">
-							pass
+						<div id="updatett">
+						<h5>비밀번호</h5>
+						</div>
+						<div id="updatetext">	
 							<sform:input type="password" path="pass" placeholder="Pass" />
 						</div>
+						</div>
+						
 						
 						<div class="field">
-							userName
+						<div id="updatett">
+						<h5>이름</h5>
+							</div>
+							<div id="updatetext">	
 							<sform:input path="userName" placeholder="Name" />
+							</div>
 						</div>
+						
+						
 						<div class="field">
-							nickName
+						<div id="updatett">
+						<h5>닉네임</h5>
+							</div>
+							<div id="updatetext">	
 							<sform:input path="nickName" placeholder="Nickname" />
+							</div>
 						</div>
+						
+						
 						<div class="field">
-							email
+						<div id="updatett">
+						<h5>이메일</h5>
+							</div>
+							<div id="updatetext">
 							<sform:input type="email" path="email" placeholder="Email" />
+							</div>
 						</div>
+						
+						
 						<div class="field">
-							phoneNum
+						<div id="updatett">
+						<h5>전화번호</h5>
+							</div>
+							<div id="updatetext">
 							<sform:input type="text" path="phoneNum" placeholder="Phone" />
+							</div>
 						</div>
-						<div>
+				</div>
+				
+				<div id="updatebtn">
 							<input type="submit" value="수정하기" >
 							<input type="button" onclick="location.href='gotomain#mypage'"
-								value="마이페이지로">
+								value="돌아가기">
 							<input type="button" onclick="location.href='deleteUser?id=${userId}'"
 								value="회원탈퇴">
 						</div>
-					</sform:form>
-
-				</div>
+				</sform:form>
+				
+				
 				<br>	
 				</div>
 			</div>
