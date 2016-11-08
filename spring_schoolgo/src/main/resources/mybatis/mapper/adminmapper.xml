@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.AdminMapper">
+
+	<!-- <insert id="insertVehicle" parameterType="vehicle"> <selectKey keyProperty="vehicleId" 
+		resultType="int" order="AFTER"> select vehicle_seq.currval as vehicleId from 
+		dual </selectKey> insert into vehicle values(vehicle_seq.nextval, #{stepId}, 
+		#{startName}, #{startLat}, #{startLng}, #{startLat}, #{endLng}, #{endName}, 
+		#{headsign}, #{vehicleName}, #{vehicleNum}, #{vehicleMove}, #{vehicleType}) 
+		</insert> <delete id="deleteVehicle" parameterType="int"> delete from vehicle 
+		using vehicle join vehicle on where vehicle_id=#{vehicleId} </delete> delete 
+		1 <delete id="deleteVehicleByStepId" parameterType="int"> delete from vehicle 
+		where vstep_id=#{stepId} </delete> -->
+
+<!-- 	<select id="selectdetail" resultMap="selectDetail">
+		select vstart_name,
+		count(vstart_name) as 출발지count, vend_name,
+		count(vend_name) as
+		도착지count, vehicle_num, count(vehicle_num) as
+		교통수단numcount
+		from vehicle
+		group by vstart_name, vend_name, vehicle_num;
+	</select>
+ -->
+
+
+	<select id="selectdetail" resultType="map">
+		select distinct(vname), sum(cnt) as sumr
+		from ( select vstart_name vname, count(vstart_name) as cnt from vehicle
+		GROUP BY vstart_name union all select vend_name vname,
+		count(vend_name) as cnt from vehicle group by vend_name)
+		group by vname
+		order by sumr desc
+	</select>
+
+
+
+</mapper>

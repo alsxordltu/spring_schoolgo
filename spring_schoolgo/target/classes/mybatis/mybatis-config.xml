@@ -17,6 +17,8 @@
 		<typeAlias type="com.example.dto.Vehicle" alias="vehicle" />
 		<typeAlias type="com.example.dto.TimetableTotal" alias="timetabletotal" />
 		<typeAlias type="com.example.dto.School" alias="school" />
+		<typeAlias type="com.example.dto.DetailCount" alias="detailcount" />
+		
 		<!-- <typeAlias type="com.example.dto.Timetable" alias="timetable" /> -->
 		
 	</typeAliases>
@@ -29,6 +31,7 @@
 		<mapper resource="mybatis/mapper/stepMapper.xml" />
 		<mapper resource="mybatis/mapper/vehicleMapper.xml" />
 		<mapper resource="mybatis/mapper/timetableMapper.xml" />
+		<mapper resource="mybatis/mapper/adminmapper.xml"/>
 		
 		
 

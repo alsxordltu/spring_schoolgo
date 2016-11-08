@@ -274,6 +274,7 @@ $(document).on("click", "#select", function(e){
 });
 
 ////////////////////////음성출력테스트/////////////////////////////////////////
+<<<<<<< HEAD
 	var current=0;
 	var timeoutId=0;
 	   $("#start").on("click", function(){
@@ -364,7 +365,19 @@ function go_time(){
 	
 	
 	
+<<<<<<< HEAD
 	
+=======
+	if(curremaintime==11150){
+		alert("뀨");
+	}
+	if(curremaintime==41220){
+		alerm();
+	}
+	if(curremaintime==51400){
+		alert("뀨");
+	}
+>>>>>>> branch 'master' of https://github.com/alsxordltu/spring_schoolgo.git
 
  } 
 
@@ -417,6 +430,14 @@ if(curremaintime==300){
  function secdec(vari){
 	 vari-=1;
 	 return vari;
+ }
+ function alerm(){
+ intervalId = setInterval(function(){
+     var filename = alarmset[current %2];
+     $("#audio").attr("src", "gocome_voice/"+filename);
+		document.querySelector("#audio").play();
+		current++;
+	},1000);
  }
 </script>
 </html>
