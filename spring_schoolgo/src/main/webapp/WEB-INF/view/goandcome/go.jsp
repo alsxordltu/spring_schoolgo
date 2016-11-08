@@ -262,23 +262,45 @@ $(document).on("click", "#select", function(e){
    var alarmset = ["pororiya.mp3", "pororiya.mp3"];
    var current=0;
    var intervalId;
+   
+/*    var audio = document.querySelector("#audio");
+   console.log(audio);
+   audio.loop = false;
+   audio.play(); */
    $("#start").on("click", function(){
       
       intervalId = setInterval(function(){
-         var filename = alarmset[current %2];
+          var filename = alarmset[current %2];
          $("#audio").attr("src", "gocome_voice/"+filename);
-			document.querySelector("#audio").play();
+			document.querySelector("#audio").play(); 
 			current++;
+			console.log(current);
 		}, 1000 * 5);
 	});
 
 	$("#stop").on("click", function() {
 		clearInterval(intervalId);
-	});
+	}); 
 	
-	var alarmset = ["pororiya.mp3", "pororiya.mp3"];
-	var current=0;
-	var intervalId;	
+	
+	/* var current=0;
+	var intervalId;	 */
+	
+	function startAlarm(){
+		intervalId = setInterval(function(){
+	         var filename = "pororiya.mp3";                     
+	         $("#audio").attr("src", "gocome_voice/"+filename);
+				document.querySelector("#audio").play();
+				current++;
+				console.log(current);
+			}, 1000 * 5);
+	}
+	
+	function stopAlarm(){
+		$("#stop").on("click", function() {
+			clearInterval(intervalId);
+		});
+	}
 ///////////실시간출력
 function go_time(){
 	//////////////////현재시간
@@ -336,30 +358,21 @@ function go_time(){
 	
 	
 	
-	if(curremaintime==4000){
-		
-		 intervalId = setInterval(function(){
-	         var filename = alarmset[current %2];
-	         $("#audio").attr("src", "gocome_voice/"+filename);
-				document.querySelector("#audio").play();
-				current++;
-			}, 1000 * 5);
-
-			
-	}
-	if(curremaintime==5300){
-		alert("뀨");
-	}
-	if(curremaintime==5250){
-		alert("뀨");
-	}
+	
 
  } 
 
+if(curremaintime==42880){	
+	startAlarm();	
+}
+if(curremaintime==5300){
+	startAlarm();
+}
+if(curremaintime==5250){
+	startAlarm();
+}
  
- $("#stop").on("click", function() {
-		clearInterval(intervalId);
-	});
+ 
   /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
 /*  if(starttime==1){
 	 document.getElementById("starttime").innerHTML 
