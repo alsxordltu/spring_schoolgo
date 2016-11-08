@@ -9,6 +9,18 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+
+
+#userinfodiv{
+	margin-top:1em;
+	width:100%;
+	height:5em;
+	border-radius: 0.4em;
+	/* background-color: #272E39 !important; */
+	text-align:center;
+}
+
 /* row의 아이콘들 */
 #icon{
 	height:80%;
@@ -404,6 +416,9 @@ h5 {
 	font-size: 100%;
 	vertical-align: baseline;
 	font-size: 1em;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
 }
 
 h4{

@@ -36,23 +36,8 @@
 					<h2>
 						<a href="#">시간표 수정 완료</a>
 					</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<div >
-						<a href='gotomain#mypage'><input type="button" value="학교가기">
+					<div>
+						<a href='gotomain#mypage'><input type="button" value="학교가기"></a>
 					</div>
 				</header>
 			</article>
@@ -62,47 +47,52 @@
 
 
 	<!-- Sidebar -->
-	<div id="sidebar">
+   <div id="sidebar">
 
-		<!-- Logo -->
-		<h1 id="logo">
-			<a href="#">STRIPED</a>
-		</h1>
+      <!-- Logo -->
+      <h1 id="logo">
+         <a href="gotomain"><img src="my_img/gogowhite.png"
+            width="150px" alt="" /></a>
+      </h1>
+      <form name="logout" action="logout">
+        <div id="userinfodiv"> 
+        <h5 style="text-align: center">${nickName}님환영합니다!</h5>
+		<input type="submit" value="로그아웃" style="align:center;">
+ 		</div>
+      </form>
 
-		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li><a href="gotomain">메인</a></li>
-				<li><a href="#">학교가기</a></li>
-				<li><a href="gotoinsertroute">루트등록</a></li>
-				<li><a href="#">루트공유</a></li>
-				<li><a href="#">Contact Me</a></li>
-			</ul>
-		</nav>
-
-
-		<section class="box recent-posts">
-			<header>
-				<h2>마이페이지</h2>
-			</header>
-			<ul>
-				<li><a href="gototimetable">시간표 등록</a></li>
-				<li class="current"><a href="gotoupdateprofile">개인정보 수정</a></li>
-				<li><a href="gotoroutemanager">루트관리</a></li>
-				<li><a href="gotocostcal">교통비 가계부</a></li>
-				<li><a href="gotomyactivity">활동내역</a></li>
-			</ul>
-		</section>
+         <!-- Nav -->
+         <nav id="nav">
+            <ul>
+               <li><a href="gotomain">학교가기</a></li>
+               <li><a href="gotoinsertroute">루트등록</a></li>
+               <li><a href="gotoboardmain">루트공유</a></li>
+               <li><a href="gotocontact">Contact Me</a></li>
+               <li><a href="gotoadmin">Admin page</a></li>
+            </ul>
+         </nav>
 
 
 
-		<!-- Copyright -->
-		<ul id="copyright">
-			<li>&copy; Untitled.</li>
-			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-		</ul>
+         <!-- Recent Posts -->
+         <section class="box recent-posts">
+            <header>
+               <h2>마이페이지</h2>
+            </header>
+           <ul id="mypageside">
+            <li class="current"><a href="updateTimetable">시간표 등록</a></li>
+            <li><a href="updateUser">개인정보 수정</a></li>
+            <li><a href="gotomyactivity">활동내역</a></li>
+         </ul>
+         
+         </section>
+        
 
-	</div>
+      <ul id="copyright">
+         <li>&copy; Untitled.</li>
+         <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+   </div>
 
 	<!-- Scripts -->
 	<script src="my_js/jquery.min.js"></script>

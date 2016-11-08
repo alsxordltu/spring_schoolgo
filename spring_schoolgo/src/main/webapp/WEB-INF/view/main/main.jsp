@@ -94,8 +94,11 @@
             width="150px" alt="" /></a>
       </h1>
       <form name="logout" action="logout">
-         <h5 style="text-align: center">${nickName}님환영합니다</h5>
-
+        <div id="userinfodiv"> 
+        <h5 style="text-align: center">${nickName}님환영합니다!</h5>
+		<input type="submit" value="로그아웃" style="align:center;">
+ 		</div>
+      </form>
 
          <!-- Nav -->
          <nav id="nav">
@@ -118,14 +121,11 @@
            <ul id="mypageside">
             <li><a href="updateTimetable">시간표 등록</a></li>
             <li><a href="updateUser">개인정보 수정</a></li>
-            <li><a href="gotoroutemanager">루트관리</a></li>
-            <li><a href="gotocostcal">교통비 가계부</a></li>
             <li><a href="gotomyactivity">활동내역</a></li>
          </ul>
          
          </section>
-         <input type="submit" value="로그아웃">
-      </form>
+        
 
       <ul id="copyright">
          <li>&copy; Untitled.</li>
