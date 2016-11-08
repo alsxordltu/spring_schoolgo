@@ -30,10 +30,13 @@
          <!-- Post -->
          <article class="box post post-excerpt">
          
-            <header>
-               <!-- 아티클 제목 -->
-               <h2 style="text-align:center;">시간표 등록하자</h2>
-            </header>
+            <!-- 헤더부분 -->
+				<header >
+				<h2 align="center"><img src="my_img/addtime.png" width="70%"></h2>
+					<p align="center">시간표를 등록해주세요!</p>
+				</header>
+            
+            
          </article>
          
          <div id=timetable>

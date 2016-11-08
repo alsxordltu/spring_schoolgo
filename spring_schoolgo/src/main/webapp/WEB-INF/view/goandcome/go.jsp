@@ -24,11 +24,12 @@
 
 			<!-- Post -->
 			<article class="box post post-excerpt">
-				<header>
-				
-					<h2 align="center">학교가기 페이지</h2>
-					<p align="center">버스와 전철 위치정보 여기다가</p>
+				<!-- 헤더부분 -->
+				<header >
+				<h2 align="center"><img src="gocome_img/go1go1.png" width="70%"></h2>
+					<p align="center">학교가기 페이지입니다.</p>
 				</header>
+
 				<div id="curtime"></div>
 				현재 시간(초로 변환)
 				<div id="curtimesec"></div>

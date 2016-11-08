@@ -734,7 +734,7 @@
 			#main .avatar img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 50%;
+				/* border-radius: 50%; */
 				box-shadow: 0 0 0 1.5em #ffffff;
 			}
 
@@ -744,7 +744,7 @@
 				position: absolute;
 				top: 50%;
 				left: -3em;
-				width: calc(100% + 6em);
+				/* width: calc(100% + 6em); */
 				height: 1px;
 				z-index: -1;
 				background: #c8cccf;
