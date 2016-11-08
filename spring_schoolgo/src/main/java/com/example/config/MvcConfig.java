@@ -93,6 +93,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     	//음성파일 관련 리소스 경로
     	registry.addResourceHandler("/gocome_voice/**").addResourceLocations(PATH + "goandcome/voice/");
 		
+    	//관리자페이지 관련 리소스 경로
+    	registry.addResourceHandler("/admin_css/**").addResourceLocations(PATH+"admin/css/");
+    	registry.addResourceHandler("/admin_img/**").addResourceLocations(PATH+"admin/images/");
+    	registry.addResourceHandler("/admin_js/**").addResourceLocations(PATH+"admin/js/");
+    	registry.addResourceHandler("/admin_psd/**").addResourceLocations(PATH+"admin/PSD/");
+    	
 		
 		
 	}

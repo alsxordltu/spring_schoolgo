@@ -337,15 +337,9 @@ function go_time(){
 	
 	if(curremaintime==11150){
 		alert("뀨");
-			
 	}
-	if(curremaintime==42050){
-		 intervalId = setInterval(function(){
-	         var filename = alarmset[current %2];
-	         $("#audio").attr("src", "gocome_voice/"+filename);
-				document.querySelector("#audio").play();
-				current++;
-			},1000);
+	if(curremaintime==41220){
+		alerm();
 	}
 	if(curremaintime==51400){
 		alert("뀨");
@@ -395,6 +389,14 @@ function go_time(){
  function secdec(vari){
 	 vari-=1;
 	 return vari;
+ }
+ function alerm(){
+ intervalId = setInterval(function(){
+     var filename = alarmset[current %2];
+     $("#audio").attr("src", "gocome_voice/"+filename);
+		document.querySelector("#audio").play();
+		current++;
+	},1000);
  }
 </script>
 </html>
