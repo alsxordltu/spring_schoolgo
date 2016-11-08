@@ -10,8 +10,8 @@
 		<link rel="stylesheet" href="admin_css/style.css" type="text/css" media="screen" charset="utf-8" />	</head>
 	<body>
 		<c:forEach items="${countdata}" var="list">
-		 ${list} <br>
-		 ${list.sumr}<br>
+		 ${list} ${list.SUMR} ${list.VNAME}<br>
+		 
 		</c:forEach>
 		 
 	</body>
