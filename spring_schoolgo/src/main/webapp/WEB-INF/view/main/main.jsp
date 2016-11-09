@@ -274,12 +274,12 @@ $(document).on("click", ".routelist", function(){
    +"<span>학교<span id='cut'>가기</span></span></label>"
    +"<input id='albaradio' type='radio' name='radio' class='radio' data-index='2'  data-time='"+getTime.alba+"'><label id='albaradio' for='albaradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>알바<span id='cut'>가기</span></span></label>"
-   +"<input id='customradio' type='radio' name='radio' class='radio' data-index='3' ><label id='customradio' for='customradio' class='radio-label'><i class='fa fa-check'></i>"
+   +"<input id='customradio' type='radio' name='radio' class='radio' data-index='3' data-routeindex='"+index+"'><label id='customradio' for='customradio' class='radio-label'><i class='fa fa-check'></i>"
    +"<span>사용자 <span id='cut'>지정 시간</span></span></label>"
    +"</div>"
    
    +"<div id='typeselectdiv4'>"
-   +"<input id='custime' type='text'>시<input id='custime' type='text'>분"
+   +"<input id='custimehour' type='text' >시<input id='custimemin' type='text' >분"
    +"</div>"
    
    
@@ -363,29 +363,52 @@ $(document).on("click", ".group",  function(){
 $(document).on("click", ".gotoschool", function(){
    location.href = "gotogo?index="+$(this).attr("data-index") + "&time="+time + "&totaltime="+$(this).attr("data-totaltime");
          });
-         
-         
+
+
+var cushour="00";
+var cusmin="00";
+var tmptime="";
+var timereg = /^[0-9]{1,2}$/;
+
+$(document).on("input propoertychange", "#custimehour", function(){
+	
+	var isValid = timereg.test($(this).val());
+	if(isValid && $(this).val() <= 23){
+		cushour = $(this).val();
+		tmptime=cushour+":"+cusmin;
+		time = tmptime;
+	}else{
+		alert("00~23 사이의 숫자를 입력해 주세요.");
+		$(this).val("");
+		cushour="00";
+	}
+	console.log(time);
+});
+$(document).on("input propoertychange", "#custimemin", function(){
+	var isValid = timereg.test($(this).val());
+	if(isValid && $(this).val() <= 59){
+		cusmin = $(this).val();
+		tmptime=cushour+":"+cusmin;
+		time = tmptime;
+	}else{
+		alert("00~59 사이의 숫자를 입력해 주세요.");
+		$(this).val("");
+		cusmin="00";
+	}
+	
+	console.log(time);
+});
 $(document).on("change", ".radio", function(){
-   time = $(this).attr("data-time");
-   
+   var routeindex = $(this).attr("data-routeindex");
+  
    if($(this).attr("data-index")==3){
-	   $("#typeselectdiv4").slideDown("slow");
+	   $("#typeselectdiv"+4).slideDown("slow");
+	   
    }else{
 	   $("#typeselectdiv4").slideUp("slow");
-   }
-     
-      
-            });
-            
-            
-
-            
-            
-            
-            
-            
-                    
-         
+	   time = $(this).attr("data-time");
+   }    
+});       
    </script>
 
 </body>

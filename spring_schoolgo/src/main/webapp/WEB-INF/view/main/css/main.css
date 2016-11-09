@@ -151,7 +151,12 @@ clear: both;
 
 
 
-#custime{
+#custimehour{
+	width:3em;
+	height:2em;
+	}
+	
+	#custimemin{
 	width:3em;
 	height:2em;
 	}

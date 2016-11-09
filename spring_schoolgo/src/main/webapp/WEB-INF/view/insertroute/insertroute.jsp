@@ -21,12 +21,16 @@
 	<%
 		String searchdata = (String) session.getAttribute("start");
 		String searchdata2 = (String) session.getAttribute("end");
-		String routename = "";
+		String routeName = (String) session.getAttribute("routeName");
+		
 		if (searchdata == null) {
 			searchdata = "";
 		}
 		if (searchdata2 == null) {
 			searchdata2 = "";
+		}
+		if (routeName == null) {
+			routeName = "";
 		}
 	%>
 	
@@ -53,14 +57,15 @@
 						<!-- 루트명 입력(값넘기기) -->
 						<div id="routenametext">
 							<h5 align=center>루트 이름을 입력하세요!</h5>
-							<input type="text" id="routename" style="width:50%; text-align:center;">
+							<input type="text" id="routename" value="<%=routeName%>" 
+							style="width:50%; text-align:center;">
 						</div>
 						<!-- 출발지 값 -->
 						<div id=insertstart>
 							<h5 align=center>
 								출발지<span id=endend>를 입력하세요</span>
 							</h5>
-							<a href="gotosearch"> <input type="text" name="start"
+							<a href="#" onclick="goSearch()"> <input type="text" name="start"
 								value="<%=searchdata%>" readonly></a>
 						</div>
 
@@ -75,7 +80,7 @@
 							<h5 align=center>
 								도착지<span id=endend>를 입력하세요</span>
 							</h5>
-							<a href="gotosearch2"> <input type="text" name="end"
+							<a href="#" onclick="goSearch2()"> <input type="text" name="end"
 								value="<%=searchdata2%>" readonly></a>
 
 						</div>
@@ -152,6 +157,25 @@
 	<script src="insert_js/main.js"></script>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script>
+	
+	var inputRouteName = $("#routename").val();
+	
+	$(document).on("input propoertychange", "#routename", function(){
+		
+		inputRouteName = $(this).val();
+		
+		console.log(inputRouteName);
+	});
+	
+	function goSearch(){
+		location.href="gotosearch?routeName="+inputRouteName;
+	}	
+	
+	function goSearch2(){
+		location.href="gotosearch2?routeName="+inputRouteName;
+	}
+	
+	
          var items;
          var selectedindex;
          var seletedRouteCost1;
