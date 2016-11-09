@@ -12,7 +12,15 @@
 
 /* Reset */
 
+#admincontent table {
+	border-collapse: separate;
+	border-spacing: 0 5px;
+}
 
+#admincontent thead th {
+	background-color: #006DCC;
+	color: white;
+}
 
 
 #userinfodiv{

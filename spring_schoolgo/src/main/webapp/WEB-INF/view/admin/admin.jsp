@@ -2,28 +2,11 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-
 <head>
-<style>
-body {
-	padding: 15px;
-}
 <title>Striped by HTML5 UP</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<script src="assets/js/ie/html5shiv.js"></script>
 <link rel="stylesheet" href="main_css/main.css" />
-<link rel="stylesheet" href="assets/css/ie8.css" />
-table {
-	border-collapse: separate;
-	border-spacing: 0 5px;
-}
-
-thead th {
-	background-color: #006DCC;
-	color: white;
-}
-</style>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/canvasjs/1.4.1/canvas.min.js"></script>
@@ -38,6 +21,9 @@ thead th {
                </header>
             </article>
 
+
+<div id="admincontent">
+
 	<h1>admin page_bigdata 모든계정(user)의 루트목록 count</h1>
 
 	<table class="table">
@@ -47,18 +33,12 @@ thead th {
 				<th>count</th>
 			</tr>
 		</thead>
-		<tbody id="countlist">
-			
 		
-				<%-- <tr>
-					<td >${list.VNAME}</td>
-					<td >${list.SUMR}</td>
-				
-				</tr> --%>
-			
+		<tbody id="countlist">
 		</tbody>
 
 	</table>
+</div>
 
 	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 	
