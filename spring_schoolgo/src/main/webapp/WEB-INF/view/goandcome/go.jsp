@@ -186,6 +186,7 @@ $(document).ready(function(){
                });
                console.log(buslist);
                var busStopList = buslist.response.body.items.item;
+               
                $.each(busStopList, function(index, item){
                   if(item.nodenm == vehicleListName){
                      
@@ -284,6 +285,13 @@ $(document).on("click", "#select", function(e){
 
 ////////////////////////음성출력테스트/////////////////////////////////////////
 
+
+var current=0;
+var timeoutId=0;
+   $("#start").on("click", function(){
+      timeout();
+   });
+
    var current=0;
    var timeoutId=0;
       $("#start").on("click", function(){
@@ -304,6 +312,7 @@ $(document).on("click", "#select", function(e){
 		}, 1000 * 5);
 
 	}
+
 
 	$("#stop").on("click", function() {
 		clearTimeout(timeoutId);
@@ -327,6 +336,7 @@ $(document).on("click", "#select", function(e){
 		var minpersec = nowmin * 60; //현재 분->초 변환
 		var nowtotalsec = hourpersec + minpersec + nowsec;
 		document.getElementById("curtimesec").innerHTML = nowtotalsec
+
 
 		if (islate == "지각이 아님. 추후 null로 수정") {
 			//               ---------D 총소요시간----
