@@ -69,6 +69,7 @@ public class InsertRouteController {
          session.removeAttribute("end");
          session.removeAttribute("endlat");
          session.removeAttribute("endlng");
+         session.removeAttribute("routeName");
       } catch (Exception e) {
          e.printStackTrace();
       }
@@ -189,12 +190,26 @@ public class InsertRouteController {
    }*/
 
    @RequestMapping(value = "/gotosearch", method = RequestMethod.GET)
-   public String gotosearch() {
+   public String gotosearch(HttpServletRequest request, HttpServletResponse response ) throws UnsupportedEncodingException {
+	   request.setCharacterEncoding("UTF-8");
+	   response.setContentType("text/html;charset=UTF-8");
+	   String routeName = request.getParameter("routeName");
+	   HttpSession session;
+	   session = request.getSession();
+	   session.setAttribute("routeName", routeName);
+	   System.out.println("서치1");
       return "main/search";
    }
 
    @RequestMapping(value = "/gotosearch2", method = RequestMethod.GET)
-   public String gotosearch2() {
+   public String gotosearch2(HttpServletRequest request, HttpServletResponse response ) throws UnsupportedEncodingException {
+	   request.setCharacterEncoding("UTF-8");
+	   response.setContentType("text/html;charset=UTF-8");
+	   String routeName = request.getParameter("routeName");
+	   HttpSession session;
+	   session = request.getSession();
+	   session.setAttribute("routeName", routeName);
+	   System.out.println("서치2");
       return "main/search2";
    }
 

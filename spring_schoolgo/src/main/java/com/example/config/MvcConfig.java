@@ -69,6 +69,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     	registry.addResourceHandler("/main_img/**").addResourceLocations(PATH + "main/images/");
     	registry.addResourceHandler("/main_font/**").addResourceLocations(PATH + "main/fonts/");
     	registry.addResourceHandler("/main_js/**").addResourceLocations(PATH + "main/js/");
+    	registry.addResourceHandler("/main_timepicker/**").addResourceLocations(PATH + "main/jonthornton-jquery-timepicker-dbdea8e/");
 		
     	//마이페이지 관련 리소스 경로
     	registry.addResourceHandler("/my_css/**").addResourceLocations(PATH + "mypage/css/");
