@@ -25,15 +25,11 @@ thead th {
 }
 </style>
 <script src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript" src="canvasjs.min.js"></script>
-<script type="text/javascript" src="/assets/script/jquery-1.11.1.min.js"></script>
 <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/canvasjs/1.4.1/canvas.min.js"></script>
 </head>
 <body>
-	 	<c:forEach items="${countdata}" var="list">
-		 ${list} 
-	</c:forEach>
+	 	
 <div id="content">
       <div class="inner">
             <article class="box post post-excerpt">
@@ -51,13 +47,15 @@ thead th {
 				<th>count</th>
 			</tr>
 		</thead>
-		<tbody>
-			<c:forEach items="${countdata}" var="list">
-				<tr>
-					<td>${list.VNAME}</td>
-					<td>${list.SUMR}</td>
-				</tr>
-			</c:forEach>
+		<tbody id="countlist">
+			
+		
+				<%-- <tr>
+					<td >${list.VNAME}</td>
+					<td >${list.SUMR}</td>
+				
+				</tr> --%>
+			
 		</tbody>
 
 	</table>
@@ -119,34 +117,51 @@ thead th {
 	
 </body>
 
-   <script src="main_js/jquery.min.js"></script>
-   <script src="main_js/skel.min.js"></script>
-   <script src="main_js/util.js"></script>
-   <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-   <script src="main_js/main.js"></script>
-   <script src="http://code.jquery.com/jquery.js"></script>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
    
 <script>
-	var countdata = "${countdata}";
-	console.log(countdata);
+	var countData = ${countdata};
+	console.log(countData);
+
 		
 	window.onload = function () {
+		var row="";
+	 	$.each(countData, function(index, item){
+			row+="<tr><td id='vname"+index+"' data-vname"+index+"='"+item.VNAME+"'>" + item.VNAME + "</td><td id='sumr"+index+"' data-sumr"+index+"="+item.SUMR+">" + item.SUMR + "</td></tr>";
+		}); 
+	 	$("#countlist").html(row);
+		
+	 	var num1 = $("#sumr0").attr("data-sumr0");
+	 	num1 *= 1;
+	 	var num2 = $("#sumr1").attr("data-sumr1");
+	 	num2 *= 1;
+	 	var num3 = $("#sumr2").attr("data-sumr2");
+	 	num3 *= 1;
+	 	var num4 = $("#sumr3").attr("data-sumr3");
+	 	num4 *= 1;
+	 	var num5 = $("#sumr4").attr("data-sumr4");
+	 	num5 *= 1;
 	  var chart = new CanvasJS.Chart("chartContainer", {
 	     theme: "theme2",//theme1
 	     title:{
-	        text: "대학생 등/하교시 많이 다니는 장소 ?"              
+	        text: "대학생 등/하교시 많이 지나가는 장소 ?"              
 	    },
 	     data: [              
 	     {
 	        type: "column",
-	        dataPoints: [
-	        { label: "사과", y: 10 },
-	        { label: "오렌지", y: 15 },
-	        { label: "바나나", y: 25 },
-	        { label: "망고", y: 30 },
-	        { label: "포도", y: 28 },
-	        ]
+	        /* dataPoints: [
+	        { label: $("#list0").attr("data-vname0"), y: $("#list0").attr("data-sumr0") },
+	        { label: $("#list1").attr("data-vname1"), y: $("#list1").attr("data-sumr1") },
+	        { label: $("#list2").attr("data-vname2"), y: $("#list2").attr("data-sumr2") },
+	        { label: $("#list3").attr("data-vname3"), y: $("#list3").attr("data-sumr3") },
+	        { label: $("#list4").attr("data-vname4"), y: $("#list4").attr("data-sumr4") },
+	        ] */
+	     dataPoints: [
+	      	        { label: $("#vname0").attr("data-vname0"), y: num1 },
+	      	        { label: $("#vname1").attr("data-vname1"), y: num2 },
+	      	        { label: $("#vname2").attr("data-vname2"), y: num3 },
+	      	        { label: $("#vname3").attr("data-vname3"), y: num4 },
+	      	        { label: $("#vname4").attr("data-vname4"), y: num5 },
+	      	        ]
 	     }
 	     ]
 	  });

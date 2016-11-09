@@ -277,151 +277,131 @@ var timeoutId=0;
       timeout();
    });
 
-function timeout(){
-   console.log(timeoutId);
-   if(timeoutId == 0){
-      
-         timeoutId = setTimeout(function(){
-            var filename = "pororiya.mp3";
-            $("#audio").attr("src", "gocome_voice/"+filename);
-            console.log(current, "gocome_voice/"+filename);
-            var audio = document.querySelector("#audio");
-            console.log(audio);
-            audio.loop = false;
-            audio.play();
-            current++;
-            timeout();
-         }, 1000 * 5);         
-   }
-      }
-
-   $("#stop").on("click", function() {
-      clearTimeout(timeoutId);
-      timeoutId = 0;
-      console.log(timeoutId);
-      alert("알람 종료됨.");
-      
-   });
-
-///////////실시간출력
-function go_time(){
-   //////////////////현재시간
-   $("#islate").html("${calTimeResultMessage}");
-         islate="${calTimeResultMessage}";
- var now = new Date();
-
- var nowhour = now.getHours();  //현재 시
- var nowmin = now.getMinutes();  //현재 분
- var nowsec = now.getSeconds();  //현재 초
-  document.getElementById("curtime").innerHTML 
- = nowhour+":"+nowmin+":"+nowsec
- var hourpersec = nowhour*3600; //현재 시->초 변환
- var minpersec = nowmin*60; //현재 분->초 변환
- var nowtotalsec = hourpersec + minpersec + nowsec;
- document.getElementById("curtimesec").innerHTML 
- = nowtotalsec
- 
- 
- if(islate=="지각이 아님. 추후 null로 수정"){
-		//               ---------D 총소요시간----
-		//  현재시간(18:17) 출발전시간 소요시간(4367)  도착시간(23:30)
-		//       A                   E                B               C   
-		// A+B>C -> A+B-C>0 지각
-		// C-A=D(총소요시간)
-		// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림
-	var tabletime = "${time}";
-	var duringtime = "${totaltime}";
-	
-	var tableTimeslice = tabletime.substring(0, 2);//"23"
-	
-	tableTimeslice*=1;
-	
-	var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
-	//분->초
-	var tableTimeslice2 = tabletime.substring(3, 5);//"30"
-	
-	tableTimeslice2*=1;
-	var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
-	 
-	var tableTimesec3 = tableTimesec+tableTimesec2;	
-	/* console.log(tableTimesec);
-	console.log(tableTimesec2);
-	console.log(tableTimesec3); */
- 	tableTimesec3=tableTimesec3-nowtotalsec-duringtime;
-	curremaintime=tableTimesec3;
-	
-	//setTimeout("secdec(curremaintime)", 1000);
-	
-	document.getElementById("remaintime").innerHTML 
-	 = tableTimesec3
-	
-	document.getElementById("curremaintime").innerHTML 
-	= curremaintime
-	
-	
-	
-
-
-
- } 
-
-if(curremaintime==900){   
-   timeout();
-}
-if(curremaintime==600){
-   timeout();
-}
-if(curremaintime==300){
-   timeout();
-}
- 
- 
-  /////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
-/*  if(starttime==1){
-    document.getElementById("starttime").innerHTML 
-    = starttime;
-    var remaintime = "지각입니다.";
+   var current=0;
+   var timeoutId=0;
+      $("#start").on("click", function(){
+         timeout();
+      });
    
-    document.getElementById("remaintimemove").innerHTML 
-    = remaintime;
- }else{
-    var remaintime = starttime-nowtotalsec;
-    document.getElementById("remaintimemove").innerHTML 
-    = remaintime;
- }
-  */
- 
-/* 
-  remainhours = remaintime / 3600;//시 
-  remainminute = remaintime % 3600 / 60;//분
-  remainsecond = remaintime % 3600 % 60;//마지막 남은 시간에서 분을 뺀 나머지 시간을 초로 계산함 
+   function timeout(){
+	timeoutId = setTimeout(function() {
+			var filename = "pororiya.mp3";
+			$("#audio").attr("src", "gocome_voice/" + filename);
+			
+			var audio = document.querySelector("#audio");
+			
+			audio.loop = false;
+			audio.play();
+			current++;
+			timeout();
+		}, 1000 * 5);
 
-     stringremaintime = "지각입니다.";
-     document.getElementById("stringremaintime").innerHTML 
-     = stringremaintime;
-  }else{
-     var stringremaintime = remainhours + ":" + remainminute + ":" + remainsecond;
-     document.getElementById("stringremaintime").innerHTML 
-     = stringremaintime;
-  }
-    */
-  
- ///////////////////////////////////출발 몇초 전인지 계산(B-A)
- 
- setTimeout("go_time()", 1000);
- //1초마다 해당 펑션을 실행함.
-}
- function secdec(vari){
-    vari-=1;
-    return vari;
- }
- function alerm(){
- intervalId = setInterval(function(){
-     var filename = alarmset[current %2];
-     $("#audio").attr("src", "gocome_voice/"+filename);
-      document.querySelector("#audio").play();
-      current++;
-   },1000);
- }
+	}
+
+
+	$("#stop").on("click", function() {
+		clearTimeout(timeoutId);
+		alert("알람 종료됨.");
+
+	});
+
+	///////////실시간출력
+	function go_time() {
+		//////////////////현재시간
+		$("#islate").html("${calTimeResultMessage}");
+		islate = "${calTimeResultMessage}";
+		var now = new Date();
+
+		var nowhour = now.getHours(); //현재 시
+		var nowmin = now.getMinutes(); //현재 분
+		var nowsec = now.getSeconds(); //현재 초
+		document.getElementById("curtime").innerHTML = nowhour + ":" + nowmin
+				+ ":" + nowsec
+		var hourpersec = nowhour * 3600; //현재 시->초 변환
+		var minpersec = nowmin * 60; //현재 분->초 변환
+		var nowtotalsec = hourpersec + minpersec + nowsec;
+		document.getElementById("curtimesec").innerHTML = nowtotalsec
+
+
+		if (islate == "지각이 아님. 추후 null로 수정") {
+			//               ---------D 총소요시간----
+			//  현재시간(18:17) 출발전시간 소요시간(4367)  도착시간(23:30)
+			//       A                   E                B               C   
+			// A+B>C -> A+B-C>0 지각
+			// C-A=D(총소요시간)
+			// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림
+			var tabletime = "${time}";
+			var duringtime = "${totaltime}";
+
+			var tableTimeslice = tabletime.substring(0, 2);//"23"
+
+			tableTimeslice *= 1;
+
+			var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
+			//분->초
+			var tableTimeslice2 = tabletime.substring(3, 5);//"30"
+
+			tableTimeslice2 *= 1;
+			var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
+
+			var tableTimesec3 = tableTimesec + tableTimesec2;
+			/* console.log(tableTimesec);
+			console.log(tableTimesec2);
+			console.log(tableTimesec3); */
+			tableTimesec3 = tableTimesec3 - nowtotalsec - duringtime;
+			curremaintime = tableTimesec3;
+
+			//setTimeout("secdec(curremaintime)", 1000);
+
+			document.getElementById("remaintime").innerHTML = tableTimesec3
+
+			document.getElementById("curremaintime").innerHTML = curremaintime
+
+		}
+
+		if (curremaintime == 900) {
+			timeout();
+		}
+		if (curremaintime == 600) {
+			timeout();
+		}
+		if (curremaintime == 300) {
+			timeout();
+		}
+
+		/////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
+		/*  if(starttime==1){
+		 document.getElementById("starttime").innerHTML 
+		 = starttime;
+		 var remaintime = "지각입니다.";
+		
+		 document.getElementById("remaintimemove").innerHTML 
+		 = remaintime;
+		 }else{
+		 var remaintime = starttime-nowtotalsec;
+		 document.getElementById("remaintimemove").innerHTML 
+		 = remaintime;
+		 }
+		 */
+
+		/* 
+		 remainhours = remaintime / 3600;//시 
+		 remainminute = remaintime % 3600 / 60;//분
+		 remainsecond = remaintime % 3600 % 60;//마지막 남은 시간에서 분을 뺀 나머지 시간을 초로 계산함 
+
+		 stringremaintime = "지각입니다.";
+		 document.getElementById("stringremaintime").innerHTML 
+		 = stringremaintime;
+		 }else{
+		 var stringremaintime = remainhours + ":" + remainminute + ":" + remainsecond;
+		 document.getElementById("stringremaintime").innerHTML 
+		 = stringremaintime;
+		 }
+		 */
+
+		///////////////////////////////////출발 몇초 전인지 계산(B-A)
+		setTimeout("go_time()", 1000);
+		//1초마다 해당 펑션을 실행함.
+	}
 </script>
 </html>
