@@ -30,6 +30,14 @@
                <p align="center">학교가기 페이지입니다.</p>
             </header>
 
+            <div id="busarrive">
+            </div>
+            <div id="subwayArrive">
+            </div>
+            
+            
+            
+            
             <div id="curtime"></div>
             현재 시간(초로 변환)
             <div id="curtimesec"></div>
@@ -37,13 +45,6 @@
              <div id="islate" ></div> 
               <div id="remaintime" ></div>             
               <div id="curremaintime" ></div>                         
-<!--             출발 전까지 남은 시간 계산(초)
-            <div id="remaintimemove"></div>
-            
-            출발 전까지 남은 시간 계산(시분초) - 클
-            <div id="stringremaintime"></div> -->
-            
-            
             <br>
             <br>
             <br>
@@ -51,29 +52,10 @@
             <button id="start">시작</button>
             <button id="stop">종료</button>
             <audio id="audio" src=""></audio>
-            <div id="busarrive">
-
-
-               <%--       <table id="info">
-      <tr><th>도시코드</th><th>정류소코드</th><th>정류소이름</th><th>버튼</th></tr>
-      <c:forEach var="result" items="${buslist }" varStatus="status">
-      
-      <tr>
-         <td><a href="<%=request.getContextPath()%>/EmpRetrieveServlet?empId=${employee.empId }">${employee.empId }</a></td>
-         <td><input type="text" name="citycode${status.count }" value="${result.citycode }" ></td>
-         <td><input type="text" name="nodeid${status.count }" value="${result.nodeid }" ></td>
-         <td><input type="text" name="nodenm${status.count }" value="${result.nodenm }"></td>
-         <td><input type="button"  id="select" value="선택"  onclick="selectStation(${result.stationCode },${result.stationName })" data-citycode="${result.citycode }"  data-nodeid="${result.nodeid }"></td>
-      </tr>
-   </c:forEach>
-   </table>             --%>
-
-
-
-
-            </div>
-            <div id="subwayArrive">
-            </div>
+            
+            
+            
+            
          </article>
       </div>
    </div>
@@ -83,16 +65,23 @@
 
       <!-- Logo -->
       <h1 id="logo">
-         <a href="gotomain"><img src="gocome_img/gogo.png" width="150px"
-            alt="" /></a>
+         <a href="gotomain"><img src="main_img/gogowhite.png"
+            width="150px" alt="" /></a>
       </h1>
+      <form name="logout" action="logout">
+        <div id="userinfodiv"> 
+        <h5 style="text-align: center">${nickName}님환영합니다!</h5>
+		<input type="submit" value="로그아웃" style="align:center;">
+ 		</div>
+      </form>
 
-   <nav id="nav">
+   <!-- Nav -->
+         <nav id="nav">
             <ul>
                <li class="current"><a href="gotomain">학교가기</a></li>
                <li><a href="gotoinsertroute">루트등록</a></li>
                <li><a href="gotoboardmain">루트공유</a></li>
-               <li><a href="#">Contact Me</a></li>
+               <li><a href="gotocontact">Contact Me</a></li>
                <li><a href="gotoadmin">Admin page</a></li>
             </ul>
          </nav>
@@ -107,14 +96,10 @@
            <ul id="mypageside">
             <li><a href="updateTimetable">시간표 등록</a></li>
             <li><a href="updateUser">개인정보 수정</a></li>
-            <li><a href="gotoroutemanager">루트관리</a></li>
-            <li><a href="gotocostcal">교통비 가계부</a></li>
             <li><a href="gotomyactivity">활동내역</a></li>
          </ul>
-      </section>
-
-
-
+         
+         </section>
 
       <!-- Copyright -->
       <ul id="copyright">
