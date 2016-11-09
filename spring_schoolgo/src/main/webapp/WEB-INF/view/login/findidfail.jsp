@@ -25,38 +25,14 @@
 		<!-- Main -->
 		<section id="main">
 
-
-			<h4>PASS찾기</h4>
-
-			<form action="findpass" method="post">
-				<div class="field">
-					<div id="updatett">
-						<h5>ID</h5>
-					</div>
-					<div id="updatetext">
-						<input type="text" name="userId" />
-					</div>
-				</div>
-				
-				<div class="field">
-					<div id="updatett">
-						<h5>Email</h5>
-					</div>
-					<div id="updatetext">
-						<input type="text" name="email" />
-					</div>
-				</div>
-
-				<input type="submit" value="PASS찾기">
-			</form>
+			<h5>ID찾기</h5>
+			실패
+			입력하신 NAME/ID로 가입된 정보가 없습니다.
 
 			<div>
 				<input type="button" onclick="location.href='gotologin'"
 					value="돌아가기">
 			</div>
-
-
-
 
 
 

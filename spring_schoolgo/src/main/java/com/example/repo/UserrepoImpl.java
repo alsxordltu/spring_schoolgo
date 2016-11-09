@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.dto.User;
@@ -60,6 +59,26 @@ public class UserrepoImpl implements Userrepo {
 		String stmt = NAME_SPACE + "getAllNickname";
 		return template.selectList(stmt);
 	}
+
+	
+	@Override
+	public String getIdbyEmail(String email) {
+		String stmt = NAME_SPACE + "getIdbyEmail";
+		return template.selectOne(stmt, email);
+	}
+
+	@Override
+	public List<String> getAllEmail() {
+		String stmt = NAME_SPACE + "getAllEmail";
+		return template.selectList(stmt);
+	}
+
+	@Override
+	public List<String> getAllId() {
+		String stmt = NAME_SPACE + "getAllId";
+		return template.selectList(stmt);
+	}
+	
 
 
 

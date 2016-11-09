@@ -21,6 +21,7 @@ import com.example.dto.User;
 import com.example.service.RouteService;
 import com.example.service.TimetableService;
 import com.example.service.Userservice;
+import com.example.util.SendMailUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -100,7 +101,54 @@ public class LoginController {
 		return "login/loginfail";
 	}
 	
+	
+	
+	//useremail입력받아오고, 받아온거DB에 있나 체크하고 쿼리2, 레포2, 서비스2
+	// 컨트럴러에서 결과비교후 각각페이지전송 후 email보내기
+	//있으면 입력받은 useremail로 userId를찾고,	
+	//찾은 userId를 이메일로 전송    //없으면 이메일을 찾을수없습니다?
+	@RequestMapping(value="/findid", method=RequestMethod.POST)
+	public String findId(HttpServletRequest request){
+		String useremail = request.getParameter("email");
+		int result = service.getEmail(useremail);
+		logger.trace("컨트롤러 email 리스트 비교결과 : {}" , result);
+		if(result==1){
+			String userId = service.getIdbyEmail(useremail);
+			logger.trace("비교성공, select된userid : {} " , userId);
+			SendMailUtil sendid = new SendMailUtil();
+			sendid.email_Id(useremail, userId);
+			logger.trace("이메일 전송 성공");
+			return "login/findidsuccess";
+			
+		}else{
+			logger.trace("이메일 찾기 실패");
+			return "login/findidfail";
+		}
+		
+	}
+	
+	@RequestMapping(value="/findpass", method=RequestMethod.POST)
+	public String findPass(HttpServletRequest request){
+		String userId = request.getParameter("userId");
+		String useremail = request.getParameter("email");
+		int result = service.getId(userId);
+		logger.trace("컨트롤러 id 리스트 비교결과 : {}" , result);
+		if(result==1){
+			String pass = service.getPassbyId(userId);
+			logger.trace("비교성공, select된pass : {} " , pass);
+			SendMailUtil sendpass = new SendMailUtil();
+			sendpass.email_Password(useremail, pass);
+			logger.trace("이메일 전송 성공");
+			return "login/findpwsuccess";
+			
+		}else{
+			logger.trace("ID 찾기 실패");
+			return "login/findpwfail";
+		}	
+	}
+	
 
+	
 	
 	@RequestMapping(value="/gotofindid", method=RequestMethod.GET)
 	public String gotofindId(){

@@ -28,6 +28,7 @@
                <header>
                   <h2 align="center"><img src="main_img/routelist.png" width="70%"></h2>
                   <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
+                  <a id="kakao-link-btn" href="javascript:;"></a>
                </header>
             </article>
                        
@@ -340,7 +341,21 @@ $(document).on("click", ".group",  function(){
 	            });
 
 
-
+ Kakao.init('45338882ed59ac1ae22f6bb0b0d3f221');   //발급받은 Javascript 키를 입력합니다.
+ 
+ Kakao.Link.createTalkLinkButton({
+       container: '#kakao-link-btn',
+       label: '카카오링크 샘플에 오신 것을 환영합니다.',
+       image: {
+         src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+         width: '300',
+         height: '200'
+       },
+       webButton: {
+         text: '카카오 디벨로퍼스',
+         url: 'https://dev.kakao.com/docs/js' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+       }
+     });
 
 
 ///////////////////////////////////////////

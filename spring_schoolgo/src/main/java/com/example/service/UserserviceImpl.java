@@ -92,8 +92,47 @@ public class UserserviceImpl implements Userservice {
 	}
 
 
+	//입력받은 이메일이 DB에 있나 체크
+	@Override
+	public int getEmail(String email) {
+		List<String> emailList = repo.getAllEmail();
+		logger.trace("서비스, emailList : {} " , emailList);
+		if(emailList.contains(email)){
+			logger.trace("서비스, 이메일 DB에 존재");
+			return 1;
+		}else{
+			logger.trace("서비스, 이메일 존재하지 않음");			
+			return 0;
+		}
+	}
 
 
+	@Override
+	public String getIdbyEmail(String email) {
+		String userId = repo.getIdbyEmail(email);	
+		return userId;
+	}
+
+	//입력받은 ID가 DB에 있나 체크
+	@Override
+	public int getId(String userId) {
+		List<String> idList = repo.getAllId();
+		logger.trace("서비스, idList : {} " , idList);
+		if(idList.contains(userId)){
+			logger.trace("서비스, ID DB에 존재");
+			return 1;
+		}else{
+			logger.trace("서비스, ID 존재하지 않음");			
+			return 0;
+		}
+	}
+
+
+	@Override
+	public String getPassbyId(String userId) {
+		String pass = repo.getPassbyId(userId);
+		return pass;
+	}
 
 
 	

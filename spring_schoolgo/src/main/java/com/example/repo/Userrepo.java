@@ -12,4 +12,7 @@ public interface Userrepo {
 	public List<String> getUserNickname();
 	public String getPassbyId(String userId);
 	public User getUserInfo(String userId);
+	public String getIdbyEmail(String email);
+	public List<String> getAllEmail();
+	public List<String> getAllId();
 }

@@ -25,13 +25,34 @@
 		<!-- Main -->
 		<section id="main">
 
-			<h5>ID찾기</h5>
-			
-			
-				<div>
-					<input type="button" onclick="location.href='gotologin'" value="돌아가기">
+			<h4>ID찾기</h4>
+
+			<form action="findid" method="post">
+				<div class="field">
+					<div id="updatett">
+						<h5>이름</h5>
+					</div>
+					<div id="updatetext">
+						<input type="text" name="userName" />
+					</div>
 				</div>
-			
+
+				<div class="field">
+					<div id="updatett">
+						<h5>이메일</h5>
+					</div>
+					<div id="updatetext">
+						<input type="text" name="email" />
+					</div>
+				</div>
+				<input type="submit" value="ID찾기">
+			</form>
+
+			<div>
+				<input type="button" onclick="location.href='gotologin'"
+					value="돌아가기">
+			</div>
+
 
 
 		</section>

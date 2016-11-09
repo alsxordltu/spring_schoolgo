@@ -118,7 +118,9 @@ public class InsertRouteController {
       String endlat = (String) session.getAttribute("endlat");
       String endlng = (String) session.getAttribute("endlng");
       String routename = request.getParameter("routename");
+      session.setAttribute("routename", routename);
       logger.trace("routename : {}", routename);
+      logger.trace("routenamesession : {}", session.getAttribute("routename"));
 
       // 출발지 위도+경도 url 문자열 띄어쓰기를->%20
       String url = "https://maps.googleapis.com/maps/api/directions/json?" + "origin=" + startlat + ",%20" + startlng + "&destination=" + endlat + ",%20" + endlng

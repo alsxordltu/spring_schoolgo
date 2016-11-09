@@ -10,5 +10,9 @@ public interface Userservice {
 	User getUserInfo(String id);
 	int duplicationCheckId(String id);
 	int duplicationCheckNickname(String nickname);
+	int getEmail(String email);
+	String getIdbyEmail(String email);
+	int getId(String userId);
+	String getPassbyId(String pass);
 	
 }

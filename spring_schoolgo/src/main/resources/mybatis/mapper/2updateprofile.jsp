@@ -30,7 +30,7 @@
             <!-- 헤더부분 -->
 				<header >
 				<h2 align="center"><img src="my_img/update.png" width="80%"></h2>
-					<p align="center">갠정보수정!</p>
+					<p align="center">id제외</p>
 				</header>
             
             
@@ -43,7 +43,9 @@
 						<h5>아이디</h5>
 						</div>
 						<div id="updatetext">
-							<sform:input path="userId" placeholder="Id" readonly="true" />
+							<sform:input path="userId" readonly="true" />
+			                  <sform:errors element="span" path="userId">
+			                  </sform:errors>				
 							</div>
 						</div>
 						
@@ -53,7 +55,9 @@
 						<h5>비밀번호</h5>
 						</div>
 						<div id="updatetext">	
-							<sform:input type="password" path="pass" placeholder="Pass" />
+							<sform:input type="password" path="pass"  />
+			                  <sform:errors element="span" path="pass">
+			                  </sform:errors>							
 						</div>
 						</div>
 						
@@ -63,7 +67,9 @@
 						<h5>이름</h5>
 							</div>
 							<div id="updatetext">	
-							<sform:input path="userName" placeholder="Name" />
+							<sform:input path="userName" />
+			                  <sform:errors element="span" path="userName">
+			                  </sform:errors>							
 							</div>
 						</div>
 						
@@ -73,7 +79,9 @@
 						<h5>닉네임</h5>
 							</div>
 							<div id="updatetext">	
-							<sform:input path="nickName" placeholder="Nickname" />
+							<sform:input path="nickName"  />
+			                  <sform:errors element="span" path="nickName">
+			                  </sform:errors>
 							</div>
 						</div>
 						
@@ -83,7 +91,9 @@
 						<h5>이메일</h5>
 							</div>
 							<div id="updatetext">
-							<sform:input type="email" path="email" placeholder="Email" />
+							<sform:input type="email" path="email"  />
+			                  <sform:errors element="span" path="email">
+			                  </sform:errors>
 							</div>
 						</div>
 						
@@ -93,7 +103,9 @@
 						<h5>전화번호</h5>
 							</div>
 							<div id="updatetext">
-							<sform:input type="text" path="phoneNum" placeholder="Phone" />
+							<sform:input type="text" path="phoneNum"  />
+			                  <sform:errors element="span" path="phoneNum">
+			                  </sform:errors>
 							</div>
 						</div>
 				</div>

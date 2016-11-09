@@ -8,52 +8,89 @@
 		values(#{userId}, #{pass}, #{userName}, #{nickName}, #{email},
 		#{phoneNum})
 	</insert>
-	
+
 	<select id="getAllUserId" resultMap="userId">
 		select user_id from tuser
 	</select>
 	<select id="getAllNickname" resultMap="nickname">
 		select nickname from tuser
 	</select>
-	
-	<select id="getPassbyId" resultMap="getPass" parameterType="String">
-		select pass from tuser where user_id = #{userId}
+
+
+	<select id="getUserInfobyId" resultMap="getUserInfo"
+		parameterType="user">
+		select user_id, pass, user_name, nickname, email,
+		phone_num from tuser where user_id = #{userId}
 	</select>
-	
-	<select id="getUserInfobyId" resultMap="getUserInfo" parameterType="user">
-		select user_id, pass, user_name, nickname, email, phone_num from tuser where user_id = #{userId}
-	</select>
-	
+
 	<update id="update" parameterType="user">
-		update tuser set pass=#{pass},user_name=#{userName},nickname=#{nickName},email=#{email},phone_num=#{phoneNum} 
+		update tuser set
+		pass=#{pass},user_name=#{userName},nickname=#{nickName},email=#{email},phone_num=#{phoneNum}
 		where user_id=#{userId}
 	</update>
-	
+
 	<delete id="delete" parameterType="user">
-		delete from tuser where user_id=#{userId} 
+		delete from tuser where
+		user_id=#{userId}
 	</delete>
-		
+
 	<resultMap type="String" id="userId">
-		<id column="user_id" property="userId"/> 
+		<id column="user_id" property="userId" />
 
 	</resultMap>
 	<resultMap type="String" id="nickname">
-		<id column="nickname" property="nickName"/> 
+		<id column="nickname" property="nickName" />
 	</resultMap>
 
-	
+
 	<resultMap type="String" id="getPass">
-		<result column="pass" property="pass"/> 
+		<result column="pass" property="pass" />
+	</resultMap>
+
+	<resultMap type="User" id="getUserInfo">
+		<id column="user_id" property="userId" />
+		<result column="pass" property="pass" />
+		<result column="user_name" property="userName" />
+		<result column="nickname" property="nickName" />
+		<result column="email" property="email" />
+		<result column="phone_num" property="phoneNum" />
+	</resultMap>
+
+
+
+
+	<select id="getIdbyEmail" resultMap="getIdbyEmail">
+		select user_id from tuser where email=#{email}
+	</select>
+
+	<resultMap type="String" id="getIdbyEmail">
+		<result column="user_id" property="userId" />
+	</resultMap>
+
+	<select id="getAllEmail" resultMap="getEmail">
+		select email from tuser
+	</select>
+
+	<resultMap type="String" id="getEmail">
+		<id column="email" property="email" />
 	</resultMap>
 	
-	<resultMap type="User" id="getUserInfo">
-		<id column="user_id" property="userId"/> 
+	
+	<select id="getPassbyId" resultMap="getPassbyId">
+		select pass from tuser where user_id=#{userId}
+	</select>
+
+	<resultMap type="String" id="getPassbyId">
 		<result column="pass" property="pass"/>
-		<result column="user_name" property="userName"/>
-		<result column="nickname" property="nickName"/>
-		<result column="email" property="email"/>
-		<result column="phone_num" property="phoneNum"/>						
-			
 	</resultMap>
+
+	<select id="getAllId" resultMap="getId">
+		select user_id from tuser
+	</select>
+
+	<resultMap type="String" id="getId">
+		<id column="user_id" property="userId"/>
+	</resultMap>
+	
 	
 </mapper>
