@@ -30,16 +30,20 @@
                <p align="center">학교가기 페이지입니다.</p>
             </header>
 
+<div id="transdiv">
             <div id="busarrive">
             </div>
+            
             <div id="subwayArrive">
             </div>
+</div>   
             
             
-            
-            
+        <div id="timediv">
+        
+           	 
             <div id="curtime"></div>
-            현재 시간(초로 변환)
+            
             <div id="curtimesec"></div>
             <br>
              <div id="islate" ></div> 
@@ -52,7 +56,7 @@
             <button id="start">시작</button>
             <button id="stop">종료</button>
             <audio id="audio" src=""></audio>
-            
+         </div>
             
             
             
@@ -128,7 +132,6 @@
 var islate;
 var curremaintime;
 $(document).ready(function(){
-   var row = "";
    var routes = ${routes };
    console.log(routes);
    var routeStep = routes.stepList;
@@ -142,6 +145,11 @@ $(document).ready(function(){
    var bustime="";
    var stationName="";
    var temp="";
+   var busstopname="";
+   var subwaystopname="";
+   
+   var subwayupdown;
+   
    
     $.each(routeStep, function(index, item){      
       if(item.vmode == "TRANSIT"){
@@ -193,16 +201,85 @@ $(document).ready(function(){
                   contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                   success:function(response){
                 	  busArrList = JSON.parse(response);
-                     var row ="";
+                	  
+                	  $.each(busArrList, function(index, item){
+                          	busstopname=item.nodenm;
+                          
+                       });
+                	  
+                		
+                	  
+                	  
+                	  
+                     var busrow ="";
+                     busrow+="<div id='businfo'><h5><img id='titleimg' src='gocome_img/bus.png'>"+busstopname+" 정류소</h5><ul>"
+                     		+"<li>"
+                     		
+                     		 +"<span id='bustit'>"
+                     		+"<img id='busimg' src='gocome_img/busstop.png'><br><h4>버스</h4>"
+                     		+"</span>"
+                     		
+                     		+"<span id='bustit'>"
+                     		+"<img id='busimg' src='gocome_img/marker.png'><br><h4>현재위치</h4>"
+                     		+"</span>"
+                     		
+                     		+"<span id='bustit'>"
+                     		+"<img id='busimg' src='gocome_img/hourglass.png'><br><h4>남은시간</h4>"
+                     		+"</span>" 
+                     		
+                     		/* +"<span id='bustit'>"
+                     		+"버스"
+                     		+"</span>"
+                     		
+                     		+"<span id='bustit'>"
+                     		+"현재위치"
+                     		+"</span>"
+                     		
+                     		+"<span id='bustit'>"
+                     		+"남은시간"
+                     		+"</span>" */
+                     		
+                     		
+                     		+"</li>";
+                     		
                      $.each(busArrList, function(index, item){
+                    	 var itemarrtime;
                         if(temp != item.routeno){
-                        	row += item.routeno +"번 버스 " +item.arrprevstationcnt + "개 전 " + item.arrtime + "분 남음, 정류소명 : " + item.nodenm + "<br>";
-                       		temp = item.routeno;
+                        	
+                        	busrow+="<li>"
+                        	
+                        	+"<span id='bustext'>"
+                        	+item.routeno +"번" 
+                        	+"</span>"
+                        	
+                        	
+                        	+"<span id='bustext'>"
+                        	+item.arrprevstationcnt + "개 전"
+                        	+"</span>";
+                        	
+                        	itemarrtime = Math.ceil((item.arrtime/60));
+                        	/* 올림 처리 */
+                        	if(itemarrtime==0||itemarrtime==1){
+                        		busrow+="<span id='bustext'>"
+                                	+"잠시 후 도착" 
+                                	+"</span>"
+                        		
+                        	}else{
+                        		busrow+="<span id='bustext'>"
+                        			+itemarrtime+ "분 남음" 
+                        			+"</span>"
+                        	}
+                        	
+                        	+"</li>"
+                        	temp = item.routeno;
+                        	/* 정류소명 : " + item.nodenm */
+                        	
                         }
                         
                         
                      });
-                     $("#busarrive").html(row);   
+                     busrow+="</ul></div>"
+                     $("#busarrive").html(busrow);   
                      
                   },
                    error:function(xhr, status, error){
@@ -212,6 +289,7 @@ $(document).ready(function(){
                console.log(busArrList);
                
             }
+            
             
             if(item.vehicleType == "SUBWAY" && stationName == ""){
                console.log("지하철로 들어옴");
@@ -225,17 +303,90 @@ $(document).ready(function(){
                   data:{   
                      stationName : stationName
                   },
+                  
                   async:false,
                   contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                   success:function(response){
                 	  subwayList = JSON.parse(response);
                 	  subwayArrList = subwayList.realtimeArrivalList;
                      console.log(subwayArrList);
-                     var row ="";
+                     
+                     
+                     /* 역명 빼오기 위해  */
                      $.each(subwayArrList, function(index, item){
-                 		  row += item.trainLineNm + item.arvlMsg2 + "<br>";
+                    	 subwaystopname=item.statnNm;
+                  });
+                     
+                     
+                     console.log(subwaystopname);
+                     
+                     var subwayinforow="";
+                     var subwayuprow ="";
+                     var subwaydownrow ="";
+                     
+                     subwayinforow+="<div id='subwayinfo'><h5><img id='titleimg' src='gocome_img/subway.png'>"+subwaystopname+"역</h5>"
+                     
+                     subwayuprow+="<div id='subup'><ul>"
+                     +"<li>"
+              		 +"<span id='subtit'><img id='subwayimg' src='gocome_img/upline.png'><br><h4>행선지</h4></span>"
+              	 	 +"<span id='subtit'><img id='busimg' src='gocome_img/marker.png'><br><h4>현재위치</h4></span>"
+              	     +"</li>";
+              	     
+              	     subwaydownrow+="<div id='subdown'><ul>"
+                     +"<li>"
+            		 +"<span id='subtit'><img id='subwayimg' src='gocome_img/downline.png'><br><h4>행선지</h4></span>"
+            	 	 +"<span id='subtit'><img id='busimg' src='gocome_img/marker.png'><br><h4>현재위치</h4></span>"
+            	     +"</li>";
+            	     
+              	     
+              	     
+              		
+                     $.each(subwayArrList, function(index, item){
+                    	 subwayupdown=item.updnLine;
+                     
+                    	 if(subwayupdown=="상행"){
+                    		 
+                    		 subwayuprow+="<li>"
+                          	
+                          	+"<span id='subtext'>"
+                          	+item.bstatnNm
+                          	+"</span>"
+                          	
+                          	+"<span id='subtext'>"
+                          	+item.arvlMsg2
+                          	+"</span>"
+                          	
+                          
+                          	
+                          	+"</li>"
+                          	}else{
+                          		
+                          		subwaydownrow+="<li>"
+                              	+"<span id='subtext'>"
+                              	+item.bstatnNm
+                              	+"</span>"
+                              	
+                              	+"<span id='subtext'>"
+                              	+item.arvlMsg2
+                              	+"</span>"
+                              	
+                              
+                              	
+                              	+"</li>"
+                          	}
+                    	 
+                    	 
+                    	 	
+                         	
+                         	
+                         	
+                         	
                      });
-                     $("#subwayArrive").html(row);   
+                     
+                     subwayinforow+="</div>"
+                     subwayuprow+="</ul></div>"
+                     subwaydownrow+="</ul></div>"
+                     $("#subwayArrive").html(subwayinforow+subwayuprow+subwaydownrow);   
                      
                   },
                    error:function(xhr, status, error){
@@ -260,13 +411,13 @@ $(document).ready(function(){
 
 });
 
-$(document).on("click", "#select", function(e){
+/* $(document).on("click", "#select", function(e){
    
    document.all.selcitycode.value = $(this).attr("data-citycode");
    document.all.selnodeid.value = $(this).attr("data-nodeid");
    var row = "";
    $("#info").html(row);
-});
+}); */
 
 ////////////////////////음성출력테스트/////////////////////////////////////////
 
@@ -315,49 +466,94 @@ var timeoutId=0;
 		var nowhour = now.getHours(); //현재 시
 		var nowmin = now.getMinutes(); //현재 분
 		var nowsec = now.getSeconds(); //현재 초
-		document.getElementById("curtime").innerHTML = nowhour + ":" + nowmin
-				+ ":" + nowsec
+		
 		var hourpersec = nowhour * 3600; //현재 시->초 변환
 		var minpersec = nowmin * 60; //현재 분->초 변환
 		var nowtotalsec = hourpersec + minpersec + nowsec;
-		document.getElementById("curtimesec").innerHTML = nowtotalsec
-
+		
+		var tabletime = "${time}";
+		
+		
+		
+		var timerow="";
+		var hh1;
+		var mm1;
+		var ss1;
+		var hh2;
+		var mm2;
+		var necessarygotime;
+		var hh3
+		var mm3
+		
 
 		if (islate == "지각이 아님. 추후 null로 수정") {
 			//               ---------D 총소요시간----
-			//  현재시간(18:17) 출발전시간 소요시간(4367)  도착시간(23:30)
+			// 	현재시간(18:17)            출발전시간         소요시간(4367)  도착시간(23:30)
 			//       A                   E                B               C   
 			// A+B>C -> A+B-C>0 지각
 			// C-A=D(총소요시간)
 			// C-A-B : E 출발전시간(준비시간)-> 5분전,10분전...알림
+			
+			
 			var tabletime = "${time}";
 			var duringtime = "${totaltime}";
 
 			var tableTimeslice = tabletime.substring(0, 2);//"23"
-
+			
+			/* 빼다쓸라고 만든 것 */
+			hh2=tableTimeslice;
+			
+			
 			tableTimeslice *= 1;
-
 			var tableTimesec = tableTimeslice *= 3600; // 초로바꿈
 			//분->초
+			
 			var tableTimeslice2 = tabletime.substring(3, 5);//"30"
-
+			
+			
+			/* 빼다쓸라고 만든 것 */
+			mm2=tableTimeslice2;
+			
+			
 			tableTimeslice2 *= 1;
 			var tableTimesec2 = tableTimeslice2 *= 60;// 초로바꿈
 
 			var tableTimesec3 = tableTimesec + tableTimesec2;
-			/* console.log(tableTimesec);
-			console.log(tableTimesec2);
-			console.log(tableTimesec3); */
-			tableTimesec3 = tableTimesec3 - nowtotalsec - duringtime;
-			curremaintime = tableTimesec3;
-
+	/////////////////////////////////////////////////////////////////		
+			/*출발까지 남은 시간 ::-> 도착해야하는 시간 - 현재시간 - 소요시간 */
+			curremaintime = tableTimesec3- nowtotalsec - duringtime;
+			
+			/*출발해야 하는 시간 ::-> 도착해야하는 시간 -소요시간 */
+			necessarygotime = tableTimesec3 - duringtime;
+			
+			/* 시 */
+			hh3= Math.floor(necessarygotime/3600);
+			
+			/* 분 */
+			mm3=Math.floor(necessarygotime%3600/60)
+			
+	/////////////////////////////////////////////////////////////////
 			//setTimeout("secdec(curremaintime)", 1000);
 
 			document.getElementById("remaintime").innerHTML = tableTimesec3
 
 			document.getElementById("curremaintime").innerHTML = curremaintime
+			
+			
+			
+			/* 시 */
+			hh1= Math.floor(curremaintime/3600);
+			
+			/* 분 */
+			mm1=Math.floor(curremaintime%3600/60)
+			
+			/* 초 */
+			ss1=(curremaintime%3600%60)
 
+			
 		}
+		
+		
 
 		if (curremaintime == 900) {
 			timeout();
@@ -399,8 +595,72 @@ var timeoutId=0;
 		 }
 		 */
 
+		 timerow+="<div id='nowtimediv'><ul>"
+				timerow+="<li>"
+				
+				
+				/* 현재시간 */
+				timerow+="<span id='timetit'>"
+				timerow+="<h4>현재시간 : </h4>"
+				timerow+="</span>"
+				
+				timerow+="<span id='timetext'>"
+				timerow+="<h4>"+nowhour+"시"+nowmin+"분"+nowsec+"초</h4>"
+				timerow+="</span>"
+				
+				timerow+="</li>"
+				
+				
+				/* 도착해야하는시간 */
+				timerow+="<li>"
+				timerow+="<span id='timetit'>"
+				timerow+="<h4>도착해야 하는 시간 : </h4>"
+				timerow+="</span>"
+								
+				timerow+="<span id='timetext'>"
+				timerow+="<h4>"+hh2+"시"+mm2+"분</h4>"
+				timerow+="</span>"
+				timerow+="</li>"
+				
+				
+				/* 집에서 나와야 하는 시간 */
+				timerow+="<li>"
+				timerow+="<span id='timetit'>"
+				timerow+="<h4>출발해야 하는 시간  : </h4>"
+				timerow+="</span>"
+												
+				timerow+="<span id='timetext'>"
+				timerow+="<h4>"+hh3+"시"+mm3+"분</h4>"
+				timerow+="</span>"
+				timerow+="</li>"
+				
+				
+				/* 남은 시간 */
+				timerow+="<li>"
+				timerow+="<span id='timetit'>"
+				timerow+="<h4>출발까지 남은 시간  : </h4>"
+				timerow+="</span>"
+										
+				timerow+="<span id='timetext'>"
+				timerow+="<h4>"+hh1+"시간"+mm1+"분"+ss1+"초</h4>"
+				timerow+="</span>"
+				timerow+="</li>"
+				
+				
+				timerow+="</ul></div>"
+				$("#curtime").html(timerow);
+		 
+		 
+		 
+		 
+		 
+		 
 		///////////////////////////////////출발 몇초 전인지 계산(B-A)
-		setTimeout("go_time()", 1000);
+		 
+		 
+		/* setTimeout("go_time()", 1000);  */
+		
+		
 		//1초마다 해당 펑션을 실행함.
 	}
 </script>

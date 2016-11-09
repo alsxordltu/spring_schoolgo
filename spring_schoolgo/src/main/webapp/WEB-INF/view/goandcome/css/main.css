@@ -6,8 +6,170 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
 /* Reset */
+
+
+/* 시간들 디자인 */
+#timediv{
+	width:100%;
+	height:auto;
+	display:block;
+	overflow:hidden;
+	padding: 1em 4em 1em 4em;
+}
+
+#timediv h4{
+	font-size:2em;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#timetit{
+	width:50%;
+	display:block;
+	float:left;
+	font-size: 1.3em;
+    font-weight: 700; 
+    text-align:center;
+}
+
+#timetext{
+	width:50%;
+	display:block;
+	float:left;
+	font-size: 1.3em;
+    font-weight: 700; 
+    text-align:center;
+}
+
+#timediv li{
+clear: both;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+
+
+
+
+
+/* 전광판들 디자인 */
+#businfo li{
+clear: both;
+    overflow: hidden;
+    padding-bottom: 12px;
+}
+
+#subup li{
+clear: both;
+    overflow: hidden;
+    padding-bottom: 12px;
+}
+
+#subdown li{
+clear: both;
+    overflow: hidden;
+    padding-bottom: 12px;
+}
+
+
+/* 버스 span */
+#bustit{
+	width:33.3333333%;
+	display:block;
+	float:left;
+	font-size: 1.3em;
+    font-weight: 700; 
+  text-align:center;
+    }
+
+#bustext{
+	width:33.3333333%;
+	display:block;
+	float:left;
+	font-size: 1em;
+	font-weight: 1000; 
+	font-family: 'Open Sans Condensed', sans-serif;
+	text-align:center;
+	}
+	
+#busimg{
+	width:20%;
+}
+#titleimg{
+	width:10%;
+	vertical-align:middle;
+}
+
+#subwayimg{
+	width:46%;
+}
+
+
+	
+	
+/* 전철 span */
+
+#subup{
+	width:100%;
+	height:50%;
+	display:block;
+	float:left;
+	font-size: 1em;
+    font-weight: 700;
+    margin-bottom:1em;
+    border-bottom:1pt double silver;
+    }
+    
+#subdown{
+	width:100%;
+	height:50%;
+	display:block;
+	float:left;
+	font-size: 1em;
+    font-weight: 700;
+    margin-top:1em;
+    }
+    
+#subtit{
+	width:50%;
+	display:block;
+	float:left;
+	font-size: 1.3em;
+    font-weight: 700; 
+  text-align:center;
+    }
+
+#subtext{
+	width:50%;
+	
+	display:block;
+	float:left;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1em;
+	font-weight: 1000;
+	text-align:center;
+	}
+	
+	
+	
+/* info쪽 글씨디자인 */
+#businfo h5{
+	text-align:center;
+	margin-bottom:1em;
+}
+
+#subwayinfo h5{
+	text-align:center;
+	margin-bottom:1em;
+}
+
+
+
+
+
+
+
+
 #userinfodiv{
 	margin-top:1em;
 	width:100%;
@@ -18,19 +180,33 @@
 }
 
 
-
+#transdiv{
+	width:100%;
+	height:auto;
+	display:block;
+	margin-bottom:1em;
+	padding-bottom:1em;
+	border-bottom:1pt double silver;
+	overflow:hidden;
+	
+}
 #busarrive{
-	border:1pt solid black;
 	background:#E8D9FF;
-	width:50%;
+	width:45%;
 	font-size:1em;
 	float:left;
+	padding:1em 1em 0 0; 
+	border-radius: 25px;
 }
+
+
+
 #subwayArrive{
-	border:1pt solid black;
 	background:#FAE0D4;
-	width:50%;
-	float:left
+	width:45%;
+	float:right;
+	padding:1em 1em 0 1em; 
+	border-radius: 25px;
 	}
 
 #schoolgo{
@@ -39,19 +215,6 @@
 	border:2pt solid black;
 }
 
-#whether{
-	width:50%;
-	height:300px;
-	border:2pt solid black;
-	float:left;
-}
-
-#toeic{
-	width:50%;
-	height:300px;
-	border:2pt solid black;
-	float:left;
-}
 
 
 
@@ -1770,7 +1933,6 @@
 			font-family: 'Open Sans Condensed', sans-serif;
 			font-weight: 300;
 			display: block;
-			margin-top: 1em;
 			color: #999;
 		}
 
@@ -2547,7 +2709,7 @@
 			}
 
 			.box.post header {
-				padding: 2.75em 0 0 0;
+				padding: 2.75em 4em 0 4em;
 				margin: 0 0 3em 0;
 			}
 
