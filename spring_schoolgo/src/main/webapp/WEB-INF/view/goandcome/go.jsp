@@ -611,7 +611,7 @@ var timeoutId=0;
 				
 				/* 현재시간 */
 				timerow+="<span id='timetit'>"
-				timerow+="<h4>현재시간 : </h4>"
+				timerow+="<h4>현재시간  </h4>"
 				timerow+="</span>"
 				
 				timerow+="<span id='timetext'>"
@@ -624,7 +624,7 @@ var timeoutId=0;
 				/* 도착해야하는시간 */
 				timerow+="<li>"
 				timerow+="<span id='timetit'>"
-				timerow+="<h4>도착해야 하는 시간 : </h4>"
+				timerow+="<h4>도착해야 하는 시간  </h4>"
 				timerow+="</span>"
 								
 				timerow+="<span id='timetext'>"
@@ -636,7 +636,7 @@ var timeoutId=0;
 				/* 집에서 나와야 하는 시간 */
 				timerow+="<li>"
 				timerow+="<span id='timetit'>"
-				timerow+="<h4>출발해야 하는 시간  : </h4>"
+				timerow+="<h4>출발해야 하는 시간   </h4>"
 				timerow+="</span>"
 												
 				timerow+="<span id='timetext'>"
@@ -648,7 +648,7 @@ var timeoutId=0;
 				/* 남은 시간 */
 				timerow+="<li>"
 				timerow+="<span id='timetit'>"
-				timerow+="<h4>출발까지 남은 시간  : </h4>"
+				timerow+="<h4>출발까지 남은 시간   </h4>"
 				timerow+="</span>"
 										
 				timerow+="<span id='timetext'>"

@@ -22,43 +22,40 @@
           
             	<li>
             	<div id="tutodiv1">
-  	    	    <img id="tuto1img" src="tutorial_img/tutoimg.png">
+  	    	    <img id="tuto1img" src="tutorial_img/tuto1.PNG">
                 </div>
   	    		</li>
   	    		
   	    		<li>
   	    		<div id="tutodiv2">
-  	    	    <img id=tuto2img src="tutorial_img/kitchen_adventurer_lemon.jpg" />
-  	    	    <p class="flex-caption">등교시간을 등록해서 편하게 가야할 시간을 받아오세요!</p>
+  	    	    <img id=tuto2img src="tutorial_img/tuto2.PNG" />
   	    	     </div>
   	    		</li>
   	    		
   	    		<li>
   	    		<div id="tutodiv3">
-  	    	    <img id=tuto3img src="tutorial_img/kitchen_adventurer_donut.jpg" />
-              <p class="flex-caption">등교시간을 등록해서 편하게 가야할 시간을 받아오세요!</p>
+  	    	    <img id=tuto3img src="tutorial_img/tuto3.PNG" />
+             <p class="flex-caption">루트 등록</p>
               </div>
   	    		</li>
   	    		
   	    		<li>
   	    	    <div id="tutodiv4">
-  	    	     <img id=tuto4img src="tutorial_img/kitchen_adventurer_donut.jpg" />
-              <p class="flex-caption">게시판을 이용해 나만의 루트를 공유하세요!</p>
-              
-              
-              <div class="rightsort">
-					<form action="gotomain" class="signUp" id="start"
+  	    	     <img id=tuto4img src="tutorial_img/tuto4.PNG" />
+              <p class="flex-caption">학교 가기</p>
+				</div>
+  	    		</li>
+  	    		
+  	    		<li>
+  	    		<div id="tutodiv5">
+  	    	    <img id=tuto5img src="tutorial_img/tuto5.png" />
+  	    	    <div id="gotomainbtn">
+  	    	    <form action="gotomain" class="signUp" id="start"
 						name="startbutton">
-						
-						<input type="submit" value="시작하기" class="signUpButton">
-					</form>
-					
+				<input type="submit" value="시작하기" class="signUpButton">
+				</form>
 				</div>
-				
-				
-				</div>
-				
-				
+              </div>
   	    		</li>
           </ul>
         </div>
