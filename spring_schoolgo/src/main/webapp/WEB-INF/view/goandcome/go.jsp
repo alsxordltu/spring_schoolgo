@@ -47,9 +47,10 @@
             <div id="curtimesec"></div>
             <br>
              <div id="islate" ></div> 
-              <div id="remaintime" ></div>             
+
+<!--               <div id="remaintime" ></div>             
               <div id="curremaintime" ></div>                         
-            <br>
+ -->            <br>
             <br>
             <br>
             
@@ -459,6 +460,9 @@ var timeoutId=0;
 	///////////실시간출력
 	function go_time() {
 		//////////////////현재시간
+		
+		var resultString = "${calTimeResultMessage}";
+		
 		$("#islate").html("${calTimeResultMessage}");
 		islate = "${calTimeResultMessage}";
 		var now = new Date();
@@ -486,7 +490,6 @@ var timeoutId=0;
 		var mm3
 		
 
-		if (islate == "지각이 아님. 추후 null로 수정") {
 			//               ---------D 총소요시간----
 			// 	현재시간(18:17)            출발전시간         소요시간(4367)  도착시간(23:30)
 			//       A                   E                B               C   
@@ -525,13 +528,22 @@ var timeoutId=0;
 			
 			/*출발해야 하는 시간 ::-> 도착해야하는 시간 -소요시간 */
 			necessarygotime = tableTimesec3 - duringtime;
+			console.log(duringtime);
+			console.log(tableTimesec3);
+			
 			
 			/* 시 */
 			hh3= Math.floor(necessarygotime/3600);
 			
+			if(hh3<0){
+				hh3+=12;
+			}
+			
 			/* 분 */
 			mm3=Math.floor(necessarygotime%3600/60)
-			
+			if(mm3<0){
+				mm3+=60;
+			}
 	/////////////////////////////////////////////////////////////////
 			//setTimeout("secdec(curremaintime)", 1000);
 
@@ -551,7 +563,7 @@ var timeoutId=0;
 			ss1=(curremaintime%3600%60)
 
 			
-		}
+
 		
 		
 
@@ -645,15 +657,13 @@ var timeoutId=0;
 				timerow+="<h4>"+hh1+"시간"+mm1+"분"+ss1+"초</h4>"
 				timerow+="</span>"
 				timerow+="</li>"
-				
-				
+			
 				timerow+="</ul></div>"
+				
 				$("#curtime").html(timerow);
 		 
 		 
-		 
-		 
-		 
+
 		 
 		///////////////////////////////////출발 몇초 전인지 계산(B-A)
 		 
