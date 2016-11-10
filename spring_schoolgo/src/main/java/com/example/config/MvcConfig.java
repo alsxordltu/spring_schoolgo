@@ -62,6 +62,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     	registry.addResourceHandler("/tutorial_img/**").addResourceLocations(PATH + "tutorial/images/");
     	registry.addResourceHandler("/tutorial_font/**").addResourceLocations(PATH + "tutorial/fonts/");
     	registry.addResourceHandler("/tutorial_js/**").addResourceLocations(PATH + "tutorial/js/");
+    	registry.addResourceHandler("/tutorial_flex/**").addResourceLocations(PATH + "tutorial/flex/");
 		
 		
     	//메인 페이지 관련 리소스 경로
