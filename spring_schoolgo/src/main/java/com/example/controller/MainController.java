@@ -71,7 +71,7 @@ public class MainController {
 			model.addAttribute("calTimeResultMessage", returnString);
 			return "goandcome/go";
 		} else {
-			returnString = "null";
+			returnString = null;
 			model.addAttribute("calTimeResultMessage", returnString);
 			return "goandcome/go";
 		}
