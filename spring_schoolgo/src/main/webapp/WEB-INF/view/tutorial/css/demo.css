@@ -4,6 +4,16 @@
 ***********************/
 /* tuto1 */
 
+.signUpbutton{
+	width:3em;
+	height:2em;
+}
+
+#gotomainbtn{
+	margin-top:5em;
+	padding-top:3em;
+	text-align:center;
+}
 
 .flexslider .slides
  {
@@ -19,7 +29,25 @@
 
 #tutodiv1{
 	padding: 2em 2em 2em 2em;
+	background:#e1fde5;
 }
+#tutodiv2{
+	padding: 2em 2em 6em 2em;
+	background:#e1fde5;
+}
+#tutodiv3{
+	padding: 2em 2em 2em 2em;
+	background:#e1fde5;
+}
+#tutodiv4{
+	padding: 2em 2em 2em 2em;
+	background:#e1fde5;
+}
+#tutodiv5{
+	padding: 2em 2em 2em 2em;
+	background:#e1fde5;
+}
+
 
 #tuto1img{
 	display: block; 
@@ -30,19 +58,25 @@
 #tuto2img{
 	display: block; 
 	width: 100%; 
-	height:45em; 
+	height:42em; 
 }
 
 #tuto3img{
 	display: block; 
 	width: 100%; 
-height:45em;  
+height:42em;  
 }
 
 #tuto4img{
 	display: block; 
 	width: 100%; 
-height:45em; 
+height:42em; 
+}
+
+#tuto5img{
+	display: block; 
+	width: 100%; 
+height:30em; 
 }
 
 
@@ -63,8 +97,10 @@ height:45em;
       background: rgba(0,0,0,.5);
       color: #fff;
       text-shadow: 0 -1px 0 rgba(0,0,0,.3);
-      font-size: 14px;
+      font-size:2em;
       line-height: 18px;
+      text-align:center;
+      
     }
     li.css a {
       border-radius: 0;
@@ -533,7 +569,11 @@ height:15em;
 	width: 100%; 
 height:15em; 
 }
-
+#tuto5img{
+	display: block; 
+	width: 100%; 
+height:12em; 
+}
 
 
 	#container {
