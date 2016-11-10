@@ -437,7 +437,7 @@ var timeoutId=0;
    
    function timeout(){
 	timeoutId = setTimeout(function() {
-			var filename = "pororiya.mp3";
+			var filename = "gogogo.3gp";
 			$("#audio").attr("src", "gocome_voice/" + filename);
 			
 			var audio = document.querySelector("#audio");
