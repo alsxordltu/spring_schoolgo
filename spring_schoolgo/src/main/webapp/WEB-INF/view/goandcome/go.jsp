@@ -547,9 +547,7 @@ var timeoutId=0;
 	/////////////////////////////////////////////////////////////////
 			//setTimeout("secdec(curremaintime)", 1000);
 
-			document.getElementById("remaintime").innerHTML = tableTimesec3
 
-			document.getElementById("curremaintime").innerHTML = curremaintime
 			
 			
 			

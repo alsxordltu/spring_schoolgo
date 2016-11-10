@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*
  * jQuery FlexSlider v2.6.3
  * http://www.woothemes.com/flexslider/
@@ -94,7 +96,10 @@ html[xmlns] .flexslider .slides {
   -moz-user-select: none;
 }
 .flex-viewport {
+	display:block;
+	height:50em;
   max-height: 2000px;
+  overflow: hidden;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
@@ -272,4 +277,22 @@ html[xmlns] .flexslider .slides {
     opacity: 1;
     right: 10px;
   }
+}
+
+
+@media screen and (max-width: 768px) {
+	
+	.flex-viewport {
+	display:block;
+		height:20em;
+  max-height: 2000px;
+  overflow: hidden;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+	
+	
 }

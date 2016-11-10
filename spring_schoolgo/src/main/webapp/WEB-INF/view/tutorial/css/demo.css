@@ -1,23 +1,56 @@
+@charset "UTF-8";
+
 /* Reset Styles
 ***********************/
 /* tuto1 */
-#tutodiv1{
-	
+
+
+.flexslider .slides
+ {
+	height:auto;
+	overflow:hidden;
 }
 
+.slides li
+ {
+	height:100%;
+	overflow:hidden;
+}
 
-
-
-
-
-
+#tutodiv1{
+	padding: 2em 2em 2em 2em;
+}
 
 #tuto1img{
 	display: block; 
 	width: 100%; 
-	height:100%; 
-	bottom: 0;
+	height:45em; 
 }
+
+#tuto2img{
+	display: block; 
+	width: 100%; 
+	height:45em; 
+}
+
+#tuto3img{
+	display: block; 
+	width: 100%; 
+height:45em;  
+}
+
+#tuto4img{
+	display: block; 
+	width: 100%; 
+height:45em; 
+}
+
+
+
+
+
+
+
 
 
 
@@ -111,10 +144,10 @@ em {
  * Webfont: Geogrotesque SemiBold
  * URL: http://new.myfonts.com/fonts/emtype/geogrotesque/semibold/
  * Foundry: Emtype Foundry
- * Copyright: Copyright © 2009 by Eduardo Manso. All rights reserved.
+ * Copyright: Copyright 짤 2009 by Eduardo Manso. All rights reserved.
  * Licensed pageviews: 10,000,000/month
  * 
- * © 2011 Bitstream Inc
+ * 짤 2011 Bitstream Inc
 */
 
 /* GEO - Semibold */
@@ -378,7 +411,7 @@ body {
 /* Layout
 ***********************/
 #container {
-	padding: 60px 40px 100px;
+	padding: 2em;
 }
 
 header {
@@ -474,8 +507,39 @@ nav li.active a {
 }
 
 @media screen and (max-width: 768px) {
+	
+	
+	
+#tuto1img{
+	display: block; 
+	width: 100%; 
+	height:15em;
+}
+
+#tuto2img{
+	display: block; 
+	width: 100%; 
+	height:15em; 
+}
+
+#tuto3img{
+	display: block; 
+	width: 100%; 
+height:15em;  
+}
+
+#tuto4img{
+	display: block; 
+	width: 100%; 
+height:15em; 
+}
+
+
+
 	#container {
-		padding: 20px 30px;
+		padding: 5em 2em 0 2em;
+		height:40em;
+		overflow:hidden;
 	}
 	header {
 		width: 100%;
