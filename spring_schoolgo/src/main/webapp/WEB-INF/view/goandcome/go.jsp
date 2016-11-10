@@ -463,7 +463,7 @@ var timeoutId=0;
 		
 		var resultString = "${calTimeResultMessage}";
 		
-		$("#islate").html("${calTimeResultMessage}");
+		$("#islate").html("<h4>${calTimeResultMessage}</h4>");
 		islate = "${calTimeResultMessage}";
 		var now = new Date();
 
@@ -528,8 +528,6 @@ var timeoutId=0;
 			
 			/*출발해야 하는 시간 ::-> 도착해야하는 시간 -소요시간 */
 			necessarygotime = tableTimesec3 - duringtime;
-			console.log(duringtime);
-			console.log(tableTimesec3);
 			
 			
 			/* 시 */
