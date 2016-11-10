@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,11 +38,16 @@ public class JoinController {
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(User user, BindingResult result, TimetableTotal timeinfo, HttpServletRequest request, HttpSession session) {
+	public String join( User user, BindingResult result, HttpServletRequest request) {
 		if (result.hasErrors()) {
+			logger.trace("아씨왜안돼");
 			return "join/join";
 		}
+		
+		
+		 
 		service.join(user);
+		HttpSession session;
 		session = request.getSession();
 		int loginResult = service.login(user.getUserId(), user.getPass());
 		if(loginResult == 1){
@@ -52,16 +58,14 @@ public class JoinController {
 			logger.trace("컨트롤러, 세션 로그인 아이디 : {}", session.getAttribute("userId"));
 			session.setAttribute("nickName", user.getNickName());
 			logger.trace("유저 정보 : {}, {}, {}, {}, {}, {}", user.getUserId(), user.getPass(), user.getUserName(), user.getNickName(), user.getEmail(), user.getPhoneNum());
-			
+			TimetableTotal timeinfo;
 			timeinfo = new TimetableTotal(user.getUserId(),"00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00");
 			tService.insert(timeinfo);
 			logger.trace("초기화 : {}", timeinfo);
 
-		}else{
-			return "gotojoin";
 		}
-		
-		
+	
+	
 		
 		return "redirect:/gototutorial";
 	}
@@ -105,9 +109,9 @@ public class JoinController {
 
 
 	@InitBinder
-	   public void setEssentialFields(WebDataBinder binder){
-	      binder.setRequiredFields("userId", "pass", "userName","nickName","email","phoneNum");
-	   }
+	public void setEssentialFields(WebDataBinder binder){
+		binder.setRequiredFields("userId", "pass", "userName","nickName","email","phoneNum");
+	}
 	
 	
 	

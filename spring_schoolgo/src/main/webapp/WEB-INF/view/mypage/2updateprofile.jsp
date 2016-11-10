@@ -44,6 +44,9 @@
                   </div>
                   <div id="updatetext">
                      <sform:input path="userId" placeholder="Id" readonly="true" />
+                     <sform:errors element="span" path="userId">
+                  </sform:errors>
+                     
                      </div>
                   </div>
                   
@@ -54,6 +57,9 @@
                   </div>
                   <div id="updatetext">   
                      <sform:input type="password" path="pass" placeholder="Pass" />
+                     <sform:errors element="span" path="pass">
+                  </sform:errors>
+                     
                   </div>
                   </div>
                   
@@ -64,6 +70,9 @@
                      </div>
                      <div id="updatetext">   
                      <sform:input path="userName" placeholder="Name" />
+                     <sform:errors element="span" path="userName">
+                  </sform:errors>
+                     
                      </div>
                   </div>
                   
@@ -74,6 +83,9 @@
                      </div>
                      <div id="updatetext">   
                      <sform:input path="nickName" placeholder="Nickname" />
+                     <sform:errors element="span" path="nickName">
+                  </sform:errors>
+                     
                      </div>
                   </div>
                   
@@ -84,6 +96,9 @@
                      </div>
                      <div id="updatetext">
                      <sform:input type="email" path="email" placeholder="Email" />
+                     <sform:errors element="span" path="email">
+                  </sform:errors>
+                     
                      </div>
                   </div>
                   
@@ -94,6 +109,9 @@
                      </div>
                      <div id="updatetext">
                      <sform:input type="text" path="phoneNum" placeholder="Phone" />
+                     <sform:errors element="span" path="phoneNum">
+                  </sform:errors>
+                     
                      </div>
                   </div>
             </div>
