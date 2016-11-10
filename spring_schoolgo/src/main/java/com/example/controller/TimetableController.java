@@ -36,13 +36,12 @@ public class TimetableController {
 		
 		timeinfo = tService.gettotaltableInfo(id);
 		
-		if(timeinfo==null){//초기화
+/*		if(timeinfo==null){//초기화
 		// 전체DTO 만들고
 		// 1. userId 받아와서 기본객체 insert(get) - insertmapper만들기
-		timeinfo = new TimetableTotal(id,"00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00");
-		tService.insert(timeinfo);
-		logger.trace("초기화 : {}", timeinfo);
-		}
+		
+		
+		}*/
 		logger.trace("셀렉 : {}", timeinfo);
 		// 2. resultmap/mapper 만들고 sform객체 넣어줌
 		

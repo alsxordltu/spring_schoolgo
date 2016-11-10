@@ -80,13 +80,10 @@ public class LoginController {
 			
 			User user = new User();
 			user = service.getUserInfo(login.getId());
-			
-			session.setAttribute("pass", user.getPass());
-			session.setAttribute("userName", user.getUserName());
+
 			session.setAttribute("nickName", user.getNickName());
-			session.setAttribute("email", user.getEmail());
-			session.setAttribute("phoneNum", user.getPhoneNum());
-			logger.trace("유저 정보 : {}, {}, {}, {}, {}, {}",session.getAttribute("userId"),session.getAttribute("pass"),session.getAttribute("userName"),session.getAttribute("nickName"),session.getAttribute("email"),session.getAttribute("phoneNum"));
+
+			logger.trace("유저 정보 : {}, {}, {}, {}, {}, {}",user.getUserId(), user.getPass(), user.getUserName(), user.getNickName(), user.getEmail(), user.getPhoneNum());
 			
 /*			model.addAttribute("userId",session.getAttribute("userId"));
 			model.addAttribute("pass",session.getAttribute("pass"));
