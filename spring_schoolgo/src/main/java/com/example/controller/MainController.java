@@ -72,7 +72,7 @@ public class MainController {
 			model.addAttribute("calTimeResultMessage", returnString);
 			return "goandcome/go";
 		} else {
-			returnString = "지각이 아님. 추후 null로 수정";
+			returnString = "null";
 			model.addAttribute("calTimeResultMessage", returnString);
 			return "goandcome/go";
 		}
