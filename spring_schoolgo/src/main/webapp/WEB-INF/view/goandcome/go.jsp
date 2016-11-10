@@ -437,7 +437,7 @@ var timeoutId=0;
    
    function timeout(){
 	timeoutId = setTimeout(function() {
-			var filename = "pororiya.mp3";
+			var filename = "y_1hour.m4a";
 			$("#audio").attr("src", "gocome_voice/" + filename);
 			
 			var audio = document.querySelector("#audio");
@@ -463,7 +463,7 @@ var timeoutId=0;
 		
 		var resultString = "${calTimeResultMessage}";
 		
-		$("#islate").html("${calTimeResultMessage}");
+		$("#islate").html("<h4>${calTimeResultMessage}</h4>");
 		islate = "${calTimeResultMessage}";
 		var now = new Date();
 
@@ -528,8 +528,6 @@ var timeoutId=0;
 			
 			/*출발해야 하는 시간 ::-> 도착해야하는 시간 -소요시간 */
 			necessarygotime = tableTimesec3 - duringtime;
-			console.log(duringtime);
-			console.log(tableTimesec3);
 			
 			
 			/* 시 */
@@ -666,7 +664,7 @@ var timeoutId=0;
 		///////////////////////////////////출발 몇초 전인지 계산(B-A)
 		 
 		 
-		/* setTimeout("go_time()", 1000);  */
+		 setTimeout("go_time()", 1000);  
 		
 		
 		//1초마다 해당 펑션을 실행함.

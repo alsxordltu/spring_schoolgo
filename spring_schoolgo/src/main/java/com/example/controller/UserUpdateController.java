@@ -50,7 +50,7 @@ public class UserUpdateController {
 		}
 		logger.trace("컨트롤러, updateUser_POST 호출 : {}", updateinfo);
 		service.update(updateinfo);
-		return "mypage/2updateprofile";
+		return "mypage/2updateprofileresult";
 	}
 
 	@InitBinder

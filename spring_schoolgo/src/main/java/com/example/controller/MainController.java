@@ -2,7 +2,6 @@ package com.example.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -72,7 +71,7 @@ public class MainController {
 			model.addAttribute("calTimeResultMessage", returnString);
 			return "goandcome/go";
 		} else {
-			returnString = "null";
+			returnString = null;
 			model.addAttribute("calTimeResultMessage", returnString);
 			return "goandcome/go";
 		}
