@@ -437,7 +437,7 @@ var timeoutId=0;
    
    function timeout(){
 	timeoutId = setTimeout(function() {
-			var filename = "gogogo.3gp";
+			var filename = "y_1hour.m4a";
 			$("#audio").attr("src", "gocome_voice/" + filename);
 			
 			var audio = document.querySelector("#audio");
