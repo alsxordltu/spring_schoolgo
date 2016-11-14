@@ -204,8 +204,8 @@ $(document).ready(function(){
                 	  busArrList = JSON.parse(response);
                 	  
                 	  $.each(busArrList, function(index, item){
-                          	busstopname=item.nodenm;
-                          
+                		  console.log(busArrList);
+                		  busstopname=item.nodenm;
                        });
                 	  
                 		
@@ -437,7 +437,13 @@ var timeoutId=0;
    
    function timeout(){
 	timeoutId = setTimeout(function() {
+		
 			var filename = "y_1hour.m4a";
+			if(curremaintime == 1800){
+				filename = "y_30min.m4a";
+			}else if(curremaintime == 600){
+				filename = "y_10min.m4a";
+			}
 			$("#audio").attr("src", "gocome_voice/" + filename);
 			
 			var audio = document.querySelector("#audio");
@@ -563,13 +569,13 @@ var timeoutId=0;
 		
 		
 
-		if (curremaintime == 900) {
+		if (curremaintime == 3600) {
+			timeout();
+		}
+		if (curremaintime == 1800) {
 			timeout();
 		}
 		if (curremaintime == 600) {
-			timeout();
-		}
-		if (curremaintime == 300) {
 			timeout();
 		}
 

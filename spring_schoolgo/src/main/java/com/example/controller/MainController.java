@@ -198,12 +198,16 @@ public class MainController {
 		String nodenm = "";
 		String routeno = "";
 		List<BusArrive> buslist = new ArrayList<>();
-
+		
 		Map<String, Object> responseTxt = (Map) map.get("response");
+		System.out.println("버스 도착정보 불러오기 성공" + responseTxt);
 		Map<String, Object> body = (Map) responseTxt.get("body");
+		
 		Map<String, Object> items = (Map) body.get("items");
-		List<Map> item = (List) items.get("item");
-
+		
+		List<Map<String, Object>> item = (List) items.get("item");
+		
+		
 		for (Map<String, Object> busArriveList : item) {
 			routeno = busArriveList.get("routeno").toString();
 
@@ -235,7 +239,7 @@ public class MainController {
 		 * 
 		 * continue; } }
 		 */
-
+		
 		return mapper.writeValueAsString(buslist);
 	}
 
