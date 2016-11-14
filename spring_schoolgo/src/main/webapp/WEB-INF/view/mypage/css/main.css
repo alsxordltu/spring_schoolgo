@@ -7,6 +7,12 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+#welcomemsg{
+	font-size:1.3em;
+	text-align: center;
+	margin-bottom:0.5em;
+	}
+	
 /* Reset */
 #updatebtn{
 	text-align:center;
@@ -1795,7 +1801,6 @@
 		-webkit-appearance: none;
 		border: solid 1px #ddd;
 		padding: 0.5em 0.75em;
-		width: 100px;
 		line-height: 1.25em;
 	}
 
@@ -2291,7 +2296,7 @@
 		#titleBar .title {
 			display: block;
 			color: #fff;
-			line-height: 44px;
+			line-height: 14px;
 			font-size: 1.25em;
 			font-family: 'Open Sans Condensed', sans-serif;
 			font-weight: 700;
@@ -2836,7 +2841,44 @@
 /* Mobile */
 
 	@media screen and (max-width: 736px) {
-
+	
+	#updatett{
+	width: 40%;
+    float: left;
+    text-align: center;
+    margin: 1em 0;
+	}
+	#updatetext{
+	width: 60%;
+    float: left;
+    text-align: center;
+    margin: 1em 0;
+	}
+	#updatetext input {
+    width: 70%;
+    margin: 0 auto;
+    text-align:center;
+}
+	
+#logoutbtn{
+	align:center;
+	width:100%;
+	height:2em;
+	font-size:1em;
+	padding:0;
+	}
+	#welcomemsg{
+	font-size:1.3em;
+	text-align: center;
+	}
+	
+	#hid{
+	display:none;
+	}
+	.schoolgott{
+	width:4em;
+	}
+	
 		/* Basic */
 
 			body, input, textarea, select {

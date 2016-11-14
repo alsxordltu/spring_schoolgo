@@ -9,7 +9,8 @@
 -->
 <html>
 <head>
-<title>Striped by HTML5 UP</title>
+<title>루트 목록</title>
+<link rel="shortcut icon" type="image/x-icon" href="main_img/titleicon.ico" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -27,7 +28,7 @@
             <article class="box post post-excerpt">
                <header>
                   <h2 align="center"><img src="main_img/routelist.png" width="70%"></h2>
-                  <p align="center">당신이 등록한 루트들의 목록입니다~ㅇㅅㅇ
+                  <p align="center">당신이 등록한 루트들의 목록입니다.
                   <a id="kakao-link-btn" href="javascript:;"></a>
                </header>
             </article>
@@ -39,41 +40,6 @@
             <div id=schoolgo>
             
             </div>
-
-
-<!--          <article id=whether>
-            <div>
-               <h1>오늘의 날씨 정보 출력 : 집 위치</h1>
-            </div>
-         </article>-->
-<!--          <article id=toeic>
-            <div>
-               <h1>오늘의 영단어 : 네이버 오늘의영단어</h1>
-            </div>
-         </article>-->
-
-<!-- 
-         <article>
-            <span class="image"> <img src="main_img/pic04.jpg" alt="" />
-            </span>
-            <header class="major">
-               <h3>
-                  <a href="landing.html" class="link">Ipsum</a>
-               </h3>
-               <p>Nisl sed aliquam</p>
-            </header>
-         </article>
-
-
-
-         <article>
-            <div id="map_div"></div>
-         </article> -->
-
-
-
-
-
 
          <!-- Post -->
          <article class="box post post-excerpt">
@@ -96,8 +62,9 @@
       </h1>
       <form name="logout" action="logout">
         <div id="userinfodiv"> 
-        <h5 style="text-align: center">${nickName}님환영합니다!</h5>
-		<input type="submit" value="로그아웃" style="align:center;">
+        <h5 id="welcomemsg">${nickName}님환영합니다!</h5>
+        
+		<input id="logoutbtn" type="submit" value="로그아웃">
  		</div>
       </form>
 
@@ -106,8 +73,7 @@
             <ul>
                <li class="current"><a href="gotomain">학교가기</a></li>
                <li><a href="gotoinsertroute">루트등록</a></li>
-               <li><a href="gotoboardmain">루트공유</a></li>
-               <li><a href="gotocontact">Contact Me</a></li>
+               <li><a href="gotocontact">Contact Us</a></li>
                <li><a href="gotoadmin">Admin page</a></li>
             </ul>
          </nav>
@@ -122,15 +88,14 @@
            <ul id="mypageside">
             <li><a href="updateTimetable">시간표 등록</a></li>
             <li><a href="updateUser">개인정보 수정</a></li>
-            <li><a href="gotomyactivity">활동내역</a></li>
          </ul>
          
          </section>
         
 
       <ul id="copyright">
-         <li>&copy; Untitled.</li>
-         <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+         <li>&copy; Six Company.</li>
+         <li>Kongju Univ.<br> Computer Engineering</a></li>
       </ul>
    </div>
    
