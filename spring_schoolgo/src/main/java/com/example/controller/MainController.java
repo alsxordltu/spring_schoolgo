@@ -67,7 +67,7 @@ public class MainController {
 		String returnString = "";
 		int result = tservice.simpleisLate(timetabletime, timetotaltime);
 		if (result == 1) {
-			returnString = "지각이에요 ㅠㅅㅜ 택시를 추천합니다";
+			returnString = "지각입니다!";
 			model.addAttribute("calTimeResultMessage", returnString);
 			return "goandcome/go";
 		} else {

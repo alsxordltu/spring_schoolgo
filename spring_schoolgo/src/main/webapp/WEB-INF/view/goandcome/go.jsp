@@ -9,7 +9,8 @@
 -->
 <html>
 <head>
-<title>Striped by HTML5 UP</title>
+<title>Go!</title>
+<link rel="shortcut icon" type="image/x-icon" href="main_img/titleicon.ico" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -65,7 +66,7 @@
       </div>
    </div>
 
-   <!-- Sidebar -->
+  <!-- Sidebar -->
    <div id="sidebar">
 
       <!-- Logo -->
@@ -75,18 +76,18 @@
       </h1>
       <form name="logout" action="logout">
         <div id="userinfodiv"> 
-        <h5 style="text-align: center">${nickName}님환영합니다!</h5>
-		<input type="submit" value="로그아웃" style="align:center;">
+        <h5 id="welcomemsg">${nickName}님환영합니다!</h5>
+        
+		<input id="logoutbtn" type="submit" value="로그아웃">
  		</div>
       </form>
 
-   <!-- Nav -->
+         <!-- Nav -->
          <nav id="nav">
             <ul>
                <li class="current"><a href="gotomain">학교가기</a></li>
                <li><a href="gotoinsertroute">루트등록</a></li>
-               <li><a href="gotoboardmain">루트공유</a></li>
-               <li><a href="gotocontact">Contact Me</a></li>
+               <li><a href="gotocontact">Contact Us</a></li>
                <li><a href="gotoadmin">Admin page</a></li>
             </ul>
          </nav>
@@ -101,18 +102,17 @@
            <ul id="mypageside">
             <li><a href="updateTimetable">시간표 등록</a></li>
             <li><a href="updateUser">개인정보 수정</a></li>
-            <li><a href="gotomyactivity">활동내역</a></li>
          </ul>
          
          </section>
+        
 
-      <!-- Copyright -->
       <ul id="copyright">
-         <li>&copy; Untitled.</li>
-         <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+         <li>&copy; Six Company.</li>
+         <li>Kongju Univ.<br> Computer Engineering</a></li>
       </ul>
-
    </div>
+   
 
    <!-- Scripts -->
    <script src="gocome_js/jquery.min.js"></script>
@@ -652,11 +652,25 @@ var timeoutId=0;
 				/* 남은 시간 */
 				timerow+="<li>"
 				timerow+="<span id='timetit'>"
-				timerow+="<h4>출발까지 남은 시간   </h4>"
+				
+					if(mm1<0){
+				timerow+="<h4>초과된 시간</h4>"
 				timerow+="</span>"
 										
 				timerow+="<span id='timetext'>"
-				timerow+="<h4>"+hh1+"시간"+mm1+"분"+ss1+"초</h4>"
+				
+				timerow+="<h4>"+Math.abs(hh1)+"시간"+Math.abs(mm1)+"분"+Math.abs(ss1)+"초</h4>"
+				}else{
+				timerow+="<h4>출발까지 남은 시간</h4>"
+				timerow+="</span>"
+						
+				timerow+="<span id='timetext'>"
+							
+				timerow+="<h4>"+hh1+"시간"+mm1+"분"+ss1+"초</h4>"}
+				
+				
+				
+				
 				timerow+="</span>"
 				timerow+="</li>"
 			
@@ -670,7 +684,7 @@ var timeoutId=0;
 		///////////////////////////////////출발 몇초 전인지 계산(B-A)
 		 
 		 
-		 setTimeout("go_time()", 1000);  
+		 /* setTimeout("go_time()", 1000);   */
 		
 		
 		//1초마다 해당 펑션을 실행함.

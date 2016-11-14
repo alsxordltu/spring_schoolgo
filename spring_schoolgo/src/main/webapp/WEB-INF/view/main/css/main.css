@@ -12,6 +12,12 @@
 
 /* Reset */
 
+#welcomemsg{
+	font-size:1.3em;
+	text-align: center;
+	margin-bottom:0.5em;
+	}
+	
 #admincontent table {
 	border-collapse: separate;
 	border-spacing: 0 5px;
@@ -26,10 +32,11 @@
 #userinfodiv{
 	margin-top:1em;
 	width:100%;
-	height:5em;
+	height:auto;
 	border-radius: 0.4em;
 	/* background-color: #272E39 !important; */
 	text-align:center;
+	overflow:hidden;
 }
 
 
@@ -54,7 +61,8 @@ clear: both;
 
 	#contactus{
 	width:100%;
-	height:40em;
+	height:auto;
+	overflow:hidden;
 	}
 	
 	#tit{
@@ -2290,6 +2298,8 @@ ol.default li {
 	overflow-y: auto;
 	left: 0;
 	box-shadow: inset -0.1em 0em 0.35em 0em rgba(0, 0, 0, 0.15);
+	min-height:1550px;
+	
 }
 
 #sidebar form input, #sidebar form select, #sidebar form textarea {
@@ -2298,7 +2308,7 @@ ol.default li {
 
 #sidebar section, #sidebar nav {
 	position: relative;
-	margin: 2em 0 0 0;
+	margin: 0.5em 0 0 0;
 	font-size: 0.9em;
 }
 
@@ -2717,7 +2727,54 @@ ol.default li {
 
 /* Mobile */
 @media screen and (max-width: 736px) {
+	#longtextbox{
+	width:100%;
+	height:150px;
+	}
+	#sendbtndiv{
+	width:100%;
+	height:50px;
+	margin-top:1em;
+	}
+	#contact1 {
+    width: 100%;
+    height: auto;
+    overflow:hidden;
+    float: left;
+    padding: 2em 2em;
+    border-bottom:1pt solid silver;
+    }
+    
+	#contact2 {
+    width: 100%;
+     height: auto;
+    overflow:hidden;
+    float: left;
+    padding: 2em 2em;
+    border-bottom:1pt solid silver;
+    }
+    #contact3 {
+    width: 100%;
+     height: auto;
+    overflow:hidden;
+    float: left;
+    padding: 2em 2em;
+    border:none;
+    border-bottom:1pt solid silver;
+    }
 	
+	
+	#logoutbtn{
+	align:center;
+	width:100%;
+	height:2em;
+	font-size:1em;
+	padding:0;
+	}
+	#welcomemsg{
+	font-size:1.3em;
+	text-align: center;
+	}
 	
 	
 	.gotoschool{
@@ -2984,7 +3041,6 @@ input[type=radio] {
 
 	/* Box */
 	.box.post {
-		 padding-bottom: 3em;
 		/*margin-bottom: 6em; */
 	}
 	.box.post header>p {

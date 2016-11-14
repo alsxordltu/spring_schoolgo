@@ -8,7 +8,8 @@
 -->
 <html>
 <head>
-<title>Striped by HTML5 UP</title>
+<title></title>
+<link rel="shortcut icon" type="image/x-icon" href="main_img/titleicon.ico" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->

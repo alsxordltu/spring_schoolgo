@@ -6,8 +6,21 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+
+#islate h4{
+	text-align:center;
+}
+
+
 /* Reset */
 
+#welcomemsg{
+	font-size:1.3em;
+	text-align: center;
+	margin-bottom:0.5em;
+	}
+	
 
 /* 시간들 디자인 */
 #timediv{
@@ -2924,7 +2937,56 @@ clear: both;
 /* Mobile */
 
 	@media screen and (max-width: 736px) {
-
+	
+	#bustit h4{
+	font-size:1em;
+	}
+	
+	
+	li #subtext{
+	font-size:1em;
+	}
+	#timediv{
+	padding:0;
+	}
+	
+	#timetit h4{
+	font-size:0.9em;
+	text-align:left;
+	}
+	
+	#timetext h4{
+	font-size:1em;
+	}
+	#subwayArrive{
+	background:#FAE0D4;
+	width:100%;
+	float:left;
+	padding:1em 1em 0 1em; 
+	border-radius: 25px;
+	}
+	
+	#busarrive{
+	background: #E8D9FF;
+    width: 100%;
+    font-size: 1em;
+    float: left;
+    padding: 1em 1em 0 0;
+    border-radius: 25px
+	}
+	
+	#logoutbtn{
+	align:center;
+	width:100%;
+	height:2em;
+	font-size:1em;
+	padding:0;
+	}
+	#welcomemsg{
+	font-size:1.3em;
+	text-align: center;
+	}
+	
 		/* Basic */
 
 			body, input, textarea, select {
