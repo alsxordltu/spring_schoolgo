@@ -52,7 +52,7 @@
   	    	    <div id="gotomainbtn">
   	    	    <form action="gotomain" class="signUp" id="start"
 						name="startbutton">
-				<input type="submit" value="시작하기" class="signUpButton">
+				<input id="startbtn1" type="submit" value="시작하기" class="signUpButton">
 				</form>
 				</div>
               </div>
