@@ -132,13 +132,17 @@
   
    function showList(){
         var row="";
+        var indexCount = -1;
          $.each(json, function(index, item){      
-            
+        	indexCount = index;
             row+="<div id='div"+ index + "'>"
             +"<input type='button' class='routelist' value='"+ json[index].routeName + "' data-index='"+index+"' data-routeId='"+ json[index].routeId +"' data-totaltime='"+ json[index].time +"' style='width:100%;'>"
             +"<br></div><div id='info"+index+"'></div><br> ";
             
-         });      
+         });  
+         if(indexCount == -1){
+        	 row="<div id='nothing'><h5>아직 루트가 없네요! 루트를 등록해 보세요~</h5></div>";
+         }
          $("#schoolgo").html(row);
    }
    
@@ -297,31 +301,10 @@ $(document).on("click", ".group",  function(){
 });
    
 
-
-
-
  $(document).on("click", ".radio", function(){
 	$(".group").slideDown("slow")
 	$(".gotoschool").slideDown("slow")
 	            });
-
-
-
-///////////////////////////////////////////
-///////////////////////////////////////////
-///////////////////////////////////////////
-///////뀨뀨뀨뀨뀨뀨///뀨뀨뀨뀨뀨뀨/////////////////
-//////////////뀨/////////뀨/////////////////
-/////////////뀨//////////뀨//////////////////
-/////////////뀨//////////뀨//////////////////
-///////////////////////////////////////////
-///////////////////////////////////////////
-/////뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨뀨///////////
-/////////////뀨//////////뀨/////////////////
-/////////////뀨//////////뀨/////////////////     
-/////////////뀨//////////뀨/////////////////      
-/////////////뀨//////////뀨/////////////////
-///////////////////////////////////////////
 
 
 $(document).on("click", ".gotoschool", function(){
