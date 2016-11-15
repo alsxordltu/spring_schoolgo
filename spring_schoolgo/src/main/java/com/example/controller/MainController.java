@@ -136,7 +136,7 @@ public class MainController {
 		String lng = request.getParameter("lng");
 		ObjectMapper mapper = new ObjectMapper();
 		String requestUrl = "http://openapi.tago.go.kr/openapi/service/BusSttnInfoInqireService/getCrdntPrxmtSttnList?";
-		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
+		requestUrl += "serviceKey=Z%2F089zJQLn9rm7j3HtNQJp2nlOXTdqIx3DF2rvK9e7KXqZVgi1nFuZDDL5cOu2lnXQrizPLY574EW%2BMJHImwJA%3D%3D";
 		// requestUrl +=
 		// "serviceKey=ROEBX9gDjySLI9VWdC6Mc1Rsb%2FZSPP8RGZ6%2FFK65rEmL4zN1Oi2oVZ51%2FO730gQw6DPWf2sPfUolvrn9RbhILA%3D%3D";
 		// requestUrl +=
@@ -171,7 +171,7 @@ public class MainController {
 		String vehicleNum = request.getParameter("vehicleNum");
 
 		String requestUrl = "http://openapi.tago.go.kr/openapi/service/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?";
-		requestUrl += "serviceKey=4p8gjXJj%2B4VfiBP4lA6EaCb2GfldRUjt%2BV1wLsZcBIdSQe7cp9rN590UtQ%2FTWeifk9dkcd3whm4xmR%2F1Wo5K%2Bw%3D%3D";
+		requestUrl += "serviceKey=Z%2F089zJQLn9rm7j3HtNQJp2nlOXTdqIx3DF2rvK9e7KXqZVgi1nFuZDDL5cOu2lnXQrizPLY574EW%2BMJHImwJA%3D%3D";
 		// requestUrl +=
 		// "serviceKey=ROEBX9gDjySLI9VWdC6Mc1Rsb%2FZSPP8RGZ6%2FFK65rEmL4zN1Oi2oVZ51%2FO730gQw6DPWf2sPfUolvrn9RbhILA%3D%3D";
 		// requestUrl +=
