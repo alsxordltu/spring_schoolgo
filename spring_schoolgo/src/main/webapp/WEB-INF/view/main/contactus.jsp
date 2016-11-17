@@ -50,8 +50,8 @@
 						<li><span id="tit">Fax.</span> <span id="contt">04102323101</span>
 						</li>
 
-						<li><span id="tit">담당자</span> <span id="contt">최찬섭 /
-								ccs6473@naver.com</span></li>
+						<li><span id="tit">관리자</span> <span id="contt">최유리 /
+								zxcvbn829@naver.com</span></li>
 
 					</ul>
 				</div>

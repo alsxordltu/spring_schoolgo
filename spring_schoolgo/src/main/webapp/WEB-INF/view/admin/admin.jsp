@@ -26,8 +26,6 @@
 
 <div id="admincontent">
 
-	<h1>admin page_bigdata 모든계정(user)의 루트목록 count</h1>
-
 	<table class="table">
 		<thead>
 			<tr>
@@ -130,7 +128,7 @@
 	  var chart = new CanvasJS.Chart("chartContainer", {
 	     theme: "theme2",//theme1
 	     title:{
-	        text: "대학생 등/하교시 많이 지나가는 장소 ?"              
+	        text: "대학생 등/하교시 많이 지나가는 장소"              
 	    },
 	     data: [              
 	     {

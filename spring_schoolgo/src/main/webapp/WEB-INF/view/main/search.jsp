@@ -197,7 +197,9 @@ function getlocation(){
    function movenextpage(){
       
       var input = document.getElementById("pacinput").value;
-      var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + input + "&key=AIzaSyDMyDmCjogn6vLLZcCM-ZMCpNtk2BZoO5Y";
+       /* var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + input + "&key=AIzaSyDMyDmCjogn6vLLZcCM-ZMCpNtk2BZoO5Y"; */ 
+      var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + input + "&key=AIzaSyAx6uOyFrFC3s6Ccx9Uo4r8qtlr7VTE6jw";
+      
       document.getElementById('resultstring').value = url;
       document.getElementById('resultstring2').value = input;   
       getlocation(url);

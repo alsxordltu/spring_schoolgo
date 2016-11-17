@@ -435,19 +435,12 @@ var timeoutId=0;
          timeout();
       });
    
+      
    function timeout(){
 	timeoutId = setTimeout(function() {
-		
 			var filename = "y_1hour.m4a";
-			if(curremaintime == 1800){
-				filename = "y_30min.m4a";
-			}else if(curremaintime == 600){
-				filename = "y_10min.m4a";
-			}
 			$("#audio").attr("src", "gocome_voice/" + filename);
-			
 			var audio = document.querySelector("#audio");
-			
 			audio.loop = false;
 			audio.play();
 			current++;
@@ -455,6 +448,32 @@ var timeoutId=0;
 		}, 1000 * 5);
 
 	}
+   
+   function timeout1(){
+		timeoutId = setTimeout(function() {
+				var filename1 = "y_30min.m4a";
+				$("#audio").attr("src", "gocome_voice/" + filename1);
+				var audio = document.querySelector("#audio");
+				audio.loop = false;
+				audio.play();
+				current++;
+				timeout();
+			}, 1000 * 5);
+
+		}
+   
+   function timeout2(){
+		timeoutId = setTimeout(function() {
+				var filename2 ="y_10min.m4a";
+				$("#audio").attr("src", "gocome_voice/" + filename2);
+				var audio = document.querySelector("#audio");
+				audio.loop = false;
+				audio.play();
+				current++;
+				timeout();
+			}, 1000 * 5);
+
+		}
 
 
 	$("#stop").on("click", function() {
@@ -569,14 +588,14 @@ var timeoutId=0;
 		
 		
 
-		if (curremaintime == 3600) {
+		if (curremaintime == 3605) {
 			timeout();
+		} 
+		if (curremaintime == 1805) {
+			timeout1();
 		}
-		if (curremaintime == 1800) {
-			timeout();
-		}
-		if (curremaintime == 600) {
-			timeout();
+		if (curremaintime == 605) {
+			timeout2();
 		}
 
 		/////////////////////출발까지 남은 시간 구하는 서비스 가져오기(리턴타입 int 초)
